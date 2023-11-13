@@ -8,7 +8,7 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ClientsDTO {
 
     public string ID { get; set; } = null!;
-    public string? CompagnyName { get; set; }
+    public string? CompagnyName { get; set; } 
     //public string? Adesse {  get; set; }
     //public string? Entrepot { get; set; }
     public string? Name { get; set; }
