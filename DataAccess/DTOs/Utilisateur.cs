@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 
@@ -39,7 +38,7 @@ public class Utilisateur : AbstractDTO<int> {
     /// <summary>
     /// L'entrepôt où l'utilisateur travaille s'il-y-a lieu; sinon, <see langword="null"/>.
     /// </summary>
-    public Entrepot EntrepotDeTravail { get; set; } = null!;
+    public Entrepot? EntrepotDeTravail { get; set; } = null!;
     /// <summary>
     /// La liste des rôles que l'utilisateur possède.
     /// </summary>
