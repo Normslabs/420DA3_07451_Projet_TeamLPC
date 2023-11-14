@@ -1,6 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
