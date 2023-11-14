@@ -96,9 +96,7 @@ internal class AppDbContext : AbstractContext {
         // Relation N-à-N entre Utilisateur et Role
         _ = modelBuilder.Entity<Utilisateur>()
             .HasMany(user => user.Roles)
-            .WithMany(role => role.UtilisateursPossedantRole)
-            .UsingEntity<RolesUtilisateur>()
-            .ToTable("RolesUtilisateurs");
+            .WithMany(role => role.UtilisateursPossedantRole);
 
         #endregion
 
