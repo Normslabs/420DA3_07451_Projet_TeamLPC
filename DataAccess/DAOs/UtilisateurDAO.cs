@@ -26,6 +26,7 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
         return this.Context.GetDbSet<Utilisateur>()
             .Where(user => user.Id == identifier)
             .Include(user => user.Roles)
+            .Include(user => user.EntrepotDeTravail)
             .SingleOrDefault();
     }
 
@@ -33,6 +34,7 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
         return this.Context.GetDbSet<Utilisateur>()
             .Where(user => user.Username == username)
             .Include(user => user.Roles)
+            .Include(user => user.EntrepotDeTravail)
             .SingleOrDefault();
     }
 }
