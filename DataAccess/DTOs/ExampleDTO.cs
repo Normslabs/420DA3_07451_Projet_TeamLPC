@@ -37,7 +37,7 @@ public class ExampleDTO : AbstractDTO<int> {
         this.DateCreated = dateCreated;
         this.DateUpdated = dateUpdated;
         this.DateDeleted = dateDeleted;
-        this.RowVersion = rowVersion;
+        this.RowVersion = rowVersion; 
     }
 
     /// <summary>
