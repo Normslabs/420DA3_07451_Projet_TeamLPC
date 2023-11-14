@@ -31,15 +31,21 @@ public abstract class AbstractContext : DbContext {
     /// </remarks>
     /// <typeparam name="DtoType">La classe de l'entité dont on veut obtenir le DbSet.</typeparam>
     /// <returns>Le DbSet pour le type d'entité reçu.</returns>
-    public virtual DbSet<DtoType>? GetDbSet<DtoType>() where DtoType : class, IDto {
+    public virtual DbSet<DtoType> GetDbSet<DtoType>() where DtoType : class, IDto {
         IEnumerable<PropertyInfo> contextProperties = this.GetType().GetProperties();
         List<PropertyInfo> matchingProps = new List<PropertyInfo>();
         foreach (PropertyInfo property in contextProperties) {
             if (property.PropertyType == typeof(DbSet<DtoType>)) {
-                matchingProps.Add(property);
+                matchingProps.Add(property); 
             }
         }
-        return (DbSet<DtoType>?) matchingProps.Single().GetValue(this);
+        try {
+            DbSet<DtoType> property = (DbSet<DtoType>?) matchingProps.Single().GetValue(this) 
+                ?? throw new Exception($"La propriété de type DbSet<{typeof(DtoType).Name}> dans la classe contexte n'est pas initialisée (elle est vide).");
+            return property;
+        } catch (InvalidOperationException ioex) {
+            throw new Exception($"Il n'y a pas de propriété de type DbSet<{typeof(DtoType).Name}> définie dans la classe contexte.", ioex);
+        }
     }
 
 }
