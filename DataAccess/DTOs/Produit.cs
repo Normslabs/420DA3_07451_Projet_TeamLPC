@@ -24,7 +24,7 @@ public class Produit : AbstractDTO<int> {
     public long UpcCode { get; set; }
     public decimal? WeightInKg { get; set; }
 
-    public Produit(int id, long upcCode, string name, string description, string supplierCode, bool doAutoRestock, int inStockQuantity, int targetStockQuantity, decimal weightInKg, int supplierId) {
+    protected Produit(int id, long upcCode, string name, string description, string supplierCode, bool doAutoRestock, int inStockQuantity, int targetStockQuantity, decimal weightInKg, int supplierId, byte[] rowVersion) {
         this.Id = id;
         this.UpcCode = upcCode;
         this.Name = name;
@@ -35,6 +35,7 @@ public class Produit : AbstractDTO<int> {
         this.TargetStockQuantity = targetStockQuantity;
         this.WeightInKg = weightInKg;
         this.SupplierID = supplierId;
+        this.RowVersion = rowVersion;
 
     }
 
