@@ -21,17 +21,11 @@ public class ShipmentDAO : AbstractDao<ShipmentDTO, int> {
     public override ShipmentDTO? GetById(int identifier) {
         return this.Context.GetDbSet<ShipmentDTO>()
             .Where(user => user.Id == identifier)
-            .Include(user => user.ShippingOrderID)
-            .Include(user => user.Service)
-            .Include(user => user.TrackingNumber)
+            .Include(user => user.ShippingOrder)
             .SingleOrDefault();
     }
 
-    public override List<ShipmentDTO> GetAll() {
-        return this.Context.GetDbSet<ShipmentDTO>()
-            .Include(user => user.ShippingOrderID)
-            .ToList();
-    }
+
 
   
 

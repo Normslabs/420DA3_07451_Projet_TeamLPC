@@ -20,27 +20,9 @@ public class FournisseurDAO : AbstractDao<Fournisseur, int> {
     public override Fournisseur? GetById(int identifier) {
         return this.Context.GetDbSet<Fournisseur>()
             .Where(user => user.Id == identifier)
-            .Include(user => user.AdresseId)
-            .Include(user => user.ContactId)
-            .Include(user => user.SupplierName)
             .SingleOrDefault();
     }
 
-
-    public override List<Fournisseur> GetAll() {
-        return this.Context.GetDbSet<Fournisseur>()
-            .Include(user => user.AdresseId)
-            .ToList();
-    }
-
-    public Fournisseur? GetByAdressId(int adresseId) {
-        return this.Context.GetDbSet<Fournisseur>()
-            .Where(user => user.AdresseId == adresseId)
-            .Include(user => user.AdresseId)
-            .Include(user => user.ContactId)
-            .Include(user => user.SupplierName)
-            .SingleOrDefault();
-    }
 
 
 
