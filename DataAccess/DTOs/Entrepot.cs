@@ -8,23 +8,27 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class Entrepot : AbstractDTO<int> {
 
-    public int EntrepotID { get; set; } 
-    public string NomEntrepot { get; set; }
-    public Adresse AdresseEntrepot { get; set; }
-    public List<Utilisateur> Utilisateur { get; set; }
-    public List<ShipmentOrderDTO> ShipmentOrder { get; set; }
-    public List<PurchaseOrder> PurchaseOrders { get; set; }
-    public List<ClientsDTO> Clients { get; set; }
+    public string NomEntrepot { get; set; } = null!;
+    public Adresse AdresseEntrepot { get; set; } = null!;
+    public List<Utilisateur> Utilisateur { get; set; } = null!;
+    public List<ShipmentOrderDTO> ShipmentOrder { get; set; } = null!;
+    public List<PurchaseOrder> PurchaseOrders { get; set; } = null!;
+    public List<ClientsDTO> Clients { get; set; } = null!;
     public byte[] RowVersion { get; set; } = null!;
 
 
     public Entrepot() { }
 
+    public Entrepot(string nomEntrepot) { 
+    this.NomEntrepot = nomEntrepot;
+    
+    }
+
 
     protected Entrepot(int id, string nomEntrepot, Adresse adresseEntrepot, List<Utilisateur> utilisateur, List<ShipmentOrderDTO> shipmentOrder, 
         List<PurchaseOrder> purchaseOrder, List<ClientsDTO> clients, byte[] rowversion  ) {
        
-        this.EntrepotID = id;
+        this.Id = id;
         this.NomEntrepot = nomEntrepot;
         this.AdresseEntrepot = adresseEntrepot;
         this.Utilisateur = utilisateur;
