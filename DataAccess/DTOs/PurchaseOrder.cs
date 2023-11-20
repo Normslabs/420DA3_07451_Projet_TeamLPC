@@ -21,7 +21,7 @@ public class PurchaseOrder : AbstractDTO<int> {
     public byte[] RowVersion { get; set; } = null!;
     public PurchaseOrderStatusEnum? Status { get; set; }
 
-    public PurchaseOrder(int Id, PurchaseOrderStatusEnum Status, int destinationWarehouseId, int quantityOrdered, DateTime dateCreated, DateTime? dateCompleted, byte[] rowVersion) {
+    protected PurchaseOrder(int Id, PurchaseOrderStatusEnum Status, int destinationWarehouseId, int quantityOrdered, DateTime dateCreated, DateTime? dateCompleted, byte[] rowVersion) {
         this.Id = Id;
         this.Status = Status;
         this.DestinationWarehouseID = destinationWarehouseId;
