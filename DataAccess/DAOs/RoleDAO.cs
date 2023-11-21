@@ -26,4 +26,11 @@ public class RoleDAO : AbstractDao<Role, int> {
     public Role GetWarehouseEmployeeRole() {
         return this.GetById(Role.WAREHOUSE_EMPLOYEE_ROLE_ID) ?? throw new Exception("Role d'employe d'entrepôt nonexistant.");
     }
+
+    public List<Role> SearchRole(string userInput) {
+        return this.Context.GetDbSet<Role>().Where(
+                role => role.RoleName.StartsWith(userInput) 
+                || (role.RoleDescription != null && role.RoleDescription.StartsWith(userInput))
+            ).ToList();
+    }
 }
