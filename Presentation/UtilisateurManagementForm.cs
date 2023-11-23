@@ -12,8 +12,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilisateur> {
@@ -25,7 +23,11 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     public UtilisateurManagementForm(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
+        this.LoadRolesInCombobox(this.facade.GetService<RoleService>().GetAllRoles());
     }
+
+
+    #region Public Methods
 
     public DialogResult OpenForCreation(Utilisateur blankInstance) {
         this.workingIntent = ViewIntentEnum.Creation;
@@ -47,9 +49,25 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         return this.OpenFor(instance);
     }
 
+    public void LoadRolesListBox(List<Role> list) {
+        this.rolesListBox.Items.Clear();
+        this.rolesListBox.Items.AddRange(list.ToArray());
+    }
+
+    public void LoadRolesInCombobox(List<Role> rolesList) {
+        this.comboBox1.Items.Clear();
+        this.comboBox1.Items.AddRange(rolesList.ToArray());
+        this.comboBox1.Refresh();
+    }
+
+    #endregion
+
+
+    #region Private Methods
+
     private DialogResult OpenFor(Utilisateur instance) {
         this.workingInstance = instance;
-            switch (this.workingIntent) {
+        switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
             case ViewIntentEnum.Edition:
                 break;
@@ -62,15 +80,11 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     }
 
 
+
     private void TextBox1_TextChanged(object sender, EventArgs e) {
         List<Role> list = this.facade.GetService<RoleService>().SearchRole(this.roleSearchBox.Text);
         this.LoadRolesListBox(list);
         this.rolesListBox.Refresh();
-    }
-
-    private void LoadRolesListBox(List<Role> list) {
-        this.rolesListBox.Items.Clear();
-        this.rolesListBox.Items.AddRange(list.ToArray());
     }
 
     private void SetRolesListBoxSelectedRolesForUser(Utilisateur user) {
@@ -83,6 +97,31 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     }
 
     private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
+        Role selectedRole = (Role) this.comboBox1.SelectedItem;
+    }
 
+    #endregion
+
+    private void buttonAnnuler_Click(object sender, EventArgs e) {
+
+    }
+
+    private void boutonAction_Click(object sender, EventArgs e) {
+        switch (this.workingIntent) {
+            case ViewIntentEnum.Creation:
+                break;
+            case ViewIntentEnum.Edition:
+                break;
+            case ViewIntentEnum.Deletion:
+                break;
+            case ViewIntentEnum.Visualization:
+            default:
+                break;
+        }
+    }
+
+    private void DoEdit() {
+        this.workingInstance.Roles = this.rolesListBox.SelectedItems.Cast<Role>().ToList();
+        this.facade.GetService<UtilisateurService>().UpdateDtoInstance(this.workingInstance);
     }
 }

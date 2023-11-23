@@ -27,6 +27,10 @@ public class RoleService : AbstractDtoService<Role, int> {
         throw new NotImplementedException();
     }
 
+    public List<Role> GetAllRoles() {
+        return this.Dao.GetAll();
+    }
+
     public List<Role> SearchRole(string userInput) {
         return this.Dao.SearchRole(userInput);
     }
