@@ -27,6 +27,7 @@ partial class UtilisateurManagementForm {
         roleSearchBox = new TextBox();
         rolesListBox = new ListBox();
         comboBox1 = new ComboBox();
+        listView1 = new ListView();
         this.SuspendLayout();
         // 
         // roleSearchBox
@@ -55,18 +56,29 @@ partial class UtilisateurManagementForm {
         comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
         comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
         comboBox1.FormattingEnabled = true;
-        comboBox1.Location = new Point(456, 33);
+        comboBox1.Location = new Point(12, 222);
         comboBox1.Name = "comboBox1";
         comboBox1.Size = new Size(332, 23);
         comboBox1.Sorted = true;
         comboBox1.TabIndex = 3;
         comboBox1.SelectedIndexChanged += this.ComboBox1_SelectedIndexChanged;
         // 
+        // listView1
+        // 
+        listView1.FullRowSelect = true;
+        listView1.Location = new Point(477, 33);
+        listView1.Name = "listView1";
+        listView1.Size = new Size(311, 212);
+        listView1.TabIndex = 4;
+        listView1.UseCompatibleStateImageBehavior = false;
+        listView1.View = View.Details;
+        // 
         // UtilisateurManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(800, 450);
+        this.Controls.Add(listView1);
         this.Controls.Add(comboBox1);
         this.Controls.Add(rolesListBox);
         this.Controls.Add(roleSearchBox);
@@ -80,4 +92,5 @@ partial class UtilisateurManagementForm {
     private TextBox roleSearchBox;
     private ListBox rolesListBox;
     private ComboBox comboBox1;
+    private ListView listView1;
 }

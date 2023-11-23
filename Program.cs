@@ -10,7 +10,8 @@ internal static class Program {
     [STAThread]
     public static void Main(string[] args) {
         if (args.Contains("-profTests")) {
-            // nothing to test.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new UtilisateurManagementForm());
         } else {
             new ExampleApp().Start();
         }
