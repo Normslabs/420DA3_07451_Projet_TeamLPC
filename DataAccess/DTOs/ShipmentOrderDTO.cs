@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,11 +17,11 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
 
     public DateTime? DateShipped { get; set; }
 
-    public string DestinationCivicAdress { get; set; }
+    public string DestinationCivicAdress { get; set; } = null!;
 
-    public string DestinationContact { get; set; }
+    public string DestinationContact { get; set; } = null!;
 
-    public string DestinationPostalCode { get; set; }
+    public string DestinationPostalCode { get; set; } = null!;
 
     public Entrepot EntrepotOriginal { get; set; } = null!;
 
@@ -84,5 +85,12 @@ public override string ToString() {
     public void SetPackaged() {
         this.Status = ShippingOrderStatusEnum.PACKAGED;
     }
+    //public Adresse GetOriginAdress() {
+      
+    //    if(EntrepotOriginal != null) {
+    //        return EntrepotOriginal.AdresseEntrepot;
+    //    }
 
+
+    //}
 }
