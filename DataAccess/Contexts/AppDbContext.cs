@@ -3,6 +3,7 @@ using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,9 +19,12 @@ internal class AppDbContext : AbstractContext {
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
         base.OnConfiguring(optionsBuilder);
+        string connString = ConfigurationManager.ConnectionStrings["ProjectDatabase"].ConnectionString
+            ?? throw new Exception("Missing required connection string setting key [ProjectDatabase].");
+
         _ = optionsBuilder
             .UseLazyLoadingProxies()
-            .UseSqlServer(/* TODO: connection string */);
+            .UseSqlServer(connString);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder) {

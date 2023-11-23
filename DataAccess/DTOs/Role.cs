@@ -79,4 +79,8 @@ public class Role : AbstractDTO<int> {
         this.Id = id;
         this.RowVersion = rowVersion;
     }
+
+    public override string ToString() {
+        return  this.Id.ToString() + " - " + this.RoleName;
+    }
 }

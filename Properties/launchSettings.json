@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "420DA3_07451_Projet_Initial": {
+      "commandName": "Project"
+    },
+    "ProfTests": {
+      "commandName": "Project",
+      "commandLineArgs": "-profTests"
+    }
+  }
+}

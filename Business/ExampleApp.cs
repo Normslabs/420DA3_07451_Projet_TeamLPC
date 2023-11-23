@@ -21,6 +21,7 @@ public class ExampleApp : AbstractApplication {
          * N'UTILISEZ PAS CETTE CLASSE. FAITES VOTRE PROPRE CLASSE-APPLICATION.
          */
 
+        ApplicationConfiguration.Initialize();
         this.loginService = new FakeLoginService(this);
         this.dbContext = new ExampleContext();
     }
