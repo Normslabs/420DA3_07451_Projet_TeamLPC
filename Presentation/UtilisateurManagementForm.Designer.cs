@@ -27,6 +27,7 @@ partial class UtilisateurManagementForm {
         roleSearchBox = new TextBox();
         rolesListBox = new ListBox();
         comboBox1 = new ComboBox();
+        listView1 = new ListView();
         panel1 = new Panel();
         boutonAction = new Button();
         buttonAnnuler = new Button();
@@ -64,8 +65,7 @@ partial class UtilisateurManagementForm {
         comboBox1.AutoCompleteMode = AutoCompleteMode.Suggest;
         comboBox1.AutoCompleteSource = AutoCompleteSource.ListItems;
         comboBox1.FormattingEnabled = true;
-        comboBox1.Location = new Point(521, 44);
-        comboBox1.Margin = new Padding(3, 4, 3, 4);
+        comboBox1.Location = new Point(12, 222);
         comboBox1.Name = "comboBox1";
         comboBox1.Size = new Size(379, 28);
         comboBox1.Sorted = true;
@@ -138,6 +138,16 @@ partial class UtilisateurManagementForm {
         button1.Text = "DEMO";
         button1.UseVisualStyleBackColor = false;
         // 
+        // listView1
+        // 
+        listView1.FullRowSelect = true;
+        listView1.Location = new Point(477, 33);
+        listView1.Name = "listView1";
+        listView1.Size = new Size(311, 212);
+        listView1.TabIndex = 4;
+        listView1.UseCompatibleStateImageBehavior = false;
+        listView1.View = View.Details;
+        // 
         // UtilisateurManagementForm
         // 
         this.AutoScaleDimensions = new SizeF(8F, 20F);
@@ -146,6 +156,7 @@ partial class UtilisateurManagementForm {
         this.Controls.Add(button1);
         this.Controls.Add(propertyGrid1);
         this.Controls.Add(panel1);
+        this.Controls.Add(listView1);
         this.Controls.Add(comboBox1);
         this.Controls.Add(rolesListBox);
         this.Controls.Add(roleSearchBox);
@@ -169,4 +180,5 @@ partial class UtilisateurManagementForm {
     private MenuStrip menuStrip1;
     private PropertyGrid propertyGrid1;
     private Button button1;
+    private ListView listView1;
 }

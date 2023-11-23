@@ -19,6 +19,28 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     private Utilisateur workingInstance;
     private ViewIntentEnum workingIntent;
 
+    private List<ExampleDTO> examples = new List<ExampleDTO>() {
+        new ExampleDTO("TestName1", "TestDesc1") {Id = 1},
+        new ExampleDTO("TestName2", "TestDesc2") {Id = 2},
+        new ExampleDTO("TestName3", "TestDesc3") {Id = 3},
+        new ExampleDTO("TestName4", "TestDesc4") {Id = 4}
+    };
+
+
+    public UtilisateurManagementForm() {
+        this.InitializeComponent();
+        _ = this.listView1.Columns.Add("Nom", -2, HorizontalAlignment.Left);
+        _ = this.listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
+        _ = this.listView1.Columns.Add("Date Créé", -2, HorizontalAlignment.Center);
+        _ = this.listView1.Columns.Add("Date Mofifié", -2, HorizontalAlignment.Center);
+        foreach (ExampleDTO example in this.examples) {
+            ListViewItem item = new ListViewItem(example.Name);
+            _ = item.SubItems.Add(example.Description);
+            _ = item.SubItems.Add(example.DateCreated.ToString());
+            _ = item.SubItems.Add(example.DateUpdated.ToString());
+            _ = this.listView1.Items.Add(item);
+        }
+    }
 
     public UtilisateurManagementForm(AbstractFacade facade) {
         this.facade = facade;
