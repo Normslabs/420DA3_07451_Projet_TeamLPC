@@ -64,7 +64,7 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
     }
 
 
-public override string ToString() {
+    public override string ToString() {
         return
                "ID: " + this.Id.ToString() + " " +
                "Client ID: " + this.ClientsId.ToString() + " " +
@@ -85,12 +85,13 @@ public override string ToString() {
     public void SetPackaged() {
         this.Status = ShippingOrderStatusEnum.PACKAGED;
     }
-    //public Adresse GetOriginAdress() {
-      
-    //    if(EntrepotOriginal != null) {
-    //        return EntrepotOriginal.AdresseEntrepot;
-    //    }
 
+    public void AssignToWarehouseEmployee(Utilisateur employee) {
+        this.EmployeEntrepot = employee;
+        this.EmployeEntrepot.Id = employee.Id;
+    }
 
-    //}
+    public Adresse GetOriginAdress() {
+        return this.EntrepotOriginal.AdresseEntrepot;
+    }
 }
