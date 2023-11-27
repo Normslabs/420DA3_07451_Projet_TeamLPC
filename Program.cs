@@ -1,5 +1,7 @@
 using _420DA3_07451_Projet_Initial.Business;
 using _420DA3_07451_Projet_Initial.Presentation;
+using System.Configuration;
+using System.Diagnostics;
 
 namespace _420DA3_07451_Projet_Initial;
 
@@ -10,6 +12,7 @@ internal static class Program {
     [STAThread]
     public static void Main(string[] args) {
         if (args.Contains("-profTests")) {
+
             ApplicationConfiguration.Initialize();
             Application.Run(new UtilisateurManagementForm());
         } else {

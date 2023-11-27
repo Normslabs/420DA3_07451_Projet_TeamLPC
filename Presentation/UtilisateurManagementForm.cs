@@ -1,8 +1,10 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.Business.Facades;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,38 +16,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
+
+
+/// <summary>
+/// Represente une fenêtre pour gérer les objets de type <see cref="Utilisateur"/>.
+/// </summary>
+/// <remarks>
+/// Permet par défaut les quatres opérations de base CRUD.
+/// </remarks>
 public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilisateur> {
     private readonly AbstractFacade facade;
     private Utilisateur workingInstance;
     private ViewIntentEnum workingIntent;
-
-    private List<ExampleDTO> examples = new List<ExampleDTO>() {
-        new ExampleDTO("TestName1", "TestDesc1") {Id = 1},
-        new ExampleDTO("TestName2", "TestDesc2") {Id = 2},
-        new ExampleDTO("TestName3", "TestDesc3") {Id = 3},
-        new ExampleDTO("TestName4", "TestDesc4") {Id = 4}
-    };
+    private int nullWarehouseComboboxItemIndex = 0;
 
 
-    public UtilisateurManagementForm() {
-        this.InitializeComponent();
-        _ = this.listView1.Columns.Add("Nom", -2, HorizontalAlignment.Left);
-        _ = this.listView1.Columns.Add("Description", -2, HorizontalAlignment.Left);
-        _ = this.listView1.Columns.Add("Date Créé", -2, HorizontalAlignment.Center);
-        _ = this.listView1.Columns.Add("Date Mofifié", -2, HorizontalAlignment.Center);
-        foreach (ExampleDTO example in this.examples) {
-            ListViewItem item = new ListViewItem(example.Name);
-            _ = item.SubItems.Add(example.Description);
-            _ = item.SubItems.Add(example.DateCreated.ToString());
-            _ = item.SubItems.Add(example.DateUpdated.ToString());
-            _ = this.listView1.Items.Add(item);
-        }
-    }
-
+    /// <summary>
+    /// Construit un nouvel objet <see cref="UtilisateurManagementForm"/>. Recoit un objet de type
+    /// <see cref="AbstractFacade"/> en paramètre.
+    /// </summary>
+    /// <param name="facade">La facade fournissant des services.</param>
     public UtilisateurManagementForm(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-        this.LoadRolesInCombobox(this.facade.GetService<RoleService>().GetAllRoles());
+        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
+    }
+
+    public UtilisateurManagementForm() {
+        this.InitializeComponent();
     }
 
 
@@ -72,14 +70,15 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     }
 
     public void LoadRolesListBox(List<Role> list) {
-        this.rolesListBox.Items.Clear();
-        this.rolesListBox.Items.AddRange(list.ToArray());
+        this.userRolesListbox.Items.Clear();
+        this.userRolesListbox.Items.AddRange(list.ToArray());
     }
 
-    public void LoadRolesInCombobox(List<Role> rolesList) {
-        this.comboBox1.Items.Clear();
-        this.comboBox1.Items.AddRange(rolesList.ToArray());
-        this.comboBox1.Refresh();
+    public void LoadWarehousesInCombobox(List<Entrepot> warehouseList) {
+        this.userWarehouseCombobox.Items.Clear();
+        this.nullWarehouseComboboxItemIndex = this.userWarehouseCombobox.Items.Add("Aucun");
+        this.userWarehouseCombobox.Items.AddRange(warehouseList.ToArray());
+        this.userWarehouseCombobox.Refresh();
     }
 
     #endregion
@@ -101,34 +100,57 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         return this.ShowDialog();
     }
 
+    private void DoEdit() {
+        try {
+            this.validateOnEdit();
+        } catch (Exception ex) {
 
-
-    private void TextBox1_TextChanged(object sender, EventArgs e) {
-        List<Role> list = this.facade.GetService<RoleService>().SearchRole(this.roleSearchBox.Text);
-        this.LoadRolesListBox(list);
-        this.rolesListBox.Refresh();
+        }
+        this.workingInstance.Roles = this.userRolesListbox.SelectedItems.Cast<Role>().ToList();
+        _ = this.facade.GetService<UtilisateurService>().UpdateDtoInstance(this.workingInstance);
     }
 
-    private void SetRolesListBoxSelectedRolesForUser(Utilisateur user) {
-
-    }
-
-    private void ListBox1_SelectedIndexChanged(object sender, EventArgs e) {
-        List<Role> selectedRoles = this.rolesListBox.SelectedItems.Cast<Role>().ToList();
+    private void DoDelete() {
 
     }
 
-    private void ComboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-        Role selectedRole = (Role) this.comboBox1.SelectedItem;
+    private void validateOnEdit() {
+        if (!Utilisateur.ValiderUsername(this.userUsernameTextBox.Text)) {
+            throw new Exception("Nom d'utilisateur invalide");
+        }
     }
 
     #endregion
 
-    private void buttonAnnuler_Click(object sender, EventArgs e) {
+
+    #region Event Handlers
+
+    private void UserUsernameTextBox_TextChanged(object sender, EventArgs e) {
+        if (!Utilisateur.ValiderUsername(this.userUsernameTextBox.Text)) {
+            this.userUsernameTextBox.Invalidate(true);
+        } else {
+            this.userUsernameTextBox.Invalidate(false);
+        }
+    }
+
+    private void UserUsernameTextBox_Leave(object sender, EventArgs e) {
+        Utilisateur? existingUser =
+            this.facade.GetService<UtilisateurService>().FindUtilisateurByUsername(this.userUsernameTextBox.Text);
+        if (existingUser is not null) {
+            _ = MessageBox.Show("U utilisateur avec le même username existe déjà!");
+            this.userUsernameTextBox.Invalidate(true);
+        }
+    }
+
+    private void UserPasswordResetButton_Click(object sender, EventArgs e) {
 
     }
 
-    private void boutonAction_Click(object sender, EventArgs e) {
+    private void ButtonAnnuler_Click(object sender, EventArgs e) {
+
+    }
+
+    private void BoutonAction_Click(object sender, EventArgs e) {
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
                 break;
@@ -142,8 +164,17 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         }
     }
 
-    private void DoEdit() {
-        this.workingInstance.Roles = this.rolesListBox.SelectedItems.Cast<Role>().ToList();
-        this.facade.GetService<UtilisateurService>().UpdateDtoInstance(this.workingInstance);
+
+    #endregion
+
+    private void userUsernameLabel_Click(object sender, EventArgs e) {
+
+    }
+
+    private void UserPasswordTextBox_Leave(object sender, EventArgs e) {
+        if (!this.userPasswordTextBox.Text.IsNullOrEmpty()) {
+            string newHash = CryptographyService.HashPassword(this.userPasswordTextBox.Text);
+            this.userPasswordHashTextBox.Text = newHash;
+        }
     }
 }

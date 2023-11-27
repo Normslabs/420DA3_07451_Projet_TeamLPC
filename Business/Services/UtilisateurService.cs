@@ -24,6 +24,9 @@ public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
     }
 
 
+    public Utilisateur? FindUtilisateurByUsername(string username) {
+        return this.Dao.GetByUsername(username);
+    }
 
 
 
