@@ -13,8 +13,26 @@ internal static class Program {
     public static void Main(string[] args) {
         if (args.Contains("-profTests")) {
 
+            // Zone de tests pour le prof
             ApplicationConfiguration.Initialize();
             Application.Run(new UtilisateurManagementForm());
+
+        } else if (args.Contains("-olivierTests")) { 
+
+            // Zone de tests pour Olivier
+
+        } else if (args.Contains("-mouhamedTests")) {
+
+            // Zone de tests pour Mouhamed
+
+        } else if (args.Contains("-filipeTests")) {
+
+            // Zone de tests pour Filipe
+
+        } else if (args.Contains("-maximilianoTests")) {
+
+            // Zone de tests pour Maximiliano
+
         } else {
             new ExampleApp().Start();
         }
