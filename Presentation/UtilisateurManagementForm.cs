@@ -1,10 +1,12 @@
-﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business;
+using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Facades;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,6 +42,8 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         this.facade = facade;
         this.InitializeComponent();
         this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
+        // TODO: loading des entrepots quand service existera
+        //this.LoadWarehousesInCombobox()
     }
 
     public UtilisateurManagementForm() {
@@ -51,21 +55,25 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
 
     public DialogResult OpenForCreation(Utilisateur blankInstance) {
         this.workingIntent = ViewIntentEnum.Creation;
+        this.boutonAction.Text = "Créer!";
         return this.OpenFor(blankInstance);
     }
 
     public DialogResult OpenForVisualization(Utilisateur instance) {
         this.workingIntent = ViewIntentEnum.Visualization;
+        this.boutonAction.Text = "OK";
         return this.OpenFor(instance);
     }
 
     public DialogResult OpenForEdition(Utilisateur instance) {
         this.workingIntent = ViewIntentEnum.Edition;
+        this.boutonAction.Text = "Enregistrer";
         return this.OpenFor(instance);
     }
 
     public DialogResult OpenForDeletion(Utilisateur instance) {
         this.workingIntent = ViewIntentEnum.Deletion;
+        this.boutonAction.Text = "Supprimer";
         return this.OpenFor(instance);
     }
 
@@ -90,14 +98,65 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         this.workingInstance = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
+                this.EnableControlsForCreation();
+                break;
             case ViewIntentEnum.Edition:
+                this.EnableControlsForEdition();
                 break;
             case ViewIntentEnum.Visualization:
             case ViewIntentEnum.Deletion:
             default:
+                this.DisableControls();
                 break;
         }
+        this.LoadUserDataInControls(instance);
         return this.ShowDialog();
+    }
+
+    private void EnableControlsForCreation() {
+        this.userIdNumericUD.Enabled = false;
+        this.userUsernameTextBox.Enabled = true;
+        this.userPasswordTextBox.Enabled = true;
+        this.userPasswordHashTextBox.Enabled = false;
+        this.userDateCreatedTextBox.Enabled = false;
+        this.userWarehouseCombobox.Enabled = true;
+        this.userRolesListbox.Enabled = true;
+    }
+
+    private void EnableControlsForEdition() {
+        this.userIdNumericUD.Enabled = false;
+        this.userUsernameTextBox.Enabled = false;
+        this.userPasswordTextBox.Enabled = true;
+        this.userPasswordHashTextBox.Enabled = false;
+        this.userDateCreatedTextBox.Enabled = false;
+        this.userWarehouseCombobox.Enabled = true;
+        this.userRolesListbox.Enabled = true;
+    }
+
+    private void DisableControls() {
+        this.userIdNumericUD.Enabled = false;
+        this.userUsernameTextBox.Enabled = false;
+        this.userPasswordTextBox.Enabled = false;
+        this.userPasswordHashTextBox.Enabled = false;
+        this.userDateCreatedTextBox.Enabled = false;
+        this.userWarehouseCombobox.Enabled = false;
+        this.userRolesListbox.Enabled = false;
+
+    }
+
+    private void LoadUserDataInControls(Utilisateur user) {
+        this.userIdNumericUD.Value = user.Id;
+        this.userUsernameTextBox.Text = user.Username;
+        this.userPasswordHashTextBox.Text = user.PasswordHash;
+        this.userDateCreatedTextBox.Text = user.DateCreated.ToString(GestionEntrepotApplication.DATETIME_DISPLAY_FORMAT);
+        this.userWarehouseCombobox.SelectedItem = 
+            user.EntrepotDeTravail is not null 
+            ? user.EntrepotDeTravail 
+            : this.userWarehouseCombobox.Items[this.nullWarehouseComboboxItemIndex];
+        
+        foreach (Role role in user.Roles) {
+            this.userRolesListbox.SelectedItems.Add(role);
+        }
     }
 
     private void DoEdit() {
@@ -147,7 +206,7 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     }
 
     private void ButtonAnnuler_Click(object sender, EventArgs e) {
-
+        this.DialogResult = DialogResult.Cancel;
     }
 
     private void BoutonAction_Click(object sender, EventArgs e) {
@@ -162,6 +221,7 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
             default:
                 break;
         }
+        this.DialogResult = DialogResult.OK;
     }
 
 

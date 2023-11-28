@@ -42,7 +42,7 @@ public class Utilisateur : AbstractDTO<int> {
     /// <summary>
     /// La liste des rôles que l'utilisateur possède.
     /// </summary>
-    public List<Role> Roles { get; set; } = null!;
+    public List<Role> Roles { get; set; } = new List<Role>();
 
 
     #region Constructeurs

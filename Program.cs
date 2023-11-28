@@ -1,4 +1,5 @@
 using _420DA3_07451_Projet_Initial.Business;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation;
 using System.Configuration;
 using System.Diagnostics;
@@ -15,7 +16,17 @@ internal static class Program {
 
             // Zone de tests pour le prof
             ApplicationConfiguration.Initialize();
-            Application.Run(new UtilisateurManagementForm());
+            UtilisateurManagementForm testWindow = new UtilisateurManagementForm();
+
+            List<Entrepot> fakeEntrepots = new List<Entrepot>() {
+                new Entrepot("FakeEntrepot"),
+                new Entrepot("FakeEntrepot2"),
+            };
+
+            testWindow.LoadWarehousesInCombobox(fakeEntrepots);
+
+            Utilisateur fakeUser = new Utilisateur() { Id = 1, Username = "LaPatate", PasswordHash = "HALLOTHISISAFAKEHASH:SHA-512" };
+            _ = testWindow.OpenForEdition(fakeUser);
 
         } else if (args.Contains("-olivierTests")) { 
 
