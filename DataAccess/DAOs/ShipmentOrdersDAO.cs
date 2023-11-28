@@ -8,7 +8,7 @@ using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
-public class ShipmentOrdersDAO : AbstractDao<ShipmentOrdersDAO , int> {
+public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
 
     protected override AbstractContext Context { get; }
 
