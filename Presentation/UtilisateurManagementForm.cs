@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace _420DA3_07451_Projet_Initial.Presentation;
 /// </remarks>
 public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilisateur> {
     private readonly AbstractFacade facade;
-    private Utilisateur workingInstance;
+    private Utilisateur workingInstance = null!;
     private ViewIntentEnum workingIntent;
     private int nullWarehouseComboboxItemIndex = 0;
 
@@ -149,33 +150,67 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         this.userUsernameTextBox.Text = user.Username;
         this.userPasswordHashTextBox.Text = user.PasswordHash;
         this.userDateCreatedTextBox.Text = user.DateCreated.ToString(GestionEntrepotApplication.DATETIME_DISPLAY_FORMAT);
-        this.userWarehouseCombobox.SelectedItem = 
-            user.EntrepotDeTravail is not null 
-            ? user.EntrepotDeTravail 
+        this.userWarehouseCombobox.SelectedItem =
+            user.EntrepotDeTravail is not null
+            ? user.EntrepotDeTravail
             : this.userWarehouseCombobox.Items[this.nullWarehouseComboboxItemIndex];
-        
+
         foreach (Role role in user.Roles) {
             this.userRolesListbox.SelectedItems.Add(role);
         }
     }
 
-    private void DoEdit() {
-        try {
-            this.validateOnEdit();
-        } catch (Exception ex) {
+    private void DoCreate() {
+        this.ValidateFields();
+        this.workingInstance.Username = this.userUsernameTextBox.Text;
+        this.workingInstance.PasswordHash = this.userPasswordHashTextBox.Text;
 
+        if (this.userWarehouseCombobox.SelectedIndex == this.nullWarehouseComboboxItemIndex) {
+            this.workingInstance.EntrepotDeTravail = null;
+            this.workingInstance.EntrepotDeTravailId = null;
+        } else {
+            Entrepot entrepotSelectionne = (Entrepot) this.userWarehouseCombobox.SelectedItem;
+            this.workingInstance.EntrepotDeTravail = entrepotSelectionne;
+            this.workingInstance.EntrepotDeTravailId = entrepotSelectionne.Id;
         }
+
         this.workingInstance.Roles = this.userRolesListbox.SelectedItems.Cast<Role>().ToList();
-        _ = this.facade.GetService<UtilisateurService>().UpdateDtoInstance(this.workingInstance);
+
+        _ = this.facade.GetService<UtilisateurService>().CreateUtilisateur(this.workingInstance);
+    }
+
+    private void DoEdit() {
+        this.ValidateFields();
+        this.workingInstance.PasswordHash = this.userPasswordHashTextBox.Text;
+
+        if (this.userWarehouseCombobox.SelectedIndex == this.nullWarehouseComboboxItemIndex) {
+            this.workingInstance.EntrepotDeTravail = null;
+            this.workingInstance.EntrepotDeTravailId = null;
+        } else {
+            Entrepot entrepotSelectionne = (Entrepot) this.userWarehouseCombobox.SelectedItem;
+            this.workingInstance.EntrepotDeTravail = entrepotSelectionne;
+            this.workingInstance.EntrepotDeTravailId = entrepotSelectionne.Id;
+        }
+
+        this.workingInstance.Roles = this.userRolesListbox.SelectedItems.Cast<Role>().ToList();
+
+        _ = this.facade.GetService<UtilisateurService>().EditUtilisateur(this.workingInstance);
     }
 
     private void DoDelete() {
-
+        _ = this.facade.GetService<UtilisateurService>().DeleteUtilisateur(this.workingInstance);
     }
 
-    private void validateOnEdit() {
+    private void ValidateFields() {
         if (!Utilisateur.ValiderUsername(this.userUsernameTextBox.Text)) {
             throw new Exception("Nom d'utilisateur invalide");
+        }
+        if (!string.IsNullOrEmpty(this.userPasswordTextBox.Text) 
+            && !Utilisateur.ValidatePassword(this.userPasswordTextBox.Text)) {
+            throw new Exception("Password invalide");
+        }
+        if (string.IsNullOrEmpty(this.userPasswordHashTextBox.Text)) {
+            throw new Exception("PasswordHash vide");
         }
     }
 
@@ -186,9 +221,11 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
 
     private void UserUsernameTextBox_TextChanged(object sender, EventArgs e) {
         if (!Utilisateur.ValiderUsername(this.userUsernameTextBox.Text)) {
+            this.userUsernameTextBox.ForeColor = Color.Red;
             this.userUsernameTextBox.Invalidate(true);
         } else {
-            this.userUsernameTextBox.Invalidate(false);
+            this.userUsernameTextBox.ForeColor = SystemColors.WindowText;
+            this.userUsernameTextBox.Invalidate(true);
         }
     }
 
@@ -196,7 +233,8 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         Utilisateur? existingUser =
             this.facade.GetService<UtilisateurService>().FindUtilisateurByUsername(this.userUsernameTextBox.Text);
         if (existingUser is not null) {
-            _ = MessageBox.Show("U utilisateur avec le même username existe déjà!");
+            _ = MessageBox.Show("Un utilisateur avec le même username existe déjà!");
+            this.userUsernameTextBox.ForeColor = Color.Red;
             this.userUsernameTextBox.Invalidate(true);
         }
     }
@@ -210,26 +248,30 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     }
 
     private void BoutonAction_Click(object sender, EventArgs e) {
-        switch (this.workingIntent) {
-            case ViewIntentEnum.Creation:
-                break;
-            case ViewIntentEnum.Edition:
-                break;
-            case ViewIntentEnum.Deletion:
-                break;
-            case ViewIntentEnum.Visualization:
-            default:
-                break;
+
+        try {
+            switch (this.workingIntent) {
+                case ViewIntentEnum.Creation:
+                    this.DoCreate();
+                    break;
+                case ViewIntentEnum.Edition:
+                    this.DoEdit();
+                    break;
+                case ViewIntentEnum.Deletion:
+                    this.DoDelete();
+                    break;
+                case ViewIntentEnum.Visualization:
+                default:
+                    break;
+            }
+            this.DialogResult = DialogResult.OK;
+
+        } catch (Exception ex) {
+            _ = MessageBox.Show(ex.Message);
+            return;
         }
-        this.DialogResult = DialogResult.OK;
     }
 
-
-    #endregion
-
-    private void userUsernameLabel_Click(object sender, EventArgs e) {
-
-    }
 
     private void UserPasswordTextBox_Leave(object sender, EventArgs e) {
         if (!this.userPasswordTextBox.Text.IsNullOrEmpty()) {
@@ -237,4 +279,7 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
             this.userPasswordHashTextBox.Text = newHash;
         }
     }
+
+    #endregion
+
 }

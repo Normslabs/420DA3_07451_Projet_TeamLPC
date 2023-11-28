@@ -31,6 +31,7 @@ partial class UtilisateurManagementForm {
         openModeValueLabel = new Label();
         openModeLabel = new Label();
         panel3 = new Panel();
+        userDateCreatedTextBox = new TextBox();
         userPasswordTextBox = new TextBox();
         userPasswordLabel = new Label();
         userPasswordAdminResetButton = new Button();
@@ -45,7 +46,6 @@ partial class UtilisateurManagementForm {
         userUsernameLabel = new Label();
         userIdNumericUD = new NumericUpDown();
         userIdLabel = new Label();
-        userDateCreatedTextBox = new TextBox();
         panel1.SuspendLayout();
         panel2.SuspendLayout();
         panel3.SuspendLayout();
@@ -138,6 +138,14 @@ partial class UtilisateurManagementForm {
         panel3.Size = new Size(582, 413);
         panel3.TabIndex = 6;
         // 
+        // userDateCreatedTextBox
+        // 
+        userDateCreatedTextBox.Enabled = false;
+        userDateCreatedTextBox.Location = new Point(219, 169);
+        userDateCreatedTextBox.Name = "userDateCreatedTextBox";
+        userDateCreatedTextBox.Size = new Size(275, 27);
+        userDateCreatedTextBox.TabIndex = 15;
+        // 
         // userPasswordTextBox
         // 
         userPasswordTextBox.Location = new Point(219, 108);
@@ -146,6 +154,7 @@ partial class UtilisateurManagementForm {
         userPasswordTextBox.Size = new Size(275, 27);
         userPasswordTextBox.TabIndex = 14;
         userPasswordTextBox.UseSystemPasswordChar = true;
+        userPasswordTextBox.TextChanged += this.UserPasswordTextBox_Leave;
         userPasswordTextBox.Leave += this.UserPasswordTextBox_Leave;
         // 
         // userPasswordLabel
@@ -235,6 +244,7 @@ partial class UtilisateurManagementForm {
         userUsernameTextBox.Name = "userUsernameTextBox";
         userUsernameTextBox.Size = new Size(275, 27);
         userUsernameTextBox.TabIndex = 3;
+        userUsernameTextBox.TextChanged += this.UserUsernameTextBox_TextChanged;
         userUsernameTextBox.Leave += this.UserUsernameTextBox_Leave;
         // 
         // userUsernameLabel
@@ -263,14 +273,6 @@ partial class UtilisateurManagementForm {
         userIdLabel.TabIndex = 0;
         userIdLabel.Text = "Id :";
         userIdLabel.TextAlign = ContentAlignment.MiddleRight;
-        // 
-        // userDateCreatedTextBox
-        // 
-        userDateCreatedTextBox.Enabled = false;
-        userDateCreatedTextBox.Location = new Point(219, 169);
-        userDateCreatedTextBox.Name = "userDateCreatedTextBox";
-        userDateCreatedTextBox.Size = new Size(275, 27);
-        userDateCreatedTextBox.TabIndex = 15;
         // 
         // UtilisateurManagementForm
         // 
