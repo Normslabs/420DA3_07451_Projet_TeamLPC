@@ -11,6 +11,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
+
+/// <summary>
+/// Classe de services de gestion des entités de type <see cref="Utilisateur"/>
+/// </summary>
+/// <remarks>
+/// Hérite de <see cref="AbstractDtoService{DtoType, DtoIdType}"/>.
+/// </remarks>
 public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
     protected override UtilisateurDAO Dao { get; }
 
@@ -26,6 +33,18 @@ public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
 
     public Utilisateur? FindUtilisateurByUsername(string username) {
         return this.Dao.GetByUsername(username);
+    }
+
+    public Utilisateur CreateUtilisateur(Utilisateur user) {
+        return this.Dao.Create(user);
+    }
+
+    public Utilisateur EditUtilisateur(Utilisateur user) {
+        return this.Dao.Update(user);
+    }
+
+    public Utilisateur DeleteUtilisateur(Utilisateur user) {
+        return this.Dao.Delete(user);
     }
 
 
