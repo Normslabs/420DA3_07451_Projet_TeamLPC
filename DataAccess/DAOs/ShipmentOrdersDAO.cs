@@ -9,7 +9,9 @@ using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
-public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO, int> {
+
+public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
+
 
     protected override AbstractContext Context { get; }
 
