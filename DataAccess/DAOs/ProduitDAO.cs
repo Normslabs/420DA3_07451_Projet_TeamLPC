@@ -48,7 +48,7 @@ public class ProduitDAO : AbstractDao<Produit, int> {
     public Produit GetByUpcCodeWithQuantity(int upcCode) {
         Produit? result = this.Context.GetDbSet<Produit>()
             .Include(p => p.InstockQuantity)
-            .SingleOrDefault(u => u.UpcCode == upcCode);
+            .Single(u => u.UpcCode == upcCode);
 
         return result ?? throw new InvalidOperationException($"No product found with UPC code: {upcCode}");
     }
