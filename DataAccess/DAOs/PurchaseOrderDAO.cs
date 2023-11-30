@@ -1,6 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,18 @@ public class PurchaseOrderDAO : AbstractDao<PurchaseOrder, int> {
     public PurchaseOrderDAO(AbstractContext context) {
         this.Context = context;
     }
+
+    //public PurchaseOrder GetIncompleteForWarehouse(int IdEntrepot) { 
+    //       return this.Context.GetDbSet<Entrepot>()
+    //        .Include
+    //}
+
+    public PurchaseOrder GetIncompleteForWarehouse(int IdEntrepot) {
+        return this.Context.GetDbSet<PurchaseOrder>()
+            .Where(po => po.Status != PurchaseOrderStatusEnum.Completed && po.DestinationWarehouseID == IdEntrepot )
+            .First();
+    }
+
 
 
 
