@@ -22,6 +22,7 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
             .Where(order => order.Status == ShippingOrderStatusEnum.NEW && order.EntrepotOriginalId == entrepotId)
             .ToList();
     }
+
     public List<ShipmentOrderDTO> GetIncompleteOrdersAssignedTo(int userId) {
         return this.Context.GetDbSet<ShipmentOrderDTO>()
             .Where(order => order.Status != ShippingOrderStatusEnum.COMPLETED && order.EmployeEntrepotId == userId)

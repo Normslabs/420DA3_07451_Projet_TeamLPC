@@ -23,18 +23,11 @@ public class PurchaseOrderDAO : AbstractDao<PurchaseOrder, int> {
         this.Context = context;
     }
 
-    //public PurchaseOrder GetIncompleteForWarehouse(int IdEntrepot) { 
-    //       return this.Context.GetDbSet<Entrepot>()
-    //        .Include
-    //}
-
     public PurchaseOrder GetIncompleteForWarehouse(int IdEntrepot) {
         return this.Context.GetDbSet<PurchaseOrder>()
             .Where(po => po.Status != PurchaseOrderStatusEnum.Completed && po.DestinationWarehouseID == IdEntrepot )
             .First();
     }
-
-
 
 
 
