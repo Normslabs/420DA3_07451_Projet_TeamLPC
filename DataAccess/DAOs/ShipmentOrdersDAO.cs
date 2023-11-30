@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
+
 public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
+
 
     protected override AbstractContext Context { get; }
 
@@ -28,5 +31,11 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
             .Where(order => order.Status != ShippingOrderStatusEnum.COMPLETED && order.EmployeEntrepotId == userId)
             .ToList();
     }
+    public List<ShipmentOrderDTO> GetClientShipmentOrderById(int id) {
+        return this.Context.GetDbSet<ShipmentOrderDTO>()
+            .Where(client => client.ClientsId == id)
+            .Include(client => client.Shipment)
+            .ToList();
 
+    }
 }

@@ -7,21 +7,21 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ClientsDTO : AbstractDTO<int> {
-  public Entrepot AsignedWarehouse { get; set; } = null!;
-
+    public Entrepot AsignedWarehouse { get; set; } = null!;
+ 
     public int  AsignedWarehouseID  { get; set; }
 
-  public Adresse ClientAdress { get; set; } = null!;
+    public Adresse ClientAdress { get; set; } = null!;
 
-  public int ClientAdressId { get; set; }
+    public int ClientAdressId { get; set; }
 
- public string CompanyName { get; set; } = null!;
+    public string CompanyName { get; set; } = null!;
 
     public List<Produit> Produit { get; set; } = null!;
 
     public byte[] RowVersion { get; set; } = null!;
   
- public List<ShipmentOrderDTO> ShipmentOrders { get; set; } = null!;
+    public List<ShipmentOrderDTO> ShipmentOrders { get; set; } = null!;
 
     public string Nom {  get; set; } = null!;
     public string Prenom { get; set; } = null!;
