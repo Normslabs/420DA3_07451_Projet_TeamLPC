@@ -45,15 +45,14 @@ public class ProduitDAO : AbstractDao<Produit, int> {
     //    return produit ?? throw new InvalidOperationException($"No product found with UPC code: {upcCode}");
     //}
 
-    public (Produit product, int quantity) GetByUpcCodeWithQuantity(int upcCode) {
+    public Produit GetByUpcCodeWithQuantity(int upcCode) {
         Produit? result = this.Context.GetDbSet<Produit>()
-            .Include(p => p.InstockQuantity)  // Assuming InstockQuantity is a navigation property
+            .Include(p => p.InstockQuantity)
             .SingleOrDefault(u => u.UpcCode == upcCode);
 
-        return result == null
-            ? throw new InvalidOperationException($"No product found with UPC code: {upcCode}")
-            : (result, result.InstockQuantity);
+        return result ?? throw new InvalidOperationException($"No product found with UPC code: {upcCode}");
     }
+
 
 
 
