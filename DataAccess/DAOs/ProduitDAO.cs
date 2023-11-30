@@ -28,13 +28,12 @@ public class ProduitDAO : AbstractDao<Produit, int> {
     //}
 
 
-    public (Produit product, int quantity) GetByProductNameWithQuantity(string productName) {
-        Produit? result = this.Context.GetDbSet<Produit>()
-            .SingleOrDefault(p => p.Name == productName);
+    public Produit GetByProductName(string productName) {
+        Produit product = this.Context.GetDbSet<Produit>()
+            .Include(p => p.InstockQuantity)  
+            .Single(p => p.Name == productName);
 
-        return result == null
-            ? throw new InvalidOperationException($"No product found with name: {productName}")
-            : ((Produit product, int quantity)) (result, result.InstockQuantity);
+        return product ?? throw new InvalidOperationException($"No product found with name: {productName}");
     }
 
 
@@ -48,12 +47,14 @@ public class ProduitDAO : AbstractDao<Produit, int> {
 
     public (Produit product, int quantity) GetByUpcCodeWithQuantity(int upcCode) {
         Produit? result = this.Context.GetDbSet<Produit>()
+            .Include(p => p.InstockQuantity)  // Assuming InstockQuantity is a navigation property
             .SingleOrDefault(u => u.UpcCode == upcCode);
 
         return result == null
             ? throw new InvalidOperationException($"No product found with UPC code: {upcCode}")
-            : ((Produit product, int quantity)) (result, result.InstockQuantity);
+            : (result, result.InstockQuantity);
     }
+
 
 
 
