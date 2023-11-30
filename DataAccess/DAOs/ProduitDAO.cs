@@ -18,39 +18,17 @@ public class ProduitDAO : AbstractDao<Produit, int> {
         this.Context = context;
     }
 
-    //public Produit GetByProductName(string productName) {
-    //    Produit product = this.Context.GetDbSet<Produit>()
-
-    //    .Single(p => p.Name == productName);
-
-    //    return product ?? throw new InvalidOperationException($"No product found with name: {productName}");
-
-    //}
-
-
     public Produit GetByProductName(string productName) {
-        Produit product = this.Context.GetDbSet<Produit>()
-            .Include(p => p.InstockQuantity)  
+        return this.Context.GetDbSet<Produit>()
+            .Include(p => p.Fournisseur)
             .Single(p => p.Name == productName);
 
-        return product ?? throw new InvalidOperationException($"No product found with name: {productName}");
     }
 
-
-
-    //public Produit GetByUpcCode(int upcCode) {
-    //    Produit produit = this.Context.GetDbSet<Produit>()
-    //        .Single(u => u.UpcCode == upcCode);
-
-    //    return produit ?? throw new InvalidOperationException($"No product found with UPC code: {upcCode}");
-    //}
-
     public Produit GetByUpcCodeWithQuantity(int upcCode) {
-        Produit? result = this.Context.GetDbSet<Produit>()
+        return this.Context.GetDbSet<Produit>()
             .Include(p => p.InstockQuantity)
             .Single(u => u.UpcCode == upcCode);
-
-        return result ?? throw new InvalidOperationException($"No product found with UPC code: {upcCode}");
     }
 
 
