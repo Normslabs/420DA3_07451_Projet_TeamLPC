@@ -18,24 +18,20 @@ namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class ProduitService : AbstractDtoService<Produit, int> {
 
     protected override ProduitDAO Dao {get;}
-    protected ProduitWindow ProduitManagementWindow {get;}
+    protected override ProduitWindow DtoManagementWindow { get;}
 
-    protected override IDtoManagementView<Produit> DtoManagementWindow {
-        get {
-            throw new NotImplementedException();
-        }
-    }
+
 
     public ProduitService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(this);
         this.Dao = new ProduitDAO(context);
-        this.ProduitManagementWindow = new ProduitWindow(facade);
+        this.DtoManagementWindow = new ProduitWindow(facade);
 
     }
 
     public override void Shutdown() {
-        if (!this.ProduitManagementWindow.IsDisposed) {
-            this.ProduitManagementWindow.Dispose();
+        if (!this.DtoManagementWindow.IsDisposed) {
+            this.DtoManagementWindow.Dispose();
         }
     }
 
