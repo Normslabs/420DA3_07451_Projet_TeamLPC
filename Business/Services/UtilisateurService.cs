@@ -27,7 +27,6 @@ public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
         facade.RegisterDependent(facade);
         this.Dao = new UtilisateurDAO(context);
         this.DtoManagementWindow = new UtilisateurManagementForm(facade);
-
     }
 
 
