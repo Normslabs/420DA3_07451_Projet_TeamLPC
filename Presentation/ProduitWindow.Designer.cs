@@ -95,6 +95,7 @@ partial class ProduitWindow {
             this.produitListView.Size = new System.Drawing.Size(374, 361);
             this.produitListView.TabIndex = 4;
             this.produitListView.UseCompatibleStateImageBehavior = false;
+            this.produitListView.SelectedIndexChanged += new System.EventHandler(this.produitListView_SelectedIndexChanged);
             // 
             // ProductNameTextBox
             // 
@@ -102,6 +103,7 @@ partial class ProduitWindow {
             this.ProductNameTextBox.Name = "ProductNameTextBox";
             this.ProductNameTextBox.Size = new System.Drawing.Size(168, 23);
             this.ProductNameTextBox.TabIndex = 5;
+            this.ProductNameTextBox.TextChanged += new System.EventHandler(this.ProductNameTextBox_TextChanged);
             // 
             // ByNameButton
             // 
@@ -111,6 +113,7 @@ partial class ProduitWindow {
             this.ByNameButton.TabIndex = 6;
             this.ByNameButton.Text = "Search Product by name";
             this.ByNameButton.UseVisualStyleBackColor = true;
+            this.ByNameButton.Click += new System.EventHandler(this.ByNameButton_Click);
             // 
             // button1
             // 
@@ -120,6 +123,7 @@ partial class ProduitWindow {
             this.button1.TabIndex = 7;
             this.button1.Text = "Search Product by UPC Code";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // ProductUPCTextBox
             // 
@@ -127,6 +131,7 @@ partial class ProduitWindow {
             this.ProductUPCTextBox.Name = "ProductUPCTextBox";
             this.ProductUPCTextBox.Size = new System.Drawing.Size(168, 23);
             this.ProductUPCTextBox.TabIndex = 8;
+            this.ProductUPCTextBox.TextChanged += new System.EventHandler(this.ProductUPCTextBox_TextChanged);
             // 
             // ProduitWindow
             // 

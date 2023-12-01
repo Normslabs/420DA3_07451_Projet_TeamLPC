@@ -39,6 +39,8 @@ public class Produit : AbstractDTO<int> {
 
     }
 
+
+
     public Produit(long upcCode, string name, string description, string supplierCode, bool doAutoRestock, int inStockQuantity, int  targetStockQuantity, decimal weightInKg, int ownerClientId, int supplierId) {
         this.UpcCode = upcCode;
         this.Name = name;
@@ -50,6 +52,10 @@ public class Produit : AbstractDTO<int> {
         this.WeightInKg = weightInKg;
         this.ClientsDTOId = ownerClientId;
         this.SupplierID = supplierId;
+
+    }
+
+    public Produit() {
 
     }
 }

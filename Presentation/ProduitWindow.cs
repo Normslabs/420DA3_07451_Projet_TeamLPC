@@ -51,4 +51,24 @@ public partial class ProduitWindow : Form IDtoManagementView<Produit> {
         this.Hide();
         this.facade.ShutdownParentApplication();
     }
+
+    private void ByNameButton_Click(object sender, EventArgs e) {
+
+    }
+
+    private void ProductNameTextBox_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void ProductUPCTextBox_TextChanged(object sender, EventArgs e) {
+
+    }
+
+    private void button1_Click_1(object sender, EventArgs e) {
+
+    }
+
+    private void produitListView_SelectedIndexChanged(object sender, EventArgs e) {
+
+    }
 }

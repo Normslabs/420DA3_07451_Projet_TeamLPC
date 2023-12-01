@@ -18,7 +18,7 @@ public class ProduitDAO : AbstractDao<Produit, int> {
         this.Context = context;
     }
 
-    public Produit GetByProductName(string productName) {
+    public Produit GetByProductNameWithFournisseur(string productName) {
         return this.Context.GetDbSet<Produit>()
             .Include(p => p.Fournisseur)
             .Single(p => p.Name == productName);
