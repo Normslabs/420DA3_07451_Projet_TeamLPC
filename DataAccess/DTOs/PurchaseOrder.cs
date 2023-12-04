@@ -47,5 +47,7 @@ public class PurchaseOrder : AbstractDTO<int> {
             "Date de la commande: " + this.DateCreated.ToString();
     }
 
+    public PurchaseOrder() {
 
+    }
 }
