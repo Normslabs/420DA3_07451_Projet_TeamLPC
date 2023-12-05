@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ public class FakeLoginService : AbstractLoginService {
         parentApp.RegisterDependent(this);
     }
 
-    public override User GetLoggedInUser() {
+    public override Utilisateur GetLoggedInUser() {
         throw new NotImplementedException();
     }
 

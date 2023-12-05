@@ -81,7 +81,11 @@ public abstract class AbstractFacade : IFacade {
     /// <summary>
     /// Terminaison (shutdown) de la facade
     /// </summary>
-    public abstract void Shutdown();
+    public virtual void Shutdown() {
+        foreach (IStoppable stoppable in this.Dependents) {
+            stoppable.Shutdown();
+        }
+    }
 
 
     /// <summary>
