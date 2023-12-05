@@ -17,14 +17,6 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
         this.Context = context;
     }
 
-
-
-    public override ClientsDTO? GetById(int id) {
-        return this.Context.GetDbSet<ClientsDTO>()
-            .Where(user => user.Id == id)
-            .Include(user => user.ClientAdress)
-            .SingleOrDefault();
-    }
     public ClientsDTO? GetClientShipmentOrder(int id) {
         return this.Context.GetDbSet<ClientsDTO>()
             .Where(user => user.Id == id)
@@ -32,6 +24,22 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
             .SingleOrDefault();
     }
 
+    public ClientsDTO? GetClientById(int clientId) {
+        return this.Context.GetDbSet<ClientsDTO>()
+            .Where(client => client.Id == clientId)
+            .Include(client => client.ClientAdress)
+            .Include(client => client.ShipmentOrders)
+            .Include(client => client.Produit)
+            .SingleOrDefault();
+    }
+
+    public List<ClientsDTO> GetAllClients() {
+        return this.Context.GetDbSet<ClientsDTO>()
+            .Include(client => client.ClientAdress)
+            .Include(client => client.ShipmentOrders)
+            .Include(client => client.Produit)
+            .ToList();
+    }
 
 }
 
