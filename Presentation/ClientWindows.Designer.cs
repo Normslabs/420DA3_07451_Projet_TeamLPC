@@ -1,6 +1,6 @@
 ﻿namespace _420DA3_07451_Projet_Initial.Presentation;
 
-partial class ShipmentWindow {
+partial class ClientWindows {
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -26,14 +26,14 @@ partial class ShipmentWindow {
     private void InitializeComponent() {
         this.SuspendLayout();
         // 
-        // ShipmentWindow
+        // ClientWindows
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(800, 450);
-        this.Name = "ShipmentWindow";
-        this.Text = "ShipmentWindow";
-        this.Load += this.ShipmentWindow_Load;
+        this.Name = "ClientWindows";
+        this.Text = "ClientWindows";
+        this.Load += this.ClientWindows_Load;
         this.ResumeLayout(false);
     }
 
