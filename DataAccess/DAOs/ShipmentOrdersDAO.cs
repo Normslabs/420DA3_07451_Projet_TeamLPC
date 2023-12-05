@@ -17,7 +17,7 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
 
     public ShipmentOrdersDAO(AbstractContext context) { 
     
-     this.Context = context;
+     this.Context = context; 
     }
 
     public List<ShipmentOrderDTO> GetNewOrdersForWarehouse(int entrepotId) {
