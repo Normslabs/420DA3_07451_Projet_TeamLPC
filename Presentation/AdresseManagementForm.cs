@@ -36,4 +36,16 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
     public DialogResult OpenForVisualization(Adresse instance) {
         throw new NotImplementedException();
     }
+
+    private void label1_Click(object sender, EventArgs e) {
+
+    }
+
+    private void IdField_ValueChanged(object sender, EventArgs e) {
+
+    }
+
+    private void button1_Click(object sender, EventArgs e) {
+
+    }
 }
