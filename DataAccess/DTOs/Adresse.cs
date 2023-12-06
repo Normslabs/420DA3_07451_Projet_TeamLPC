@@ -20,6 +20,11 @@ public class Adresse : AbstractDTO<int> {
     public string Rue { get; set; } = null!;
 
 
+    public Adresse(){ 
+    
+    
+    }
+
 
     public Adresse( string ville, string numerocivique,
         string pays, string postalCode, string province, string rue) {
