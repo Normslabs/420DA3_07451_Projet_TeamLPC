@@ -1,7 +1,4 @@
-﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,21 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
+public partial class ShipmentOrderWindows : Form {
 
     private readonly AbstractFacade facade;
 
-    public ShipmentWindow(AbstractFacade facade) {
+    public ShipmentOrderWindows(AbstractFacade facade) {
         this.facade = facade;
-        InitializeComponent();
+        this.InitializeComponent();
     }
-
-    public DialogResult OpenForCreation(ShipmentDTO blankInstance) {
+    public DialogResult OpenForCreation(ShipmentOrderDTO blankInstance) {
         throw new NotImplementedException();
     }
-
     public DialogResult OpenForDeletion(ShipmentDTO instance) {
         throw new NotImplementedException();
     }
@@ -37,7 +35,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
         throw new NotImplementedException();
     }
 
-    private void ShipmentWindow_Load(object sender, EventArgs e) {
+    private void ShipmentOrderWindows_Load(object sender, EventArgs e) {
 
     }
 }
