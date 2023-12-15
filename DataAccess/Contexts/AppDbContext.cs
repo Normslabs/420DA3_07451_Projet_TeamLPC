@@ -49,11 +49,11 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Utilisateur>()
             .Property(user => user.Username)
             .HasColumnName("Username")
-            .HasColumnType("nvarchar(32)");
+            .HasColumnType($"nvarchar({Utilisateur.USERNAME_MAX_LENGTH})");
         _ = modelBuilder.Entity<Utilisateur>()
             .Property(user => user.PasswordHash)
             .HasColumnName("PasswordHash")
-            .HasColumnType("nvarchar(128)");
+            .HasColumnType($"nvarchar({Utilisateur.PASSWORDHASH_MAX_LENGTH})");
         _ = modelBuilder.Entity<Utilisateur>()
             .Property(user => user.EntrepotDeTravailId)
             .HasColumnName("EntrepotId")
@@ -83,11 +83,11 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Role>()
             .Property(role => role.RoleName)
             .HasColumnName("Name")
-            .HasColumnType("nvarchar(64)");
+            .HasColumnType($"nvarchar({Role.ROLENAME_MAX_LENGTH})");
         _ = modelBuilder.Entity<Role>()
             .Property(role => role.RoleDescription)
             .HasColumnName("Description")
-            .HasColumnType("nvarchar(256)")
+            .HasColumnType($"nvarchar({Role.ROLEDESC_MAX_LENGTH})")
             .IsRequired(false);
         _ = modelBuilder.Entity<Role>()
             .Property(role => role.RowVersion)

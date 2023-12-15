@@ -20,6 +20,10 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 /// </para>
 /// </remarks>
 public class Role : AbstractDTO<int> {
+    public const int ROLENAME_MIN_LENGTH = 3;
+    public const int ROLENAME_MAX_LENGTH = 64;
+    public const int ROLEDESC_MAX_LENGTH = 256;
+
     /// <summary>
     /// Identifiant interne du rôle associé aux administrateurs.
     /// </summary>
@@ -78,6 +82,23 @@ public class Role : AbstractDTO<int> {
         : this(roleName, roleDescription) {
         this.Id = id;
         this.RowVersion = rowVersion;
+    }
+
+
+    public static bool ValidateRoleName(string roleName) {
+        bool retval = false;
+        if (roleName.Length >= ROLENAME_MIN_LENGTH && roleName.Length <= ROLENAME_MAX_LENGTH) {
+            retval = true;
+        }
+        return retval;
+    }
+
+    public static bool ValidateRoleDesc(string roleDesc) {
+        bool retval = false;
+        if (roleDesc.Length <= ROLEDESC_MAX_LENGTH) {
+            retval = true;
+        }
+        return retval;
     }
 
     public override string ToString() {

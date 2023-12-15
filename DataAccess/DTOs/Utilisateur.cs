@@ -26,6 +26,7 @@ public class Utilisateur : AbstractDTO<int> {
     public const int USERNAME_MAX_LENGTH = 32;
     public const int PASSWORD_MIN_LENGTH = 8;
     public const int PASSWORD_MAX_LENGTH = 32;
+    public const int PASSWORDHASH_MAX_LENGTH = 128;
 
 
     public string Username { get; set; } = null!;
