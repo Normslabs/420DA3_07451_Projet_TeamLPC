@@ -164,12 +164,30 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType("rowversion")
             .IsRowVersion();
 
-        // Relation 
+        // Relation de Clients
 
         _ = modelBuilder.Entity<ClientsDTO>()
             .HasOne(client => client.AsignedWarehouse)
-            .WithMany(collection => collection.Clients);
-   
+            .WithMany(entrepot => entrepot.Clients)
+            .HasForeignKey("AsignedWarehouseID");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasOne(client => client.ClientAdress)
+            .WithOne(adresse => adresse.Client)
+            .HasForeignKey("ClientAdressId");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasMany(client => client.Produit)
+            .WithOne(produit => produit.ClientsDTO)
+            .HasForeignKey("ClientsDTOId");
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasMany(client => client.ShipmentOrders)
+            .WithOne(shipmentorder => shipmentorder.Clients)
+            .HasForeignKey("ClientsId");
+
+
+
+
 
 
         #endregion
