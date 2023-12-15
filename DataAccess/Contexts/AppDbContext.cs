@@ -49,11 +49,11 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Utilisateur>()
             .Property(user => user.Username)
             .HasColumnName("Username")
-            .HasColumnType("nvarchar(32)");
+            .HasColumnType($"nvarchar({Utilisateur.USERNAME_MAX_LENGTH})");
         _ = modelBuilder.Entity<Utilisateur>()
             .Property(user => user.PasswordHash)
             .HasColumnName("PasswordHash")
-            .HasColumnType("nvarchar(128)");
+            .HasColumnType($"nvarchar({Utilisateur.PASSWORDHASH_MAX_LENGTH})");
         _ = modelBuilder.Entity<Utilisateur>()
             .Property(user => user.EntrepotDeTravailId)
             .HasColumnName("EntrepotId")
@@ -83,11 +83,11 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Role>()
             .Property(role => role.RoleName)
             .HasColumnName("Name")
-            .HasColumnType("nvarchar(64)");
+            .HasColumnType($"nvarchar({Role.ROLENAME_MAX_LENGTH})");
         _ = modelBuilder.Entity<Role>()
             .Property(role => role.RoleDescription)
             .HasColumnName("Description")
-            .HasColumnType("nvarchar(256)")
+            .HasColumnType($"nvarchar({Role.ROLEDESC_MAX_LENGTH})")
             .IsRequired(false);
         _ = modelBuilder.Entity<Role>()
             .Property(role => role.RowVersion)
@@ -195,8 +195,85 @@ internal class AppDbContext : AbstractContext {
 
 
 
+        #region Client et ShippingOrder (Djibril)
 
 
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .ToTable("Clients")
+            .HasKey(client => client.Id);
+
+        _= modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Nom)
+            .HasColumnName("Nom")
+            .HasColumnType("nvarchar(48)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Prenom)
+            .HasColumnName("Prenom")
+            .HasColumnType("nvarchar(48)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Courriel)
+            .HasColumnName("Courriel")
+            .HasColumnType("nvarchar(128)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Telephone)
+            .HasColumnName("Telephone")
+            .HasColumnType("bigint");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+           .Property(client => client.AsignedWarehouseID)
+           .HasColumnName("AsignedWarehouseID")
+           .HasColumnType("int");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.ClientAdressId)
+            .HasColumnName("ClientAdressId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.CompanyName)
+            .HasColumnName("CompanyName")
+            .HasColumnType("nvarchar(50)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.RowVersion)
+            .HasColumnName("RowVersion")
+            .HasColumnType("rowversion")
+            .IsRowVersion();
+
+        // Relation de Clients
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasOne(client => client.AsignedWarehouse)
+            .WithMany(entrepot => entrepot.Clients)
+            .HasForeignKey("AsignedWarehouseID");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasOne(client => client.ClientAdress)
+            .WithOne(adresse => adresse.Client)
+            .HasForeignKey("ClientAdressId");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasMany(client => client.Produit)
+            .WithOne(produit => produit.ClientsDTO)
+            .HasForeignKey("ClientsDTOId");
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasMany(client => client.ShipmentOrders)
+            .WithOne(shipmentorder => shipmentorder.Clients)
+            .HasForeignKey("ClientsId");
+
+
+
+
+
+
+        #endregion
     }
 
 }
