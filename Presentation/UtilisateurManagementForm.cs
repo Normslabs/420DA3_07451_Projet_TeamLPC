@@ -45,8 +45,7 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         this.facade = facade;
         this.InitializeComponent();
         this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
-        // TODO: loading des entrepots quand service existera
-        //this.LoadWarehousesInCombobox()
+        this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepot());
     }
 
 
