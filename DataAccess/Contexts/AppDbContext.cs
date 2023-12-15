@@ -105,7 +105,91 @@ internal class AppDbContext : AbstractContext {
 
         #region Adresse et Entrepot 
 
+        // Adresse
+       
+        _ = modelBuilder.Entity<Adresse>()
+            .ToTable("Adresse")
+            .HasKey(adresse => adresse.Id); 
+
+        _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse =>adresse.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+
+         _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse => adresse.Ville)
+            .HasColumnName("Ville")
+            .HasColumnType($"nvarchar({Adresse.MAX_VILLE_LENGTH})");
+
+         _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse => adresse.NumeroCivique)
+            .HasColumnName("NumeroCivique")
+            .HasColumnType($"nvarchar({Adresse.MAX_NUMEROCIVIQUE_LENGTH})");
+
+         _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse => adresse.Pays)
+            .HasColumnName("Pays")
+            .HasColumnType($"nvarchar({Adresse.MAX_PAYS_LENGTH})");
+
+         _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse => adresse.CodePostal)
+            .HasColumnName("CodePostal")
+            .HasColumnType($"nvarchar({Adresse.MAX_CODEPOSTAL_LENGTH})");
+
+         _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse => adresse.Province)
+            .HasColumnName("Province")
+            .HasColumnType($"nvarchar({Adresse.MAX_PROVINCE_LENGTH})");
+
+         _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse => adresse.Rue)
+            .HasColumnName("Rue")
+            .HasColumnType($"nvarchar({Adresse.MAX_RUE_LENGTH})");
+
+        // Entrepot
+
+        _ = modelBuilder.Entity<Entrepot>()
+            .ToTable("Entrepot")
+            .HasKey(entrepot => entrepot.Id);
+
+        _ = modelBuilder.Entity<Entrepot>()
+            .Property(entrepot => entrepot.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<Entrepot>()
+           .Property(entrepot => entrepot.NomEntrepot)
+           .HasColumnName("NomEntrepot")
+           .HasColumnType($"nvarchar({Entrepot.MAX_NOMENTREPOT_LENGTH})");
+
+        _ = modelBuilder.Entity<Entrepot>()
+            .Property(entrepot => entrepot.RowVersion)
+            .HasColumnName("RowVersion")
+            .IsRowVersion();
+
+        // Relation 1-à-1 entre Entrepot et Adresse 
+
+        _ = modelBuilder.Entity<Entrepot>()
+           .HasOne(entrepot => entrepot.AdresseEntrepot)
+           .WithOne(adresse => adresse.AdresseEntrepot);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
+
 
 
 

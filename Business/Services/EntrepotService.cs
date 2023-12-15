@@ -30,6 +30,10 @@ public class EntrepotService : AbstractDtoService<Entrepot, int> {
         this.DtoManagementWindow.Dispose();
     }
 
+    public List<Entrepot> GetAllEntrepot() 
+    { 
+       return this.Dao.GetAll();    
+    }
 
 
 }
