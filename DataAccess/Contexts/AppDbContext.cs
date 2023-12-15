@@ -112,7 +112,67 @@ internal class AppDbContext : AbstractContext {
 
 
 
+        #region Client et ShippingOrder (Djibril)
 
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .ToTable("Clients")
+            .HasKey(client => client.Id);
+
+        _= modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Nom)
+            .HasColumnName("Nom")
+            .HasColumnType("nvarchar(48)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Prenom)
+            .HasColumnName("Prenom")
+            .HasColumnType("nvarchar(48)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Courriel)
+            .HasColumnName("Courriel")
+            .HasColumnType("nvarchar(128)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Telephone)
+            .HasColumnName("Telephone")
+            .HasColumnType("bigint");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+           .Property(client => client.AsignedWarehouseID)
+           .HasColumnName("AsignedWarehouseID")
+           .HasColumnType("int");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.ClientAdressId)
+            .HasColumnName("ClientAdressId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.CompanyName)
+            .HasColumnName("CompanyName")
+            .HasColumnType("nvarchar(50)");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.RowVersion)
+            .HasColumnName("RowVersion")
+            .HasColumnType("rowversion")
+            .IsRowVersion();
+
+        // Relation 
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasOne(client => client.AsignedWarehouse)
+            .WithMany(collection => collection.Clients);
+   
+
+
+        #endregion
     }
 
 }
