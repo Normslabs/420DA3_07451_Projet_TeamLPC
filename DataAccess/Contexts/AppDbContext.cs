@@ -187,6 +187,50 @@ internal class AppDbContext : AbstractContext {
 
 
 
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .ToTable("ShipmentOrder")
+            .HasKey(shipmentorder => shipmentorder.Id);
+
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+
+        // dATE CREATED ET DATE SHIPPED QUESTION
+
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.ClientsId)
+            .HasColumnName("ClientsId")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.DestinationCivicAdress)
+            .HasColumnName("DestinationCivicAdress")
+            .HasColumnType("nvarchar(128)");
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.DestinationContact)
+            .HasColumnName("DestinationContact")
+            .HasColumnType("nvarchar(128)");
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.DestinationPostalCode)
+            .HasColumnName("DestinationPostalCode")
+            .HasColumnType("nvarchar(128)");
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.EntrepotOriginal)
+            .HasColumnName("EntrepotOriginal")
+            .HasColumnType("nvarchar(128)");
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.RowVersion)
+            .HasColumnName("RowVersion")
+            .HasColumnType("rowversion")
+            .IsRowVersion();
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.ShipmentId)
+            .HasColumnName("ShipmentId")
+            .HasColumnType("int");
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.EmployeEntrepotId)
+            .HasColumnName("EmployeEntrepotId")
+            .HasColumnType ("int");
 
 
 

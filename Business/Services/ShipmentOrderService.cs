@@ -17,12 +17,12 @@ namespace _420DA3_07451_Projet_Initial.Business.Services;
 internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
 
     protected override ShipmentOrdersDAO Dao { get; }
-    protected override ShipmentOrderWindows ShipmentOrManagementWindow {  get; }
+    protected override ShipmentOrderWindows DtoManagementWindow {  get; }
 
 
     public ShipmentOrderService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(facade);
-        this.ShipmentOrManagementWindow = new ShipmentOrderWindows(facade);
+        this.DtoManagementWindow = new ShipmentOrderWindows(facade);
         this.Dao = new ShipmentOrdersDAO(context);
     }
 
@@ -39,8 +39,8 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
     }
     public override void Shutdown() {
         try {
-            if (!this.ShipmentOrManagementWindow.IsDisposed) {
-                this.ShipmentOrManagementWindow.Dispose();
+            if (!this.DtoManagementWindow.IsDisposed) {
+                this.DtoManagementWindow.Dispose();
             }
         } catch (Exception ex) {
             Debug.WriteLine("Failed to dispose of DtoManagementWindow on shutdown (possible memory leak): " + ex.Message);

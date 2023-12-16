@@ -17,27 +17,27 @@ using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class ClientService: AbstractDtoService<ClientsDTO,int> { 
 
-    protected override ClientsDAO dao { get; }
-    protected override ClientWindows ClientDTOManagementWindow {  get; }
+    protected override ClientsDAO Dao { get; }
+    protected override ClientWindows DtoManagementWindow {  get; }
 
     public ClientService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(facade);
-        this.dao = new ClientsDAO(context);
-        this.ClientDTOManagementWindow = new ClientWindows(facade); 
+        this.Dao = new ClientsDAO(context);
+        this.DtoManagementWindow = new ClientWindows(facade); 
     }
     
     public ClientsDTO? GetClientId(int clientId) {
-        return this.dao.GetById(clientId);
+        return this.Dao.GetById(clientId);
     }
 
     public ClientsDTO? GetClientShipmentOrder(int id) {
-        return this.dao.GetClientShipmentOrder(id);
+        return this.Dao.GetClientShipmentOrder(id);
     }
 
     public override void Shutdown() {
         try {
-            if (!this.ClientDTOManagementWindow.IsDisposed) {
-                this.ClientDTOManagementWindow.Dispose();
+            if (!this.DtoManagementWindow.IsDisposed) {
+                this.DtoManagementWindow.Dispose();
             }
         } catch(Exception ex) {
             Debug.WriteLine("Failed to dispose of DtoManagementWindow on shutdown (possible memory leak): " + ex.Message);
