@@ -19,7 +19,7 @@ public partial class ClientWindows : Form {
         this.facade = facade;
         this.InitializeComponent();
     }
-    public DialogResult OpenForCreation (ShipmentOrderDTO blankInstance) {
+    public DialogResult OpenForCreation(ShipmentOrderDTO blankInstance) {
         throw new NotImplementedException();
     }
     public DialogResult OpenForDeletion(ShipmentDTO instance) {
@@ -35,6 +35,14 @@ public partial class ClientWindows : Form {
     }
 
     private void ClientWindows_Load(object sender, EventArgs e) {
+
+    }
+
+    private void label1_Click(object sender, EventArgs e) {
+
+    }
+
+    private void produitlabel1_Click(object sender, EventArgs e) {
 
     }
 }

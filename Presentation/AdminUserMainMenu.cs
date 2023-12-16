@@ -179,4 +179,11 @@ internal partial class AdminUserMainMenu : Form {
         this.facade.ExitApplication();
     }
 
+    private void topBarPanel_Paint(object sender, PaintEventArgs e) {
+
+    }
+
+    private void userLabel_Click(object sender, EventArgs e) {
+
+    }
 }
