@@ -19,6 +19,7 @@ internal partial class AdminUserMainMenu : Form {
     public AdminUserMainMenu(AdminFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
+        this.ReloadUserCombobox();
     }
 
 
