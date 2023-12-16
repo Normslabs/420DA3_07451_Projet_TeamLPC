@@ -38,4 +38,8 @@ public partial class ShipmentOrderWindows : Form {
     private void ShipmentOrderWindows_Load(object sender, EventArgs e) {
 
     }
+
+    private void clientlabel1_Click(object sender, EventArgs e) {
+
+    }
 }
