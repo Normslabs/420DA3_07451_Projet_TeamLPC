@@ -96,7 +96,87 @@ internal partial class AdminUserMainMenu : Form {
 
     #endregion
 
+
+    #region Section Roles
+
+    private void ReloadRolesCombobox() {
+        Role? selectedRole = null;
+        if (this.roleSelector.SelectedItem != null) {
+            selectedRole = (Role) this.roleSelector.SelectedItem;
+        }
+        this.roleSelector.Items.Clear();
+        List<Role> roles = this.facade.GetService<RoleService>().GetAllRoles();
+        foreach (Role role in roles) {
+            _ = this.roleSelector.Items.Add(role);
+        }
+        if (this.roleSelector.Items.Contains(selectedRole)) {
+            this.roleSelector.SelectedItem = selectedRole;
+        }
+    }
+
+    private void ActivateRoleManagementButtons() {
+        this.roleViewButton.Enabled = true;
+        this.editRoleButton.Enabled = true;
+        this.deleteRoleButton.Enabled = true;
+    }
+
+    private void DeactivateRoleManagementButtons() {
+        this.roleViewButton.Enabled = false;
+        this.editRoleButton.Enabled = false;
+        this.deleteRoleButton.Enabled = false;
+    }
+
+    private void CreateRoleButton_Click(object sender, EventArgs e) {
+        _ = this.facade.GetService<RoleService>().CreateNewDtoInstance();
+        this.ReloadRolesCombobox();
+    }
+
+    private void RoleSelector_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.roleSelector.SelectedItem != null) {
+            this.ActivateRoleManagementButtons();
+        } else {
+            this.DeactivateRoleManagementButtons();
+        }
+
+    }
+
+    private void RoleViewButton_Click(object sender, EventArgs e) {
+        if (this.roleSelector.SelectedItem is null) {
+            _ = MessageBox.Show("Pas de role sélectionné.");
+        } else {
+            Role selectedRole = (Role) this.roleSelector.SelectedItem;
+            _ = this.facade.GetService<RoleService>().DisplayDtoInstance(selectedRole);
+        }
+    }
+
+    private void EditRoleButton_Click(object sender, EventArgs e) {
+        if (this.roleSelector.SelectedItem is null) {
+            _ = MessageBox.Show("Pas de role sélectionné.");
+        } else {
+            Role selectedRole = (Role) this.roleSelector.SelectedItem;
+            _ = this.facade.GetService<RoleService>().UpdateDtoInstance(selectedRole);
+            this.ReloadRolesCombobox();
+        }
+    }
+
+    private void DeleteRoleButton_Click(object sender, EventArgs e) {
+        if (this.roleSelector.SelectedItem is null) {
+            _ = MessageBox.Show("Pas de role sélectionné.");
+        } else {
+            Role selectedRole = (Role) this.roleSelector.SelectedItem;
+            _ = this.facade.GetService<RoleService>().DeleteDtoInstance(selectedRole);
+            this.ReloadRolesCombobox();
+        }
+    }
+
+    #endregion
+
+
+    // TODO: @Everyone ajoutez vos propres sections ici
+
+
     private void QuitButton_Click(object sender, EventArgs e) {
         this.facade.ExitApplication();
     }
+
 }
