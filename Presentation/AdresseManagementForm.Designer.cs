@@ -101,7 +101,7 @@ partial class AdresseManagementForm {
         IdLabel.Size = new Size(328, 23);
         IdLabel.TabIndex = 0;
         IdLabel.Text = "ID :";
-        IdLabel.Click += this.label1_Click;
+        //IdLabel.Click += this.label1_Click;
         // 
         // IdField
         // 
@@ -266,7 +266,7 @@ partial class AdresseManagementForm {
         quitButton.TabIndex = 2;
         quitButton.Text = "Annuler";
         quitButton.UseVisualStyleBackColor = true;
-        quitButton.Click += this.button1_Click;
+        //quitButton.Click += this.button1_Click;
         // 
         // actionnButton
         // 
