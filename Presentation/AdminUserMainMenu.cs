@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 internal partial class AdminUserMainMenu : Form {
-    private AdminFacade facade;
+    private readonly AdminFacade facade;
 
     public AdminUserMainMenu(AdminFacade facade) {
         this.facade = facade;
