@@ -316,6 +316,26 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType ("int");
 
 
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .HasOne(shipmento => shipmento.Clients)
+            .WithMany(clients => clients.ShipmentOrders)
+            .HasForeignKey("ClientsId");
+
+
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .HasOne(shipmentO => shipmentO.EntrepotOriginal)
+            .WithMany(entrepot => entrepot.ShipmentOrder)
+            .HasForeignKey("EntrepotOriginalId");
+
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .HasMany(shipmentO => shipmentO.Produits)
+            .WithMany(produit => produit.ShipmentOrderDTOs);
+
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .HasOne(shipmento => shipmento.EmployeEntrepot);
+
+            //Pas sure pour EmployeEntrepot a reverifier a le prof 
+
 
         #endregion
     }
