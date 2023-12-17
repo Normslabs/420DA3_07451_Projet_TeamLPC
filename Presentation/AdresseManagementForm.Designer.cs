@@ -26,31 +26,31 @@ partial class AdresseManagementForm {
     private void InitializeComponent() {
         tableLayoutPanel1 = new TableLayoutPanel();
         tableLayoutPanel2 = new TableLayoutPanel();
-        panel1 = new Panel();
-        IdLabel = new Label();
-        IdField = new NumericUpDown();
-        villeLabel = new Label();
-        villeTextBox = new TextBox();
-        numeriqueciviqueLabel = new Label();
-        numerociviqueTextBox = new TextBox();
-        paysLabel = new Label();
-        paysTextBox = new TextBox();
-        codepostalLabel = new Label();
-        codepostalTextBox = new TextBox();
-        provinceLabel = new Label();
         panel2 = new Panel();
-        provinceTextBox = new TextBox();
-        rueLabel = new Label();
         rueTextBox = new TextBox();
-        cancelButton = new Button();
+        rueLabel = new Label();
+        provinceTextBox = new TextBox();
+        provinceLabel = new Label();
+        codepostalTextBox = new TextBox();
+        codepostalLabel = new Label();
+        paysTextBox = new TextBox();
+        paysLabel = new Label();
+        numerociviqueTextBox = new TextBox();
+        numeriqueciviqueLabel = new Label();
+        villeTextBox = new TextBox();
+        villeLabel = new Label();
+        IdField = new NumericUpDown();
+        IdLabel = new Label();
+        panel1 = new Panel();
+        ActionnButton = new Button();
+        QuitButton = new Button();
         actionButton = new Button();
-        quitButton = new Button();
-        actionnButton = new Button();
+        cancelButton = new Button();
         tableLayoutPanel1.SuspendLayout();
         tableLayoutPanel2.SuspendLayout();
-        panel1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize) IdField).BeginInit();
         panel2.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize) IdField).BeginInit();
+        panel1.SuspendLayout();
         this.SuspendLayout();
         // 
         // tableLayoutPanel1
@@ -81,114 +81,6 @@ partial class AdresseManagementForm {
         tableLayoutPanel2.Size = new Size(374, 399);
         tableLayoutPanel2.TabIndex = 0;
         // 
-        // panel1
-        // 
-        panel1.Controls.Add(actionnButton);
-        panel1.Controls.Add(quitButton);
-        panel1.Controls.Add(actionButton);
-        panel1.Controls.Add(cancelButton);
-        panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(3, 408);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(374, 61);
-        panel1.TabIndex = 1;
-        // 
-        // IdLabel
-        // 
-        IdLabel.Dock = DockStyle.Top;
-        IdLabel.Location = new Point(20, 20);
-        IdLabel.Name = "IdLabel";
-        IdLabel.Size = new Size(328, 23);
-        IdLabel.TabIndex = 0;
-        IdLabel.Text = "ID :";
-        //IdLabel.Click += this.label1_Click;
-        // 
-        // IdField
-        // 
-        IdField.Dock = DockStyle.Top;
-        IdField.Enabled = false;
-        IdField.Location = new Point(20, 43);
-        IdField.Name = "IdField";
-        IdField.Size = new Size(328, 23);
-        IdField.TabIndex = 1;
-        // 
-        // villeLabel
-        // 
-        villeLabel.Dock = DockStyle.Top;
-        villeLabel.Location = new Point(20, 66);
-        villeLabel.Name = "villeLabel";
-        villeLabel.Size = new Size(328, 23);
-        villeLabel.TabIndex = 2;
-        villeLabel.Text = "Ville :";
-        // 
-        // villeTextBox
-        // 
-        villeTextBox.Dock = DockStyle.Top;
-        villeTextBox.Location = new Point(20, 89);
-        villeTextBox.Name = "villeTextBox";
-        villeTextBox.Size = new Size(328, 23);
-        villeTextBox.TabIndex = 3;
-        // 
-        // numeriqueciviqueLabel
-        // 
-        numeriqueciviqueLabel.Dock = DockStyle.Top;
-        numeriqueciviqueLabel.Location = new Point(20, 112);
-        numeriqueciviqueLabel.Name = "numeriqueciviqueLabel";
-        numeriqueciviqueLabel.Size = new Size(328, 23);
-        numeriqueciviqueLabel.TabIndex = 4;
-        numeriqueciviqueLabel.Text = "Numéro Civique : ";
-        // 
-        // numerociviqueTextBox
-        // 
-        numerociviqueTextBox.Dock = DockStyle.Top;
-        numerociviqueTextBox.Location = new Point(20, 135);
-        numerociviqueTextBox.Name = "numerociviqueTextBox";
-        numerociviqueTextBox.Size = new Size(328, 23);
-        numerociviqueTextBox.TabIndex = 5;
-        // 
-        // paysLabel
-        // 
-        paysLabel.Dock = DockStyle.Top;
-        paysLabel.Location = new Point(20, 158);
-        paysLabel.Name = "paysLabel";
-        paysLabel.Size = new Size(328, 23);
-        paysLabel.TabIndex = 6;
-        paysLabel.Text = "Pays :";
-        // 
-        // paysTextBox
-        // 
-        paysTextBox.Dock = DockStyle.Top;
-        paysTextBox.Location = new Point(20, 181);
-        paysTextBox.Name = "paysTextBox";
-        paysTextBox.Size = new Size(328, 23);
-        paysTextBox.TabIndex = 7;
-        // 
-        // codepostalLabel
-        // 
-        codepostalLabel.Dock = DockStyle.Top;
-        codepostalLabel.Location = new Point(20, 204);
-        codepostalLabel.Name = "codepostalLabel";
-        codepostalLabel.Size = new Size(328, 23);
-        codepostalLabel.TabIndex = 8;
-        codepostalLabel.Text = "Code Postal : ";
-        // 
-        // codepostalTextBox
-        // 
-        codepostalTextBox.Dock = DockStyle.Top;
-        codepostalTextBox.Location = new Point(20, 227);
-        codepostalTextBox.Name = "codepostalTextBox";
-        codepostalTextBox.Size = new Size(328, 23);
-        codepostalTextBox.TabIndex = 9;
-        // 
-        // provinceLabel
-        // 
-        provinceLabel.Dock = DockStyle.Top;
-        provinceLabel.Location = new Point(20, 250);
-        provinceLabel.Name = "provinceLabel";
-        provinceLabel.Size = new Size(328, 23);
-        provinceLabel.TabIndex = 10;
-        provinceLabel.Text = "Province :";
-        // 
         // panel2
         // 
         panel2.Controls.Add(rueTextBox);
@@ -212,13 +104,13 @@ partial class AdresseManagementForm {
         panel2.Size = new Size(368, 393);
         panel2.TabIndex = 0;
         // 
-        // provinceTextBox
+        // rueTextBox
         // 
-        provinceTextBox.Dock = DockStyle.Top;
-        provinceTextBox.Location = new Point(20, 273);
-        provinceTextBox.Name = "provinceTextBox";
-        provinceTextBox.Size = new Size(328, 23);
-        provinceTextBox.TabIndex = 11;
+        rueTextBox.Dock = DockStyle.Top;
+        rueTextBox.Location = new Point(20, 319);
+        rueTextBox.Name = "rueTextBox";
+        rueTextBox.Size = new Size(328, 23);
+        rueTextBox.TabIndex = 13;
         // 
         // rueLabel
         // 
@@ -229,23 +121,142 @@ partial class AdresseManagementForm {
         rueLabel.TabIndex = 12;
         rueLabel.Text = "Rue :";
         // 
-        // rueTextBox
+        // provinceTextBox
         // 
-        rueTextBox.Dock = DockStyle.Top;
-        rueTextBox.Location = new Point(20, 319);
-        rueTextBox.Name = "rueTextBox";
-        rueTextBox.Size = new Size(328, 23);
-        rueTextBox.TabIndex = 13;
+        provinceTextBox.Dock = DockStyle.Top;
+        provinceTextBox.Location = new Point(20, 273);
+        provinceTextBox.Name = "provinceTextBox";
+        provinceTextBox.Size = new Size(328, 23);
+        provinceTextBox.TabIndex = 11;
         // 
-        // cancelButton
+        // provinceLabel
         // 
-        cancelButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        cancelButton.Location = new Point(264, 91);
-        cancelButton.Name = "cancelButton";
-        cancelButton.Size = new Size(101, 32);
-        cancelButton.TabIndex = 0;
-        cancelButton.Text = "Annuler";
-        cancelButton.UseVisualStyleBackColor = true;
+        provinceLabel.Dock = DockStyle.Top;
+        provinceLabel.Location = new Point(20, 250);
+        provinceLabel.Name = "provinceLabel";
+        provinceLabel.Size = new Size(328, 23);
+        provinceLabel.TabIndex = 10;
+        provinceLabel.Text = "Province :";
+        // 
+        // codepostalTextBox
+        // 
+        codepostalTextBox.Dock = DockStyle.Top;
+        codepostalTextBox.Location = new Point(20, 227);
+        codepostalTextBox.Name = "codepostalTextBox";
+        codepostalTextBox.Size = new Size(328, 23);
+        codepostalTextBox.TabIndex = 9;
+        // 
+        // codepostalLabel
+        // 
+        codepostalLabel.Dock = DockStyle.Top;
+        codepostalLabel.Location = new Point(20, 204);
+        codepostalLabel.Name = "codepostalLabel";
+        codepostalLabel.Size = new Size(328, 23);
+        codepostalLabel.TabIndex = 8;
+        codepostalLabel.Text = "Code Postal : ";
+        // 
+        // paysTextBox
+        // 
+        paysTextBox.Dock = DockStyle.Top;
+        paysTextBox.Location = new Point(20, 181);
+        paysTextBox.Name = "paysTextBox";
+        paysTextBox.Size = new Size(328, 23);
+        paysTextBox.TabIndex = 7;
+        // 
+        // paysLabel
+        // 
+        paysLabel.Dock = DockStyle.Top;
+        paysLabel.Location = new Point(20, 158);
+        paysLabel.Name = "paysLabel";
+        paysLabel.Size = new Size(328, 23);
+        paysLabel.TabIndex = 6;
+        paysLabel.Text = "Pays :";
+        // 
+        // numerociviqueTextBox
+        // 
+        numerociviqueTextBox.Dock = DockStyle.Top;
+        numerociviqueTextBox.Location = new Point(20, 135);
+        numerociviqueTextBox.Name = "numerociviqueTextBox";
+        numerociviqueTextBox.Size = new Size(328, 23);
+        numerociviqueTextBox.TabIndex = 5;
+        // 
+        // numeriqueciviqueLabel
+        // 
+        numeriqueciviqueLabel.Dock = DockStyle.Top;
+        numeriqueciviqueLabel.Location = new Point(20, 112);
+        numeriqueciviqueLabel.Name = "numeriqueciviqueLabel";
+        numeriqueciviqueLabel.Size = new Size(328, 23);
+        numeriqueciviqueLabel.TabIndex = 4;
+        numeriqueciviqueLabel.Text = "Numéro Civique : ";
+        // 
+        // villeTextBox
+        // 
+        villeTextBox.Dock = DockStyle.Top;
+        villeTextBox.Location = new Point(20, 89);
+        villeTextBox.Name = "villeTextBox";
+        villeTextBox.Size = new Size(328, 23);
+        villeTextBox.TabIndex = 3;
+        // 
+        // villeLabel
+        // 
+        villeLabel.Dock = DockStyle.Top;
+        villeLabel.Location = new Point(20, 66);
+        villeLabel.Name = "villeLabel";
+        villeLabel.Size = new Size(328, 23);
+        villeLabel.TabIndex = 2;
+        villeLabel.Text = "Ville :";
+        // 
+        // IdField
+        // 
+        IdField.Dock = DockStyle.Top;
+        IdField.Enabled = false;
+        IdField.Location = new Point(20, 43);
+        IdField.Name = "IdField";
+        IdField.Size = new Size(328, 23);
+        IdField.TabIndex = 1;
+        // 
+        // IdLabel
+        // 
+        IdLabel.Dock = DockStyle.Top;
+        IdLabel.Location = new Point(20, 20);
+        IdLabel.Name = "IdLabel";
+        IdLabel.Size = new Size(328, 23);
+        IdLabel.TabIndex = 0;
+        IdLabel.Text = "ID :";
+        // 
+        // panel1
+        // 
+        panel1.Controls.Add(ActionnButton);
+        panel1.Controls.Add(QuitButton);
+        panel1.Controls.Add(actionButton);
+        panel1.Controls.Add(cancelButton);
+        panel1.Dock = DockStyle.Fill;
+        panel1.Location = new Point(3, 408);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(374, 61);
+        panel1.TabIndex = 1;
+        // 
+        // ActionnButton
+        // 
+        ActionnButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        ActionnButton.Location = new Point(133, 21);
+        ActionnButton.Name = "ActionnButton";
+        ActionnButton.Size = new Size(111, 31);
+        ActionnButton.TabIndex = 3;
+        ActionnButton.Text = "ACTION";
+        ActionnButton.UseVisualStyleBackColor = true;
+        ActionnButton.Click += this.ActionnButton_Click;
+        // 
+        // QuitButton
+        // 
+        QuitButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        QuitButton.Location = new Point(254, 21);
+        QuitButton.Name = "QuitButton";
+        QuitButton.Size = new Size(111, 31);
+        QuitButton.TabIndex = 2;
+        QuitButton.Text = "Annuler";
+        QuitButton.UseVisualStyleBackColor = true;
+        QuitButton.Click += this.QuitButton_Click;
         // 
         // actionButton
         // 
@@ -257,26 +268,15 @@ partial class AdresseManagementForm {
         actionButton.Text = "ACTION";
         actionButton.UseVisualStyleBackColor = true;
         // 
-        // quitButton
+        // cancelButton
         // 
-        quitButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        quitButton.Location = new Point(254, 21);
-        quitButton.Name = "quitButton";
-        quitButton.Size = new Size(111, 31);
-        quitButton.TabIndex = 2;
-        quitButton.Text = "Annuler";
-        quitButton.UseVisualStyleBackColor = true;
-        //quitButton.Click += this.button1_Click;
-        // 
-        // actionnButton
-        // 
-        actionnButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        actionnButton.Location = new Point(133, 21);
-        actionnButton.Name = "actionnButton";
-        actionnButton.Size = new Size(111, 31);
-        actionnButton.TabIndex = 3;
-        actionnButton.Text = "ACTION";
-        actionnButton.UseVisualStyleBackColor = true;
+        cancelButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        cancelButton.Location = new Point(264, 91);
+        cancelButton.Name = "cancelButton";
+        cancelButton.Size = new Size(101, 32);
+        cancelButton.TabIndex = 0;
+        cancelButton.Text = "Annuler";
+        cancelButton.UseVisualStyleBackColor = true;
         // 
         // AdresseManagementForm
         // 
@@ -288,10 +288,10 @@ partial class AdresseManagementForm {
         this.Text = "AdresseManagementForm";
         tableLayoutPanel1.ResumeLayout(false);
         tableLayoutPanel2.ResumeLayout(false);
-        panel1.ResumeLayout(false);
-        ((System.ComponentModel.ISupportInitialize) IdField).EndInit();
         panel2.ResumeLayout(false);
         panel2.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize) IdField).EndInit();
+        panel1.ResumeLayout(false);
         this.ResumeLayout(false);
     }
 
@@ -317,8 +317,8 @@ partial class AdresseManagementForm {
     private Label IdLabel;
     private Button actionButton;
     private Button cancelButton;
-    private Button quitButton;
-    private Button actionnButton;
+    private Button QuitButton;
+    private Button ActionnButton;
     private TextBox textBox1;
     private Label label1;
 }
