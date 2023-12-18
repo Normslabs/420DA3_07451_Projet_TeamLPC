@@ -15,7 +15,7 @@ using _420DA3_07451_Projet_Initial.Presentation.Enums;
 using Microsoft.IdentityModel.Tokens;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class ProduitWindow : Form IDtoManagementView<Produit> {
+public partial class ProduitWindow : Form ,IDtoManagementView<Produit> {
 
     private readonly AbstractFacade facade;
     private Produit workingDtoInstance;
@@ -27,48 +27,14 @@ public partial class ProduitWindow : Form IDtoManagementView<Produit> {
         this.InitializeComponent();
     }
 
-
-
-
-
     private void ProduitWindow_Load(object sender, EventArgs e) {
 
     }
 
-    private void button1_Click(object sender, EventArgs e) {
-
-    }
-
-    private void EditButton_Click(object sender, EventArgs e) {
-
-    }
-
-    private void DeleteButton_Click(object sender, EventArgs e) {
-
-    }
 
     private void ExitButton_Click(object sender, EventArgs e) {
         this.Hide();
         this.facade.ShutdownParentApplication();
     }
 
-    private void ByNameButton_Click(object sender, EventArgs e) {
-
-    }
-
-    private void ProductNameTextBox_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void ProductUPCTextBox_TextChanged(object sender, EventArgs e) {
-
-    }
-
-    private void button1_Click_1(object sender, EventArgs e) {
-
-    }
-
-    private void produitListView_SelectedIndexChanged(object sender, EventArgs e) {
-
-    }
 }
