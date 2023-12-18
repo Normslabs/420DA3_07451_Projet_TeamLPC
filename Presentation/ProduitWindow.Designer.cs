@@ -137,7 +137,7 @@ partial class ProduitWindow {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 361);
+            this.ClientSize = new System.Drawing.Size(598, 361);
             this.Controls.Add(this.ProductUPCTextBox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.ByNameButton);

@@ -10,8 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace _420DA3_07451_Projet_Initial.Business.Services;
-internal class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
+public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
 
     protected override PurchaseOrderDAO Dao { get; }
     protected override PurchaseOrderWindow DtoManagementWindow { get; }
