@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class Entrepot : AbstractDTO<int> {
 
+    public const int MAX_NOMENTREPOT_LENGTH = 25;
+   
+
     public string NomEntrepot { get; set; } = null!;
     public Adresse AdresseEntrepot { get; set; } = null!;
     public List<Utilisateur> Utilisateur { get; set; } = null!;

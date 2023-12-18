@@ -28,6 +28,8 @@ namespace _420DA3_07451_Projet_Initial.Presentation;
 /// Permet par défaut les quatres opérations de base CRUD.
 /// </remarks>
 public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilisateur> {
+
+    // Champs/Propriétés
     private readonly AbstractFacade facade;
     private Utilisateur workingInstance = null!;
     private ViewIntentEnum workingIntent;
@@ -43,12 +45,7 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         this.facade = facade;
         this.InitializeComponent();
         this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
-        // TODO: loading des entrepots quand service existera
-        //this.LoadWarehousesInCombobox()
-    }
-
-    public UtilisateurManagementForm() {
-        this.InitializeComponent();
+        this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepot());
     }
 
 
@@ -160,7 +157,7 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         }
     }
 
-    private void DoCreate() {
+    private void SaveDataInInstance() {
         this.ValidateFields();
         this.workingInstance.Username = this.userUsernameTextBox.Text;
         this.workingInstance.PasswordHash = this.userPasswordHashTextBox.Text;
@@ -175,30 +172,6 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         }
 
         this.workingInstance.Roles = this.userRolesListbox.SelectedItems.Cast<Role>().ToList();
-
-        _ = this.facade.GetService<UtilisateurService>().CreateUtilisateur(this.workingInstance);
-    }
-
-    private void DoEdit() {
-        this.ValidateFields();
-        this.workingInstance.PasswordHash = this.userPasswordHashTextBox.Text;
-
-        if (this.userWarehouseCombobox.SelectedIndex == this.nullWarehouseComboboxItemIndex) {
-            this.workingInstance.EntrepotDeTravail = null;
-            this.workingInstance.EntrepotDeTravailId = null;
-        } else {
-            Entrepot entrepotSelectionne = (Entrepot) this.userWarehouseCombobox.SelectedItem;
-            this.workingInstance.EntrepotDeTravail = entrepotSelectionne;
-            this.workingInstance.EntrepotDeTravailId = entrepotSelectionne.Id;
-        }
-
-        this.workingInstance.Roles = this.userRolesListbox.SelectedItems.Cast<Role>().ToList();
-
-        _ = this.facade.GetService<UtilisateurService>().EditUtilisateur(this.workingInstance);
-    }
-
-    private void DoDelete() {
-        _ = this.facade.GetService<UtilisateurService>().DeleteUtilisateur(this.workingInstance);
     }
 
     private void ValidateFields() {
@@ -252,14 +225,10 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         try {
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
-                    this.DoCreate();
-                    break;
                 case ViewIntentEnum.Edition:
-                    this.DoEdit();
+                    this.SaveDataInInstance();
                     break;
                 case ViewIntentEnum.Deletion:
-                    this.DoDelete();
-                    break;
                 case ViewIntentEnum.Visualization:
                 default:
                     break;

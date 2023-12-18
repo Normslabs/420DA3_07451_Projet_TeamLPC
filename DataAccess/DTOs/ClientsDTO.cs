@@ -12,7 +12,7 @@ public class ClientsDTO : AbstractDTO<int> {
     public int  AsignedWarehouseID  { get; set; }
 
     public Adresse ClientAdress { get; set; } = null!;
-
+ 
     public int ClientAdressId { get; set; }
 
     public string CompanyName { get; set; } = null!;

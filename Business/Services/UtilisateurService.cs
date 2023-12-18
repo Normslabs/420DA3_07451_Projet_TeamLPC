@@ -29,21 +29,12 @@ public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
         this.DtoManagementWindow = new UtilisateurManagementForm(facade);
     }
 
+    public List<Utilisateur> GetAllUtilisateurs() {
+        return this.Dao.GetAll();
+    }
 
     public Utilisateur? FindUtilisateurByUsername(string username) {
         return this.Dao.GetByUsername(username);
-    }
-
-    public Utilisateur CreateUtilisateur(Utilisateur user) {
-        return this.Dao.Create(user);
-    }
-
-    public Utilisateur EditUtilisateur(Utilisateur user) {
-        return this.Dao.Update(user);
-    }
-
-    public Utilisateur DeleteUtilisateur(Utilisateur user) {
-        return this.Dao.Delete(user);
     }
 
 

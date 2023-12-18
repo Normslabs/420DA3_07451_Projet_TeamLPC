@@ -25,8 +25,9 @@ internal static class Program {
 
             testWindow.LoadWarehousesInCombobox(fakeEntrepots);
 
-            Utilisateur fakeUser = new Utilisateur() { Id = 1, Username = "LaPatate", PasswordHash = "HALLOTHISISAFAKEHASH:SHA-512" };
-            _ = testWindow.OpenForEdition(fakeUser);
+            //Utilisateur fakeUser = new Utilisateur() { Id = 1, Username = "LaPatate", PasswordHash = "HALLOTHISISAFAKEHASH:SHA-512" };
+            Utilisateur fakeUser = new Utilisateur();
+            _ = testWindow.OpenForCreation(fakeUser);
 
         } else if (args.Contains("-olivierTests")) { 
 

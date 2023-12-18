@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -19,20 +20,30 @@ public class ShipmentDTO : AbstractDTO<int> {
     public int? ShippingOrderID { get; set; } = null!;
 
     public string? TrackingNumber { get; set; } = null!;
+    [NotMapped]
+    private static Random random = new Random();
 
+
+    private static string RandomString(int length) {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length)
+            .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
 
     public ShipmentDTO() : base() { 
 
     }
 
-    public ShipmentDTO(int ShippingId, ShipmentServiceEnum Service, string TrackNumber) {
+    public ShipmentDTO(int ShippingId, ShipmentServiceEnum Service) {
         this.ShippingOrderID = ShippingId;
         this.Service = Service;
-        this.TrackingNumber = TrackNumber;
+        this.TrackingNumber = RandomString(15);
+
+        
 
     }
 
-    public ShipmentDTO(int Id, ShipmentServiceEnum Service, int ShippingId, string TrackNumber, byte[] RowVersion ) 
+    protected ShipmentDTO(int Id, ShipmentServiceEnum Service, int ShippingId, string TrackNumber, byte[] RowVersion ) 
     {
         this.Id = Id;
         this.ShippingOrderID = ShippingId;

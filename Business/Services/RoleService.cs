@@ -14,7 +14,7 @@ namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class RoleService : AbstractDtoService<Role, int> {
     protected override RoleDAO Dao { get; }
 
-    protected override IDtoManagementView<Role> DtoManagementWindow { get; }
+    protected override RoleManagementForm DtoManagementWindow { get; }
 
     /// <summary>
     /// Constructeur
@@ -24,7 +24,7 @@ public class RoleService : AbstractDtoService<Role, int> {
     public RoleService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(this);
         this.Dao = new RoleDAO(context);
-        //this.DtoManagementWindow = new RoleManagementForm(facade);
+        this.DtoManagementWindow = new RoleManagementForm(facade);
     }
 
     /// <summary>
@@ -32,7 +32,9 @@ public class RoleService : AbstractDtoService<Role, int> {
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
     public override void Shutdown() {
-        this.DtoManagementWindow.Dispose();
+        if (!this.DtoManagementWindow.IsDisposed) {
+            this.DtoManagementWindow.Dispose();
+        }
     }
 
     /// <summary>
