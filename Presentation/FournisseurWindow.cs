@@ -1,7 +1,4 @@
-﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,30 +9,40 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur>{
-
-    private readonly AbstractFacade facade;
-
-    public FournisseurWindow(AbstractFacade facade) {
-        this.facade = facade; 
+public partial class FournisseurWindow : Form {
+    public FournisseurWindow() {
         InitializeComponent();
     }
 
+    private void textBox1_TextChanged(object sender, EventArgs e) {
 
-
-    public DialogResult OpenForCreation(Fournisseur blankInstance) {
-        throw new NotImplementedException();
     }
 
-    public DialogResult OpenForDeletion(Fournisseur instance) {
-        throw new NotImplementedException();
+    private void label2_Click(object sender, EventArgs e) {
+
     }
 
-    public DialogResult OpenForEdition(Fournisseur instance) {
-        throw new NotImplementedException();
+    private void panel1_Paint(object sender, PaintEventArgs e) {
+
     }
 
-    public DialogResult OpenForVisualization(Fournisseur instance) {
-        throw new NotImplementedException();
+    private void label3_Click(object sender, EventArgs e) {
+
+    }
+
+    private void label4_Click(object sender, EventArgs e) {
+
+    }
+
+    private void label5_Click(object sender, EventArgs e) {
+
+    }
+
+    private void label7_Click(object sender, EventArgs e) {
+
+    }
+
+    private void label8_Click(object sender, EventArgs e) {
+
     }
 }

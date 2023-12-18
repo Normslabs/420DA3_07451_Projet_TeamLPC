@@ -30,6 +30,12 @@ partial class ClientWindows {
         Idlabel = new Label();
         tableLayoutPanel1 = new TableLayoutPanel();
         infopanel2 = new Panel();
+        shipmentorderlistBox1 = new ListBox();
+        shipmentorderlabel1 = new Label();
+        listeproduitlistBox1 = new ListBox();
+        produitlabel1 = new Label();
+        adresseClienttextBox1 = new TextBox();
+        adresselabel1 = new Label();
         asignedWarehousecomboBox1 = new ComboBox();
         asignedWarehouselabel1 = new Label();
         companyNameClienttextBox1 = new TextBox();
@@ -42,12 +48,6 @@ partial class ClientWindows {
         prenomClientlabel1 = new Label();
         nomClienttextBox1 = new TextBox();
         nomlabel1 = new Label();
-        adresselabel1 = new Label();
-        adresseClienttextBox1 = new TextBox();
-        produitlabel1 = new Label();
-        listeproduitlistBox1 = new ListBox();
-        shipmentorderlabel1 = new Label();
-        shipmentorderlistBox1 = new ListBox();
         panel1.SuspendLayout();
         tableLayoutPanel1.SuspendLayout();
         infopanel2.SuspendLayout();
@@ -134,6 +134,66 @@ partial class ClientWindows {
         infopanel2.Padding = new Padding(25);
         infopanel2.Size = new Size(392, 476);
         infopanel2.TabIndex = 0;
+        // 
+        // shipmentorderlistBox1
+        // 
+        shipmentorderlistBox1.Dock = DockStyle.Top;
+        shipmentorderlistBox1.FormattingEnabled = true;
+        shipmentorderlistBox1.ItemHeight = 15;
+        shipmentorderlistBox1.Location = new Point(25, 370);
+        shipmentorderlistBox1.Name = "shipmentorderlistBox1";
+        shipmentorderlistBox1.Size = new Size(342, 49);
+        shipmentorderlistBox1.TabIndex = 17;
+        // 
+        // shipmentorderlabel1
+        // 
+        shipmentorderlabel1.AutoSize = true;
+        shipmentorderlabel1.Dock = DockStyle.Top;
+        shipmentorderlabel1.Location = new Point(25, 355);
+        shipmentorderlabel1.Name = "shipmentorderlabel1";
+        shipmentorderlabel1.Size = new Size(117, 15);
+        shipmentorderlabel1.TabIndex = 16;
+        shipmentorderlabel1.Text = "Ordres d'expedition :";
+        // 
+        // listeproduitlistBox1
+        // 
+        listeproduitlistBox1.Dock = DockStyle.Top;
+        listeproduitlistBox1.FormattingEnabled = true;
+        listeproduitlistBox1.ItemHeight = 15;
+        listeproduitlistBox1.Location = new Point(25, 306);
+        listeproduitlistBox1.Name = "listeproduitlistBox1";
+        listeproduitlistBox1.SelectionMode = SelectionMode.MultiSimple;
+        listeproduitlistBox1.Size = new Size(342, 49);
+        listeproduitlistBox1.TabIndex = 15;
+        // 
+        // produitlabel1
+        // 
+        produitlabel1.AutoSize = true;
+        produitlabel1.Dock = DockStyle.Top;
+        produitlabel1.Location = new Point(25, 291);
+        produitlabel1.Name = "produitlabel1";
+        produitlabel1.Size = new Size(98, 15);
+        produitlabel1.TabIndex = 14;
+        produitlabel1.Text = "Liste de produit : ";
+        produitlabel1.Click += this.produitlabel1_Click;
+        // 
+        // adresseClienttextBox1
+        // 
+        adresseClienttextBox1.Dock = DockStyle.Top;
+        adresseClienttextBox1.Location = new Point(25, 268);
+        adresseClienttextBox1.Name = "adresseClienttextBox1";
+        adresseClienttextBox1.Size = new Size(342, 23);
+        adresseClienttextBox1.TabIndex = 13;
+        // 
+        // adresselabel1
+        // 
+        adresselabel1.AutoSize = true;
+        adresselabel1.Dock = DockStyle.Top;
+        adresselabel1.Location = new Point(25, 253);
+        adresselabel1.Name = "adresselabel1";
+        adresselabel1.Size = new Size(57, 15);
+        adresselabel1.TabIndex = 12;
+        adresselabel1.Text = "Adresse : ";
         // 
         // asignedWarehousecomboBox1
         // 
@@ -244,66 +304,6 @@ partial class ClientWindows {
         nomlabel1.Size = new Size(43, 15);
         nomlabel1.TabIndex = 0;
         nomlabel1.Text = "Nom : ";
-        // 
-        // adresselabel1
-        // 
-        adresselabel1.AutoSize = true;
-        adresselabel1.Dock = DockStyle.Top;
-        adresselabel1.Location = new Point(25, 253);
-        adresselabel1.Name = "adresselabel1";
-        adresselabel1.Size = new Size(57, 15);
-        adresselabel1.TabIndex = 12;
-        adresselabel1.Text = "Adresse : ";
-        // 
-        // adresseClienttextBox1
-        // 
-        adresseClienttextBox1.Dock = DockStyle.Top;
-        adresseClienttextBox1.Location = new Point(25, 268);
-        adresseClienttextBox1.Name = "adresseClienttextBox1";
-        adresseClienttextBox1.Size = new Size(342, 23);
-        adresseClienttextBox1.TabIndex = 13;
-        // 
-        // produitlabel1
-        // 
-        produitlabel1.AutoSize = true;
-        produitlabel1.Dock = DockStyle.Top;
-        produitlabel1.Location = new Point(25, 291);
-        produitlabel1.Name = "produitlabel1";
-        produitlabel1.Size = new Size(98, 15);
-        produitlabel1.TabIndex = 14;
-        produitlabel1.Text = "Liste de produit : ";
-        produitlabel1.Click += this.produitlabel1_Click;
-        // 
-        // listeproduitlistBox1
-        // 
-        listeproduitlistBox1.Dock = DockStyle.Top;
-        listeproduitlistBox1.FormattingEnabled = true;
-        listeproduitlistBox1.ItemHeight = 15;
-        listeproduitlistBox1.Location = new Point(25, 306);
-        listeproduitlistBox1.Name = "listeproduitlistBox1";
-        listeproduitlistBox1.SelectionMode = SelectionMode.MultiSimple;
-        listeproduitlistBox1.Size = new Size(342, 49);
-        listeproduitlistBox1.TabIndex = 15;
-        // 
-        // shipmentorderlabel1
-        // 
-        shipmentorderlabel1.AutoSize = true;
-        shipmentorderlabel1.Dock = DockStyle.Top;
-        shipmentorderlabel1.Location = new Point(25, 355);
-        shipmentorderlabel1.Name = "shipmentorderlabel1";
-        shipmentorderlabel1.Size = new Size(117, 15);
-        shipmentorderlabel1.TabIndex = 16;
-        shipmentorderlabel1.Text = "Ordres d'expedition :";
-        // 
-        // shipmentorderlistBox1
-        // 
-        shipmentorderlistBox1.Dock = DockStyle.Top;
-        shipmentorderlistBox1.FormattingEnabled = true;
-        shipmentorderlistBox1.ItemHeight = 15;
-        shipmentorderlistBox1.Location = new Point(25, 370);
-        shipmentorderlistBox1.Name = "shipmentorderlistBox1";
-        shipmentorderlistBox1.Size = new Size(342, 49);
-        shipmentorderlistBox1.TabIndex = 17;
         // 
         // ClientWindows
         // 
