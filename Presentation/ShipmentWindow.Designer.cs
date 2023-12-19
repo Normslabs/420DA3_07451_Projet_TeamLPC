@@ -118,7 +118,7 @@ partial class ShipmentWindow {
         ServicelistBox.Name = "ServicelistBox";
         ServicelistBox.Size = new Size(259, 94);
         ServicelistBox.TabIndex = 5;
-        ServicelistBox.SelectedIndexChanged += this.ServicelistBox_SelectedIndexChanged;
+
         // 
         // label3
         // 
@@ -163,7 +163,6 @@ partial class ShipmentWindow {
         this.Controls.Add(tableLayoutPanel1);
         this.Name = "ShipmentWindow";
         this.Text = "ShipmentWindow";
-        this.Load += this.ShipmentWindow_Load;
         tableLayoutPanel1.ResumeLayout(false);
         panel1.ResumeLayout(false);
         panel1.PerformLayout();

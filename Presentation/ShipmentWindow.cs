@@ -21,11 +21,10 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
     private ShipmentDTO workingInstance = null!;
     private ViewIntentEnum workingIntent;
 
-    private int nullShipmentComboboxItemIndex = 0;
-
     public ShipmentWindow(AbstractFacade facade) {
         this.facade = facade;
         InitializeComponent();
+        LoadShipmentDataInComboBox();
     }
 
     public DialogResult OpenForCreation(ShipmentDTO blankInstance) {
@@ -62,7 +61,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
                 this.DisableControls();
                 break;
         }
-        this.LoadUserDataInControls(instance);
+        this.LoadShipmentDataInControls(instance);
         return this.ShowDialog();
     }
 
@@ -82,22 +81,23 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
 
     }
 
-    private void LoadUserDataInControls(ShipmentDTO shipment) {
+    private void LoadShipmentDataInControls(ShipmentDTO shipment) {
         this.ShippingOrderIdnumericUpDown.Value = shipment.Id;
         this.TrackingtextBox.Text = shipment.TrackingNumber;
+        this.ServicelistBox.SelectedItem = shipment.Service;
+       
+    }
+
+    private void LoadShipmentDataInComboBox() {
         foreach (ShipmentDTO.ShipmentServiceEnum ShipmentService in Enum.GetValues(typeof(ShipmentDTO.ShipmentServiceEnum))) {
-            this.ServicelistBox.SelectedItems.Add(ShipmentService);
+            this.ServicelistBox.Items.Add(ShipmentService);
         }
     }
 
-    private void ShipmentWindow_Load(object sender, EventArgs e) {
-
-    }
-
-    private void ServicelistBox_SelectedIndexChanged(object sender, EventArgs e) {
-
-    }
-
+    private void SaveDataInInstance() {
+        this.workingInstance.Service = (ShipmentDTO.ShipmentServiceEnum) this.ServicelistBox.SelectedItem;
+    } 
+ 
     private void Exitbtn_Click(object sender, EventArgs e) {
         this.DialogResult = DialogResult.Cancel;
     }
@@ -106,8 +106,10 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
         try {
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
-
+                    this.SaveDataInInstance();
+                    break;
                 case ViewIntentEnum.Edition:
+                    this.SaveDataInInstance();
                     break;
                 case ViewIntentEnum.Deletion:
                 case ViewIntentEnum.Visualization:

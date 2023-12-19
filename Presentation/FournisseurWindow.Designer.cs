@@ -92,7 +92,7 @@ partial class FournisseurWindow {
         Datapanel.Name = "Datapanel";
         Datapanel.Size = new Size(634, 444);
         Datapanel.TabIndex = 2;
-        Datapanel.Paint += this.panel1_Paint;
+
         // 
         // label8
         // 
@@ -102,7 +102,7 @@ partial class FournisseurWindow {
         label8.Size = new Size(133, 15);
         label8.TabIndex = 15;
         label8.Text = "Adresse du fournisseur :";
-        label8.Click += this.label8_Click;
+
         // 
         // AdressecomboBox
         // 
@@ -160,7 +160,7 @@ partial class FournisseurWindow {
         label7.Size = new Size(119, 15);
         label7.TabIndex = 11;
         label7.Text = "Nom du fournisseur :";
-        label7.Click += this.label7_Click;
+
         // 
         // EmailContacttextBox
         // 
@@ -187,7 +187,7 @@ partial class FournisseurWindow {
         label5.Size = new Size(170, 15);
         label5.TabIndex = 8;
         label5.Text = "Adresse du contact d'urgence :";
-        label5.Click += this.label5_Click;
+
         // 
         // AdresseContacttextBox
         // 
@@ -213,7 +213,7 @@ partial class FournisseurWindow {
         label4.Size = new Size(156, 15);
         label4.TabIndex = 5;
         label4.Text = "Nom du contact d'urgence :";
-        label4.Click += this.label4_Click;
+
         // 
         // PrenomContacttextBox1
         // 
