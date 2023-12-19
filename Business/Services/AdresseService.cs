@@ -24,6 +24,10 @@ public class AdresseService : AbstractDtoService<Adresse, int> {
         this.DtoManagementWindow = new AdresseManagementForm(facade);
     }
 
+    public List<Adresse> GetAllAddresses() {
+        return this.Dao.GetAll();
+    }
+
         
     public override void Shutdown() {
         throw new NotImplementedException();
