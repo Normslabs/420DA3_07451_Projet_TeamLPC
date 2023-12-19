@@ -54,7 +54,8 @@ public class ShipmentDTO : AbstractDTO<int> {
 
 
 
-    public enum ShipmentServiceEnum {
+    public enum ShipmentServiceEnum 
+    {
         PUROLATOR, CANADAPOST, FEDEX
     }
 

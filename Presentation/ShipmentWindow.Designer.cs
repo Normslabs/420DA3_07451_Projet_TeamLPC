@@ -26,17 +26,18 @@ partial class ShipmentWindow {
     private void InitializeComponent() {
         tableLayoutPanel1 = new TableLayoutPanel();
         panel1 = new Panel();
-        label1 = new Label();
-        ShippingOrderIdTextbox = new TextBox();
-        label2 = new Label();
-        TrackingtextBox = new TextBox();
-        label3 = new Label();
-        ServicelistBox = new ListBox();
+        ShippingOrderIdnumericUpDown = new NumericUpDown();
         ControlBtnpanel = new Panel();
-        Exitbtn = new Button();
         Actionbtn = new Button();
+        Exitbtn = new Button();
+        ServicelistBox = new ListBox();
+        label3 = new Label();
+        TrackingtextBox = new TextBox();
+        label2 = new Label();
+        label1 = new Label();
         tableLayoutPanel1.SuspendLayout();
         panel1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize) ShippingOrderIdnumericUpDown).BeginInit();
         ControlBtnpanel.SuspendLayout();
         this.SuspendLayout();
         // 
@@ -57,12 +58,12 @@ partial class ShipmentWindow {
         // 
         // panel1
         // 
+        panel1.Controls.Add(ShippingOrderIdnumericUpDown);
         panel1.Controls.Add(ControlBtnpanel);
         panel1.Controls.Add(ServicelistBox);
         panel1.Controls.Add(label3);
         panel1.Controls.Add(TrackingtextBox);
         panel1.Controls.Add(label2);
-        panel1.Controls.Add(ShippingOrderIdTextbox);
         panel1.Controls.Add(label1);
         panel1.Dock = DockStyle.Fill;
         panel1.Location = new Point(83, 3);
@@ -70,57 +71,12 @@ partial class ShipmentWindow {
         panel1.Size = new Size(634, 444);
         panel1.TabIndex = 0;
         // 
-        // label1
+        // ShippingOrderIdnumericUpDown
         // 
-        label1.AutoSize = true;
-        label1.Location = new Point(3, 6);
-        label1.Name = "label1";
-        label1.Size = new Size(110, 15);
-        label1.TabIndex = 0;
-        label1.Text = "Shipping Order ID : ";
-        // 
-        // ShippingOrderIdTextbox
-        // 
-        ShippingOrderIdTextbox.Enabled = false;
-        ShippingOrderIdTextbox.Location = new Point(3, 24);
-        ShippingOrderIdTextbox.Name = "ShippingOrderIdTextbox";
-        ShippingOrderIdTextbox.Size = new Size(220, 23);
-        ShippingOrderIdTextbox.TabIndex = 1;
-        // 
-        // label2
-        // 
-        label2.AutoSize = true;
-        label2.Location = new Point(3, 50);
-        label2.Name = "label2";
-        label2.Size = new Size(102, 15);
-        label2.TabIndex = 2;
-        label2.Text = "Tracking number :";
-        // 
-        // TrackingtextBox
-        // 
-        TrackingtextBox.Enabled = false;
-        TrackingtextBox.Location = new Point(3, 68);
-        TrackingtextBox.Name = "TrackingtextBox";
-        TrackingtextBox.Size = new Size(220, 23);
-        TrackingtextBox.TabIndex = 3;
-        // 
-        // label3
-        // 
-        label3.AutoSize = true;
-        label3.Location = new Point(3, 94);
-        label3.Name = "label3";
-        label3.Size = new Size(113, 15);
-        label3.TabIndex = 4;
-        label3.Text = "Service de livraison :\r\n";
-        // 
-        // ServicelistBox
-        // 
-        ServicelistBox.FormattingEnabled = true;
-        ServicelistBox.ItemHeight = 15;
-        ServicelistBox.Location = new Point(3, 112);
-        ServicelistBox.Name = "ServicelistBox";
-        ServicelistBox.Size = new Size(259, 94);
-        ServicelistBox.TabIndex = 5;
+        ShippingOrderIdnumericUpDown.Location = new Point(3, 24);
+        ShippingOrderIdnumericUpDown.Name = "ShippingOrderIdnumericUpDown";
+        ShippingOrderIdnumericUpDown.Size = new Size(220, 23);
+        ShippingOrderIdnumericUpDown.TabIndex = 2;
         // 
         // ControlBtnpanel
         // 
@@ -132,16 +88,6 @@ partial class ShipmentWindow {
         ControlBtnpanel.Size = new Size(634, 100);
         ControlBtnpanel.TabIndex = 6;
         // 
-        // Exitbtn
-        // 
-        Exitbtn.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
-        Exitbtn.Location = new Point(539, 23);
-        Exitbtn.Name = "Exitbtn";
-        Exitbtn.Size = new Size(92, 40);
-        Exitbtn.TabIndex = 0;
-        Exitbtn.Text = "Quitter";
-        Exitbtn.UseVisualStyleBackColor = true;
-        // 
         // Actionbtn
         // 
         Actionbtn.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
@@ -151,6 +97,63 @@ partial class ShipmentWindow {
         Actionbtn.TabIndex = 1;
         Actionbtn.Text = "ACTION";
         Actionbtn.UseVisualStyleBackColor = true;
+        Actionbtn.Click += this.Actionbtn_Click;
+        // 
+        // Exitbtn
+        // 
+        Exitbtn.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
+        Exitbtn.Location = new Point(539, 23);
+        Exitbtn.Name = "Exitbtn";
+        Exitbtn.Size = new Size(92, 40);
+        Exitbtn.TabIndex = 0;
+        Exitbtn.Text = "Quitter";
+        Exitbtn.UseVisualStyleBackColor = true;
+        Exitbtn.Click += this.Exitbtn_Click;
+        // 
+        // ServicelistBox
+        // 
+        ServicelistBox.FormattingEnabled = true;
+        ServicelistBox.ItemHeight = 15;
+        ServicelistBox.Location = new Point(3, 112);
+        ServicelistBox.Name = "ServicelistBox";
+        ServicelistBox.Size = new Size(259, 94);
+        ServicelistBox.TabIndex = 5;
+        ServicelistBox.SelectedIndexChanged += this.ServicelistBox_SelectedIndexChanged;
+        // 
+        // label3
+        // 
+        label3.AutoSize = true;
+        label3.Location = new Point(3, 94);
+        label3.Name = "label3";
+        label3.Size = new Size(113, 15);
+        label3.TabIndex = 4;
+        label3.Text = "Service de livraison :\r\n";
+        // 
+        // TrackingtextBox
+        // 
+        TrackingtextBox.Enabled = false;
+        TrackingtextBox.Location = new Point(3, 68);
+        TrackingtextBox.Name = "TrackingtextBox";
+        TrackingtextBox.Size = new Size(220, 23);
+        TrackingtextBox.TabIndex = 3;
+        // 
+        // label2
+        // 
+        label2.AutoSize = true;
+        label2.Location = new Point(3, 50);
+        label2.Name = "label2";
+        label2.Size = new Size(102, 15);
+        label2.TabIndex = 2;
+        label2.Text = "Tracking number :";
+        // 
+        // label1
+        // 
+        label1.AutoSize = true;
+        label1.Location = new Point(3, 6);
+        label1.Name = "label1";
+        label1.Size = new Size(110, 15);
+        label1.TabIndex = 0;
+        label1.Text = "Shipping Order ID : ";
         // 
         // ShipmentWindow
         // 
@@ -164,6 +167,7 @@ partial class ShipmentWindow {
         tableLayoutPanel1.ResumeLayout(false);
         panel1.ResumeLayout(false);
         panel1.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize) ShippingOrderIdnumericUpDown).EndInit();
         ControlBtnpanel.ResumeLayout(false);
         this.ResumeLayout(false);
     }
@@ -180,5 +184,5 @@ partial class ShipmentWindow {
     private Label label3;
     private TextBox TrackingtextBox;
     private Label label2;
-    private TextBox ShippingOrderIdTextbox;
+    private NumericUpDown ShippingOrderIdnumericUpDown;
 }

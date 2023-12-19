@@ -32,6 +32,8 @@ public class FournisseurService : AbstractDtoService<Fournisseur, int> {
         return this.Dao.GetById(identifier);
     }
 
+    public Fournisseur GetAll 
+
 
 
 }
