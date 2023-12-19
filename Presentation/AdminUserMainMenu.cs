@@ -174,16 +174,105 @@ internal partial class AdminUserMainMenu : Form {
 
     // TODO: @Everyone ajoutez vos propres sections ici
 
+    #region Shipment
+    private void ShipmentFiltreTextbox_TextChanged(object sender, EventArgs e) {
+       this.ShipmentListBox.DataSource = this.facade.GetService<ShipmentService>().SearchShipment(this.ShipmentFiltreTextbox.Text);
+    }
+
+    private void ShipmentListBox_SelectedIndexChanged(object sender, EventArgs e) {
+        if(this.ShipmentListBox.SelectedItem !=  null) { 
+            this.ShipmentCreateBtn.Enabled = true;
+            this.ShipmentViewBtn.Enabled = true;    
+        }
+        else {
+            this.ShipmentCreateBtn.Enabled = true;
+            this.ShipmentViewBtn.Enabled = false;
+        }
+    }
+
+    private void ShipmentCreateBtn_Click(object sender, EventArgs e) {
+        _ = this.facade.GetService<ShipmentService>().CreateNewDtoInstance();
+    }
+
+    private void ShipmentViewBtn_Click(object sender, EventArgs e) {
+       if (this.ShipmentListBox != null) {
+            ShipmentDTO selectedShipment = (ShipmentDTO) this.ShipmentListBox.SelectedItem;
+            _ = this.facade.GetService<ShipmentService>().DisplayDtoInstance(selectedShipment);
+       }
+       else {
+            _ = MessageBox.Show("Pas de shipment sélectionné");
+       }
+        
+  
+    }
+
+
+    #endregion
+
+
+    #region Fournisseur
+
+
+    private void FournisseurFiltreTextBox_TextChanged(object sender, EventArgs e) {
+        this.FournisseurListBox.DataSource = this.facade.GetService<FournisseurService>().SearchFournisseur(this.FournisseurFiltreTextBox.Text);
+    }
+
+    private void FournisseurListBox_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.FournisseurListBox != null) {
+            this.FournisseurCreateBtn.Enabled = true;
+            this.FournisseurEditBtn.Enabled = true;
+            this.FournisseurViewBtn.Enabled = true;
+            this.FournisseurDeleteBtn.Enabled = true;
+        }
+        else {
+            this.FournisseurCreateBtn.Enabled = true;
+            this.FournisseurEditBtn.Enabled = false;
+            this.FournisseurViewBtn.Enabled = false;
+            this.FournisseurDeleteBtn.Enabled = false;
+        }
+    }
+
+    private void FournisseurCreateBtn_Click(object sender, EventArgs e) {
+        _ = this.facade.GetService<FournisseurService>().CreateNewDtoInstance();
+    }
+
+    private void FournisseurViewBtn_Click(object sender, EventArgs e) {
+        if (this.FournisseurListBox != null) {
+            Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
+            _ = this.facade.GetService<FournisseurService>().DisplayDtoInstance(selectedFournisseur);
+        }
+        else {
+            _ = MessageBox.Show("Pas de fournisseur sélectionné");
+        }
+    }
+
+    private void FournisseurEditBtn_Click(object sender, EventArgs e) {
+        if(this.FournisseurListBox != null) {
+            Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
+            _ = this.facade.GetService<FournisseurService>().UpdateDtoInstance(selectedFournisseur);
+        }
+        else {
+            _ = MessageBox.Show("Pas de fournisseur sélectionné");
+        }
+    }
+
+    private void FournisseurDeleteBtn_Click(object sender, EventArgs e) {
+        if (this.FournisseurListBox != null) {
+            Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
+            _ = this.facade.GetService<FournisseurService>().DeleteDtoInstance(selectedFournisseur);
+        } else {
+            _ = MessageBox.Show("Pas de fournisseur sélectionné");
+        }
+    }
+
+
+    #endregion 
 
     private void QuitButton_Click(object sender, EventArgs e) {
         this.facade.ExitApplication();
     }
 
-    private void topBarPanel_Paint(object sender, PaintEventArgs e) {
 
-    }
 
-    private void userLabel_Click(object sender, EventArgs e) {
 
-    }
 }

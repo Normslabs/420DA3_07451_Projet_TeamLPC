@@ -15,7 +15,7 @@ public class ShipmentService : AbstractDtoService<ShipmentDTO, int> {
 
     protected override ShipmentWindow DtoManagementWindow { get; }
 
-    protected override AbstractDao<ShipmentDTO, int> Dao { get; }
+    protected override ShipmentDAO Dao { get; }
 
     public override void Shutdown() {
         if (!this.DtoManagementWindow.IsDisposed) {
@@ -36,5 +36,9 @@ public class ShipmentService : AbstractDtoService<ShipmentDTO, int> {
         return this.Dao.GetById(identifier);
     }
 
+
+    public List<ShipmentDTO> SearchShipment(string filter) {
+        return this.Dao.SearchShipment(filter);
+    }
  
 }

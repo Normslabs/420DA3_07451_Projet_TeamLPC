@@ -104,8 +104,7 @@ public partial class FournisseurWindow : Form {
 
     }
 
-    private void LoadAdresseComboBox() 
-    {
+    private void LoadAdresseComboBox() {
         this.AdressecomboBox.DataSource = this.facade.GetService<AdresseService>().GetAllAddresses();
     }
 
@@ -115,8 +114,7 @@ public partial class FournisseurWindow : Form {
         this.AdresseContacttextBox.Text = fournisseur.AdresseContact;
         this.EmailContacttextBox.Text = fournisseur.EmailContact;
         this.FournisseurNomtextBox.Text = fournisseur.SupplierName;
-        if (this.AdressecomboBox.Items.Contains(fournisseur.SupplierAdresse)) 
-        {
+        if (this.AdressecomboBox.Items.Contains(fournisseur.SupplierAdresse)) {
             this.AdressecomboBox.SelectedItem = fournisseur.SupplierAdresse;
         }
     }
@@ -127,9 +125,9 @@ public partial class FournisseurWindow : Form {
         this.workingInstance.NomContact = this.NomContacttextBox.Text;
         this.workingInstance.AdresseContact = this.AdresseContacttextBox.Text;
         this.workingInstance.EmailContact = this.EmailContacttextBox.Text;
-        this.workingInstance.SupplierName = this.FournisseurNomtextBox.Text;     
+        this.workingInstance.SupplierName = this.FournisseurNomtextBox.Text;
         this.workingInstance.SupplierAdresse = (Adresse) this.AdressecomboBox.SelectedItem;
-        
+
 
 
     }

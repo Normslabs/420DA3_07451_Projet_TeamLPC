@@ -31,7 +31,7 @@ public class ShipmentDTO : AbstractDTO<int> {
     }
 
     public ShipmentDTO() : base() { 
-
+        this.TrackingNumber = RandomString(15);
     }
 
     public ShipmentDTO(int ShippingId, ShipmentServiceEnum Service) {

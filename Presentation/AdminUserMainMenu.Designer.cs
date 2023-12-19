@@ -28,6 +28,20 @@ partial class AdminUserMainMenu {
         bottomBarPanel = new Panel();
         quitButton = new Button();
         tableLayoutPanel1 = new TableLayoutPanel();
+        panel3 = new Panel();
+        ShipmentViewBtn = new Button();
+        ShipmentListBox = new ListBox();
+        ShipmentFiltreTextbox = new TextBox();
+        ShipmentCreateBtn = new Button();
+        label1 = new Label();
+        panel2 = new Panel();
+        FournisseurDeleteBtn = new Button();
+        FournisseurEditBtn = new Button();
+        FournisseurViewBtn = new Button();
+        FournisseurListBox = new ListBox();
+        FournisseurFiltreTextBox = new TextBox();
+        FournisseurCreateBtn = new Button();
+        fournisseurLabel = new Label();
         panel1 = new Panel();
         deleteRoleButton = new Button();
         editRoleButton = new Button();
@@ -44,6 +58,8 @@ partial class AdminUserMainMenu {
         userLabel = new Label();
         bottomBarPanel.SuspendLayout();
         tableLayoutPanel1.SuspendLayout();
+        panel3.SuspendLayout();
+        panel2.SuspendLayout();
         panel1.SuspendLayout();
         userManagementPanel.SuspendLayout();
         this.SuspendLayout();
@@ -55,7 +71,7 @@ partial class AdminUserMainMenu {
         topBarPanel.Name = "topBarPanel";
         topBarPanel.Size = new Size(1184, 40);
         topBarPanel.TabIndex = 0;
-        topBarPanel.Paint += this.topBarPanel_Paint;
+
         // 
         // bottomBarPanel
         // 
@@ -84,6 +100,8 @@ partial class AdminUserMainMenu {
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
         tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        tableLayoutPanel1.Controls.Add(panel3, 0, 1);
+        tableLayoutPanel1.Controls.Add(panel2, 0, 1);
         tableLayoutPanel1.Controls.Add(panel1, 0, 1);
         tableLayoutPanel1.Controls.Add(userManagementPanel, 0, 0);
         tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -94,6 +112,167 @@ partial class AdminUserMainMenu {
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tableLayoutPanel1.Size = new Size(1184, 781);
         tableLayoutPanel1.TabIndex = 2;
+
+        // 
+        // panel3
+        // 
+        panel3.Controls.Add(ShipmentViewBtn);
+        panel3.Controls.Add(ShipmentListBox);
+        panel3.Controls.Add(ShipmentFiltreTextbox);
+        panel3.Controls.Add(ShipmentCreateBtn);
+        panel3.Controls.Add(label1);
+        panel3.Dock = DockStyle.Fill;
+        panel3.Location = new Point(3, 393);
+        panel3.Name = "panel3";
+        panel3.Padding = new Padding(10);
+        panel3.Size = new Size(230, 385);
+        panel3.TabIndex = 3;
+        // 
+        // ShipmentViewBtn
+        // 
+        ShipmentViewBtn.Dock = DockStyle.Top;
+        ShipmentViewBtn.Location = new Point(10, 202);
+        ShipmentViewBtn.Name = "ShipmentViewBtn";
+        ShipmentViewBtn.Size = new Size(210, 35);
+        ShipmentViewBtn.TabIndex = 5;
+        ShipmentViewBtn.Text = "Voir un shipment";
+        ShipmentViewBtn.UseVisualStyleBackColor = true;
+        ShipmentViewBtn.Click += this.ShipmentViewBtn_Click;
+        // 
+        // ShipmentListBox
+        // 
+        ShipmentListBox.Dock = DockStyle.Top;
+        ShipmentListBox.FormattingEnabled = true;
+        ShipmentListBox.ItemHeight = 15;
+        ShipmentListBox.Location = new Point(10, 108);
+        ShipmentListBox.Name = "ShipmentListBox";
+        ShipmentListBox.Size = new Size(210, 94);
+        ShipmentListBox.TabIndex = 4;
+        ShipmentListBox.SelectedIndexChanged += this.ShipmentListBox_SelectedIndexChanged;
+        // 
+        // ShipmentFiltreTextbox
+        // 
+        ShipmentFiltreTextbox.BackColor = SystemColors.Window;
+        ShipmentFiltreTextbox.Dock = DockStyle.Top;
+        ShipmentFiltreTextbox.Location = new Point(10, 85);
+        ShipmentFiltreTextbox.Name = "ShipmentFiltreTextbox";
+        ShipmentFiltreTextbox.Size = new Size(210, 23);
+        ShipmentFiltreTextbox.TabIndex = 3;
+        ShipmentFiltreTextbox.UseSystemPasswordChar = true;
+        // 
+        // ShipmentCreateBtn
+        // 
+        ShipmentCreateBtn.Dock = DockStyle.Top;
+        ShipmentCreateBtn.Location = new Point(10, 50);
+        ShipmentCreateBtn.Name = "ShipmentCreateBtn";
+        ShipmentCreateBtn.Size = new Size(210, 35);
+        ShipmentCreateBtn.TabIndex = 2;
+        ShipmentCreateBtn.Text = "Créer un shipment";
+        ShipmentCreateBtn.UseVisualStyleBackColor = true;
+        ShipmentCreateBtn.Click += this.ShipmentCreateBtn_Click;
+        // 
+        // label1
+        // 
+        label1.Dock = DockStyle.Top;
+        label1.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        label1.Location = new Point(10, 10);
+        label1.Name = "label1";
+        label1.Size = new Size(210, 40);
+        label1.TabIndex = 0;
+        label1.Text = "Gestion des shipments";
+        label1.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // panel2
+        // 
+        panel2.Controls.Add(FournisseurDeleteBtn);
+        panel2.Controls.Add(FournisseurEditBtn);
+        panel2.Controls.Add(FournisseurViewBtn);
+        panel2.Controls.Add(FournisseurListBox);
+        panel2.Controls.Add(FournisseurFiltreTextBox);
+        panel2.Controls.Add(FournisseurCreateBtn);
+        panel2.Controls.Add(fournisseurLabel);
+        panel2.Dock = DockStyle.Fill;
+        panel2.Location = new Point(475, 393);
+        panel2.Name = "panel2";
+        panel2.Padding = new Padding(10);
+        panel2.Size = new Size(230, 385);
+        panel2.TabIndex = 2;
+        // 
+        // FournisseurDeleteBtn
+        // 
+        FournisseurDeleteBtn.Dock = DockStyle.Top;
+        FournisseurDeleteBtn.Location = new Point(10, 272);
+        FournisseurDeleteBtn.Name = "FournisseurDeleteBtn";
+        FournisseurDeleteBtn.Size = new Size(210, 35);
+        FournisseurDeleteBtn.TabIndex = 8;
+        FournisseurDeleteBtn.Text = "Supprimer un fournisseur";
+        FournisseurDeleteBtn.UseVisualStyleBackColor = true;
+        FournisseurDeleteBtn.Click += this.FournisseurDeleteBtn_Click;
+        // 
+        // FournisseurEditBtn
+        // 
+        FournisseurEditBtn.Dock = DockStyle.Top;
+        FournisseurEditBtn.Location = new Point(10, 237);
+        FournisseurEditBtn.Name = "FournisseurEditBtn";
+        FournisseurEditBtn.Size = new Size(210, 35);
+        FournisseurEditBtn.TabIndex = 7;
+        FournisseurEditBtn.Text = "Éditer le fournisseur";
+        FournisseurEditBtn.UseVisualStyleBackColor = true;
+        FournisseurEditBtn.Click += this.FournisseurEditBtn_Click;
+        // 
+        // FournisseurViewBtn
+        // 
+        FournisseurViewBtn.Dock = DockStyle.Top;
+        FournisseurViewBtn.Location = new Point(10, 202);
+        FournisseurViewBtn.Name = "FournisseurViewBtn";
+        FournisseurViewBtn.Size = new Size(210, 35);
+        FournisseurViewBtn.TabIndex = 6;
+        FournisseurViewBtn.Text = "Voir détails du fournisseur";
+        FournisseurViewBtn.UseVisualStyleBackColor = true;
+        FournisseurViewBtn.Click += this.FournisseurViewBtn_Click;
+        // 
+        // FournisseurListBox
+        // 
+        FournisseurListBox.Dock = DockStyle.Top;
+        FournisseurListBox.FormattingEnabled = true;
+        FournisseurListBox.ItemHeight = 15;
+        FournisseurListBox.Location = new Point(10, 108);
+        FournisseurListBox.Name = "FournisseurListBox";
+        FournisseurListBox.Size = new Size(210, 94);
+        FournisseurListBox.TabIndex = 5;
+        FournisseurListBox.SelectedIndexChanged += this.FournisseurListBox_SelectedIndexChanged;
+        // 
+        // FournisseurFiltreTextBox
+        // 
+        FournisseurFiltreTextBox.Dock = DockStyle.Top;
+        FournisseurFiltreTextBox.Location = new Point(10, 85);
+        FournisseurFiltreTextBox.Name = "FournisseurFiltreTextBox";
+        FournisseurFiltreTextBox.Size = new Size(210, 23);
+        FournisseurFiltreTextBox.TabIndex = 4;
+        FournisseurFiltreTextBox.UseSystemPasswordChar = true;
+        FournisseurFiltreTextBox.TextChanged += this.FournisseurFiltreTextBox_TextChanged;
+        // 
+        // FournisseurCreateBtn
+        // 
+        FournisseurCreateBtn.Dock = DockStyle.Top;
+        FournisseurCreateBtn.Location = new Point(10, 50);
+        FournisseurCreateBtn.Name = "FournisseurCreateBtn";
+        FournisseurCreateBtn.Size = new Size(210, 35);
+        FournisseurCreateBtn.TabIndex = 1;
+        FournisseurCreateBtn.Text = "Créer un fournisseur";
+        FournisseurCreateBtn.UseVisualStyleBackColor = true;
+        FournisseurCreateBtn.Click += this.FournisseurCreateBtn_Click;
+        // 
+        // fournisseurLabel
+        // 
+        fournisseurLabel.Dock = DockStyle.Top;
+        fournisseurLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        fournisseurLabel.Location = new Point(10, 10);
+        fournisseurLabel.Name = "fournisseurLabel";
+        fournisseurLabel.Size = new Size(210, 40);
+        fournisseurLabel.TabIndex = 0;
+        fournisseurLabel.Text = "Gestion des Fournisseurs";
+        fournisseurLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // panel1
         // 
@@ -104,7 +283,7 @@ partial class AdminUserMainMenu {
         panel1.Controls.Add(createRoleButton);
         panel1.Controls.Add(roleLabel);
         panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(3, 393);
+        panel1.Location = new Point(239, 393);
         panel1.Name = "panel1";
         panel1.Padding = new Padding(10);
         panel1.Size = new Size(230, 385);
@@ -254,7 +433,7 @@ partial class AdminUserMainMenu {
         userLabel.TabIndex = 0;
         userLabel.Text = "Gestion des Utilisateurs";
         userLabel.TextAlign = ContentAlignment.MiddleCenter;
-        userLabel.Click += this.userLabel_Click;
+
         // 
         // AdminUserMainMenu
         // 
@@ -268,6 +447,10 @@ partial class AdminUserMainMenu {
         this.Text = "AdminUserMainMenu";
         bottomBarPanel.ResumeLayout(false);
         tableLayoutPanel1.ResumeLayout(false);
+        panel3.ResumeLayout(false);
+        panel3.PerformLayout();
+        panel2.ResumeLayout(false);
+        panel2.PerformLayout();
         panel1.ResumeLayout(false);
         userManagementPanel.ResumeLayout(false);
         this.ResumeLayout(false);
@@ -293,4 +476,18 @@ partial class AdminUserMainMenu {
     private ComboBox roleSelector;
     private Button createRoleButton;
     private Label roleLabel;
+    private Panel panel2;
+    private Button FournisseurCreateBtn;
+    private Label fournisseurLabel;
+    private Panel panel3;
+    private Label label1;
+    private ListBox ShipmentListBox;
+    private TextBox ShipmentFiltreTextbox;
+    private Button ShipmentCreateBtn;
+    private TextBox FournisseurFiltreTextBox;
+    private ListBox FournisseurListBox;
+    private Button ShipmentViewBtn;
+    private Button FournisseurDeleteBtn;
+    private Button FournisseurEditBtn;
+    private Button FournisseurViewBtn;
 }

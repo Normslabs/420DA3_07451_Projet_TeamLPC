@@ -23,6 +23,13 @@ public class FournisseurDAO : AbstractDao<Fournisseur, int> {
             .SingleOrDefault();
     }
 
+    public List<Fournisseur> SearchFournisseur(string Filter) {
+        return this.Context.GetDbSet<Fournisseur>()
+            .Where(fournisseur => fournisseur.Id.ToString().StartsWith(Filter) || (fournisseur.SupplierName != null && fournisseur.SupplierName.StartsWith(Filter)))
+            .ToList();
+
+    }
+
 
 
 

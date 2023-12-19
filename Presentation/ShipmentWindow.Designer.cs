@@ -90,7 +90,7 @@ partial class ShipmentWindow {
         // 
         // Actionbtn
         // 
-        Actionbtn.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
+        Actionbtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
         Actionbtn.Location = new Point(441, 23);
         Actionbtn.Name = "Actionbtn";
         Actionbtn.Size = new Size(92, 40);
@@ -101,7 +101,7 @@ partial class ShipmentWindow {
         // 
         // Exitbtn
         // 
-        Exitbtn.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
+        Exitbtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
         Exitbtn.Location = new Point(539, 23);
         Exitbtn.Name = "Exitbtn";
         Exitbtn.Size = new Size(92, 40);
@@ -118,7 +118,6 @@ partial class ShipmentWindow {
         ServicelistBox.Name = "ServicelistBox";
         ServicelistBox.Size = new Size(259, 94);
         ServicelistBox.TabIndex = 5;
-
         // 
         // label3
         // 

@@ -92,20 +92,20 @@ partial class FournisseurWindow {
         Datapanel.Name = "Datapanel";
         Datapanel.Size = new Size(634, 444);
         Datapanel.TabIndex = 2;
-
         // 
         // label8
         // 
+        label8.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
         label8.AutoSize = true;
         label8.Location = new Point(381, 151);
         label8.Name = "label8";
         label8.Size = new Size(133, 15);
         label8.TabIndex = 15;
         label8.Text = "Adresse du fournisseur :";
-
         // 
         // AdressecomboBox
         // 
+        AdressecomboBox.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
         AdressecomboBox.FormattingEnabled = true;
         AdressecomboBox.Location = new Point(381, 169);
         AdressecomboBox.Name = "AdressecomboBox";
@@ -124,7 +124,7 @@ partial class FournisseurWindow {
         // 
         // ActionBtn
         // 
-        ActionBtn.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
+        ActionBtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
         ActionBtn.Location = new Point(381, 24);
         ActionBtn.Name = "ActionBtn";
         ActionBtn.Size = new Size(122, 43);
@@ -135,7 +135,7 @@ partial class FournisseurWindow {
         // 
         // ExitBtn
         // 
-        ExitBtn.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
+        ExitBtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
         ExitBtn.Location = new Point(509, 24);
         ExitBtn.Name = "ExitBtn";
         ExitBtn.Size = new Size(122, 43);
@@ -146,6 +146,7 @@ partial class FournisseurWindow {
         // 
         // FournisseurNomtextBox
         // 
+        FournisseurNomtextBox.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
         FournisseurNomtextBox.Location = new Point(381, 125);
         FournisseurNomtextBox.Name = "FournisseurNomtextBox";
         FournisseurNomtextBox.PlaceholderText = "Nom du fournisseur";
@@ -154,13 +155,13 @@ partial class FournisseurWindow {
         // 
         // label7
         // 
+        label7.Anchor =  AnchorStyles.Top | AnchorStyles.Right;
         label7.AutoSize = true;
         label7.Location = new Point(381, 107);
         label7.Name = "label7";
         label7.Size = new Size(119, 15);
         label7.TabIndex = 11;
         label7.Text = "Nom du fournisseur :";
-
         // 
         // EmailContacttextBox
         // 
@@ -187,7 +188,6 @@ partial class FournisseurWindow {
         label5.Size = new Size(170, 15);
         label5.TabIndex = 8;
         label5.Text = "Adresse du contact d'urgence :";
-
         // 
         // AdresseContacttextBox
         // 
@@ -213,7 +213,6 @@ partial class FournisseurWindow {
         label4.Size = new Size(156, 15);
         label4.TabIndex = 5;
         label4.Text = "Nom du contact d'urgence :";
-
         // 
         // PrenomContacttextBox1
         // 

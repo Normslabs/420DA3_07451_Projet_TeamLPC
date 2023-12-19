@@ -85,7 +85,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
         this.ShippingOrderIdnumericUpDown.Value = shipment.Id;
         this.TrackingtextBox.Text = shipment.TrackingNumber;
         this.ServicelistBox.SelectedItem = shipment.Service;
-       
+
     }
 
     private void LoadShipmentDataInComboBox() {
@@ -96,8 +96,8 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
 
     private void SaveDataInInstance() {
         this.workingInstance.Service = (ShipmentDTO.ShipmentServiceEnum) this.ServicelistBox.SelectedItem;
-    } 
- 
+    }
+
     private void Exitbtn_Click(object sender, EventArgs e) {
         this.DialogResult = DialogResult.Cancel;
     }

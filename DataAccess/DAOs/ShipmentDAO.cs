@@ -25,6 +25,13 @@ public class ShipmentDAO : AbstractDao<ShipmentDTO, int> {
             .SingleOrDefault();
     }
 
+    public List<ShipmentDTO> SearchShipment(string Filter) {
+        return this.Context.GetDbSet<ShipmentDTO>()
+            .Where(shipment => shipment.Id.ToString().StartsWith(Filter) || (shipment.TrackingNumber != null && shipment.TrackingNumber.StartsWith(Filter)))
+            .ToList();
+       
+    }
+
 
 
   
