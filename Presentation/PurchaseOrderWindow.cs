@@ -24,4 +24,8 @@ public partial class PurchaseOrderWindow : Form {
     private void PurchaseOrderWindow_Load(object sender, EventArgs e) {
 
     }
+
+    private void textBox1_TextChanged(object sender, EventArgs e) {
+
+    }
 }

@@ -29,6 +29,14 @@ public class PurchaseOrderDAO : AbstractDao<PurchaseOrder, int> {
             .First();
     }
 
+    //ajouter au service
+    public List<PurchaseOrder> SearchByProductName(string ProductName) {
+        return this.Context.GetDbSet<PurchaseOrder>()
+            .Include(po => po.Product)
+            .Where(po => po.Product != null && po.Product.Name != null && po.Product.Name.StartsWith(ProductName))
+            .ToList();
+    }
+
 
 
 }
