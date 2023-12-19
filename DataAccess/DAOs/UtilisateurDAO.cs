@@ -67,4 +67,13 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
             .Include(user => user.EntrepotDeTravail)
             .SingleOrDefault();
     }
+
+    public List<Utilisateur> SearchUsersByRoleName(string filter) {
+        return this.Context.GetDbSet<Utilisateur>()
+            .Include(user => user.Roles)
+            .Where(user => user.Roles.Any(
+                role => role.RoleName.StartsWith(filter)
+                )
+            ).ToList();
+    }
 }

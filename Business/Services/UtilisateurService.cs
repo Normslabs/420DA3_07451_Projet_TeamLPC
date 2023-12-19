@@ -37,7 +37,9 @@ public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
         return this.Dao.GetByUsername(username);
     }
 
-
+    public List<Utilisateur> SearchUsersByRoleName(string roleNameFilter) {
+        return this.Dao.SearchUsersByRoleName(roleNameFilter);
+    }
 
     public override void Shutdown() {
         try {
