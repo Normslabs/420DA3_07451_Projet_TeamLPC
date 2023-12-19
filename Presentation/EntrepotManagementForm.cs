@@ -24,7 +24,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
     public EntrepotManagementForm(AbstractFacade facade) {
         this.ParentFacade = facade;
         this.InitializeComponent();
-        this.LoadAdresseInComboBox(this.ParentFacade.GetService<AdresseService>().GetAllAddresses());
+        this.LoadAdresseInComboBox();
     }
 
     public DialogResult OpenForCreation(Entrepot blankInstance) {
@@ -51,7 +51,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
         return this.OpenFor(instance);
     }
 
-    public void LoadAdresseInComboBox(List<Adresse> adresselist) {
+    public void LoadAdresseInComboBox() {
         this.entrepotadresseComboBox.DataSource = this.ParentFacade.GetService<AdresseService>().GetAllAddresses();
     }
 
@@ -59,7 +59,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
         this.workingInstance = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
-               this.ActivateControls();
+                this.ActivateControls();
                 break;
             case ViewIntentEnum.Edition:
                 this.ActivateControls();
