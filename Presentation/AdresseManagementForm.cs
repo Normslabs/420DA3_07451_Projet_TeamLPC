@@ -73,33 +73,33 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
 
     private void ActivateControls() {
         this.IdField.Enabled = false;
-        this.villeTextBox.Enabled = true;
         this.numerociviqueTextBox.Enabled = true;
-        this.paysTextBox.Enabled = true;
+        this.rueTextBox.Enabled = true;
+        this.villeTextBox.Enabled = true;
         this.codepostalTextBox.Enabled = true;
         this.provinceTextBox.Enabled = true;
-        this.rueTextBox.Enabled = true;
+        this.paysTextBox.Enabled = true;
 
     }
 
     private void DeactivateControls() {
         this.IdField.Enabled = false;
-        this.villeTextBox.Enabled = false;
         this.numerociviqueTextBox.Enabled = false;
-        this.paysTextBox.Enabled = false;
+        this.rueTextBox.Enabled = false;
+        this.villeTextBox.Enabled = false;
         this.codepostalTextBox.Enabled = false;
         this.provinceTextBox.Enabled = false;
-        this.rueTextBox.Enabled = false;
+        this.paysTextBox.Enabled = false;
     }
 
     private void LoadAdresseInControls(Adresse adresse) {
         this.IdField.Value = adresse.Id;
-        this.villeTextBox.Text = adresse.Ville;
-        this.numerociviqueTextBox.Text = adresse.NumeroCivique;
-        this.paysTextBox.Text = adresse.Pays;
+        this.numerociviqueTextBox.Text = adresse.Ville;
+        this.rueTextBox.Text = adresse.NumeroCivique;
+        this.villeTextBox.Text = adresse.Pays;
         this.codepostalTextBox.Text = adresse.CodePostal;
         this.provinceTextBox.Text = adresse.Province;
-        this.rueTextBox.Text = adresse.Rue;
+        this.paysTextBox.Text = adresse.Rue;
 
     }
 
@@ -107,13 +107,12 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
         this.DialogResult = DialogResult.Cancel;
     }
 
-    private void ActionnButton_Click(object sender, EventArgs e) 
-    {
+    private void ActionnButton_Click(object sender, EventArgs e) {
         try {
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
                 case ViewIntentEnum.Edition:
-                   
+                    this.SavaDataInTheInstance();
                     break;
                 case ViewIntentEnum.Deletion:
                 case ViewIntentEnum.Visualization:
@@ -127,4 +126,45 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
             return;
         }
     }
+
+    private void ValidatingFields() 
+    {
+        if(!Adresse.ValiderNumeroCivique(this.numerociviqueTextBox.Text)) 
+        {
+            throw new Exception(" Numéro civique invalide ");
+        }
+        if (!Adresse.ValiderRue(this.rueTextBox.Text)) 
+        {
+            throw new Exception(" Rue invalide ");
+        }
+        if (!Adresse.ValiderVille(this.villeTextBox.Text)) {
+            throw new Exception(" Ville invalide ");
+        }
+        if (!Adresse.ValiderCodePostal(this.codepostalTextBox.Text)) {
+            throw new Exception(" Code Postal invalide ");
+        }
+        if (!Adresse.ValiderProvince(this.provinceTextBox.Text)) {
+            throw new Exception(" Province invalide ");
+        }
+        if (!Adresse.ValiderPays(this.paysTextBox.Text)) {
+            throw new Exception(" Pays invalide ");
+        }
+
+    }
+
+    private void SavaDataInTheInstance() 
+    { 
+       this.ValidatingFields();
+       this.workingInstance.NumeroCivique = this.numerociviqueTextBox.Text;
+       this.workingInstance.Rue = this.rueTextBox.Text;
+       this.workingInstance.Ville = this.villeTextBox.Text;
+       this.workingInstance.CodePostal = this.codepostalTextBox.Text;
+       this.workingInstance.Province = this.provinceTextBox.Text;
+       this.workingInstance.Pays = this.paysTextBox.Text;   
+    
+    }
+
+
+
+
 }

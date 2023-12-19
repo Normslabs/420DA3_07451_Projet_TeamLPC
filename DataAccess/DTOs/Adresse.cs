@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class Adresse : AbstractDTO<int> {
 
-    public const int MAX_VILLE_LENGTH = 58;
+   
     public const int MAX_NUMEROCIVIQUE_LENGTH = 8;
     public const int MAX_PAYS_LENGTH = 42;
     public const int MAX_CODEPOSTAL_LENGTH = 6;
     public const int MAX_PROVINCE_LENGTH = 38;
     public const int MAX_RUE_LENGTH = 25;
+    public const int MAX_VILLE_LENGTH = 25;
   
     public Fournisseur? AdresseFournisseur { get; set; } = null!;
     public Entrepot? AdresseEntrepot { get; set; } = null!;
@@ -57,6 +58,36 @@ public class Adresse : AbstractDTO<int> {
         this.Rowversion = rowversion;
         this.Rue = rue;
 
+    }
+
+    public static bool ValiderNumeroCivique(string numerocivique) 
+    {
+        return numerocivique.Length <= MAX_NUMEROCIVIQUE_LENGTH;
+    }
+
+    public static bool ValiderCodePostal(string postalCode) 
+    {
+        return postalCode.Length <= MAX_CODEPOSTAL_LENGTH;
+    }
+
+    public static bool ValiderPays(string pays) 
+    {
+        return pays.Length <= MAX_PAYS_LENGTH;
+    }
+
+    public static bool ValiderProvince( string province) 
+    { 
+       return province.Length <= MAX_PROVINCE_LENGTH;
+    }
+
+    public static bool ValiderRue(string rue) 
+    {
+       return rue.Length <= MAX_RUE_LENGTH;
+    } 
+
+    public static bool ValiderVille(string ville) 
+    {
+        return ville.Length <= MAX_VILLE_LENGTH;
     }
 
 

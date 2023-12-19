@@ -27,18 +27,18 @@ partial class AdresseManagementForm {
         tableLayoutPanel1 = new TableLayoutPanel();
         tableLayoutPanel2 = new TableLayoutPanel();
         panel2 = new Panel();
-        rueTextBox = new TextBox();
-        rueLabel = new Label();
+        paysTextBox = new TextBox();
+        paysLabel = new Label();
         provinceTextBox = new TextBox();
         provinceLabel = new Label();
         codepostalTextBox = new TextBox();
         codepostalLabel = new Label();
-        paysTextBox = new TextBox();
-        paysLabel = new Label();
-        numerociviqueTextBox = new TextBox();
-        numeriqueciviqueLabel = new Label();
         villeTextBox = new TextBox();
         villeLabel = new Label();
+        rueTextBox = new TextBox();
+        rueLabel = new Label();
+        numerociviqueTextBox = new TextBox();
+        numerociviqueLabel = new Label();
         IdField = new NumericUpDown();
         IdLabel = new Label();
         panel1 = new Panel();
@@ -83,18 +83,18 @@ partial class AdresseManagementForm {
         // 
         // panel2
         // 
-        panel2.Controls.Add(rueTextBox);
-        panel2.Controls.Add(rueLabel);
+        panel2.Controls.Add(paysTextBox);
+        panel2.Controls.Add(paysLabel);
         panel2.Controls.Add(provinceTextBox);
         panel2.Controls.Add(provinceLabel);
         panel2.Controls.Add(codepostalTextBox);
         panel2.Controls.Add(codepostalLabel);
-        panel2.Controls.Add(paysTextBox);
-        panel2.Controls.Add(paysLabel);
-        panel2.Controls.Add(numerociviqueTextBox);
-        panel2.Controls.Add(numeriqueciviqueLabel);
         panel2.Controls.Add(villeTextBox);
         panel2.Controls.Add(villeLabel);
+        panel2.Controls.Add(rueTextBox);
+        panel2.Controls.Add(rueLabel);
+        panel2.Controls.Add(numerociviqueTextBox);
+        panel2.Controls.Add(numerociviqueLabel);
         panel2.Controls.Add(IdField);
         panel2.Controls.Add(IdLabel);
         panel2.Dock = DockStyle.Fill;
@@ -104,22 +104,22 @@ partial class AdresseManagementForm {
         panel2.Size = new Size(368, 393);
         panel2.TabIndex = 0;
         // 
-        // rueTextBox
+        // paysTextBox
         // 
-        rueTextBox.Dock = DockStyle.Top;
-        rueTextBox.Location = new Point(20, 319);
-        rueTextBox.Name = "rueTextBox";
-        rueTextBox.Size = new Size(328, 23);
-        rueTextBox.TabIndex = 13;
+        paysTextBox.Dock = DockStyle.Top;
+        paysTextBox.Location = new Point(20, 319);
+        paysTextBox.Name = "paysTextBox";
+        paysTextBox.Size = new Size(328, 23);
+        paysTextBox.TabIndex = 13;
         // 
-        // rueLabel
+        // paysLabel
         // 
-        rueLabel.Dock = DockStyle.Top;
-        rueLabel.Location = new Point(20, 296);
-        rueLabel.Name = "rueLabel";
-        rueLabel.Size = new Size(328, 23);
-        rueLabel.TabIndex = 12;
-        rueLabel.Text = "Rue :";
+        paysLabel.Dock = DockStyle.Top;
+        paysLabel.Location = new Point(20, 296);
+        paysLabel.Name = "paysLabel";
+        paysLabel.Size = new Size(328, 23);
+        paysLabel.TabIndex = 12;
+        paysLabel.Text = "Pays :";
         // 
         // provinceTextBox
         // 
@@ -155,56 +155,56 @@ partial class AdresseManagementForm {
         codepostalLabel.TabIndex = 8;
         codepostalLabel.Text = "Code Postal : ";
         // 
-        // paysTextBox
-        // 
-        paysTextBox.Dock = DockStyle.Top;
-        paysTextBox.Location = new Point(20, 181);
-        paysTextBox.Name = "paysTextBox";
-        paysTextBox.Size = new Size(328, 23);
-        paysTextBox.TabIndex = 7;
-        // 
-        // paysLabel
-        // 
-        paysLabel.Dock = DockStyle.Top;
-        paysLabel.Location = new Point(20, 158);
-        paysLabel.Name = "paysLabel";
-        paysLabel.Size = new Size(328, 23);
-        paysLabel.TabIndex = 6;
-        paysLabel.Text = "Pays :";
-        // 
-        // numerociviqueTextBox
-        // 
-        numerociviqueTextBox.Dock = DockStyle.Top;
-        numerociviqueTextBox.Location = new Point(20, 135);
-        numerociviqueTextBox.Name = "numerociviqueTextBox";
-        numerociviqueTextBox.Size = new Size(328, 23);
-        numerociviqueTextBox.TabIndex = 5;
-        // 
-        // numeriqueciviqueLabel
-        // 
-        numeriqueciviqueLabel.Dock = DockStyle.Top;
-        numeriqueciviqueLabel.Location = new Point(20, 112);
-        numeriqueciviqueLabel.Name = "numeriqueciviqueLabel";
-        numeriqueciviqueLabel.Size = new Size(328, 23);
-        numeriqueciviqueLabel.TabIndex = 4;
-        numeriqueciviqueLabel.Text = "Numéro Civique : ";
-        // 
         // villeTextBox
         // 
         villeTextBox.Dock = DockStyle.Top;
-        villeTextBox.Location = new Point(20, 89);
+        villeTextBox.Location = new Point(20, 181);
         villeTextBox.Name = "villeTextBox";
         villeTextBox.Size = new Size(328, 23);
-        villeTextBox.TabIndex = 3;
+        villeTextBox.TabIndex = 7;
         // 
         // villeLabel
         // 
         villeLabel.Dock = DockStyle.Top;
-        villeLabel.Location = new Point(20, 66);
+        villeLabel.Location = new Point(20, 158);
         villeLabel.Name = "villeLabel";
         villeLabel.Size = new Size(328, 23);
-        villeLabel.TabIndex = 2;
+        villeLabel.TabIndex = 6;
         villeLabel.Text = "Ville :";
+        // 
+        // rueTextBox
+        // 
+        rueTextBox.Dock = DockStyle.Top;
+        rueTextBox.Location = new Point(20, 135);
+        rueTextBox.Name = "rueTextBox";
+        rueTextBox.Size = new Size(328, 23);
+        rueTextBox.TabIndex = 5;
+        // 
+        // rueLabel
+        // 
+        rueLabel.Dock = DockStyle.Top;
+        rueLabel.Location = new Point(20, 112);
+        rueLabel.Name = "rueLabel";
+        rueLabel.Size = new Size(328, 23);
+        rueLabel.TabIndex = 4;
+        rueLabel.Text = "Rue : ";
+        // 
+        // numerociviqueTextBox
+        // 
+        numerociviqueTextBox.Dock = DockStyle.Top;
+        numerociviqueTextBox.Location = new Point(20, 89);
+        numerociviqueTextBox.Name = "numerociviqueTextBox";
+        numerociviqueTextBox.Size = new Size(328, 23);
+        numerociviqueTextBox.TabIndex = 3;
+        // 
+        // numerociviqueLabel
+        // 
+        numerociviqueLabel.Dock = DockStyle.Top;
+        numerociviqueLabel.Location = new Point(20, 66);
+        numerociviqueLabel.Name = "numerociviqueLabel";
+        numerociviqueLabel.Size = new Size(328, 23);
+        numerociviqueLabel.TabIndex = 2;
+        numerociviqueLabel.Text = "Numéro Civique : ";
         // 
         // IdField
         // 
@@ -301,18 +301,18 @@ partial class AdresseManagementForm {
     private TableLayoutPanel tableLayoutPanel2;
     private Panel panel1;
     private Panel panel2;
-    private TextBox rueTextBox;
-    private Label rueLabel;
+    private TextBox paysTextBox;
+    private Label paysLabel;
     private TextBox provinceTextBox;
     private Label provinceLabel;
     private TextBox codepostalTextBox;
     private Label codepostalLabel;
-    private TextBox paysTextBox;
-    private Label paysLabel;
-    private TextBox numerociviqueTextBox;
-    private Label numeriqueciviqueLabel;
     private TextBox villeTextBox;
     private Label villeLabel;
+    private TextBox rueTextBox;
+    private Label rueLabel;
+    private TextBox numerociviqueTextBox;
+    private Label numerociviqueLabel;
     private NumericUpDown IdField;
     private Label IdLabel;
     private Button actionButton;
