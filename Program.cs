@@ -40,7 +40,7 @@ internal static class Program {
         } else if (args.Contains("-filipeTests")) {
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new )
+            Application.Run(new)
 
         } else if (args.Contains("-maximilianoTests")) {
 

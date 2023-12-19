@@ -21,7 +21,7 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
 
     public AdresseManagementForm(AbstractFacade facade) {
         this.ParentFacade = facade;
-        InitializeComponent();
+        this.InitializeComponent();
     }
 
     public DialogResult OpenForCreation(Adresse blankInstance) {
@@ -32,7 +32,7 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
 
     public DialogResult OpenForDeletion(Adresse instance) {
         this.workingIntent = ViewIntentEnum.Deletion;
-        this.actionButton.Text = " Suppprimer !";
+        this.actionButton.Text = " Supprimer !";
         return this.OpenFor(instance);
     }
 
@@ -137,16 +137,20 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
         {
             throw new Exception(" Rue invalide ");
         }
-        if (!Adresse.ValiderVille(this.villeTextBox.Text)) {
+        if (!Adresse.ValiderVille(this.villeTextBox.Text)) 
+        {
             throw new Exception(" Ville invalide ");
         }
-        if (!Adresse.ValiderCodePostal(this.codepostalTextBox.Text)) {
+        if (!Adresse.ValiderCodePostal(this.codepostalTextBox.Text)) 
+        {
             throw new Exception(" Code Postal invalide ");
         }
-        if (!Adresse.ValiderProvince(this.provinceTextBox.Text)) {
+        if (!Adresse.ValiderProvince(this.provinceTextBox.Text)) 
+        {
             throw new Exception(" Province invalide ");
         }
-        if (!Adresse.ValiderPays(this.paysTextBox.Text)) {
+        if (!Adresse.ValiderPays(this.paysTextBox.Text)) 
+        {
             throw new Exception(" Pays invalide ");
         }
 
@@ -163,8 +167,6 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
        this.workingInstance.Pays = this.paysTextBox.Text;   
     
     }
-
-
 
 
 }

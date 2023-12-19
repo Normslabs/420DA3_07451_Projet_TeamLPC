@@ -42,4 +42,9 @@ public class Entrepot : AbstractDTO<int> {
 
     }
 
+    public static bool ValiderNomEntrepot(string nomEntrepot) 
+    {
+        return nomEntrepot.Length <= MAX_NOMENTREPOT_LENGTH;
+    }
+
 }
