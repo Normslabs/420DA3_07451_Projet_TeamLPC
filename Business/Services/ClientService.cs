@@ -15,17 +15,19 @@ using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
-public class ClientService: AbstractDtoService<ClientsDTO,int> { 
+public class ClientService : AbstractDtoService<ClientsDTO, int> {
 
     protected override ClientsDAO Dao { get; }
-    protected override ClientWindows DtoManagementWindow {  get; }
+    protected override ClientWindows DtoManagementWindow { get; }
 
     public ClientService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(facade);
         this.Dao = new ClientsDAO(context);
-        this.DtoManagementWindow = new ClientWindows(facade); 
+        this.DtoManagementWindow = new ClientWindows(facade);
     }
-    
+    public List<ClientsDTO> SearchClient(string filter) {
+        return this.Dao.SearchClients(filter);
+    }
     public ClientsDTO? GetClientId(int clientId) {
         return this.Dao.GetById(clientId);
     }

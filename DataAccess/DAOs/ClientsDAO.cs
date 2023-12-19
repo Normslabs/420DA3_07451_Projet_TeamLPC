@@ -41,6 +41,13 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
             .ToList();
     }
 
+    public List<ClientsDTO> SearchClients(string filter) {
+        return this.Context.GetDbSet<ClientsDTO>()
+            .Where(client => client.Id.ToString()
+            .StartsWith(filter) || client.Nom.StartsWith(filter))
+            .ToList();
+
+    }
 }
 
 
