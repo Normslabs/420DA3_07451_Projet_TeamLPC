@@ -448,6 +448,68 @@ internal class AppDbContext : AbstractContext {
 
 
         #endregion
+
+        #region Fournisseur et Shipment
+
+
+        // fournisseur 
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .ToTable("Fournisseur")
+            .HasKey(fournisseur => fournisseur.Id);
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
+
+
+            _ = modelBuilder.Entity<Fournisseur>()
+              .Property(fournisseur => fournisseur.SupplierName)
+              .HasColumnName("Nom du fournisseur")
+              .HasColumnType($"nvarchar({Fournisseur.SUPPLIER_NAME_MAXLENGHT}");
+
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.AdresseId)
+            .HasColumnName ("AdresseId")
+            .HasColumnType ("int");
+
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.PrenomContact)
+            .HasColumnName("Prenom du Contact")
+            .HasColumnType($"nvarchar({Fournisseur.PRENOMCONTACT_MAX_LENGHT}");
+
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.NomContact)
+            .HasColumnName("Nom du contact")
+            .HasColumnType ($"nvarchar({Fournisseur.NOMCONTACT_MAX_LENGHT}");
+
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.AdresseContact)
+            .HasColumnName("Adresse du contact")
+            .HasColumnType ($"nvarchar({Fournisseur.ADRESSECONTACT_MAX_LENGHT}");
+
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.EmailContact)
+            .HasColumnName("Email du contact")
+            .HasColumnType ($"nvarchar({Fournisseur.EMAILCONTACT_MAX_LENGHT}");
+
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.RowVersion)
+            .HasColumnName("RowVersion")
+            .IsRowVersion();
+
+
+        _ = modelBuilder.Entity<Fournisseur>()
+            .HasOne(fournisseur => fournisseur.SupplierAdresse)
+            .WithOne(adresse => adresse.AdresseFournisseur);
+        #endregion
     }
 
 

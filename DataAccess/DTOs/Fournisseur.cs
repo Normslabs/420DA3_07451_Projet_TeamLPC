@@ -11,6 +11,14 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class Fournisseur : AbstractDTO<int> {
 
 
+
+    public const int PRENOMCONTACT_MAX_LENGHT = 20;
+    public const int NOMCONTACT_MAX_LENGHT = 20;
+    public const int SUPPLIER_NAME_MAXLENGHT = 100;
+    public const int ADRESSECONTACT_MAX_LENGHT = 80;
+    public const int EMAILCONTACT_MAX_LENGHT = 128;
+
+
     public int AdresseId { get; set; } 
 
     public byte[] RowVersion { get; set; } = null!;
@@ -23,7 +31,6 @@ public class Fournisseur : AbstractDTO<int> {
 
     public string SupplierName { get; set; } = null!;
 
-    public const int SUPPLIER_NAME_MAXLENGHT = 100;
 
 
     public Adresse SupplierAdresse { get; set; } = null!;
