@@ -31,11 +31,11 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
 
     public byte[] RowVersion { get; set; }
 
-    public ShipmentDTO Shipment { get; set; } = null!;
+    public ShipmentDTO? Shipment { get; set; } = null!;
     public int? ShipmentId { get; set; }
     public ShippingOrderStatusEnum Status { get; set; }
 
-    public Utilisateur EmployeEntrepot { get; set; } = null!;
+    public Utilisateur? EmployeEntrepot { get; set; } = null!;
 
     public int? EmployeEntrepotId { get; set; }
 

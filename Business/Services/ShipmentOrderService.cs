@@ -29,6 +29,9 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
     public List<ShipmentOrderDTO> GetClientShipmentOrderById(int clientid) {
         return this.GetClientShipmentOrderById(clientid);
     }
+    public List<ShipmentOrderDTO> GetAllShipmentOrders() {
+        return this.Dao.GetAll();
+    }
 
     public List<ShipmentOrderDTO> GetIncompleteOrdersAssignedTo(int orderId) {
         return this.GetIncompleteOrdersAssignedTo(orderId);

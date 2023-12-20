@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 
@@ -45,5 +46,9 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
 
     private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
 
+    }
+    
+    public void LoadClientComboBox() {
+        this.facade.GetService<ClientService>().
     }
 }
