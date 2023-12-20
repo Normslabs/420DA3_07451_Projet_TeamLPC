@@ -23,8 +23,8 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
 
     public ShipmentWindow(AbstractFacade facade) {
         this.facade = facade;
-        InitializeComponent();
-        LoadShipmentDataInComboBox();
+        this.InitializeComponent();
+        this.LoadShipmentDataInComboBox();
     }
 
     public DialogResult OpenForCreation(ShipmentDTO blankInstance) {
@@ -90,7 +90,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
 
     private void LoadShipmentDataInComboBox() {
         foreach (ShipmentDTO.ShipmentServiceEnum ShipmentService in Enum.GetValues(typeof(ShipmentDTO.ShipmentServiceEnum))) {
-            this.ServicelistBox.Items.Add(ShipmentService);
+            _ = this.ServicelistBox.Items.Add(ShipmentService);
         }
     }
 
@@ -104,6 +104,10 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
 
     private void Actionbtn_Click(object sender, EventArgs e) {
         try {
+            if (!this.ValidateFields()) {
+                return;
+            }
+            
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
                     this.SaveDataInInstance();
@@ -123,4 +127,22 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
             return;
         }
     }
+
+
+    private bool ValidateFields() {
+
+        if (string.IsNullOrWhiteSpace(this.TrackingtextBox.Text)) {
+            _ = MessageBox.Show("Le champ 'Tracking number' est requis.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
+
+        if (this.ServicelistBox.SelectedItem == null) {
+            _ = MessageBox.Show("Veuillez sélectionner un service.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
+        return true;
+    }
+
 }
