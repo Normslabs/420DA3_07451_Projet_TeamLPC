@@ -329,7 +329,8 @@ internal class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasMany(shipmentO => shipmentO.AssociationsProduits)
-            .WithMany(produit => produit.ShippingOrderProducts);
+            .WithOne(sop => sop.ShipmentOrderDTO)
+            .HasForeignKey(sop => sop.ShipmentOrderDTOId);
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasOne(shipmento => shipmento.EmployeEntrepot);
