@@ -15,21 +15,20 @@ public class Fournisseur : AbstractDTO<int> {
 
     public byte[] RowVersion { get; set; } = null!;
 
-    public Adresse SupplierAdresse { get; set; } = null!;
-
     public string PrenomContact { get; set; }
 
     public string NomContact { get; set; }
     public string AdresseContact { get; set; }
     public string EmailContact { get; set; }
 
-
-
-
-public string SupplierName { get; set; } = null!;
-
+    public string SupplierName { get; set; } = null!;
 
     public const int SUPPLIER_NAME_MAXLENGHT = 100;
+
+
+    public Adresse SupplierAdresse { get; set; } = null!;
+    // Manquait propriété de navigation - Prof
+    public List<Produit> ProduitsFournis { get; set; } = new List<Produit>();
 
 
 
