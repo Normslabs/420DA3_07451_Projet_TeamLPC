@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
-internal class ShippingOrderProducts {
+public class ShippingOrderProducts {
     public int ProduitId;
     public int ShipmentOrderDTOId;
     public int Quantite;

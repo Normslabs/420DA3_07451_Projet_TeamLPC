@@ -334,10 +334,121 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasOne(shipmento => shipmento.EmployeEntrepot);
 
-            //Pas sure pour EmployeEntrepot a reverifier a le prof 
+        //Pas sure pour EmployeEntrepot a reverifier a le prof 
+
+
+
+        //Creation Produit
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.Description)
+            .IsRequired(false)
+            .HasColumnName("Description")
+            .HasColumnType("nvarchar(128)");
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.DoAutoRestock)
+            .HasColumnName("Description")
+            .HasColumnType("bit");
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.InstockQuantity)
+            .HasColumnName("InStockQTY")
+            .HasColumnType($"nvarchar({Produit.INSTOCK_MIN_QTY})");
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.Name)
+            .HasColumnName("Name")
+            .HasColumnType($"nvarchar({Produit.NAME_MAX_LENGTH})");
+
+
+        _ = modelBuilder.Entity<Produit>()
+           .Property(produit => produit.ClientsDTOId)
+           .HasColumnName("ClientsDTOId")
+           .HasColumnType("int");
+        
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.SupplierCode)
+            .IsRequired(false)
+            .HasColumnName("InStockQTY")
+            .HasColumnType($"nvarchar({Produit.SUPPLIERCODE_MAX_LENGTH})");
+
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.TargetStockQuantity)
+            .HasColumnName("TargetStockQuantity")
+            .HasColumnType("int");
+
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.UpcCode)
+            .HasColumnName("UPCCode")
+            .HasColumnType($"nvarchar({Produit.UPCCODE_MAX_LENGTH})");
+
+
+        _ = modelBuilder.Entity<Produit>()
+           .Property(produit => produit.WeightInKg)
+           .HasColumnName("WeightInKg")
+           .HasColumnType("int");
+
+        _ = modelBuilder.Entity<Produit>()
+            .HasMany(produit => produit.ShippingOrderProducts)
+            .WithOne(sop => sop.Produit)
+            .HasForeignKey(sop => sop.ProduitId);
+
+        _ = modelBuilder.Entity<Produit>()
+            .HasOne(produit => produit.Fournisseur)
+            .WithMany(fournisseur => fournisseur.ProduitsFournis)
+            .HasForeignKey(produit => produit.FournisseurId);
+
+        //Creation Purchase Order 
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .HasOne(po => po.DestinationWarehouse)
+            .WithMany(wh => wh.PurchaseOrders)
+            .HasForeignKey(po => po.DestinationWarehouseID);
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .HasOne(po => po.Product)
+            .WithMany(product => product.PurchaseOrders)
+            .HasForeignKey(po => po.ProductId);
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.ProductId)
+            .HasColumnName("ProductId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.QuantityOrdered)
+            .HasColumnName("QuantityOrdered")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.DestinationWarehouseID)
+            .HasColumnName("DestinationWarehouseID")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.DateCompleted)
+            .IsRequired(false)
+            .HasColumnName("DateCompleted")
+            .HasColumnType("datetime2");
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.DateCreated)
+            .HasColumnName("DateCreated")
+            .HasColumnType("datetime2")
+            .HasComputedColumnSql("getdate()");
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.Status)
+            .HasColumnName("Status")
+            .HasColumnType("nvarchar(16)");
 
 
         #endregion
     }
+
 
 }
