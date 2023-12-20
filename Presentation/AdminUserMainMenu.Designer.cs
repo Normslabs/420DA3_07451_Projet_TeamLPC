@@ -164,7 +164,7 @@ partial class AdminUserMainMenu {
         // ShipmentViewBtn
         // 
         this.ShipmentViewBtn.Dock = DockStyle.Top;
-        this.ShipmentViewBtn.Location = new Point(9, 177);
+        this.ShipmentViewBtn.Location = new Point(9, 222);
         this.ShipmentViewBtn.Margin = new Padding(3, 2, 3, 2);
         this.ShipmentViewBtn.Name = "ShipmentViewBtn";
         this.ShipmentViewBtn.Size = new Size(212, 26);
@@ -181,7 +181,7 @@ partial class AdminUserMainMenu {
         this.ShipmentListBox.Location = new Point(9, 113);
         this.ShipmentListBox.Margin = new Padding(3, 2, 3, 2);
         this.ShipmentListBox.Name = "ShipmentListBox";
-        this.ShipmentListBox.Size = new Size(212, 64);
+        this.ShipmentListBox.Size = new Size(212, 109);
         this.ShipmentListBox.TabIndex = 4;
         this.ShipmentListBox.SelectedIndexChanged += this.ShipmentListBox_SelectedIndexChanged;
         // 
@@ -239,7 +239,7 @@ partial class AdminUserMainMenu {
         // FournisseurDeleteBtn
         // 
         this.FournisseurDeleteBtn.Dock = DockStyle.Top;
-        this.FournisseurDeleteBtn.Location = new Point(9, 229);
+        this.FournisseurDeleteBtn.Location = new Point(9, 274);
         this.FournisseurDeleteBtn.Margin = new Padding(3, 2, 3, 2);
         this.FournisseurDeleteBtn.Name = "FournisseurDeleteBtn";
         this.FournisseurDeleteBtn.Size = new Size(212, 26);
@@ -251,7 +251,7 @@ partial class AdminUserMainMenu {
         // FournisseurEditBtn
         // 
         this.FournisseurEditBtn.Dock = DockStyle.Top;
-        this.FournisseurEditBtn.Location = new Point(9, 203);
+        this.FournisseurEditBtn.Location = new Point(9, 248);
         this.FournisseurEditBtn.Margin = new Padding(3, 2, 3, 2);
         this.FournisseurEditBtn.Name = "FournisseurEditBtn";
         this.FournisseurEditBtn.Size = new Size(212, 26);
@@ -263,7 +263,7 @@ partial class AdminUserMainMenu {
         // FournisseurViewBtn
         // 
         this.FournisseurViewBtn.Dock = DockStyle.Top;
-        this.FournisseurViewBtn.Location = new Point(9, 177);
+        this.FournisseurViewBtn.Location = new Point(9, 222);
         this.FournisseurViewBtn.Margin = new Padding(3, 2, 3, 2);
         this.FournisseurViewBtn.Name = "FournisseurViewBtn";
         this.FournisseurViewBtn.Size = new Size(212, 26);
@@ -280,7 +280,7 @@ partial class AdminUserMainMenu {
         this.FournisseurListBox.Location = new Point(9, 113);
         this.FournisseurListBox.Margin = new Padding(3, 2, 3, 2);
         this.FournisseurListBox.Name = "FournisseurListBox";
-        this.FournisseurListBox.Size = new Size(212, 64);
+        this.FournisseurListBox.Size = new Size(212, 109);
         this.FournisseurListBox.TabIndex = 5;
         this.FournisseurListBox.SelectedIndexChanged += this.FournisseurListBox_SelectedIndexChanged;
         // 
@@ -511,7 +511,7 @@ partial class AdminUserMainMenu {
         // deletebutton
         // 
         this.deletebutton.Dock = DockStyle.Top;
-        this.deletebutton.Location = new Point(10, 284);
+        this.deletebutton.Location = new Point(10, 275);
         this.deletebutton.Name = "deletebutton";
         this.deletebutton.Size = new Size(210, 26);
         this.deletebutton.TabIndex = 9;
@@ -522,9 +522,9 @@ partial class AdminUserMainMenu {
         // editClientbutton
         // 
         this.editClientbutton.Dock = DockStyle.Top;
-        this.editClientbutton.Location = new Point(10, 234);
+        this.editClientbutton.Location = new Point(10, 249);
         this.editClientbutton.Name = "editClientbutton";
-        this.editClientbutton.Size = new Size(210, 50);
+        this.editClientbutton.Size = new Size(210, 26);
         this.editClientbutton.TabIndex = 8;
         this.editClientbutton.Text = "Mettre a jour information clients";
         this.editClientbutton.UseVisualStyleBackColor = true;
@@ -533,7 +533,7 @@ partial class AdminUserMainMenu {
         // viewClientbutton1
         // 
         this.viewClientbutton1.Dock = DockStyle.Top;
-        this.viewClientbutton1.Location = new Point(10, 208);
+        this.viewClientbutton1.Location = new Point(10, 223);
         this.viewClientbutton1.Name = "viewClientbutton1";
         this.viewClientbutton1.Size = new Size(210, 26);
         this.viewClientbutton1.TabIndex = 7;
@@ -548,7 +548,7 @@ partial class AdminUserMainMenu {
         this.ClientslistBox1.ItemHeight = 15;
         this.ClientslistBox1.Location = new Point(10, 114);
         this.ClientslistBox1.Name = "ClientslistBox1";
-        this.ClientslistBox1.Size = new Size(210, 94);
+        this.ClientslistBox1.Size = new Size(210, 109);
         this.ClientslistBox1.TabIndex = 6;
         this.ClientslistBox1.SelectedIndexChanged += this.ClientslistBox1_SelectedIndexChanged;
         // 
@@ -690,7 +690,7 @@ partial class AdminUserMainMenu {
         // AdresseDeleteButton
         // 
         this.AdresseDeleteButton.Dock = DockStyle.Top;
-        this.AdresseDeleteButton.Location = new Point(9, 244);
+        this.AdresseDeleteButton.Location = new Point(9, 274);
         this.AdresseDeleteButton.Margin = new Padding(3, 2, 3, 2);
         this.AdresseDeleteButton.Name = "AdresseDeleteButton";
         this.AdresseDeleteButton.Size = new Size(212, 26);
@@ -702,7 +702,7 @@ partial class AdminUserMainMenu {
         // AdresseEditButton
         // 
         this.AdresseEditButton.Dock = DockStyle.Top;
-        this.AdresseEditButton.Location = new Point(9, 218);
+        this.AdresseEditButton.Location = new Point(9, 248);
         this.AdresseEditButton.Margin = new Padding(3, 2, 3, 2);
         this.AdresseEditButton.Name = "AdresseEditButton";
         this.AdresseEditButton.Size = new Size(212, 26);
@@ -714,7 +714,7 @@ partial class AdminUserMainMenu {
         // AdresseViewButton
         // 
         this.AdresseViewButton.Dock = DockStyle.Top;
-        this.AdresseViewButton.Location = new Point(9, 192);
+        this.AdresseViewButton.Location = new Point(9, 222);
         this.AdresseViewButton.Margin = new Padding(3, 2, 3, 2);
         this.AdresseViewButton.Name = "AdresseViewButton";
         this.AdresseViewButton.Size = new Size(212, 26);
@@ -731,7 +731,7 @@ partial class AdminUserMainMenu {
         this.AdresseListBox.Location = new Point(9, 113);
         this.AdresseListBox.Margin = new Padding(3, 2, 3, 2);
         this.AdresseListBox.Name = "AdresseListBox";
-        this.AdresseListBox.Size = new Size(212, 79);
+        this.AdresseListBox.Size = new Size(212, 109);
         this.AdresseListBox.TabIndex = 6;
         this.AdresseListBox.SelectedIndexChanged += this.AdresseListBox_SelectedIndexChanged;
         // 
