@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class EmployeBureauMainMenu : Form {
+internal partial class EmployeBureauMainMenu : Form {
 
     private readonly OfficeEmployeeFacade facade;
 
     public EmployeBureauMainMenu(OfficeEmployeeFacade facade) {
-        InitializeComponent();
+        this.InitializeComponent();
         this.facade = facade;
     }
 
