@@ -76,4 +76,22 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
                 )
             ).ToList();
     }
+
+    public List<Utilisateur> GetEmployesDEntrepot() {
+        return this.Context.GetDbSet<Utilisateur>()
+            .Include(user => user.Roles)
+            .Include(user => user.EntrepotDeTravail)
+            .Where(user => user.Roles.Any(role => role.Id == Role.WAREHOUSE_EMPLOYEE_ROLE_ID))
+            .ToList();
+    }
+
+    public List<Utilisateur> GetEmployesDEntrepot(Entrepot entrepot) {
+        return this.Context.GetDbSet<Utilisateur>()
+            .Include(user => user.Roles)
+            .Include(user => user.EntrepotDeTravail)
+            .Where(user => 
+                user.Roles.Any(role => role.Id == Role.WAREHOUSE_EMPLOYEE_ROLE_ID) 
+                && user.EntrepotDeTravail != null && user.EntrepotDeTravail.Id == entrepot.Id)
+            .ToList();
+    }
 }

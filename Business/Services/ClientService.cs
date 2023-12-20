@@ -36,6 +36,10 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
         return this.Dao.GetClientShipmentOrder(id);
     }
 
+    public List<ClientsDTO> GetAllClients() {
+        return this.Dao.GetAllClients();
+    }
+
     public override void Shutdown() {
         try {
             if (!this.DtoManagementWindow.IsDisposed) {
