@@ -46,14 +46,41 @@ partial class EmployeEntrepotMainMenu {
         this.unassignedSOListBox = new ListBox();
         this.userIncompleteSOListBox = new ListBox();
         this.warehouseIncompletePoListBox = new ListBox();
+        this.col1BottomTableLayout = new TableLayoutPanel();
+        this.col2BottomTableLayout = new TableLayoutPanel();
+        this.col3BottomTableLayout = new TableLayoutPanel();
+        this.col1RefreshButton = new Button();
+        this.col2RefreshButton = new Button();
+        this.col3RefreshButton = new Button();
+        this.optionsTableLayout = new TableLayoutPanel();
+        this.optionsMainPanel = new Panel();
+        this.shipOrderOptionsBox = new GroupBox();
+        this.assignToSelfButton = new Button();
+        this.markSoAsPickedUpButton = new Button();
+        this.markSoAsCompletedButton = new Button();
+        this.restockOrderOptionsBox = new GroupBox();
+        this.markPoAsCompletedButton = new Button();
+        this.quitButton = new Button();
         this.mainTableLayoutPanel.SuspendLayout();
         this.column4MainPanel.SuspendLayout();
+        this.column4CenterPanel.SuspendLayout();
+        this.column4BottomPanel.SuspendLayout();
         this.column3MainPanel.SuspendLayout();
         this.column3CenterPanel.SuspendLayout();
+        this.column3BottomPanel.SuspendLayout();
         this.column2MainPanel.SuspendLayout();
         this.column2CenterPanel.SuspendLayout();
+        this.column2BottomPanel.SuspendLayout();
         this.column1MainPanel.SuspendLayout();
         this.column1CenterPanel.SuspendLayout();
+        this.column1BottomPanel.SuspendLayout();
+        this.col1BottomTableLayout.SuspendLayout();
+        this.col2BottomTableLayout.SuspendLayout();
+        this.col3BottomTableLayout.SuspendLayout();
+        this.optionsTableLayout.SuspendLayout();
+        this.optionsMainPanel.SuspendLayout();
+        this.shipOrderOptionsBox.SuspendLayout();
+        this.restockOrderOptionsBox.SuspendLayout();
         this.SuspendLayout();
         // 
         // topBarPanel
@@ -105,15 +132,17 @@ partial class EmployeEntrepotMainMenu {
         // 
         // column4CenterPanel
         // 
+        this.column4CenterPanel.Controls.Add(this.optionsTableLayout);
         this.column4CenterPanel.Dock = DockStyle.Fill;
         this.column4CenterPanel.Location = new Point(5, 55);
         this.column4CenterPanel.Name = "column4CenterPanel";
-        this.column4CenterPanel.Padding = new Padding(5);
+        this.column4CenterPanel.Padding = new Padding(10);
         this.column4CenterPanel.Size = new Size(280, 645);
         this.column4CenterPanel.TabIndex = 5;
         // 
         // column4BottomPanel
         // 
+        this.column4BottomPanel.Controls.Add(this.quitButton);
         this.column4BottomPanel.Dock = DockStyle.Bottom;
         this.column4BottomPanel.Location = new Point(5, 700);
         this.column4BottomPanel.Name = "column4BottomPanel";
@@ -154,6 +183,7 @@ partial class EmployeEntrepotMainMenu {
         // 
         // column3BottomPanel
         // 
+        this.column3BottomPanel.Controls.Add(this.col3BottomTableLayout);
         this.column3BottomPanel.Dock = DockStyle.Bottom;
         this.column3BottomPanel.Location = new Point(5, 700);
         this.column3BottomPanel.Name = "column3BottomPanel";
@@ -194,6 +224,7 @@ partial class EmployeEntrepotMainMenu {
         // 
         // column2BottomPanel
         // 
+        this.column2BottomPanel.Controls.Add(this.col2BottomTableLayout);
         this.column2BottomPanel.Dock = DockStyle.Bottom;
         this.column2BottomPanel.Location = new Point(5, 700);
         this.column2BottomPanel.Name = "column2BottomPanel";
@@ -234,6 +265,7 @@ partial class EmployeEntrepotMainMenu {
         // 
         // column1BottomPanel
         // 
+        this.column1BottomPanel.Controls.Add(this.col1BottomTableLayout);
         this.column1BottomPanel.Dock = DockStyle.Bottom;
         this.column1BottomPanel.Location = new Point(5, 700);
         this.column1BottomPanel.Name = "column1BottomPanel";
@@ -280,6 +312,171 @@ partial class EmployeEntrepotMainMenu {
         this.warehouseIncompletePoListBox.Size = new Size(270, 635);
         this.warehouseIncompletePoListBox.TabIndex = 0;
         // 
+        // col1BottomTableLayout
+        // 
+        this.col1BottomTableLayout.ColumnCount = 3;
+        this.col1BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        this.col1BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
+        this.col1BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        this.col1BottomTableLayout.Controls.Add(this.col1RefreshButton, 1, 0);
+        this.col1BottomTableLayout.Dock = DockStyle.Fill;
+        this.col1BottomTableLayout.Location = new Point(0, 0);
+        this.col1BottomTableLayout.Name = "col1BottomTableLayout";
+        this.col1BottomTableLayout.RowCount = 1;
+        this.col1BottomTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.col1BottomTableLayout.Size = new Size(280, 50);
+        this.col1BottomTableLayout.TabIndex = 0;
+        // 
+        // col2BottomTableLayout
+        // 
+        this.col2BottomTableLayout.ColumnCount = 3;
+        this.col2BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        this.col2BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
+        this.col2BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        this.col2BottomTableLayout.Controls.Add(this.col2RefreshButton, 1, 0);
+        this.col2BottomTableLayout.Dock = DockStyle.Fill;
+        this.col2BottomTableLayout.Location = new Point(0, 0);
+        this.col2BottomTableLayout.Name = "col2BottomTableLayout";
+        this.col2BottomTableLayout.RowCount = 1;
+        this.col2BottomTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.col2BottomTableLayout.Size = new Size(280, 50);
+        this.col2BottomTableLayout.TabIndex = 1;
+        // 
+        // col3BottomTableLayout
+        // 
+        this.col3BottomTableLayout.ColumnCount = 3;
+        this.col3BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        this.col3BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
+        this.col3BottomTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        this.col3BottomTableLayout.Controls.Add(this.col3RefreshButton, 1, 0);
+        this.col3BottomTableLayout.Dock = DockStyle.Fill;
+        this.col3BottomTableLayout.Location = new Point(0, 0);
+        this.col3BottomTableLayout.Name = "col3BottomTableLayout";
+        this.col3BottomTableLayout.RowCount = 1;
+        this.col3BottomTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.col3BottomTableLayout.Size = new Size(280, 50);
+        this.col3BottomTableLayout.TabIndex = 1;
+        // 
+        // col1RefreshButton
+        // 
+        this.col1RefreshButton.Location = new Point(43, 3);
+        this.col1RefreshButton.Name = "col1RefreshButton";
+        this.col1RefreshButton.Size = new Size(194, 35);
+        this.col1RefreshButton.TabIndex = 0;
+        this.col1RefreshButton.Text = "Mettre à jour";
+        this.col1RefreshButton.UseVisualStyleBackColor = true;
+        // 
+        // col2RefreshButton
+        // 
+        this.col2RefreshButton.Location = new Point(43, 3);
+        this.col2RefreshButton.Name = "col2RefreshButton";
+        this.col2RefreshButton.Size = new Size(194, 35);
+        this.col2RefreshButton.TabIndex = 1;
+        this.col2RefreshButton.Text = "Mettre à jour";
+        this.col2RefreshButton.UseVisualStyleBackColor = true;
+        // 
+        // col3RefreshButton
+        // 
+        this.col3RefreshButton.Location = new Point(43, 3);
+        this.col3RefreshButton.Name = "col3RefreshButton";
+        this.col3RefreshButton.Size = new Size(194, 35);
+        this.col3RefreshButton.TabIndex = 2;
+        this.col3RefreshButton.Text = "Mettre à jour";
+        this.col3RefreshButton.UseVisualStyleBackColor = true;
+        // 
+        // optionsTableLayout
+        // 
+        this.optionsTableLayout.ColumnCount = 3;
+        this.optionsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+        this.optionsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 200F));
+        this.optionsTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        this.optionsTableLayout.Controls.Add(this.optionsMainPanel, 1, 0);
+        this.optionsTableLayout.Dock = DockStyle.Fill;
+        this.optionsTableLayout.Location = new Point(10, 10);
+        this.optionsTableLayout.Name = "optionsTableLayout";
+        this.optionsTableLayout.RowCount = 1;
+        this.optionsTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.optionsTableLayout.Size = new Size(260, 625);
+        this.optionsTableLayout.TabIndex = 0;
+        // 
+        // optionsMainPanel
+        // 
+        this.optionsMainPanel.Controls.Add(this.restockOrderOptionsBox);
+        this.optionsMainPanel.Controls.Add(this.shipOrderOptionsBox);
+        this.optionsMainPanel.Dock = DockStyle.Fill;
+        this.optionsMainPanel.Location = new Point(23, 3);
+        this.optionsMainPanel.Name = "optionsMainPanel";
+        this.optionsMainPanel.Size = new Size(194, 619);
+        this.optionsMainPanel.TabIndex = 0;
+        // 
+        // shipOrderOptionsBox
+        // 
+        this.shipOrderOptionsBox.Controls.Add(this.markSoAsCompletedButton);
+        this.shipOrderOptionsBox.Controls.Add(this.markSoAsPickedUpButton);
+        this.shipOrderOptionsBox.Controls.Add(this.assignToSelfButton);
+        this.shipOrderOptionsBox.Location = new Point(3, 3);
+        this.shipOrderOptionsBox.Name = "shipOrderOptionsBox";
+        this.shipOrderOptionsBox.Size = new Size(188, 152);
+        this.shipOrderOptionsBox.TabIndex = 0;
+        this.shipOrderOptionsBox.TabStop = false;
+        this.shipOrderOptionsBox.Text = "Ordres d'expédition";
+        // 
+        // assignToSelfButton
+        // 
+        this.assignToSelfButton.Location = new Point(6, 22);
+        this.assignToSelfButton.Name = "assignToSelfButton";
+        this.assignToSelfButton.Size = new Size(176, 35);
+        this.assignToSelfButton.TabIndex = 0;
+        this.assignToSelfButton.Text = "Assigner à soi-même";
+        this.assignToSelfButton.UseVisualStyleBackColor = true;
+        // 
+        // markSoAsPickedUpButton
+        // 
+        this.markSoAsPickedUpButton.Location = new Point(6, 63);
+        this.markSoAsPickedUpButton.Name = "markSoAsPickedUpButton";
+        this.markSoAsPickedUpButton.Size = new Size(176, 35);
+        this.markSoAsPickedUpButton.TabIndex = 1;
+        this.markSoAsPickedUpButton.Text = "Marquer comme ramassée";
+        this.markSoAsPickedUpButton.UseVisualStyleBackColor = true;
+        // 
+        // markSoAsCompletedButton
+        // 
+        this.markSoAsCompletedButton.Location = new Point(6, 104);
+        this.markSoAsCompletedButton.Name = "markSoAsCompletedButton";
+        this.markSoAsCompletedButton.Size = new Size(176, 35);
+        this.markSoAsCompletedButton.TabIndex = 2;
+        this.markSoAsCompletedButton.Text = "Marquer comme ramassée";
+        this.markSoAsCompletedButton.UseVisualStyleBackColor = true;
+        // 
+        // restockOrderOptionsBox
+        // 
+        this.restockOrderOptionsBox.Controls.Add(this.markPoAsCompletedButton);
+        this.restockOrderOptionsBox.Location = new Point(3, 199);
+        this.restockOrderOptionsBox.Name = "restockOrderOptionsBox";
+        this.restockOrderOptionsBox.Size = new Size(188, 68);
+        this.restockOrderOptionsBox.TabIndex = 1;
+        this.restockOrderOptionsBox.TabStop = false;
+        this.restockOrderOptionsBox.Text = "Ordres de restockage";
+        // 
+        // markPoAsCompletedButton
+        // 
+        this.markPoAsCompletedButton.Location = new Point(6, 22);
+        this.markPoAsCompletedButton.Name = "markPoAsCompletedButton";
+        this.markPoAsCompletedButton.Size = new Size(176, 35);
+        this.markPoAsCompletedButton.TabIndex = 2;
+        this.markPoAsCompletedButton.Text = "Marquer comme reçue";
+        this.markPoAsCompletedButton.UseVisualStyleBackColor = true;
+        // 
+        // quitButton
+        // 
+        this.quitButton.Anchor =  AnchorStyles.Bottom | AnchorStyles.Left;
+        this.quitButton.Location = new Point(42, 6);
+        this.quitButton.Name = "quitButton";
+        this.quitButton.Size = new Size(176, 35);
+        this.quitButton.TabIndex = 4;
+        this.quitButton.Text = "Quitter";
+        this.quitButton.UseVisualStyleBackColor = true;
+        // 
         // EmployeEntrepotMainMenu
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
@@ -293,12 +490,24 @@ partial class EmployeEntrepotMainMenu {
         this.WindowState = FormWindowState.Maximized;
         this.mainTableLayoutPanel.ResumeLayout(false);
         this.column4MainPanel.ResumeLayout(false);
+        this.column4CenterPanel.ResumeLayout(false);
+        this.column4BottomPanel.ResumeLayout(false);
         this.column3MainPanel.ResumeLayout(false);
         this.column3CenterPanel.ResumeLayout(false);
+        this.column3BottomPanel.ResumeLayout(false);
         this.column2MainPanel.ResumeLayout(false);
         this.column2CenterPanel.ResumeLayout(false);
+        this.column2BottomPanel.ResumeLayout(false);
         this.column1MainPanel.ResumeLayout(false);
         this.column1CenterPanel.ResumeLayout(false);
+        this.column1BottomPanel.ResumeLayout(false);
+        this.col1BottomTableLayout.ResumeLayout(false);
+        this.col2BottomTableLayout.ResumeLayout(false);
+        this.col3BottomTableLayout.ResumeLayout(false);
+        this.optionsTableLayout.ResumeLayout(false);
+        this.optionsMainPanel.ResumeLayout(false);
+        this.shipOrderOptionsBox.ResumeLayout(false);
+        this.restockOrderOptionsBox.ResumeLayout(false);
         this.ResumeLayout(false);
     }
 
@@ -326,4 +535,19 @@ partial class EmployeEntrepotMainMenu {
     private ListBox warehouseIncompletePoListBox;
     private ListBox userIncompleteSOListBox;
     private ListBox unassignedSOListBox;
+    private TableLayoutPanel col3BottomTableLayout;
+    private TableLayoutPanel col2BottomTableLayout;
+    private TableLayoutPanel col1BottomTableLayout;
+    private Button col1RefreshButton;
+    private Button col3RefreshButton;
+    private Button col2RefreshButton;
+    private TableLayoutPanel optionsTableLayout;
+    private Panel optionsMainPanel;
+    private GroupBox shipOrderOptionsBox;
+    private GroupBox restockOrderOptionsBox;
+    private Button markPoAsCompletedButton;
+    private Button markSoAsCompletedButton;
+    private Button markSoAsPickedUpButton;
+    private Button assignToSelfButton;
+    private Button quitButton;
 }
