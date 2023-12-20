@@ -2,6 +2,7 @@
 using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class FournisseurWindow : Form {
+public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur> {
 
     private readonly AbstractFacade facade;
     private Fournisseur workingInstance = null!;
@@ -22,7 +23,8 @@ public partial class FournisseurWindow : Form {
 
 
 
-    public FournisseurWindow() {
+    public FournisseurWindow(AbstractFacade facade) {
+        this.facade = facade;
         this.InitializeComponent();
         this.LoadAdresseComboBox();
     }

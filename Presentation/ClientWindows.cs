@@ -104,7 +104,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.workingInstance.Nom = this.nomClienttextBox1.Text;
         this.workingInstance.Prenom = this.prenomtextBox1.Text;
         this.workingInstance.Courriel = this.courrielClienttextBox1.Text;
-        this.workingInstance.Telephone = this.telephoneClienttextBox1.Text;
+        this.workingInstance.Telephone = long.Parse(this.telephoneClienttextBox1.Text);
         this.workingInstance.CompanyName = this.companyNameClienttextBox1.Text;
         this.workingInstance.AsignedWarehouse = (Entrepot) this.entrepotClientcomboBox1.SelectedItem;
         this.workingInstance.ClientAdress = (Adresse) this.adresseClientcomboBox1.SelectedItem;
