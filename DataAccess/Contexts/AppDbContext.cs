@@ -508,7 +508,9 @@ internal class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<Fournisseur>()
             .HasOne(fournisseur => fournisseur.SupplierAdresse)
-            .WithOne(adresse => adresse.AdresseFournisseur);
+            .WithOne(adresse => adresse.AdresseFournisseur)
+            .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
+        
         #endregion
     }
 
