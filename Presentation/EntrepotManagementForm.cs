@@ -104,6 +104,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
     }
 
     private void SaveDataInstance() {
+        this.ValidateFields();
         this.workingInstance.NomEntrepot = this.entrepotnameTextBox.Text;
         this.workingInstance.AdresseEntrepot = (Adresse) this.entrepotadresseComboBox.SelectedItem;
     }
