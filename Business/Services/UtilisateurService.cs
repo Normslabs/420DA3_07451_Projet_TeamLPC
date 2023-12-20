@@ -41,6 +41,14 @@ public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
         return this.Dao.SearchUsersByRoleName(roleNameFilter);
     }
 
+    public List<Utilisateur> GetAllEmployesEntrepot() {
+        return this.Dao.GetEmployesDEntrepot();
+    }
+
+    public List<Utilisateur> GetAllEmployesEntrepotDunEntrepot(Entrepot entrepotSpecifique) {
+        return this.Dao.GetEmployesDEntrepot(entrepotSpecifique);
+    }
+
     public override void Shutdown() {
         try {
             if (!this.DtoManagementWindow.IsDisposed) {

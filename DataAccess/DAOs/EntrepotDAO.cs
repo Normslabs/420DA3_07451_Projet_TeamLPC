@@ -19,6 +19,14 @@ public class EntrepotDAO : AbstractDao<Entrepot, int> {
        this.Context = context;
     }
 
+    public override List<Entrepot> GetAll() {
+        return this.GetAllWithAddress();
+    }
+
+    public override Entrepot? GetById(int identifier) {
+        return this.GetById(identifier);
+    }
+
     public List<Entrepot> GetAllWithAddress() {
         return this.Context.GetDbSet<Entrepot>()
             .Include(entrepot => entrepot.AdresseEntrepot)

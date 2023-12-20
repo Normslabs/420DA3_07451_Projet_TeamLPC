@@ -13,8 +13,6 @@ public class Fournisseur : AbstractDTO<int> {
 
     public int AdresseId { get; set; } 
 
-    public List<Produit> Produit { get; set; } = null!;
-
     public byte[] RowVersion { get; set; } = null!;
 
     public Adresse SupplierAdresse { get; set; } = null!;

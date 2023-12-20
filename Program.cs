@@ -15,19 +15,6 @@ internal static class Program {
         if (args.Contains("-profTests")) {
 
             // Zone de tests pour le prof
-            ApplicationConfiguration.Initialize();
-            UtilisateurManagementForm testWindow = new UtilisateurManagementForm();
-
-            List<Entrepot> fakeEntrepots = new List<Entrepot>() {
-                new Entrepot("FakeEntrepot"),
-                new Entrepot("FakeEntrepot2"),
-            };
-
-            testWindow.LoadWarehousesInCombobox(fakeEntrepots);
-
-            //Utilisateur fakeUser = new Utilisateur() { Id = 1, Username = "LaPatate", PasswordHash = "HALLOTHISISAFAKEHASH:SHA-512" };
-            Utilisateur fakeUser = new Utilisateur();
-            _ = testWindow.OpenForCreation(fakeUser);
 
         } else if (args.Contains("-olivierTests")) { 
 
@@ -40,7 +27,6 @@ internal static class Program {
         } else if (args.Contains("-filipeTests")) {
 
             ApplicationConfiguration.Initialize();
-            Application.Run(new )
 
         } else if (args.Contains("-maximilianoTests")) {
 

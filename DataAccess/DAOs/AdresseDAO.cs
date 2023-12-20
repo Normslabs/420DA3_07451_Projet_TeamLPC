@@ -17,6 +17,13 @@ public class AdresseDAO : AbstractDao<Adresse, int>{
         this.Context = context;
     }
 
+    public List<Adresse> SearchAdresse(string Filter) 
+    { 
+       return this.Context.GetDbSet<Adresse>()
+       .Where(adresse => adresse.Id.ToString().StartsWith(Filter) || (adresse.NumeroCivique != null && adresse.NumeroCivique.StartsWith(Filter)))
+       .ToList();   
+    }
+
     
 
 }

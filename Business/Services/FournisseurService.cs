@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class FournisseurService : AbstractDtoService<Fournisseur, int> {
 
-    protected override AbstractDao<Fournisseur, int> Dao { get; }
+    protected override FournisseurDAO Dao { get; }
     protected override FournisseurWindow DtoManagementWindow { get; }
 
     public FournisseurService(AbstractFacade facade, AbstractContext context) {
@@ -30,6 +30,10 @@ public class FournisseurService : AbstractDtoService<Fournisseur, int> {
 
     public Fournisseur? GetFournisseurById(int identifier) {
         return this.Dao.GetById(identifier);
+    }
+
+    public List<Fournisseur> SearchFournisseur(string filter) {
+        return this.Dao.SearchFournisseur(filter);
     }
 
 

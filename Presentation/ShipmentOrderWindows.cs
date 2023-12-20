@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _420DA3_07451_Projet_Initial.Business.Abstracts;
+using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
-public partial class ShipmentOrderWindows : Form {
+public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrderDTO> {
 
     private readonly AbstractFacade facade;
 
@@ -23,15 +24,15 @@ public partial class ShipmentOrderWindows : Form {
     public DialogResult OpenForCreation(ShipmentOrderDTO blankInstance) {
         throw new NotImplementedException();
     }
-    public DialogResult OpenForDeletion(ShipmentDTO instance) {
+    public DialogResult OpenForDeletion(ShipmentOrderDTO instance) {
         throw new NotImplementedException();
     }
 
-    public DialogResult OpenForEdition(ShipmentDTO instance) {
+    public DialogResult OpenForEdition(ShipmentOrderDTO instance) {
         throw new NotImplementedException();
     }
 
-    public DialogResult OpenForVisualization(ShipmentDTO instance) {
+    public DialogResult OpenForVisualization(ShipmentOrderDTO instance) {
         throw new NotImplementedException();
     }
 
@@ -41,5 +42,13 @@ public partial class ShipmentOrderWindows : Form {
 
     private void clientlabel1_Click(object sender, EventArgs e) {
 
+    }
+
+    private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
+
+    }
+    
+    public void LoadClientComboBox() {
+        this.facade.GetService<ClientService>().
     }
 }
