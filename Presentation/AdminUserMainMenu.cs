@@ -176,15 +176,14 @@ internal partial class AdminUserMainMenu : Form {
 
     #region Shipment
     private void ShipmentFiltreTextbox_TextChanged(object sender, EventArgs e) {
-       this.ShipmentListBox.DataSource = this.facade.GetService<ShipmentService>().SearchShipment(this.ShipmentFiltreTextbox.Text);
+        this.ShipmentListBox.DataSource = this.facade.GetService<ShipmentService>().SearchShipment(this.ShipmentFiltreTextbox.Text);
     }
 
     private void ShipmentListBox_SelectedIndexChanged(object sender, EventArgs e) {
-        if(this.ShipmentListBox.SelectedItem !=  null) { 
+        if (this.ShipmentListBox.SelectedItem != null) {
             this.ShipmentCreateBtn.Enabled = true;
-            this.ShipmentViewBtn.Enabled = true;    
-        }
-        else {
+            this.ShipmentViewBtn.Enabled = true;
+        } else {
             this.ShipmentCreateBtn.Enabled = true;
             this.ShipmentViewBtn.Enabled = false;
         }
@@ -195,20 +194,18 @@ internal partial class AdminUserMainMenu : Form {
     }
 
     private void ShipmentViewBtn_Click(object sender, EventArgs e) {
-       if (this.ShipmentListBox != null) {
+        if (this.ShipmentListBox != null) {
             ShipmentDTO selectedShipment = (ShipmentDTO) this.ShipmentListBox.SelectedItem;
             _ = this.facade.GetService<ShipmentService>().DisplayDtoInstance(selectedShipment);
-       }
-       else {
+        } else {
             _ = MessageBox.Show("Pas de shipment sélectionné");
-       }
-        
-  
+        }
+
+
     }
 
 
     #endregion
-
 
     #region Fournisseur
 
@@ -223,8 +220,7 @@ internal partial class AdminUserMainMenu : Form {
             this.FournisseurEditBtn.Enabled = true;
             this.FournisseurViewBtn.Enabled = true;
             this.FournisseurDeleteBtn.Enabled = true;
-        }
-        else {
+        } else {
             this.FournisseurCreateBtn.Enabled = true;
             this.FournisseurEditBtn.Enabled = false;
             this.FournisseurViewBtn.Enabled = false;
@@ -240,18 +236,16 @@ internal partial class AdminUserMainMenu : Form {
         if (this.FournisseurListBox != null) {
             Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
             _ = this.facade.GetService<FournisseurService>().DisplayDtoInstance(selectedFournisseur);
-        }
-        else {
+        } else {
             _ = MessageBox.Show("Pas de fournisseur sélectionné");
         }
     }
 
     private void FournisseurEditBtn_Click(object sender, EventArgs e) {
-        if(this.FournisseurListBox != null) {
+        if (this.FournisseurListBox != null) {
             Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
             _ = this.facade.GetService<FournisseurService>().UpdateDtoInstance(selectedFournisseur);
-        }
-        else {
+        } else {
             _ = MessageBox.Show("Pas de fournisseur sélectionné");
         }
     }
@@ -266,13 +260,44 @@ internal partial class AdminUserMainMenu : Form {
     }
 
 
-    #endregion 
+    #endregion
 
+    #region Clients
     private void QuitButton_Click(object sender, EventArgs e) {
         this.facade.ExitApplication();
     }
 
+    private void Clientpanel4_Paint(object sender, PaintEventArgs e) {
 
+    }
 
+    private void createClientbutton1_Click(object sender, EventArgs e) {
+        _ = this.facade.GetService<ClientService>().CreateNewDtoInstance();
+    }
 
+    private void filterClienttextBox1_TextChanged(object sender, EventArgs e) {
+        this.ClientslistBox1.DataSource = this.facade.GetService<ClientService>().SearchClient(this.filterClienttextBox1.Text);
+    }
+
+    private void ClientslistBox1_SelectedIndexChanged(object sender, EventArgs e) {
+
+    }
+
+    private void viewClientbutton1_Click(object sender, EventArgs e) {
+        ClientsDTO selectClient = (ClientsDTO) this.ClientslistBox1.SelectedItem;
+        _ = this.facade.GetService<ClientService>().DisplayDtoInstance(selectClient);
+
+    }
+
+    private void deletebutton_Click(object sender, EventArgs e) {
+        ClientsDTO selectedClient = (ClientsDTO) this.ClientslistBox1.SelectedItem;
+        _ = this.facade.GetService<ClientService>().DeleteDtoInstance(selectedClient);
+    }
+
+    private void editClientbutton_Click(object sender, EventArgs e) {
+        ClientsDTO selectedClient = (ClientsDTO) this.ClientslistBox1.SelectedItem;
+        _= this.facade.GetService<ClientService>().UpdateDtoInstance(selectedClient);
+    }
+
+    #endregion
 }

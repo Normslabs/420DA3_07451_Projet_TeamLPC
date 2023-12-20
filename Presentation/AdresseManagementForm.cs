@@ -110,7 +110,7 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
     private void ActionnButton_Click(object sender, EventArgs e) {
         try {
             switch (this.workingIntent) {
-                case ViewIntentEnum.Creation:
+                case ViewIntentEnum.Creation:       
                 case ViewIntentEnum.Edition:
                     this.SavaDataInTheInstance();
                     break;

@@ -24,302 +24,267 @@ partial class ClientWindows {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        panel1 = new Panel();
-        actionbutton1 = new Button();
-        Quitbutton1 = new Button();
-        Idlabel = new Label();
-        tableLayoutPanel1 = new TableLayoutPanel();
-        infopanel2 = new Panel();
-        shipmentorderlistBox1 = new ListBox();
-        shipmentorderlabel1 = new Label();
-        listeproduitlistBox1 = new ListBox();
-        produitlabel1 = new Label();
-        adresseClienttextBox1 = new TextBox();
-        adresselabel1 = new Label();
-        asignedWarehousecomboBox1 = new ComboBox();
-        asignedWarehouselabel1 = new Label();
-        companyNameClienttextBox1 = new TextBox();
-        companylabel1 = new Label();
-        telephoneClienttextBox1 = new TextBox();
-        telephonelabel1 = new Label();
-        courrielClienttextBox1 = new TextBox();
-        courrielClientlabel1 = new Label();
-        prenomtextBox1 = new TextBox();
-        prenomClientlabel1 = new Label();
-        nomClienttextBox1 = new TextBox();
-        nomlabel1 = new Label();
-        panel1.SuspendLayout();
-        tableLayoutPanel1.SuspendLayout();
-        infopanel2.SuspendLayout();
+        this.panel1 = new Panel();
+        this.actionbutton1 = new Button();
+        this.Quitbutton1 = new Button();
+        this.Idlabel = new Label();
+        this.tableLayoutPanel1 = new TableLayoutPanel();
+        this.infopanel2 = new Panel();
+        this.adresseClientcomboBox1 = new ComboBox();
+        this.adresselabel1 = new Label();
+        this.entrepotClientcomboBox1 = new ComboBox();
+        this.asignedWarehouselabel1 = new Label();
+        this.companyNameClienttextBox1 = new TextBox();
+        this.companylabel1 = new Label();
+        this.telephoneClienttextBox1 = new TextBox();
+        this.telephonelabel1 = new Label();
+        this.courrielClienttextBox1 = new TextBox();
+        this.courrielClientlabel1 = new Label();
+        this.prenomtextBox1 = new TextBox();
+        this.prenomClientlabel1 = new Label();
+        this.nomClienttextBox1 = new TextBox();
+        this.nomlabel1 = new Label();
+        this.panel1.SuspendLayout();
+        this.tableLayoutPanel1.SuspendLayout();
+        this.infopanel2.SuspendLayout();
         this.SuspendLayout();
         // 
         // panel1
         // 
-        panel1.Controls.Add(actionbutton1);
-        panel1.Controls.Add(Quitbutton1);
-        panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(0, 482);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(531, 64);
-        panel1.TabIndex = 0;
+        this.panel1.Controls.Add(this.actionbutton1);
+        this.panel1.Controls.Add(this.Quitbutton1);
+        this.panel1.Dock = DockStyle.Bottom;
+        this.panel1.Location = new Point(0, 421);
+        this.panel1.Margin = new Padding(3, 4, 3, 4);
+        this.panel1.Name = "panel1";
+        this.panel1.Size = new Size(607, 85);
+        this.panel1.TabIndex = 0;
         // 
         // actionbutton1
         // 
-        actionbutton1.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        actionbutton1.Location = new Point(325, 19);
-        actionbutton1.Name = "actionbutton1";
-        actionbutton1.Size = new Size(75, 23);
-        actionbutton1.TabIndex = 1;
-        actionbutton1.Text = "Action";
-        actionbutton1.UseVisualStyleBackColor = true;
+        this.actionbutton1.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        this.actionbutton1.Location = new Point(371, 25);
+        this.actionbutton1.Margin = new Padding(3, 4, 3, 4);
+        this.actionbutton1.Name = "actionbutton1";
+        this.actionbutton1.Size = new Size(86, 31);
+        this.actionbutton1.TabIndex = 1;
+        this.actionbutton1.Text = "Action";
+        this.actionbutton1.UseVisualStyleBackColor = true;
+        this.actionbutton1.Click += this.actionbutton1_Click;
         // 
         // Quitbutton1
         // 
-        Quitbutton1.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        Quitbutton1.Location = new Point(424, 19);
-        Quitbutton1.Name = "Quitbutton1";
-        Quitbutton1.Size = new Size(75, 23);
-        Quitbutton1.TabIndex = 0;
-        Quitbutton1.Text = "Quit";
-        Quitbutton1.UseVisualStyleBackColor = true;
+        this.Quitbutton1.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        this.Quitbutton1.Location = new Point(485, 25);
+        this.Quitbutton1.Margin = new Padding(3, 4, 3, 4);
+        this.Quitbutton1.Name = "Quitbutton1";
+        this.Quitbutton1.Size = new Size(86, 31);
+        this.Quitbutton1.TabIndex = 0;
+        this.Quitbutton1.Text = "Quit";
+        this.Quitbutton1.UseVisualStyleBackColor = true;
+        this.Quitbutton1.Click += this.Quitbutton1_Click;
         // 
         // Idlabel
         // 
-        Idlabel.AutoSize = true;
-        Idlabel.Location = new Point(40, 27);
-        Idlabel.Name = "Idlabel";
-        Idlabel.Size = new Size(0, 15);
-        Idlabel.TabIndex = 1;
-        Idlabel.Click += this.label1_Click;
+        this.Idlabel.AutoSize = true;
+        this.Idlabel.Location = new Point(46, 36);
+        this.Idlabel.Name = "Idlabel";
+        this.Idlabel.Size = new Size(0, 20);
+        this.Idlabel.TabIndex = 1;
+        this.Idlabel.Click += this.label1_Click;
         // 
         // tableLayoutPanel1
         // 
-        tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-        tableLayoutPanel1.ColumnCount = 3;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
-        tableLayoutPanel1.Controls.Add(infopanel2, 1, 0);
-        tableLayoutPanel1.Dock = DockStyle.Fill;
-        tableLayoutPanel1.Location = new Point(0, 0);
-        tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 1;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        tableLayoutPanel1.Size = new Size(531, 482);
-        tableLayoutPanel1.TabIndex = 2;
+        this.tableLayoutPanel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+        this.tableLayoutPanel1.ColumnCount = 3;
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 75F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 12.5F));
+        this.tableLayoutPanel1.Controls.Add(this.infopanel2, 1, 0);
+        this.tableLayoutPanel1.Dock = DockStyle.Fill;
+        this.tableLayoutPanel1.Location = new Point(0, 0);
+        this.tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
+        this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+        this.tableLayoutPanel1.RowCount = 1;
+        this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.tableLayoutPanel1.Size = new Size(607, 421);
+        this.tableLayoutPanel1.TabIndex = 2;
         // 
         // infopanel2
         // 
-        infopanel2.Controls.Add(shipmentorderlistBox1);
-        infopanel2.Controls.Add(shipmentorderlabel1);
-        infopanel2.Controls.Add(listeproduitlistBox1);
-        infopanel2.Controls.Add(produitlabel1);
-        infopanel2.Controls.Add(adresseClienttextBox1);
-        infopanel2.Controls.Add(adresselabel1);
-        infopanel2.Controls.Add(asignedWarehousecomboBox1);
-        infopanel2.Controls.Add(asignedWarehouselabel1);
-        infopanel2.Controls.Add(companyNameClienttextBox1);
-        infopanel2.Controls.Add(companylabel1);
-        infopanel2.Controls.Add(telephoneClienttextBox1);
-        infopanel2.Controls.Add(telephonelabel1);
-        infopanel2.Controls.Add(courrielClienttextBox1);
-        infopanel2.Controls.Add(courrielClientlabel1);
-        infopanel2.Controls.Add(prenomtextBox1);
-        infopanel2.Controls.Add(prenomClientlabel1);
-        infopanel2.Controls.Add(nomClienttextBox1);
-        infopanel2.Controls.Add(nomlabel1);
-        infopanel2.Dock = DockStyle.Fill;
-        infopanel2.Location = new Point(69, 3);
-        infopanel2.Name = "infopanel2";
-        infopanel2.Padding = new Padding(25);
-        infopanel2.Size = new Size(392, 476);
-        infopanel2.TabIndex = 0;
+        this.infopanel2.Controls.Add(this.adresseClientcomboBox1);
+        this.infopanel2.Controls.Add(this.adresselabel1);
+        this.infopanel2.Controls.Add(this.entrepotClientcomboBox1);
+        this.infopanel2.Controls.Add(this.asignedWarehouselabel1);
+        this.infopanel2.Controls.Add(this.companyNameClienttextBox1);
+        this.infopanel2.Controls.Add(this.companylabel1);
+        this.infopanel2.Controls.Add(this.telephoneClienttextBox1);
+        this.infopanel2.Controls.Add(this.telephonelabel1);
+        this.infopanel2.Controls.Add(this.courrielClienttextBox1);
+        this.infopanel2.Controls.Add(this.courrielClientlabel1);
+        this.infopanel2.Controls.Add(this.prenomtextBox1);
+        this.infopanel2.Controls.Add(this.prenomClientlabel1);
+        this.infopanel2.Controls.Add(this.nomClienttextBox1);
+        this.infopanel2.Controls.Add(this.nomlabel1);
+        this.infopanel2.Dock = DockStyle.Fill;
+        this.infopanel2.Location = new Point(78, 4);
+        this.infopanel2.Margin = new Padding(3, 4, 3, 4);
+        this.infopanel2.Name = "infopanel2";
+        this.infopanel2.Padding = new Padding(29, 33, 29, 33);
+        this.infopanel2.Size = new Size(449, 413);
+        this.infopanel2.TabIndex = 0;
         // 
-        // shipmentorderlistBox1
+        // adresseClientcomboBox1
         // 
-        shipmentorderlistBox1.Dock = DockStyle.Top;
-        shipmentorderlistBox1.FormattingEnabled = true;
-        shipmentorderlistBox1.ItemHeight = 15;
-        shipmentorderlistBox1.Location = new Point(25, 370);
-        shipmentorderlistBox1.Name = "shipmentorderlistBox1";
-        shipmentorderlistBox1.Size = new Size(342, 49);
-        shipmentorderlistBox1.TabIndex = 17;
-        // 
-        // shipmentorderlabel1
-        // 
-        shipmentorderlabel1.AutoSize = true;
-        shipmentorderlabel1.Dock = DockStyle.Top;
-        shipmentorderlabel1.Location = new Point(25, 355);
-        shipmentorderlabel1.Name = "shipmentorderlabel1";
-        shipmentorderlabel1.Size = new Size(117, 15);
-        shipmentorderlabel1.TabIndex = 16;
-        shipmentorderlabel1.Text = "Ordres d'expedition :";
-        // 
-        // listeproduitlistBox1
-        // 
-        listeproduitlistBox1.Dock = DockStyle.Top;
-        listeproduitlistBox1.FormattingEnabled = true;
-        listeproduitlistBox1.ItemHeight = 15;
-        listeproduitlistBox1.Location = new Point(25, 306);
-        listeproduitlistBox1.Name = "listeproduitlistBox1";
-        listeproduitlistBox1.SelectionMode = SelectionMode.MultiSimple;
-        listeproduitlistBox1.Size = new Size(342, 49);
-        listeproduitlistBox1.TabIndex = 15;
-        // 
-        // produitlabel1
-        // 
-        produitlabel1.AutoSize = true;
-        produitlabel1.Dock = DockStyle.Top;
-        produitlabel1.Location = new Point(25, 291);
-        produitlabel1.Name = "produitlabel1";
-        produitlabel1.Size = new Size(98, 15);
-        produitlabel1.TabIndex = 14;
-        produitlabel1.Text = "Liste de produit : ";
-        produitlabel1.Click += this.produitlabel1_Click;
-        // 
-        // adresseClienttextBox1
-        // 
-        adresseClienttextBox1.Dock = DockStyle.Top;
-        adresseClienttextBox1.Location = new Point(25, 268);
-        adresseClienttextBox1.Name = "adresseClienttextBox1";
-        adresseClienttextBox1.Size = new Size(342, 23);
-        adresseClienttextBox1.TabIndex = 13;
+        this.adresseClientcomboBox1.Dock = DockStyle.Top;
+        this.adresseClientcomboBox1.FormattingEnabled = true;
+        this.adresseClientcomboBox1.Location = new Point(29, 336);
+        this.adresseClientcomboBox1.Name = "adresseClientcomboBox1";
+        this.adresseClientcomboBox1.Size = new Size(391, 28);
+        this.adresseClientcomboBox1.TabIndex = 13;
         // 
         // adresselabel1
         // 
-        adresselabel1.AutoSize = true;
-        adresselabel1.Dock = DockStyle.Top;
-        adresselabel1.Location = new Point(25, 253);
-        adresselabel1.Name = "adresselabel1";
-        adresselabel1.Size = new Size(57, 15);
-        adresselabel1.TabIndex = 12;
-        adresselabel1.Text = "Adresse : ";
+        this.adresselabel1.AutoSize = true;
+        this.adresselabel1.Dock = DockStyle.Top;
+        this.adresselabel1.Location = new Point(29, 316);
+        this.adresselabel1.Name = "adresselabel1";
+        this.adresselabel1.Size = new Size(72, 20);
+        this.adresselabel1.TabIndex = 12;
+        this.adresselabel1.Text = "Adresse : ";
         // 
-        // asignedWarehousecomboBox1
+        // entrepotClientcomboBox1
         // 
-        asignedWarehousecomboBox1.Dock = DockStyle.Top;
-        asignedWarehousecomboBox1.FormattingEnabled = true;
-        asignedWarehousecomboBox1.Location = new Point(25, 230);
-        asignedWarehousecomboBox1.Name = "asignedWarehousecomboBox1";
-        asignedWarehousecomboBox1.Size = new Size(342, 23);
-        asignedWarehousecomboBox1.TabIndex = 11;
+        this.entrepotClientcomboBox1.Dock = DockStyle.Top;
+        this.entrepotClientcomboBox1.FormattingEnabled = true;
+        this.entrepotClientcomboBox1.Location = new Point(29, 288);
+        this.entrepotClientcomboBox1.Margin = new Padding(3, 4, 3, 4);
+        this.entrepotClientcomboBox1.Name = "entrepotClientcomboBox1";
+        this.entrepotClientcomboBox1.Size = new Size(391, 28);
+        this.entrepotClientcomboBox1.TabIndex = 11;
         // 
         // asignedWarehouselabel1
         // 
-        asignedWarehouselabel1.AutoSize = true;
-        asignedWarehouselabel1.Dock = DockStyle.Top;
-        asignedWarehouselabel1.Location = new Point(25, 215);
-        asignedWarehouselabel1.Name = "asignedWarehouselabel1";
-        asignedWarehouselabel1.Size = new Size(100, 15);
-        asignedWarehouselabel1.TabIndex = 10;
-        asignedWarehouselabel1.Text = "Entrepot Asigné : ";
+        this.asignedWarehouselabel1.AutoSize = true;
+        this.asignedWarehouselabel1.Dock = DockStyle.Top;
+        this.asignedWarehouselabel1.Location = new Point(29, 268);
+        this.asignedWarehouselabel1.Name = "asignedWarehouselabel1";
+        this.asignedWarehouselabel1.Size = new Size(126, 20);
+        this.asignedWarehouselabel1.TabIndex = 10;
+        this.asignedWarehouselabel1.Text = "Entrepot Asigné : ";
         // 
         // companyNameClienttextBox1
         // 
-        companyNameClienttextBox1.Dock = DockStyle.Top;
-        companyNameClienttextBox1.Location = new Point(25, 192);
-        companyNameClienttextBox1.Name = "companyNameClienttextBox1";
-        companyNameClienttextBox1.Size = new Size(342, 23);
-        companyNameClienttextBox1.TabIndex = 9;
+        this.companyNameClienttextBox1.Dock = DockStyle.Top;
+        this.companyNameClienttextBox1.Location = new Point(29, 241);
+        this.companyNameClienttextBox1.Margin = new Padding(3, 4, 3, 4);
+        this.companyNameClienttextBox1.Name = "companyNameClienttextBox1";
+        this.companyNameClienttextBox1.Size = new Size(391, 27);
+        this.companyNameClienttextBox1.TabIndex = 9;
         // 
         // companylabel1
         // 
-        companylabel1.AutoSize = true;
-        companylabel1.Dock = DockStyle.Top;
-        companylabel1.Location = new Point(25, 177);
-        companylabel1.Name = "companylabel1";
-        companylabel1.Size = new Size(122, 15);
-        companylabel1.TabIndex = 8;
-        companylabel1.Text = "Nom de compagnie : ";
+        this.companylabel1.AutoSize = true;
+        this.companylabel1.Dock = DockStyle.Top;
+        this.companylabel1.Location = new Point(29, 221);
+        this.companylabel1.Name = "companylabel1";
+        this.companylabel1.Size = new Size(153, 20);
+        this.companylabel1.TabIndex = 8;
+        this.companylabel1.Text = "Nom de compagnie : ";
         // 
         // telephoneClienttextBox1
         // 
-        telephoneClienttextBox1.Dock = DockStyle.Top;
-        telephoneClienttextBox1.Location = new Point(25, 154);
-        telephoneClienttextBox1.Name = "telephoneClienttextBox1";
-        telephoneClienttextBox1.Size = new Size(342, 23);
-        telephoneClienttextBox1.TabIndex = 7;
+        this.telephoneClienttextBox1.Dock = DockStyle.Top;
+        this.telephoneClienttextBox1.Location = new Point(29, 194);
+        this.telephoneClienttextBox1.Margin = new Padding(3, 4, 3, 4);
+        this.telephoneClienttextBox1.Name = "telephoneClienttextBox1";
+        this.telephoneClienttextBox1.Size = new Size(391, 27);
+        this.telephoneClienttextBox1.TabIndex = 7;
         // 
         // telephonelabel1
         // 
-        telephonelabel1.AutoSize = true;
-        telephonelabel1.Dock = DockStyle.Top;
-        telephonelabel1.Location = new Point(25, 139);
-        telephonelabel1.Name = "telephonelabel1";
-        telephonelabel1.Size = new Size(61, 15);
-        telephonelabel1.TabIndex = 6;
-        telephonelabel1.Text = "Telephone";
+        this.telephonelabel1.AutoSize = true;
+        this.telephonelabel1.Dock = DockStyle.Top;
+        this.telephonelabel1.Location = new Point(29, 174);
+        this.telephonelabel1.Name = "telephonelabel1";
+        this.telephonelabel1.Size = new Size(78, 20);
+        this.telephonelabel1.TabIndex = 6;
+        this.telephonelabel1.Text = "Telephone";
         // 
         // courrielClienttextBox1
         // 
-        courrielClienttextBox1.Dock = DockStyle.Top;
-        courrielClienttextBox1.Location = new Point(25, 116);
-        courrielClienttextBox1.Name = "courrielClienttextBox1";
-        courrielClienttextBox1.Size = new Size(342, 23);
-        courrielClienttextBox1.TabIndex = 5;
+        this.courrielClienttextBox1.Dock = DockStyle.Top;
+        this.courrielClienttextBox1.Location = new Point(29, 147);
+        this.courrielClienttextBox1.Margin = new Padding(3, 4, 3, 4);
+        this.courrielClienttextBox1.Name = "courrielClienttextBox1";
+        this.courrielClienttextBox1.Size = new Size(391, 27);
+        this.courrielClienttextBox1.TabIndex = 5;
         // 
         // courrielClientlabel1
         // 
-        courrielClientlabel1.AutoSize = true;
-        courrielClientlabel1.Dock = DockStyle.Top;
-        courrielClientlabel1.Location = new Point(25, 101);
-        courrielClientlabel1.Name = "courrielClientlabel1";
-        courrielClientlabel1.Size = new Size(58, 15);
-        courrielClientlabel1.TabIndex = 4;
-        courrielClientlabel1.Text = "Courriel : ";
+        this.courrielClientlabel1.AutoSize = true;
+        this.courrielClientlabel1.Dock = DockStyle.Top;
+        this.courrielClientlabel1.Location = new Point(29, 127);
+        this.courrielClientlabel1.Name = "courrielClientlabel1";
+        this.courrielClientlabel1.Size = new Size(72, 20);
+        this.courrielClientlabel1.TabIndex = 4;
+        this.courrielClientlabel1.Text = "Courriel : ";
         // 
         // prenomtextBox1
         // 
-        prenomtextBox1.Dock = DockStyle.Top;
-        prenomtextBox1.Location = new Point(25, 78);
-        prenomtextBox1.Name = "prenomtextBox1";
-        prenomtextBox1.Size = new Size(342, 23);
-        prenomtextBox1.TabIndex = 3;
+        this.prenomtextBox1.Dock = DockStyle.Top;
+        this.prenomtextBox1.Location = new Point(29, 100);
+        this.prenomtextBox1.Margin = new Padding(3, 4, 3, 4);
+        this.prenomtextBox1.Name = "prenomtextBox1";
+        this.prenomtextBox1.Size = new Size(391, 27);
+        this.prenomtextBox1.TabIndex = 3;
         // 
         // prenomClientlabel1
         // 
-        prenomClientlabel1.AutoSize = true;
-        prenomClientlabel1.Dock = DockStyle.Top;
-        prenomClientlabel1.Location = new Point(25, 63);
-        prenomClientlabel1.Name = "prenomClientlabel1";
-        prenomClientlabel1.Size = new Size(58, 15);
-        prenomClientlabel1.TabIndex = 2;
-        prenomClientlabel1.Text = "Prenom : ";
+        this.prenomClientlabel1.AutoSize = true;
+        this.prenomClientlabel1.Dock = DockStyle.Top;
+        this.prenomClientlabel1.Location = new Point(29, 80);
+        this.prenomClientlabel1.Name = "prenomClientlabel1";
+        this.prenomClientlabel1.Size = new Size(71, 20);
+        this.prenomClientlabel1.TabIndex = 2;
+        this.prenomClientlabel1.Text = "Prenom : ";
         // 
         // nomClienttextBox1
         // 
-        nomClienttextBox1.Dock = DockStyle.Top;
-        nomClienttextBox1.Location = new Point(25, 40);
-        nomClienttextBox1.Name = "nomClienttextBox1";
-        nomClienttextBox1.Size = new Size(342, 23);
-        nomClienttextBox1.TabIndex = 1;
-        nomClienttextBox1.TextAlign = HorizontalAlignment.Right;
+        this.nomClienttextBox1.Dock = DockStyle.Top;
+        this.nomClienttextBox1.Location = new Point(29, 53);
+        this.nomClienttextBox1.Margin = new Padding(3, 4, 3, 4);
+        this.nomClienttextBox1.Name = "nomClienttextBox1";
+        this.nomClienttextBox1.Size = new Size(391, 27);
+        this.nomClienttextBox1.TabIndex = 1;
+        this.nomClienttextBox1.TextAlign = HorizontalAlignment.Right;
         // 
         // nomlabel1
         // 
-        nomlabel1.AutoSize = true;
-        nomlabel1.Dock = DockStyle.Top;
-        nomlabel1.Location = new Point(25, 25);
-        nomlabel1.Name = "nomlabel1";
-        nomlabel1.Size = new Size(43, 15);
-        nomlabel1.TabIndex = 0;
-        nomlabel1.Text = "Nom : ";
+        this.nomlabel1.AutoSize = true;
+        this.nomlabel1.Dock = DockStyle.Top;
+        this.nomlabel1.Location = new Point(29, 33);
+        this.nomlabel1.Name = "nomlabel1";
+        this.nomlabel1.Size = new Size(53, 20);
+        this.nomlabel1.TabIndex = 0;
+        this.nomlabel1.Text = "Nom : ";
         // 
         // ClientWindows
         // 
-        this.AutoScaleDimensions = new SizeF(7F, 15F);
+        this.AutoScaleDimensions = new SizeF(8F, 20F);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.ClientSize = new Size(531, 546);
-        this.Controls.Add(tableLayoutPanel1);
-        this.Controls.Add(Idlabel);
-        this.Controls.Add(panel1);
+        this.ClientSize = new Size(607, 506);
+        this.Controls.Add(this.tableLayoutPanel1);
+        this.Controls.Add(this.Idlabel);
+        this.Controls.Add(this.panel1);
+        this.Margin = new Padding(3, 4, 3, 4);
         this.Name = "ClientWindows";
         this.Text = "ClientWindows";
         this.Load += this.ClientWindows_Load;
-        panel1.ResumeLayout(false);
-        tableLayoutPanel1.ResumeLayout(false);
-        infopanel2.ResumeLayout(false);
-        infopanel2.PerformLayout();
+        this.panel1.ResumeLayout(false);
+        this.tableLayoutPanel1.ResumeLayout(false);
+        this.infopanel2.ResumeLayout(false);
+        this.infopanel2.PerformLayout();
         this.ResumeLayout(false);
         this.PerformLayout();
     }
@@ -342,12 +307,8 @@ partial class ClientWindows {
     private TextBox companyNameClienttextBox1;
     private Label companylabel1;
     private TextBox telephoneClienttextBox1;
-    private ComboBox asignedWarehousecomboBox1;
+    private ComboBox entrepotClientcomboBox1;
     private Label asignedWarehouselabel1;
     private Label adresselabel1;
-    private ListBox listeproduitlistBox1;
-    private Label produitlabel1;
-    private TextBox adresseClienttextBox1;
-    private ListBox shipmentorderlistBox1;
-    private Label shipmentorderlabel1;
+    private ComboBox adresseClientcomboBox1;
 }
