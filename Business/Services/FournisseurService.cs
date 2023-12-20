@@ -36,6 +36,10 @@ public class FournisseurService : AbstractDtoService<Fournisseur, int> {
         return this.Dao.SearchFournisseur(filter);
     }
 
+    public List<Fournisseur> GetAllFournisseur() {
+        return this.Dao.GetAll();
+    }
+
 
 
 }
