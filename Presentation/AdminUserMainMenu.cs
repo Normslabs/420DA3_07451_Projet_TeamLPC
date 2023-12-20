@@ -262,6 +262,77 @@ internal partial class AdminUserMainMenu : Form {
 
     #endregion
 
+    #region Entrepot
+
+    private void ReloadEntrepotComboBox() {
+        Entrepot? selectedEntrepot = null;
+        if (this.entrepotSelector.SelectedItem != null) {
+            selectedEntrepot = (Entrepot) this.entrepotSelector.SelectedItem;
+        }
+        this.entrepotSelector.Items.Clear();
+        List<Entrepot> entrepots = this.facade.GetService<EntrepotService>().GetAllEntrepot();
+        foreach (Entrepot entrepot in entrepots) {
+            _ = this.entrepotSelector.Items.Add(entrepot);
+        }
+        if (this.entrepotSelector.Items.Contains(selectedEntrepot)) {
+            this.entrepotSelector.SelectedItem = selectedEntrepot;
+        }
+
+    }
+
+    private void ActivateEntrepotManagementButtons() {
+        this.viewEntrepotButton.Enabled = true;
+        this.editEntrepotButton.Enabled = true;
+        this.deleteEntrepotButton.Enabled = true;
+    }
+
+    private void DeactivateEntrepotManagementButtons() {
+        this.viewEntrepotButton.Enabled = false;
+        this.editEntrepotButton.Enabled = false;
+        this.deleteEntrepotButton.Enabled = false;
+    }
+
+    private void CreateEntrepotButton_Click(object sender, EventArgs e) {
+       _ = this.facade.GetService<EntrepotService>().CreateNewDtoInstance();
+        this.ReloadEntrepotComboBox();
+    }
+
+    private void EntrepotSelector_SelectedIndexChanged(object sender, EventArgs e) {
+        if(this.entrepotSelector.SelectedItem != null) 
+        { 
+          this.ActivateEntrepotManagementButtons();
+        } 
+        else 
+        {
+          this.DeactivateEntrepotManagementButtons();
+        }
+    }
+
+    private void viewEntrepotButton_Click(object sender, EventArgs e) 
+    {
+       if(this.entrepotSelector.SelectedItem is null) 
+       {
+            _ = MessageBox.Show("Pas d'entrepot selectionner.");
+       } 
+       else 
+       {
+          
+       }
+    }
+
+    private void editEntrepotButton_Click(object sender, EventArgs e) {
+
+    }
+
+    private void deleteEntrepotButton_Click(object sender, EventArgs e) {
+
+    }
+
+
+
+
+    #endregion
+
     #region Clients
     private void QuitButton_Click(object sender, EventArgs e) {
         this.facade.ExitApplication();

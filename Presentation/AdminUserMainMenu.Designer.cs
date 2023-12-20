@@ -487,45 +487,50 @@ partial class AdminUserMainMenu {
         this.deleteEntrepotButton.TabIndex = 6;
         this.deleteEntrepotButton.Text = "Supprimer l'entrepot";
         this.deleteEntrepotButton.UseVisualStyleBackColor = true;
+        deleteEntrepotButton.Click += this.deleteEntrepotButton_Click
         // 
         // editEntrepotButton
         // 
-        this.editEntrepotButton.Dock = DockStyle.Top;
-        this.editEntrepotButton.Location = new Point(10, 143);
-        this.editEntrepotButton.Name = "editEntrepotButton";
-        this.editEntrepotButton.Size = new Size(210, 35);
-        this.editEntrepotButton.TabIndex = 5;
-        this.editEntrepotButton.Text = "Éditer l'entrepot";
-        this.editEntrepotButton.UseVisualStyleBackColor = true;
+        editEntrepotButton.Dock = DockStyle.Top;
+        editEntrepotButton.Location = new Point(10, 143);
+        editEntrepotButton.Name = "editEntrepotButton";
+        editEntrepotButton.Size = new Size(210, 35);
+        editEntrepotButton.TabIndex = 5;
+        editEntrepotButton.Text = "Éditer l'entrepot";
+        editEntrepotButton.UseVisualStyleBackColor = true;
+        editEntrepotButton.Click += this.editEntrepotButton_Click;
         // 
         // viewEntrepotButton
         // 
-        this.viewEntrepotButton.Dock = DockStyle.Top;
-        this.viewEntrepotButton.Location = new Point(10, 108);
-        this.viewEntrepotButton.Name = "viewEntrepotButton";
-        this.viewEntrepotButton.Size = new Size(210, 35);
-        this.viewEntrepotButton.TabIndex = 4;
-        this.viewEntrepotButton.Text = "Voir détails de l'entrepot";
-        this.viewEntrepotButton.UseVisualStyleBackColor = true;
+        viewEntrepotButton.Dock = DockStyle.Top;
+        viewEntrepotButton.Location = new Point(10, 108);
+        viewEntrepotButton.Name = "viewEntrepotButton";
+        viewEntrepotButton.Size = new Size(210, 35);
+        viewEntrepotButton.TabIndex = 4;
+        viewEntrepotButton.Text = "Voir détails de l'entrepot";
+        viewEntrepotButton.UseVisualStyleBackColor = true;
+        viewEntrepotButton.Click += this.viewEntrepotButton_Click;
         // 
         // entrepotSelector
         // 
-        this.entrepotSelector.Dock = DockStyle.Top;
-        this.entrepotSelector.FormattingEnabled = true;
-        this.entrepotSelector.Location = new Point(10, 85);
-        this.entrepotSelector.Name = "entrepotSelector";
-        this.entrepotSelector.Size = new Size(210, 23);
-        this.entrepotSelector.TabIndex = 3;
+        entrepotSelector.Dock = DockStyle.Top;
+        entrepotSelector.FormattingEnabled = true;
+        entrepotSelector.Location = new Point(10, 85);
+        entrepotSelector.Name = "entrepotSelector";
+        entrepotSelector.Size = new Size(210, 23);
+        entrepotSelector.TabIndex = 3;
+        entrepotSelector.SelectedIndexChanged += this.EntrepotSelector_SelectedIndexChanged;
         // 
         // createEntrepotButton
         // 
-        this.createEntrepotButton.Dock = DockStyle.Top;
-        this.createEntrepotButton.Location = new Point(10, 50);
-        this.createEntrepotButton.Name = "createEntrepotButton";
-        this.createEntrepotButton.Size = new Size(210, 35);
-        this.createEntrepotButton.TabIndex = 2;
-        this.createEntrepotButton.Text = "Créer un entrepot";
-        this.createEntrepotButton.UseVisualStyleBackColor = true;
+        createEntrepotButton.Dock = DockStyle.Top;
+        createEntrepotButton.Location = new Point(10, 50);
+        createEntrepotButton.Name = "createEntrepotButton";
+        createEntrepotButton.Size = new Size(210, 35);
+        createEntrepotButton.TabIndex = 2;
+        createEntrepotButton.Text = "Créer un entrepot";
+        createEntrepotButton.UseVisualStyleBackColor = true;
+        createEntrepotButton.Click += this.CreateEntrepotButton_Click;
         // 
         // entrepotLabel
         // 
@@ -573,6 +578,26 @@ partial class AdminUserMainMenu {
         this.AdresseEditButton.TabIndex = 8;
         this.AdresseEditButton.Text = "Éditer l'adresse";
         this.AdresseEditButton.UseVisualStyleBackColor = true;
+        // 
+        // AdresseDeleteButton
+        // 
+        AdresseDeleteButton.Dock = DockStyle.Top;
+        AdresseDeleteButton.Location = new Point(10, 272);
+        AdresseDeleteButton.Name = "AdresseDeleteButton";
+        AdresseDeleteButton.Size = new Size(210, 35);
+        AdresseDeleteButton.TabIndex = 9;
+        AdresseDeleteButton.Text = "Supprimer l'adresse";
+        AdresseDeleteButton.UseVisualStyleBackColor = true;
+        // 
+        // AdresseEditButton
+        // 
+        AdresseEditButton.Dock = DockStyle.Top;
+        AdresseEditButton.Location = new Point(10, 237);
+        AdresseEditButton.Name = "AdresseEditButton";
+        AdresseEditButton.Size = new Size(210, 35);
+        AdresseEditButton.TabIndex = 8;
+        AdresseEditButton.Text = "Éditer l'adresse";
+        AdresseEditButton.UseVisualStyleBackColor = true;
         // 
         // AdresseViewButton
         // 
