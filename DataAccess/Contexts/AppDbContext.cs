@@ -464,10 +464,10 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType("int");
 
 
-            _ = modelBuilder.Entity<Fournisseur>()
-              .Property(fournisseur => fournisseur.SupplierName)
-              .HasColumnName("Nom du fournisseur")
-              .HasColumnType($"nvarchar({Fournisseur.SUPPLIER_NAME_MAXLENGHT}");
+        _ = modelBuilder.Entity<Fournisseur>()
+            .Property(fournisseur => fournisseur.SupplierName)
+            .HasColumnName("Nom du fournisseur")
+            .HasColumnType($"nvarchar({Fournisseur.SUPPLIER_NAME_MAXLENGHT}");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
@@ -508,6 +508,16 @@ internal class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<Fournisseur>()
             .HasOne(fournisseur => fournisseur.SupplierAdresse)
+            .WithOne(adresse => adresse.AdresseFournisseur);
+
+
+        // shipment 
+
+
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .ToTable("Shipment")
+            .HasKey(shipment => shipment.Id);
+
             .WithOne(adresse => adresse.AdresseFournisseur)
             .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
         
