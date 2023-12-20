@@ -26,13 +26,13 @@ partial class ProduitWindow {
     private void InitializeComponent() {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.supplierListBox = new System.Windows.Forms.ListBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.clientListBox = new System.Windows.Forms.ListBox();
+            this.supplierComboBox = new System.Windows.Forms.ComboBox();
+            this.supplierLabel = new System.Windows.Forms.Label();
+            this.clientComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.qtyInStockNumeric = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.AutoCheckBox = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.supplierCodeTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,9 +40,9 @@ partial class ProduitWindow {
             this.label4 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.upcCodeNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.idNumUpDown = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -54,8 +54,8 @@ partial class ProduitWindow {
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyInStockNumeric)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upcCodeNumUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idNumUpDown)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -81,13 +81,13 @@ partial class ProduitWindow {
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.supplierListBox);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.clientListBox);
+            this.panel2.Controls.Add(this.supplierComboBox);
+            this.panel2.Controls.Add(this.supplierLabel);
+            this.panel2.Controls.Add(this.clientComboBox);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.qtyInStockNumeric);
             this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.checkBox1);
+            this.panel2.Controls.Add(this.AutoCheckBox);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.supplierCodeTextBox);
             this.panel2.Controls.Add(this.label5);
@@ -95,9 +95,9 @@ partial class ProduitWindow {
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.nameTextBox);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.numericUpDown2);
+            this.panel2.Controls.Add(this.upcCodeNumUpDown);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.numericUpDown1);
+            this.panel2.Controls.Add(this.idNumUpDown);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(257, 3);
@@ -106,34 +106,33 @@ partial class ProduitWindow {
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // supplierListBox
+            // supplierComboBox
             // 
-            this.supplierListBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.supplierListBox.FormattingEnabled = true;
-            this.supplierListBox.ItemHeight = 15;
-            this.supplierListBox.Location = new System.Drawing.Point(0, 417);
-            this.supplierListBox.Name = "supplierListBox";
-            this.supplierListBox.Size = new System.Drawing.Size(503, 94);
-            this.supplierListBox.TabIndex = 18;
+            this.supplierComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.supplierComboBox.FormattingEnabled = true;
+            this.supplierComboBox.Location = new System.Drawing.Point(0, 346);
+            this.supplierComboBox.Name = "supplierComboBox";
+            this.supplierComboBox.Size = new System.Drawing.Size(503, 23);
+            this.supplierComboBox.TabIndex = 20;
             // 
-            // label11
+            // supplierLabel
             // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label11.Location = new System.Drawing.Point(0, 402);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(503, 15);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Supplier";
+            this.supplierLabel.AutoSize = true;
+            this.supplierLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.supplierLabel.Location = new System.Drawing.Point(0, 331);
+            this.supplierLabel.Name = "supplierLabel";
+            this.supplierLabel.Size = new System.Drawing.Size(50, 15);
+            this.supplierLabel.TabIndex = 19;
+            this.supplierLabel.Text = "Supplier";
             // 
-            // clientListBox
+            // clientComboBox
             // 
-            this.clientListBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.clientListBox.FormattingEnabled = true;
-            this.clientListBox.ItemHeight = 15;
-            this.clientListBox.Location = new System.Drawing.Point(0, 308);
-            this.clientListBox.Name = "clientListBox";
-            this.clientListBox.Size = new System.Drawing.Size(503, 94);
-            this.clientListBox.TabIndex = 16;
+            this.clientComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clientComboBox.FormattingEnabled = true;
+            this.clientComboBox.Location = new System.Drawing.Point(0, 308);
+            this.clientComboBox.Name = "clientComboBox";
+            this.clientComboBox.Size = new System.Drawing.Size(503, 23);
+            this.clientComboBox.TabIndex = 18;
             // 
             // label10
             // 
@@ -162,16 +161,16 @@ partial class ProduitWindow {
             this.label7.TabIndex = 12;
             this.label7.Text = "Quantité en stock";
             // 
-            // checkBox1
+            // AutoCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.checkBox1.Location = new System.Drawing.Point(0, 236);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(503, 19);
-            this.checkBox1.TabIndex = 11;
-            this.checkBox1.Text = "Yes";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.AutoCheckBox.AutoSize = true;
+            this.AutoCheckBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.AutoCheckBox.Location = new System.Drawing.Point(0, 236);
+            this.AutoCheckBox.Name = "AutoCheckBox";
+            this.AutoCheckBox.Size = new System.Drawing.Size(503, 19);
+            this.AutoCheckBox.TabIndex = 11;
+            this.AutoCheckBox.Text = "Yes";
+            this.AutoCheckBox.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -238,13 +237,13 @@ partial class ProduitWindow {
             this.label3.TabIndex = 4;
             this.label3.Text = "Name";
             // 
-            // numericUpDown2
+            // upcCodeNumUpDown
             // 
-            this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.numericUpDown2.Location = new System.Drawing.Point(0, 53);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(503, 23);
-            this.numericUpDown2.TabIndex = 3;
+            this.upcCodeNumUpDown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.upcCodeNumUpDown.Location = new System.Drawing.Point(0, 53);
+            this.upcCodeNumUpDown.Name = "upcCodeNumUpDown";
+            this.upcCodeNumUpDown.Size = new System.Drawing.Size(503, 23);
+            this.upcCodeNumUpDown.TabIndex = 3;
             // 
             // label2
             // 
@@ -256,13 +255,13 @@ partial class ProduitWindow {
             this.label2.TabIndex = 2;
             this.label2.Text = "UPC Code :";
             // 
-            // numericUpDown1
+            // idNumUpDown
             // 
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.numericUpDown1.Location = new System.Drawing.Point(0, 15);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(503, 23);
-            this.numericUpDown1.TabIndex = 1;
+            this.idNumUpDown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.idNumUpDown.Location = new System.Drawing.Point(0, 15);
+            this.idNumUpDown.Name = "idNumUpDown";
+            this.idNumUpDown.Size = new System.Drawing.Size(503, 23);
+            this.idNumUpDown.TabIndex = 1;
             // 
             // label1
             // 
@@ -351,8 +350,8 @@ partial class ProduitWindow {
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyInStockNumeric)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.upcCodeNumUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idNumUpDown)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -370,15 +369,15 @@ partial class ProduitWindow {
     private Button actionBtn;
     private Panel panel2;
     private Label label1;
-    private NumericUpDown numericUpDown1;
+    private NumericUpDown idNumUpDown;
     private Label label5;
     private TextBox descriptionTextBox;
     private Label label4;
     private TextBox nameTextBox;
     private Label label3;
-    private NumericUpDown numericUpDown2;
+    private NumericUpDown upcCodeNumUpDown;
     private Label label2;
-    private CheckBox checkBox1;
+    private CheckBox AutoCheckBox;
     private Label label6;
     private TextBox supplierCodeTextBox;
     private NumericUpDown qtyInStockNumeric;
@@ -387,8 +386,8 @@ partial class ProduitWindow {
     private Label label8;
     private Panel panel4;
     private Label label9;
-    private ListBox supplierListBox;
-    private Label label11;
-    private ListBox clientListBox;
     private Label label10;
+    private ComboBox clientComboBox;
+    private ComboBox supplierComboBox;
+    private Label supplierLabel;
 }
