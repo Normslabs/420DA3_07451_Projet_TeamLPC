@@ -24,32 +24,32 @@ partial class ClientWindows {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        panel1 = new Panel();
-        actionbutton1 = new Button();
-        Quitbutton1 = new Button();
-        Idlabel = new Label();
-        tableLayoutPanel1 = new TableLayoutPanel();
-        infopanel2 = new Panel();
-        tableLayoutPanel2 = new TableLayoutPanel();
-        createAddressButton = new Button();
-        adresseClientcomboBox1 = new ComboBox();
-        adresselabel1 = new Label();
-        entrepotClientcomboBox1 = new ComboBox();
-        asignedWarehouselabel1 = new Label();
-        companyNameClienttextBox1 = new TextBox();
-        companylabel1 = new Label();
-        telephoneClienttextBox1 = new TextBox();
-        telephonelabel1 = new Label();
-        courrielClienttextBox1 = new TextBox();
-        courrielClientlabel1 = new Label();
-        prenomtextBox1 = new TextBox();
-        prenomClientlabel1 = new Label();
-        nomClienttextBox1 = new TextBox();
-        nomlabel1 = new Label();
-        panel1.SuspendLayout();
-        tableLayoutPanel1.SuspendLayout();
-        infopanel2.SuspendLayout();
-        tableLayoutPanel2.SuspendLayout();
+        this.panel1 = new Panel();
+        this.actionbutton1 = new Button();
+        this.Quitbutton1 = new Button();
+        this.Idlabel = new Label();
+        this.tableLayoutPanel1 = new TableLayoutPanel();
+        this.infopanel2 = new Panel();
+        this.tableLayoutPanel2 = new TableLayoutPanel();
+        this.createAddressButton = new Button();
+        this.adresseClientcomboBox1 = new ComboBox();
+        this.adresselabel1 = new Label();
+        this.entrepotClientcomboBox1 = new ComboBox();
+        this.asignedWarehouselabel1 = new Label();
+        this.companyNameClienttextBox1 = new TextBox();
+        this.companylabel1 = new Label();
+        this.telephoneClienttextBox1 = new TextBox();
+        this.telephonelabel1 = new Label();
+        this.courrielClienttextBox1 = new TextBox();
+        this.courrielClientlabel1 = new Label();
+        this.prenomtextBox1 = new TextBox();
+        this.prenomClientlabel1 = new Label();
+        this.nomClienttextBox1 = new TextBox();
+        this.nomlabel1 = new Label();
+        this.panel1.SuspendLayout();
+        this.tableLayoutPanel1.SuspendLayout();
+        this.infopanel2.SuspendLayout();
+        this.tableLayoutPanel2.SuspendLayout();
         this.SuspendLayout();
         // 
         // panel1
@@ -111,52 +111,52 @@ partial class ClientWindows {
         // 
         // infopanel2
         // 
-        infopanel2.Controls.Add(tableLayoutPanel2);
-        infopanel2.Controls.Add(adresselabel1);
-        infopanel2.Controls.Add(entrepotClientcomboBox1);
-        infopanel2.Controls.Add(asignedWarehouselabel1);
-        infopanel2.Controls.Add(companyNameClienttextBox1);
-        infopanel2.Controls.Add(companylabel1);
-        infopanel2.Controls.Add(telephoneClienttextBox1);
-        infopanel2.Controls.Add(telephonelabel1);
-        infopanel2.Controls.Add(courrielClienttextBox1);
-        infopanel2.Controls.Add(courrielClientlabel1);
-        infopanel2.Controls.Add(prenomtextBox1);
-        infopanel2.Controls.Add(prenomClientlabel1);
-        infopanel2.Controls.Add(nomClienttextBox1);
-        infopanel2.Controls.Add(nomlabel1);
-        infopanel2.Dock = DockStyle.Fill;
-        infopanel2.Location = new Point(69, 3);
-        infopanel2.Name = "infopanel2";
-        infopanel2.Padding = new Padding(25);
-        infopanel2.Size = new Size(392, 331);
-        infopanel2.TabIndex = 0;
+        this.infopanel2.Controls.Add(this.tableLayoutPanel2);
+        this.infopanel2.Controls.Add(this.adresselabel1);
+        this.infopanel2.Controls.Add(this.entrepotClientcomboBox1);
+        this.infopanel2.Controls.Add(this.asignedWarehouselabel1);
+        this.infopanel2.Controls.Add(this.companyNameClienttextBox1);
+        this.infopanel2.Controls.Add(this.companylabel1);
+        this.infopanel2.Controls.Add(this.telephoneClienttextBox1);
+        this.infopanel2.Controls.Add(this.telephonelabel1);
+        this.infopanel2.Controls.Add(this.courrielClienttextBox1);
+        this.infopanel2.Controls.Add(this.courrielClientlabel1);
+        this.infopanel2.Controls.Add(this.prenomtextBox1);
+        this.infopanel2.Controls.Add(this.prenomClientlabel1);
+        this.infopanel2.Controls.Add(this.nomClienttextBox1);
+        this.infopanel2.Controls.Add(this.nomlabel1);
+        this.infopanel2.Dock = DockStyle.Fill;
+        this.infopanel2.Location = new Point(69, 3);
+        this.infopanel2.Name = "infopanel2";
+        this.infopanel2.Padding = new Padding(25);
+        this.infopanel2.Size = new Size(392, 331);
+        this.infopanel2.TabIndex = 0;
         // 
         // tableLayoutPanel2
         // 
-        tableLayoutPanel2.ColumnCount = 2;
-        tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-        tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-        tableLayoutPanel2.Controls.Add(createAddressButton, 1, 0);
-        tableLayoutPanel2.Controls.Add(adresseClientcomboBox1, 0, 0);
-        tableLayoutPanel2.Dock = DockStyle.Top;
-        tableLayoutPanel2.Location = new Point(25, 268);
-        tableLayoutPanel2.Name = "tableLayoutPanel2";
-        tableLayoutPanel2.RowCount = 1;
-        tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        tableLayoutPanel2.Size = new Size(342, 30);
-        tableLayoutPanel2.TabIndex = 14;
+        this.tableLayoutPanel2.ColumnCount = 2;
+        this.tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        this.tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+        this.tableLayoutPanel2.Controls.Add(this.createAddressButton, 1, 0);
+        this.tableLayoutPanel2.Controls.Add(this.adresseClientcomboBox1, 0, 0);
+        this.tableLayoutPanel2.Dock = DockStyle.Top;
+        this.tableLayoutPanel2.Location = new Point(25, 268);
+        this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+        this.tableLayoutPanel2.RowCount = 1;
+        this.tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.tableLayoutPanel2.Size = new Size(342, 30);
+        this.tableLayoutPanel2.TabIndex = 14;
         // 
         // createAddressButton
         // 
-        createAddressButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-        createAddressButton.Location = new Point(305, 3);
-        createAddressButton.Name = "createAddressButton";
-        createAddressButton.Size = new Size(34, 24);
-        createAddressButton.TabIndex = 14;
-        createAddressButton.Text = "+";
-        createAddressButton.UseVisualStyleBackColor = true;
-        createAddressButton.Click += this.CreateAddressButton_Click;
+        this.createAddressButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        this.createAddressButton.Location = new Point(305, 3);
+        this.createAddressButton.Name = "createAddressButton";
+        this.createAddressButton.Size = new Size(34, 24);
+        this.createAddressButton.TabIndex = 14;
+        this.createAddressButton.Text = "+";
+        this.createAddressButton.UseVisualStyleBackColor = true;
+        this.createAddressButton.Click += this.CreateAddressButton_Click;
         // 
         // adresseClientcomboBox1
         // 
@@ -279,13 +279,13 @@ partial class ClientWindows {
         // 
         // nomlabel1
         // 
-        nomlabel1.AutoSize = true;
-        nomlabel1.Dock = DockStyle.Top;
-        nomlabel1.Location = new Point(25, 25);
-        nomlabel1.Name = "nomlabel1";
-        nomlabel1.Size = new Size(43, 15);
-        nomlabel1.TabIndex = 0;
-        nomlabel1.Text = "Nom : ";
+        this.nomlabel1.AutoSize = true;
+        this.nomlabel1.Dock = DockStyle.Top;
+        this.nomlabel1.Location = new Point(25, 25);
+        this.nomlabel1.Name = "nomlabel1";
+        this.nomlabel1.Size = new Size(43, 15);
+        this.nomlabel1.TabIndex = 0;
+        this.nomlabel1.Text = "Nom : ";
         // 
         // ClientWindows
         // 
