@@ -1,4 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
 
     public int EntrepotOriginalId { get; set; }
 
-    public List<Produit> Produits { get; set; }
+    public List<ShippingOrderProducts> AssociationsProduits { get; set; } = new List<ShippingOrderProducts>();
 
     public byte[] RowVersion { get; set; }
 

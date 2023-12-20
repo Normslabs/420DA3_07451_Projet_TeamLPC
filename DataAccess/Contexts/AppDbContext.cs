@@ -328,8 +328,8 @@ internal class AppDbContext : AbstractContext {
             .HasForeignKey("EntrepotOriginalId");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .HasMany(shipmentO => shipmentO.Produits)
-            .WithMany(produit => produit.ShipmentOrderDTOs);
+            .HasMany(shipmentO => shipmentO.AssociationsProduits)
+            .WithMany(produit => produit.ShippingOrderProducts);
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasOne(shipmento => shipmento.EmployeEntrepot);

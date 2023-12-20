@@ -26,7 +26,8 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
             .Include(so => so.Clients)
             .Include(so => so.EntrepotOriginal)
             .Include(so => so.EmployeEntrepot)
-            .Include(so => so.Produits)
+            .Include(so => so.AssociationsProduits)
+                .ThenInclude(sop => sop.ShipmentOrderDTO)
             .Include(so => so.Shipment)
             .ToList();
     }
@@ -37,7 +38,8 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
             .Include(so => so.Clients)
             .Include(so => so.EntrepotOriginal)
             .Include(so => so.EmployeEntrepot)
-            .Include(so => so.Produits)
+            .Include(so => so.AssociationsProduits)
+                .ThenInclude(sop => sop.ShipmentOrderDTO)
             .Include(so => so.Shipment)
             .ToList();
     }
@@ -47,7 +49,8 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
             .Include(so => so.Clients)
             .Include(so => so.EntrepotOriginal)
             .Include(so => so.EmployeEntrepot)
-            .Include(so => so.Produits)
+            .Include(so => so.AssociationsProduits)
+                .ThenInclude(sop => sop.ShipmentOrderDTO)
             .Include(so => so.Shipment)
             .ToList();
 
@@ -59,7 +62,8 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
             .Include(so => so.Clients)
             .Include(so => so.EntrepotOriginal)
             .Include(so => so.EmployeEntrepot) 
-            .Include(so => so.Produits)
+            .Include(so => so.AssociationsProduits)
+                .ThenInclude(sop => sop.ShipmentOrderDTO)
             .Include(so => so.Shipment)
             .ToList();
     }
@@ -67,12 +71,13 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
     public override ShipmentOrderDTO? GetById(int identifier) {
 
         return this.Context.GetDbSet<ShipmentOrderDTO>()
-     .Include(so => so.Clients)
-     .Include(so => so.EntrepotOriginal)
-     .Include(so => so.EmployeEntrepot)
-     .Include(so => so.Produits)
-     .Include(so => so.Shipment)
-     .Where(so => so.Id == identifier)
-     .SingleOrDefault();
+            .Include(so => so.Clients)
+            .Include(so => so.EntrepotOriginal)
+            .Include(so => so.EmployeEntrepot)
+            .Include(so => so.AssociationsProduits)
+                .ThenInclude(sop => sop.ShipmentOrderDTO)
+            .Include(so => so.Shipment)
+            .Where(so => so.Id == identifier)
+            .SingleOrDefault();
     }
 }
