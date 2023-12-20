@@ -508,7 +508,8 @@ internal class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<Fournisseur>()
             .HasOne(fournisseur => fournisseur.SupplierAdresse)
-            .WithOne(adresse => adresse.AdresseFournisseur);
+            .WithOne(adresse => adresse.AdresseFournisseur)
+            .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
 
 
         // shipment 
@@ -518,9 +519,35 @@ internal class AppDbContext : AbstractContext {
             .ToTable("Shipment")
             .HasKey(shipment => shipment.Id);
 
-            .WithOne(adresse => adresse.AdresseFournisseur)
-            .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
-        
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .Property (shipment => shipment.Id)
+            .HasColumnName ("Id")
+            .HasColumnType("int");
+
+
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .Property (shipment => shipment.ShippingOrderID)
+            .HasColumnName("ShippingOrderId")
+            .HasColumnType("int");
+
+
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .Property(shipment => shipment.Service)
+            .HasColumnName("Service")
+            .HasColumnType("nvarchar(30)");
+
+
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .Property(shipment => shipment.TrackingNumber)
+            .HasColumnName("Tracking number")
+            .HasColumnType("nvarchar(15)");
+
+
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .HasOne(shipment => shipment.ShippingOrderID)
+            .WithOne("lipe variable")
+            .hasForeignKey<ShipmentDTO>(shipment => shipment.ShippingOrderID);
+
         #endregion
     }
 
