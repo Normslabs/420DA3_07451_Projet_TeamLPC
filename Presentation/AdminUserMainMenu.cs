@@ -308,7 +308,7 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
-    private void viewEntrepotButton_Click(object sender, EventArgs e) 
+    private void ViewEntrepotButton_Click(object sender, EventArgs e) 
     {
        if(this.entrepotSelector.SelectedItem is null) 
        {
@@ -316,15 +316,17 @@ internal partial class AdminUserMainMenu : Form {
        } 
        else 
        {
-          
+          Entrepot selectedEntrepot = (Entrepot) this.entrepotSelector.SelectedItem;
+          _ = this.facade.GetService<EntrepotService>().UpdateDtoInstance(selectedEntrepot);
+          this.ReloadEntrepotComboBox();
        }
     }
 
-    private void editEntrepotButton_Click(object sender, EventArgs e) {
+    private void EditEntrepotButton_Click(object sender, EventArgs e) {
 
     }
 
-    private void deleteEntrepotButton_Click(object sender, EventArgs e) {
+    private void DeleteEntrepotButton_Click(object sender, EventArgs e) {
 
     }
 

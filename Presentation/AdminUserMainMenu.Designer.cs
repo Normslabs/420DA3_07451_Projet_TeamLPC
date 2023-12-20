@@ -609,7 +609,7 @@ partial class AdminUserMainMenu {
         this.deleteEntrepotButton.TabIndex = 6;
         this.deleteEntrepotButton.Text = "Supprimer l'entrepot";
         this.deleteEntrepotButton.UseVisualStyleBackColor = true;
-        this.deleteEntrepotButton.Click += this.deleteEntrepotButton_Click;
+        this.deleteEntrepotButton.Click += this.DeleteEntrepotButton_Click;
         // 
         // editEntrepotButton
         // 
@@ -621,7 +621,7 @@ partial class AdminUserMainMenu {
         this.editEntrepotButton.TabIndex = 5;
         this.editEntrepotButton.Text = "Éditer l'entrepot";
         this.editEntrepotButton.UseVisualStyleBackColor = true;
-        this.editEntrepotButton.Click += this.editEntrepotButton_Click;
+        this.editEntrepotButton.Click += this.EditEntrepotButton_Click;
         // 
         // viewEntrepotButton
         // 
@@ -633,7 +633,7 @@ partial class AdminUserMainMenu {
         this.viewEntrepotButton.TabIndex = 4;
         this.viewEntrepotButton.Text = "Voir détails de l'entrepot";
         this.viewEntrepotButton.UseVisualStyleBackColor = true;
-        this.viewEntrepotButton.Click += this.viewEntrepotButton_Click;
+        this.viewEntrepotButton.Click += this.ViewEntrepotButton_Click;
         // 
         // entrepotSelector
         // 
