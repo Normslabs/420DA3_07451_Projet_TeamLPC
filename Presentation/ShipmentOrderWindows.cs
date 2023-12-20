@@ -49,6 +49,6 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     }
     
     public void LoadClientComboBox() {
-        this.facade.GetService<ClientService>().
+        this.facade.GetService<ClientService>();
     }
 }

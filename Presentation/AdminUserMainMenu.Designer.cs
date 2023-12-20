@@ -24,775 +24,775 @@ partial class AdminUserMainMenu {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        topBarPanel = new Panel();
-        bottomBarPanel = new Panel();
-        quitButton = new Button();
-        tableLayoutPanel1 = new TableLayoutPanel();
-        panelGestionShipment = new Panel();
-        ShipmentViewBtn = new Button();
-        ShipmentListBox = new ListBox();
-        ShipmentFiltreTextbox = new TextBox();
-        ShipmentCreateBtn = new Button();
-        shipmentMgmtLabel = new Label();
-        fournisseurPanel = new Panel();
-        FournisseurDeleteBtn = new Button();
-        FournisseurEditBtn = new Button();
-        FournisseurViewBtn = new Button();
-        FournisseurListBox = new ListBox();
-        FournisseurFiltreTextBox = new TextBox();
-        FournisseurCreateBtn = new Button();
-        fournisseurLabel = new Label();
-        rolePanel = new Panel();
-        deleteRoleButton = new Button();
-        editRoleButton = new Button();
-        roleViewButton = new Button();
-        roleSelector = new ComboBox();
-        createRoleButton = new Button();
-        roleLabel = new Label();
-        userManagementPanel = new Panel();
-        deleteUserButton = new Button();
-        editUserButton = new Button();
-        viewUserButton = new Button();
-        userSelector = new ComboBox();
-        createUserButton = new Button();
-        userLabel = new Label();
-        Clientpanel4 = new Panel();
-        deletebutton = new Button();
-        editClientbutton = new Button();
-        viewClientbutton1 = new Button();
-        ClientslistBox1 = new ListBox();
-        filterClienttextBox1 = new TextBox();
-        createClientbutton1 = new Button();
-        label2 = new Label();
-        entrpotPanel = new Panel();
-        deleteEntrepotButton = new Button();
-        editEntrepotButton = new Button();
-        viewEntrepotButton = new Button();
-        entrepotSelector = new ComboBox();
-        createEntrepotButton = new Button();
-        entrepotLabel = new Label();
-        addressPanel = new Panel();
-        AdresseDeleteButton = new Button();
-        AdresseEditButton = new Button();
-        AdresseViewButton = new Button();
-        AdresseListBox = new ListBox();
-        AdresseFiltreTextBox = new TextBox();
-        createAdresseButton = new Button();
-        adresseLabel = new Label();
-        bottomBarPanel.SuspendLayout();
-        tableLayoutPanel1.SuspendLayout();
-        panelGestionShipment.SuspendLayout();
-        fournisseurPanel.SuspendLayout();
-        rolePanel.SuspendLayout();
-        userManagementPanel.SuspendLayout();
-        Clientpanel4.SuspendLayout();
-        entrpotPanel.SuspendLayout();
-        addressPanel.SuspendLayout();
+        this.topBarPanel = new Panel();
+        this.bottomBarPanel = new Panel();
+        this.quitButton = new Button();
+        this.tableLayoutPanel1 = new TableLayoutPanel();
+        this.panelGestionShipment = new Panel();
+        this.ShipmentViewBtn = new Button();
+        this.ShipmentListBox = new ListBox();
+        this.ShipmentFiltreTextbox = new TextBox();
+        this.ShipmentCreateBtn = new Button();
+        this.shipmentMgmtLabel = new Label();
+        this.fournisseurPanel = new Panel();
+        this.FournisseurDeleteBtn = new Button();
+        this.FournisseurEditBtn = new Button();
+        this.FournisseurViewBtn = new Button();
+        this.FournisseurListBox = new ListBox();
+        this.FournisseurFiltreTextBox = new TextBox();
+        this.FournisseurCreateBtn = new Button();
+        this.fournisseurLabel = new Label();
+        this.rolePanel = new Panel();
+        this.deleteRoleButton = new Button();
+        this.editRoleButton = new Button();
+        this.roleViewButton = new Button();
+        this.roleSelector = new ComboBox();
+        this.createRoleButton = new Button();
+        this.roleLabel = new Label();
+        this.userManagementPanel = new Panel();
+        this.deleteUserButton = new Button();
+        this.editUserButton = new Button();
+        this.viewUserButton = new Button();
+        this.userSelector = new ComboBox();
+        this.createUserButton = new Button();
+        this.userLabel = new Label();
+        this.Clientpanel4 = new Panel();
+        this.deletebutton = new Button();
+        this.editClientbutton = new Button();
+        this.viewClientbutton1 = new Button();
+        this.ClientslistBox1 = new ListBox();
+        this.filterClienttextBox1 = new TextBox();
+        this.createClientbutton1 = new Button();
+        this.label2 = new Label();
+        this.entrpotPanel = new Panel();
+        this.deleteEntrepotButton = new Button();
+        this.editEntrepotButton = new Button();
+        this.viewEntrepotButton = new Button();
+        this.entrepotSelector = new ComboBox();
+        this.createEntrepotButton = new Button();
+        this.entrepotLabel = new Label();
+        this.addressPanel = new Panel();
+        this.AdresseDeleteButton = new Button();
+        this.AdresseEditButton = new Button();
+        this.AdresseViewButton = new Button();
+        this.AdresseListBox = new ListBox();
+        this.AdresseFiltreTextBox = new TextBox();
+        this.createAdresseButton = new Button();
+        this.adresseLabel = new Label();
+        this.bottomBarPanel.SuspendLayout();
+        this.tableLayoutPanel1.SuspendLayout();
+        this.panelGestionShipment.SuspendLayout();
+        this.fournisseurPanel.SuspendLayout();
+        this.rolePanel.SuspendLayout();
+        this.userManagementPanel.SuspendLayout();
+        this.Clientpanel4.SuspendLayout();
+        this.entrpotPanel.SuspendLayout();
+        this.addressPanel.SuspendLayout();
         this.SuspendLayout();
         // 
         // topBarPanel
         // 
-        topBarPanel.Dock = DockStyle.Top;
-        topBarPanel.Location = new Point(0, 0);
-        topBarPanel.Margin = new Padding(3, 2, 3, 2);
-        topBarPanel.Name = "topBarPanel";
-        topBarPanel.Size = new Size(1036, 30);
-        topBarPanel.TabIndex = 0;
+        this.topBarPanel.Dock = DockStyle.Top;
+        this.topBarPanel.Location = new Point(0, 0);
+        this.topBarPanel.Margin = new Padding(3, 2, 3, 2);
+        this.topBarPanel.Name = "topBarPanel";
+        this.topBarPanel.Size = new Size(1036, 30);
+        this.topBarPanel.TabIndex = 0;
         // 
         // bottomBarPanel
         // 
-        bottomBarPanel.Controls.Add(quitButton);
-        bottomBarPanel.Dock = DockStyle.Bottom;
-        bottomBarPanel.Location = new Point(0, 616);
-        bottomBarPanel.Margin = new Padding(3, 2, 3, 2);
-        bottomBarPanel.Name = "bottomBarPanel";
-        bottomBarPanel.Size = new Size(1036, 30);
-        bottomBarPanel.TabIndex = 1;
+        this.bottomBarPanel.Controls.Add(this.quitButton);
+        this.bottomBarPanel.Dock = DockStyle.Bottom;
+        this.bottomBarPanel.Location = new Point(0, 616);
+        this.bottomBarPanel.Margin = new Padding(3, 2, 3, 2);
+        this.bottomBarPanel.Name = "bottomBarPanel";
+        this.bottomBarPanel.Size = new Size(1036, 30);
+        this.bottomBarPanel.TabIndex = 1;
         // 
         // quitButton
         // 
-        quitButton.Location = new Point(944, 4);
-        quitButton.Margin = new Padding(3, 2, 3, 2);
-        quitButton.Name = "quitButton";
-        quitButton.Size = new Size(81, 23);
-        quitButton.TabIndex = 0;
-        quitButton.Text = "Quitter";
-        quitButton.UseVisualStyleBackColor = true;
-        quitButton.Click += this.QuitButton_Click;
+        this.quitButton.Location = new Point(944, 4);
+        this.quitButton.Margin = new Padding(3, 2, 3, 2);
+        this.quitButton.Name = "quitButton";
+        this.quitButton.Size = new Size(81, 23);
+        this.quitButton.TabIndex = 0;
+        this.quitButton.Text = "Quitter";
+        this.quitButton.UseVisualStyleBackColor = true;
+        this.quitButton.Click += this.QuitButton_Click;
         // 
         // tableLayoutPanel1
         // 
-        tableLayoutPanel1.ColumnCount = 5;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-        tableLayoutPanel1.Controls.Add(panelGestionShipment, 0, 1);
-        tableLayoutPanel1.Controls.Add(fournisseurPanel, 0, 1);
-        tableLayoutPanel1.Controls.Add(rolePanel, 0, 1);
-        tableLayoutPanel1.Controls.Add(userManagementPanel, 0, 0);
-        tableLayoutPanel1.Controls.Add(Clientpanel4, 3, 1);
-        tableLayoutPanel1.Controls.Add(entrpotPanel, 1, 0);
-        tableLayoutPanel1.Controls.Add(addressPanel, 2, 0);
-        tableLayoutPanel1.Dock = DockStyle.Fill;
-        tableLayoutPanel1.Location = new Point(0, 30);
-        tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
-        tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 2;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.Size = new Size(1036, 586);
-        tableLayoutPanel1.TabIndex = 2;
+        this.tableLayoutPanel1.ColumnCount = 5;
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+        this.tableLayoutPanel1.Controls.Add(this.panelGestionShipment, 0, 1);
+        this.tableLayoutPanel1.Controls.Add(this.fournisseurPanel, 0, 1);
+        this.tableLayoutPanel1.Controls.Add(this.rolePanel, 0, 1);
+        this.tableLayoutPanel1.Controls.Add(this.userManagementPanel, 0, 0);
+        this.tableLayoutPanel1.Controls.Add(this.Clientpanel4, 3, 1);
+        this.tableLayoutPanel1.Controls.Add(this.entrpotPanel, 1, 0);
+        this.tableLayoutPanel1.Controls.Add(this.addressPanel, 2, 0);
+        this.tableLayoutPanel1.Dock = DockStyle.Fill;
+        this.tableLayoutPanel1.Location = new Point(0, 30);
+        this.tableLayoutPanel1.Margin = new Padding(3, 2, 3, 2);
+        this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+        this.tableLayoutPanel1.RowCount = 2;
+        this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+        this.tableLayoutPanel1.Size = new Size(1036, 586);
+        this.tableLayoutPanel1.TabIndex = 2;
         // 
         // panelGestionShipment
         // 
-        panelGestionShipment.Controls.Add(ShipmentViewBtn);
-        panelGestionShipment.Controls.Add(ShipmentListBox);
-        panelGestionShipment.Controls.Add(ShipmentFiltreTextbox);
-        panelGestionShipment.Controls.Add(ShipmentCreateBtn);
-        panelGestionShipment.Controls.Add(shipmentMgmtLabel);
-        panelGestionShipment.Dock = DockStyle.Fill;
-        panelGestionShipment.Location = new Point(210, 295);
-        panelGestionShipment.Margin = new Padding(3, 2, 3, 2);
-        panelGestionShipment.Name = "panelGestionShipment";
-        panelGestionShipment.Padding = new Padding(9, 8, 9, 8);
-        panelGestionShipment.Size = new Size(201, 289);
-        panelGestionShipment.TabIndex = 3;
+        this.panelGestionShipment.Controls.Add(this.ShipmentViewBtn);
+        this.panelGestionShipment.Controls.Add(this.ShipmentListBox);
+        this.panelGestionShipment.Controls.Add(this.ShipmentFiltreTextbox);
+        this.panelGestionShipment.Controls.Add(this.ShipmentCreateBtn);
+        this.panelGestionShipment.Controls.Add(this.shipmentMgmtLabel);
+        this.panelGestionShipment.Dock = DockStyle.Fill;
+        this.panelGestionShipment.Location = new Point(210, 295);
+        this.panelGestionShipment.Margin = new Padding(3, 2, 3, 2);
+        this.panelGestionShipment.Name = "panelGestionShipment";
+        this.panelGestionShipment.Padding = new Padding(9, 8, 9, 8);
+        this.panelGestionShipment.Size = new Size(201, 289);
+        this.panelGestionShipment.TabIndex = 3;
         // 
         // ShipmentViewBtn
         // 
-        ShipmentViewBtn.Dock = DockStyle.Top;
-        ShipmentViewBtn.Location = new Point(9, 177);
-        ShipmentViewBtn.Margin = new Padding(3, 2, 3, 2);
-        ShipmentViewBtn.Name = "ShipmentViewBtn";
-        ShipmentViewBtn.Size = new Size(183, 26);
-        ShipmentViewBtn.TabIndex = 5;
-        ShipmentViewBtn.Text = "Voir un shipment";
-        ShipmentViewBtn.UseVisualStyleBackColor = true;
-        ShipmentViewBtn.Click += this.ShipmentViewBtn_Click;
+        this.ShipmentViewBtn.Dock = DockStyle.Top;
+        this.ShipmentViewBtn.Location = new Point(9, 177);
+        this.ShipmentViewBtn.Margin = new Padding(3, 2, 3, 2);
+        this.ShipmentViewBtn.Name = "ShipmentViewBtn";
+        this.ShipmentViewBtn.Size = new Size(183, 26);
+        this.ShipmentViewBtn.TabIndex = 5;
+        this.ShipmentViewBtn.Text = "Voir un shipment";
+        this.ShipmentViewBtn.UseVisualStyleBackColor = true;
+        this.ShipmentViewBtn.Click += this.ShipmentViewBtn_Click;
         // 
         // ShipmentListBox
         // 
-        ShipmentListBox.Dock = DockStyle.Top;
-        ShipmentListBox.FormattingEnabled = true;
-        ShipmentListBox.ItemHeight = 15;
-        ShipmentListBox.Location = new Point(9, 113);
-        ShipmentListBox.Margin = new Padding(3, 2, 3, 2);
-        ShipmentListBox.Name = "ShipmentListBox";
-        ShipmentListBox.Size = new Size(183, 64);
-        ShipmentListBox.TabIndex = 4;
-        ShipmentListBox.SelectedIndexChanged += this.ShipmentListBox_SelectedIndexChanged;
+        this.ShipmentListBox.Dock = DockStyle.Top;
+        this.ShipmentListBox.FormattingEnabled = true;
+        this.ShipmentListBox.ItemHeight = 15;
+        this.ShipmentListBox.Location = new Point(9, 113);
+        this.ShipmentListBox.Margin = new Padding(3, 2, 3, 2);
+        this.ShipmentListBox.Name = "ShipmentListBox";
+        this.ShipmentListBox.Size = new Size(183, 64);
+        this.ShipmentListBox.TabIndex = 4;
+        this.ShipmentListBox.SelectedIndexChanged += this.ShipmentListBox_SelectedIndexChanged;
         // 
         // ShipmentFiltreTextbox
         // 
-        ShipmentFiltreTextbox.BackColor = SystemColors.Window;
-        ShipmentFiltreTextbox.Dock = DockStyle.Top;
-        ShipmentFiltreTextbox.Location = new Point(9, 90);
-        ShipmentFiltreTextbox.Margin = new Padding(3, 2, 3, 2);
-        ShipmentFiltreTextbox.Name = "ShipmentFiltreTextbox";
-        ShipmentFiltreTextbox.Size = new Size(183, 23);
-        ShipmentFiltreTextbox.TabIndex = 3;
-        ShipmentFiltreTextbox.UseSystemPasswordChar = true;
+        this.ShipmentFiltreTextbox.BackColor = SystemColors.Window;
+        this.ShipmentFiltreTextbox.Dock = DockStyle.Top;
+        this.ShipmentFiltreTextbox.Location = new Point(9, 90);
+        this.ShipmentFiltreTextbox.Margin = new Padding(3, 2, 3, 2);
+        this.ShipmentFiltreTextbox.Name = "ShipmentFiltreTextbox";
+        this.ShipmentFiltreTextbox.Size = new Size(183, 23);
+        this.ShipmentFiltreTextbox.TabIndex = 3;
+        this.ShipmentFiltreTextbox.UseSystemPasswordChar = true;
         // 
         // ShipmentCreateBtn
         // 
-        ShipmentCreateBtn.Dock = DockStyle.Top;
-        ShipmentCreateBtn.Location = new Point(9, 64);
-        ShipmentCreateBtn.Margin = new Padding(3, 2, 3, 2);
-        ShipmentCreateBtn.Name = "ShipmentCreateBtn";
-        ShipmentCreateBtn.Size = new Size(183, 26);
-        ShipmentCreateBtn.TabIndex = 2;
-        ShipmentCreateBtn.Text = "Créer un shipment";
-        ShipmentCreateBtn.UseVisualStyleBackColor = true;
-        ShipmentCreateBtn.Click += this.ShipmentCreateBtn_Click;
+        this.ShipmentCreateBtn.Dock = DockStyle.Top;
+        this.ShipmentCreateBtn.Location = new Point(9, 64);
+        this.ShipmentCreateBtn.Margin = new Padding(3, 2, 3, 2);
+        this.ShipmentCreateBtn.Name = "ShipmentCreateBtn";
+        this.ShipmentCreateBtn.Size = new Size(183, 26);
+        this.ShipmentCreateBtn.TabIndex = 2;
+        this.ShipmentCreateBtn.Text = "Créer un shipment";
+        this.ShipmentCreateBtn.UseVisualStyleBackColor = true;
+        this.ShipmentCreateBtn.Click += this.ShipmentCreateBtn_Click;
         // 
         // shipmentMgmtLabel
         // 
-        shipmentMgmtLabel.Dock = DockStyle.Top;
-        shipmentMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        shipmentMgmtLabel.Location = new Point(9, 8);
-        shipmentMgmtLabel.Name = "shipmentMgmtLabel";
-        shipmentMgmtLabel.Size = new Size(183, 56);
-        shipmentMgmtLabel.TabIndex = 0;
-        shipmentMgmtLabel.Text = "Gestion des shipments";
-        shipmentMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
+        this.shipmentMgmtLabel.Dock = DockStyle.Top;
+        this.shipmentMgmtLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.shipmentMgmtLabel.Location = new Point(9, 8);
+        this.shipmentMgmtLabel.Name = "shipmentMgmtLabel";
+        this.shipmentMgmtLabel.Size = new Size(183, 56);
+        this.shipmentMgmtLabel.TabIndex = 0;
+        this.shipmentMgmtLabel.Text = "Gestion des shipments";
+        this.shipmentMgmtLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // fournisseurPanel
         // 
-        fournisseurPanel.Controls.Add(FournisseurDeleteBtn);
-        fournisseurPanel.Controls.Add(FournisseurEditBtn);
-        fournisseurPanel.Controls.Add(FournisseurViewBtn);
-        fournisseurPanel.Controls.Add(FournisseurListBox);
-        fournisseurPanel.Controls.Add(FournisseurFiltreTextBox);
-        fournisseurPanel.Controls.Add(FournisseurCreateBtn);
-        fournisseurPanel.Controls.Add(fournisseurLabel);
-        fournisseurPanel.Dock = DockStyle.Fill;
-        fournisseurPanel.Location = new Point(3, 295);
-        fournisseurPanel.Margin = new Padding(3, 2, 3, 2);
-        fournisseurPanel.Name = "fournisseurPanel";
-        fournisseurPanel.Padding = new Padding(9, 8, 9, 8);
-        fournisseurPanel.Size = new Size(201, 289);
-        fournisseurPanel.TabIndex = 2;
+        this.fournisseurPanel.Controls.Add(this.FournisseurDeleteBtn);
+        this.fournisseurPanel.Controls.Add(this.FournisseurEditBtn);
+        this.fournisseurPanel.Controls.Add(this.FournisseurViewBtn);
+        this.fournisseurPanel.Controls.Add(this.FournisseurListBox);
+        this.fournisseurPanel.Controls.Add(this.FournisseurFiltreTextBox);
+        this.fournisseurPanel.Controls.Add(this.FournisseurCreateBtn);
+        this.fournisseurPanel.Controls.Add(this.fournisseurLabel);
+        this.fournisseurPanel.Dock = DockStyle.Fill;
+        this.fournisseurPanel.Location = new Point(3, 295);
+        this.fournisseurPanel.Margin = new Padding(3, 2, 3, 2);
+        this.fournisseurPanel.Name = "fournisseurPanel";
+        this.fournisseurPanel.Padding = new Padding(9, 8, 9, 8);
+        this.fournisseurPanel.Size = new Size(201, 289);
+        this.fournisseurPanel.TabIndex = 2;
         // 
         // FournisseurDeleteBtn
         // 
-        FournisseurDeleteBtn.Dock = DockStyle.Top;
-        FournisseurDeleteBtn.Location = new Point(9, 229);
-        FournisseurDeleteBtn.Margin = new Padding(3, 2, 3, 2);
-        FournisseurDeleteBtn.Name = "FournisseurDeleteBtn";
-        FournisseurDeleteBtn.Size = new Size(183, 26);
-        FournisseurDeleteBtn.TabIndex = 8;
-        FournisseurDeleteBtn.Text = "Supprimer un fournisseur";
-        FournisseurDeleteBtn.UseVisualStyleBackColor = true;
-        FournisseurDeleteBtn.Click += this.FournisseurDeleteBtn_Click;
+        this.FournisseurDeleteBtn.Dock = DockStyle.Top;
+        this.FournisseurDeleteBtn.Location = new Point(9, 229);
+        this.FournisseurDeleteBtn.Margin = new Padding(3, 2, 3, 2);
+        this.FournisseurDeleteBtn.Name = "FournisseurDeleteBtn";
+        this.FournisseurDeleteBtn.Size = new Size(183, 26);
+        this.FournisseurDeleteBtn.TabIndex = 8;
+        this.FournisseurDeleteBtn.Text = "Supprimer un fournisseur";
+        this.FournisseurDeleteBtn.UseVisualStyleBackColor = true;
+        this.FournisseurDeleteBtn.Click += this.FournisseurDeleteBtn_Click;
         // 
         // FournisseurEditBtn
         // 
-        FournisseurEditBtn.Dock = DockStyle.Top;
-        FournisseurEditBtn.Location = new Point(9, 203);
-        FournisseurEditBtn.Margin = new Padding(3, 2, 3, 2);
-        FournisseurEditBtn.Name = "FournisseurEditBtn";
-        FournisseurEditBtn.Size = new Size(183, 26);
-        FournisseurEditBtn.TabIndex = 7;
-        FournisseurEditBtn.Text = "Éditer le fournisseur";
-        FournisseurEditBtn.UseVisualStyleBackColor = true;
-        FournisseurEditBtn.Click += this.FournisseurEditBtn_Click;
+        this.FournisseurEditBtn.Dock = DockStyle.Top;
+        this.FournisseurEditBtn.Location = new Point(9, 203);
+        this.FournisseurEditBtn.Margin = new Padding(3, 2, 3, 2);
+        this.FournisseurEditBtn.Name = "FournisseurEditBtn";
+        this.FournisseurEditBtn.Size = new Size(183, 26);
+        this.FournisseurEditBtn.TabIndex = 7;
+        this.FournisseurEditBtn.Text = "Éditer le fournisseur";
+        this.FournisseurEditBtn.UseVisualStyleBackColor = true;
+        this.FournisseurEditBtn.Click += this.FournisseurEditBtn_Click;
         // 
         // FournisseurViewBtn
         // 
-        FournisseurViewBtn.Dock = DockStyle.Top;
-        FournisseurViewBtn.Location = new Point(9, 177);
-        FournisseurViewBtn.Margin = new Padding(3, 2, 3, 2);
-        FournisseurViewBtn.Name = "FournisseurViewBtn";
-        FournisseurViewBtn.Size = new Size(183, 26);
-        FournisseurViewBtn.TabIndex = 6;
-        FournisseurViewBtn.Text = "Voir détails du fournisseur";
-        FournisseurViewBtn.UseVisualStyleBackColor = true;
-        FournisseurViewBtn.Click += this.FournisseurViewBtn_Click;
+        this.FournisseurViewBtn.Dock = DockStyle.Top;
+        this.FournisseurViewBtn.Location = new Point(9, 177);
+        this.FournisseurViewBtn.Margin = new Padding(3, 2, 3, 2);
+        this.FournisseurViewBtn.Name = "FournisseurViewBtn";
+        this.FournisseurViewBtn.Size = new Size(183, 26);
+        this.FournisseurViewBtn.TabIndex = 6;
+        this.FournisseurViewBtn.Text = "Voir détails du fournisseur";
+        this.FournisseurViewBtn.UseVisualStyleBackColor = true;
+        this.FournisseurViewBtn.Click += this.FournisseurViewBtn_Click;
         // 
         // FournisseurListBox
         // 
-        FournisseurListBox.Dock = DockStyle.Top;
-        FournisseurListBox.FormattingEnabled = true;
-        FournisseurListBox.ItemHeight = 15;
-        FournisseurListBox.Location = new Point(9, 113);
-        FournisseurListBox.Margin = new Padding(3, 2, 3, 2);
-        FournisseurListBox.Name = "FournisseurListBox";
-        FournisseurListBox.Size = new Size(183, 64);
-        FournisseurListBox.TabIndex = 5;
-        FournisseurListBox.SelectedIndexChanged += this.FournisseurListBox_SelectedIndexChanged;
+        this.FournisseurListBox.Dock = DockStyle.Top;
+        this.FournisseurListBox.FormattingEnabled = true;
+        this.FournisseurListBox.ItemHeight = 15;
+        this.FournisseurListBox.Location = new Point(9, 113);
+        this.FournisseurListBox.Margin = new Padding(3, 2, 3, 2);
+        this.FournisseurListBox.Name = "FournisseurListBox";
+        this.FournisseurListBox.Size = new Size(183, 64);
+        this.FournisseurListBox.TabIndex = 5;
+        this.FournisseurListBox.SelectedIndexChanged += this.FournisseurListBox_SelectedIndexChanged;
         // 
         // FournisseurFiltreTextBox
         // 
-        FournisseurFiltreTextBox.Dock = DockStyle.Top;
-        FournisseurFiltreTextBox.Location = new Point(9, 90);
-        FournisseurFiltreTextBox.Margin = new Padding(3, 2, 3, 2);
-        FournisseurFiltreTextBox.Name = "FournisseurFiltreTextBox";
-        FournisseurFiltreTextBox.Size = new Size(183, 23);
-        FournisseurFiltreTextBox.TabIndex = 4;
-        FournisseurFiltreTextBox.UseSystemPasswordChar = true;
-        FournisseurFiltreTextBox.TextChanged += this.FournisseurFiltreTextBox_TextChanged;
+        this.FournisseurFiltreTextBox.Dock = DockStyle.Top;
+        this.FournisseurFiltreTextBox.Location = new Point(9, 90);
+        this.FournisseurFiltreTextBox.Margin = new Padding(3, 2, 3, 2);
+        this.FournisseurFiltreTextBox.Name = "FournisseurFiltreTextBox";
+        this.FournisseurFiltreTextBox.Size = new Size(183, 23);
+        this.FournisseurFiltreTextBox.TabIndex = 4;
+        this.FournisseurFiltreTextBox.UseSystemPasswordChar = true;
+        this.FournisseurFiltreTextBox.TextChanged += this.FournisseurFiltreTextBox_TextChanged;
         // 
         // FournisseurCreateBtn
         // 
-        FournisseurCreateBtn.Dock = DockStyle.Top;
-        FournisseurCreateBtn.Location = new Point(9, 64);
-        FournisseurCreateBtn.Margin = new Padding(3, 2, 3, 2);
-        FournisseurCreateBtn.Name = "FournisseurCreateBtn";
-        FournisseurCreateBtn.Size = new Size(183, 26);
-        FournisseurCreateBtn.TabIndex = 1;
-        FournisseurCreateBtn.Text = "Créer un fournisseur";
-        FournisseurCreateBtn.UseVisualStyleBackColor = true;
-        FournisseurCreateBtn.Click += this.FournisseurCreateBtn_Click;
+        this.FournisseurCreateBtn.Dock = DockStyle.Top;
+        this.FournisseurCreateBtn.Location = new Point(9, 64);
+        this.FournisseurCreateBtn.Margin = new Padding(3, 2, 3, 2);
+        this.FournisseurCreateBtn.Name = "FournisseurCreateBtn";
+        this.FournisseurCreateBtn.Size = new Size(183, 26);
+        this.FournisseurCreateBtn.TabIndex = 1;
+        this.FournisseurCreateBtn.Text = "Créer un fournisseur";
+        this.FournisseurCreateBtn.UseVisualStyleBackColor = true;
+        this.FournisseurCreateBtn.Click += this.FournisseurCreateBtn_Click;
         // 
         // fournisseurLabel
         // 
-        fournisseurLabel.Dock = DockStyle.Top;
-        fournisseurLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        fournisseurLabel.Location = new Point(9, 8);
-        fournisseurLabel.Name = "fournisseurLabel";
-        fournisseurLabel.Size = new Size(183, 56);
-        fournisseurLabel.TabIndex = 0;
-        fournisseurLabel.Text = "Gestion des Fournisseurs";
-        fournisseurLabel.TextAlign = ContentAlignment.MiddleCenter;
+        this.fournisseurLabel.Dock = DockStyle.Top;
+        this.fournisseurLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.fournisseurLabel.Location = new Point(9, 8);
+        this.fournisseurLabel.Name = "fournisseurLabel";
+        this.fournisseurLabel.Size = new Size(183, 56);
+        this.fournisseurLabel.TabIndex = 0;
+        this.fournisseurLabel.Text = "Gestion des Fournisseurs";
+        this.fournisseurLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // rolePanel
         // 
-        rolePanel.Controls.Add(deleteRoleButton);
-        rolePanel.Controls.Add(editRoleButton);
-        rolePanel.Controls.Add(roleViewButton);
-        rolePanel.Controls.Add(roleSelector);
-        rolePanel.Controls.Add(createRoleButton);
-        rolePanel.Controls.Add(roleLabel);
-        rolePanel.Dock = DockStyle.Fill;
-        rolePanel.Location = new Point(417, 295);
-        rolePanel.Margin = new Padding(3, 2, 3, 2);
-        rolePanel.Name = "rolePanel";
-        rolePanel.Padding = new Padding(9, 8, 9, 8);
-        rolePanel.Size = new Size(201, 289);
-        rolePanel.TabIndex = 1;
+        this.rolePanel.Controls.Add(this.deleteRoleButton);
+        this.rolePanel.Controls.Add(this.editRoleButton);
+        this.rolePanel.Controls.Add(this.roleViewButton);
+        this.rolePanel.Controls.Add(this.roleSelector);
+        this.rolePanel.Controls.Add(this.createRoleButton);
+        this.rolePanel.Controls.Add(this.roleLabel);
+        this.rolePanel.Dock = DockStyle.Fill;
+        this.rolePanel.Location = new Point(417, 295);
+        this.rolePanel.Margin = new Padding(3, 2, 3, 2);
+        this.rolePanel.Name = "rolePanel";
+        this.rolePanel.Padding = new Padding(9, 8, 9, 8);
+        this.rolePanel.Size = new Size(201, 289);
+        this.rolePanel.TabIndex = 1;
         // 
         // deleteRoleButton
         // 
-        deleteRoleButton.Dock = DockStyle.Top;
-        deleteRoleButton.Location = new Point(9, 139);
-        deleteRoleButton.Margin = new Padding(3, 2, 3, 2);
-        deleteRoleButton.Name = "deleteRoleButton";
-        deleteRoleButton.Size = new Size(183, 26);
-        deleteRoleButton.TabIndex = 5;
-        deleteRoleButton.Text = "Supprimer le rôle";
-        deleteRoleButton.UseVisualStyleBackColor = true;
-        deleteRoleButton.Click += this.DeleteRoleButton_Click;
+        this.deleteRoleButton.Dock = DockStyle.Top;
+        this.deleteRoleButton.Location = new Point(9, 139);
+        this.deleteRoleButton.Margin = new Padding(3, 2, 3, 2);
+        this.deleteRoleButton.Name = "deleteRoleButton";
+        this.deleteRoleButton.Size = new Size(183, 26);
+        this.deleteRoleButton.TabIndex = 5;
+        this.deleteRoleButton.Text = "Supprimer le rôle";
+        this.deleteRoleButton.UseVisualStyleBackColor = true;
+        this.deleteRoleButton.Click += this.DeleteRoleButton_Click;
         // 
         // editRoleButton
         // 
-        editRoleButton.Dock = DockStyle.Top;
-        editRoleButton.Location = new Point(9, 113);
-        editRoleButton.Margin = new Padding(3, 2, 3, 2);
-        editRoleButton.Name = "editRoleButton";
-        editRoleButton.Size = new Size(183, 26);
-        editRoleButton.TabIndex = 4;
-        editRoleButton.Text = "Éditer le rôle";
-        editRoleButton.UseVisualStyleBackColor = true;
-        editRoleButton.Click += this.EditRoleButton_Click;
+        this.editRoleButton.Dock = DockStyle.Top;
+        this.editRoleButton.Location = new Point(9, 113);
+        this.editRoleButton.Margin = new Padding(3, 2, 3, 2);
+        this.editRoleButton.Name = "editRoleButton";
+        this.editRoleButton.Size = new Size(183, 26);
+        this.editRoleButton.TabIndex = 4;
+        this.editRoleButton.Text = "Éditer le rôle";
+        this.editRoleButton.UseVisualStyleBackColor = true;
+        this.editRoleButton.Click += this.EditRoleButton_Click;
         // 
         // roleViewButton
         // 
-        roleViewButton.Dock = DockStyle.Top;
-        roleViewButton.Location = new Point(9, 87);
-        roleViewButton.Margin = new Padding(3, 2, 3, 2);
-        roleViewButton.Name = "roleViewButton";
-        roleViewButton.Size = new Size(183, 26);
-        roleViewButton.TabIndex = 3;
-        roleViewButton.Text = "Voir détails du rôle";
-        roleViewButton.UseVisualStyleBackColor = true;
-        roleViewButton.Click += this.RoleViewButton_Click;
+        this.roleViewButton.Dock = DockStyle.Top;
+        this.roleViewButton.Location = new Point(9, 87);
+        this.roleViewButton.Margin = new Padding(3, 2, 3, 2);
+        this.roleViewButton.Name = "roleViewButton";
+        this.roleViewButton.Size = new Size(183, 26);
+        this.roleViewButton.TabIndex = 3;
+        this.roleViewButton.Text = "Voir détails du rôle";
+        this.roleViewButton.UseVisualStyleBackColor = true;
+        this.roleViewButton.Click += this.RoleViewButton_Click;
         // 
         // roleSelector
         // 
-        roleSelector.Dock = DockStyle.Top;
-        roleSelector.FormattingEnabled = true;
-        roleSelector.Location = new Point(9, 64);
-        roleSelector.Margin = new Padding(3, 2, 3, 2);
-        roleSelector.Name = "roleSelector";
-        roleSelector.Size = new Size(183, 23);
-        roleSelector.TabIndex = 2;
-        roleSelector.SelectedIndexChanged += this.RoleSelector_SelectedIndexChanged;
+        this.roleSelector.Dock = DockStyle.Top;
+        this.roleSelector.FormattingEnabled = true;
+        this.roleSelector.Location = new Point(9, 64);
+        this.roleSelector.Margin = new Padding(3, 2, 3, 2);
+        this.roleSelector.Name = "roleSelector";
+        this.roleSelector.Size = new Size(183, 23);
+        this.roleSelector.TabIndex = 2;
+        this.roleSelector.SelectedIndexChanged += this.RoleSelector_SelectedIndexChanged;
         // 
         // createRoleButton
         // 
-        createRoleButton.Dock = DockStyle.Top;
-        createRoleButton.Location = new Point(9, 38);
-        createRoleButton.Margin = new Padding(3, 2, 3, 2);
-        createRoleButton.Name = "createRoleButton";
-        createRoleButton.Size = new Size(183, 26);
-        createRoleButton.TabIndex = 1;
-        createRoleButton.Text = "Créer un rôle";
-        createRoleButton.UseVisualStyleBackColor = true;
-        createRoleButton.Click += this.CreateRoleButton_Click;
+        this.createRoleButton.Dock = DockStyle.Top;
+        this.createRoleButton.Location = new Point(9, 38);
+        this.createRoleButton.Margin = new Padding(3, 2, 3, 2);
+        this.createRoleButton.Name = "createRoleButton";
+        this.createRoleButton.Size = new Size(183, 26);
+        this.createRoleButton.TabIndex = 1;
+        this.createRoleButton.Text = "Créer un rôle";
+        this.createRoleButton.UseVisualStyleBackColor = true;
+        this.createRoleButton.Click += this.CreateRoleButton_Click;
         // 
         // roleLabel
         // 
-        roleLabel.Dock = DockStyle.Top;
-        roleLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        roleLabel.Location = new Point(9, 8);
-        roleLabel.Name = "roleLabel";
-        roleLabel.Size = new Size(183, 30);
-        roleLabel.TabIndex = 0;
-        roleLabel.Text = "Gestion des Rôles";
-        roleLabel.TextAlign = ContentAlignment.MiddleCenter;
+        this.roleLabel.Dock = DockStyle.Top;
+        this.roleLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.roleLabel.Location = new Point(9, 8);
+        this.roleLabel.Name = "roleLabel";
+        this.roleLabel.Size = new Size(183, 30);
+        this.roleLabel.TabIndex = 0;
+        this.roleLabel.Text = "Gestion des Rôles";
+        this.roleLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // userManagementPanel
         // 
-        userManagementPanel.Controls.Add(deleteUserButton);
-        userManagementPanel.Controls.Add(editUserButton);
-        userManagementPanel.Controls.Add(viewUserButton);
-        userManagementPanel.Controls.Add(userSelector);
-        userManagementPanel.Controls.Add(createUserButton);
-        userManagementPanel.Controls.Add(userLabel);
-        userManagementPanel.Dock = DockStyle.Fill;
-        userManagementPanel.Location = new Point(3, 2);
-        userManagementPanel.Margin = new Padding(3, 2, 3, 2);
-        userManagementPanel.Name = "userManagementPanel";
-        userManagementPanel.Padding = new Padding(9, 8, 9, 8);
-        userManagementPanel.Size = new Size(201, 289);
-        userManagementPanel.TabIndex = 0;
+        this.userManagementPanel.Controls.Add(this.deleteUserButton);
+        this.userManagementPanel.Controls.Add(this.editUserButton);
+        this.userManagementPanel.Controls.Add(this.viewUserButton);
+        this.userManagementPanel.Controls.Add(this.userSelector);
+        this.userManagementPanel.Controls.Add(this.createUserButton);
+        this.userManagementPanel.Controls.Add(this.userLabel);
+        this.userManagementPanel.Dock = DockStyle.Fill;
+        this.userManagementPanel.Location = new Point(3, 2);
+        this.userManagementPanel.Margin = new Padding(3, 2, 3, 2);
+        this.userManagementPanel.Name = "userManagementPanel";
+        this.userManagementPanel.Padding = new Padding(9, 8, 9, 8);
+        this.userManagementPanel.Size = new Size(201, 289);
+        this.userManagementPanel.TabIndex = 0;
         // 
         // deleteUserButton
         // 
-        deleteUserButton.Dock = DockStyle.Top;
-        deleteUserButton.Location = new Point(9, 165);
-        deleteUserButton.Margin = new Padding(3, 2, 3, 2);
-        deleteUserButton.Name = "deleteUserButton";
-        deleteUserButton.Size = new Size(183, 26);
-        deleteUserButton.TabIndex = 5;
-        deleteUserButton.Text = "Supprimer l'utilisateur";
-        deleteUserButton.UseVisualStyleBackColor = true;
-        deleteUserButton.Click += this.DeleteUserButton_Click;
+        this.deleteUserButton.Dock = DockStyle.Top;
+        this.deleteUserButton.Location = new Point(9, 165);
+        this.deleteUserButton.Margin = new Padding(3, 2, 3, 2);
+        this.deleteUserButton.Name = "deleteUserButton";
+        this.deleteUserButton.Size = new Size(183, 26);
+        this.deleteUserButton.TabIndex = 5;
+        this.deleteUserButton.Text = "Supprimer l'utilisateur";
+        this.deleteUserButton.UseVisualStyleBackColor = true;
+        this.deleteUserButton.Click += this.DeleteUserButton_Click;
         // 
         // editUserButton
         // 
-        editUserButton.Dock = DockStyle.Top;
-        editUserButton.Location = new Point(9, 139);
-        editUserButton.Margin = new Padding(3, 2, 3, 2);
-        editUserButton.Name = "editUserButton";
-        editUserButton.Size = new Size(183, 26);
-        editUserButton.TabIndex = 4;
-        editUserButton.Text = "Éditer l'utilisateur";
-        editUserButton.UseVisualStyleBackColor = true;
-        editUserButton.Click += this.EditUserButton_Click;
+        this.editUserButton.Dock = DockStyle.Top;
+        this.editUserButton.Location = new Point(9, 139);
+        this.editUserButton.Margin = new Padding(3, 2, 3, 2);
+        this.editUserButton.Name = "editUserButton";
+        this.editUserButton.Size = new Size(183, 26);
+        this.editUserButton.TabIndex = 4;
+        this.editUserButton.Text = "Éditer l'utilisateur";
+        this.editUserButton.UseVisualStyleBackColor = true;
+        this.editUserButton.Click += this.EditUserButton_Click;
         // 
         // viewUserButton
         // 
-        viewUserButton.Dock = DockStyle.Top;
-        viewUserButton.Location = new Point(9, 113);
-        viewUserButton.Margin = new Padding(3, 2, 3, 2);
-        viewUserButton.Name = "viewUserButton";
-        viewUserButton.Size = new Size(183, 26);
-        viewUserButton.TabIndex = 3;
-        viewUserButton.Text = "Voir détails de l'utilisateur";
-        viewUserButton.UseVisualStyleBackColor = true;
-        viewUserButton.Click += this.ViewUserButton_Click;
+        this.viewUserButton.Dock = DockStyle.Top;
+        this.viewUserButton.Location = new Point(9, 113);
+        this.viewUserButton.Margin = new Padding(3, 2, 3, 2);
+        this.viewUserButton.Name = "viewUserButton";
+        this.viewUserButton.Size = new Size(183, 26);
+        this.viewUserButton.TabIndex = 3;
+        this.viewUserButton.Text = "Voir détails de l'utilisateur";
+        this.viewUserButton.UseVisualStyleBackColor = true;
+        this.viewUserButton.Click += this.ViewUserButton_Click;
         // 
         // userSelector
         // 
-        userSelector.Dock = DockStyle.Top;
-        userSelector.FormattingEnabled = true;
-        userSelector.Location = new Point(9, 90);
-        userSelector.Margin = new Padding(3, 2, 3, 2);
-        userSelector.Name = "userSelector";
-        userSelector.Size = new Size(183, 23);
-        userSelector.TabIndex = 2;
-        userSelector.SelectedIndexChanged += this.UserSelector_SelectedIndexChanged;
+        this.userSelector.Dock = DockStyle.Top;
+        this.userSelector.FormattingEnabled = true;
+        this.userSelector.Location = new Point(9, 90);
+        this.userSelector.Margin = new Padding(3, 2, 3, 2);
+        this.userSelector.Name = "userSelector";
+        this.userSelector.Size = new Size(183, 23);
+        this.userSelector.TabIndex = 2;
+        this.userSelector.SelectedIndexChanged += this.UserSelector_SelectedIndexChanged;
         // 
         // createUserButton
         // 
-        createUserButton.Dock = DockStyle.Top;
-        createUserButton.Location = new Point(9, 64);
-        createUserButton.Margin = new Padding(3, 2, 3, 2);
-        createUserButton.Name = "createUserButton";
-        createUserButton.Size = new Size(183, 26);
-        createUserButton.TabIndex = 1;
-        createUserButton.Text = "Créer un utilisateur";
-        createUserButton.UseVisualStyleBackColor = true;
-        createUserButton.Click += this.CreateUserButton_Click;
+        this.createUserButton.Dock = DockStyle.Top;
+        this.createUserButton.Location = new Point(9, 64);
+        this.createUserButton.Margin = new Padding(3, 2, 3, 2);
+        this.createUserButton.Name = "createUserButton";
+        this.createUserButton.Size = new Size(183, 26);
+        this.createUserButton.TabIndex = 1;
+        this.createUserButton.Text = "Créer un utilisateur";
+        this.createUserButton.UseVisualStyleBackColor = true;
+        this.createUserButton.Click += this.CreateUserButton_Click;
         // 
         // userLabel
         // 
-        userLabel.Dock = DockStyle.Top;
-        userLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        userLabel.Location = new Point(9, 8);
-        userLabel.Name = "userLabel";
-        userLabel.Size = new Size(183, 56);
-        userLabel.TabIndex = 0;
-        userLabel.Text = "Gestion des Utilisateurs";
-        userLabel.TextAlign = ContentAlignment.MiddleCenter;
+        this.userLabel.Dock = DockStyle.Top;
+        this.userLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.userLabel.Location = new Point(9, 8);
+        this.userLabel.Name = "userLabel";
+        this.userLabel.Size = new Size(183, 56);
+        this.userLabel.TabIndex = 0;
+        this.userLabel.Text = "Gestion des Utilisateurs";
+        this.userLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // Clientpanel4
         // 
-        Clientpanel4.Controls.Add(deletebutton);
-        Clientpanel4.Controls.Add(editClientbutton);
-        Clientpanel4.Controls.Add(viewClientbutton1);
-        Clientpanel4.Controls.Add(ClientslistBox1);
-        Clientpanel4.Controls.Add(filterClienttextBox1);
-        Clientpanel4.Controls.Add(createClientbutton1);
-        Clientpanel4.Controls.Add(label2);
-        Clientpanel4.Dock = DockStyle.Fill;
-        Clientpanel4.Location = new Point(624, 295);
-        Clientpanel4.Margin = new Padding(3, 2, 3, 2);
-        Clientpanel4.Name = "Clientpanel4";
-        Clientpanel4.Padding = new Padding(10, 9, 10, 9);
-        Clientpanel4.Size = new Size(201, 289);
-        Clientpanel4.TabIndex = 4;
-        Clientpanel4.Paint += this.Clientpanel4_Paint;
+        this.Clientpanel4.Controls.Add(this.deletebutton);
+        this.Clientpanel4.Controls.Add(this.editClientbutton);
+        this.Clientpanel4.Controls.Add(this.viewClientbutton1);
+        this.Clientpanel4.Controls.Add(this.ClientslistBox1);
+        this.Clientpanel4.Controls.Add(this.filterClienttextBox1);
+        this.Clientpanel4.Controls.Add(this.createClientbutton1);
+        this.Clientpanel4.Controls.Add(this.label2);
+        this.Clientpanel4.Dock = DockStyle.Fill;
+        this.Clientpanel4.Location = new Point(624, 295);
+        this.Clientpanel4.Margin = new Padding(3, 2, 3, 2);
+        this.Clientpanel4.Name = "Clientpanel4";
+        this.Clientpanel4.Padding = new Padding(10, 9, 10, 9);
+        this.Clientpanel4.Size = new Size(201, 289);
+        this.Clientpanel4.TabIndex = 4;
+        this.Clientpanel4.Paint += this.Clientpanel4_Paint;
         // 
         // deletebutton
         // 
-        deletebutton.Dock = DockStyle.Top;
-        deletebutton.Location = new Point(10, 261);
-        deletebutton.Name = "deletebutton";
-        deletebutton.Size = new Size(181, 35);
-        deletebutton.TabIndex = 9;
-        deletebutton.Text = "Supprimer client";
-        deletebutton.UseVisualStyleBackColor = true;
-        deletebutton.Click += this.deletebutton_Click;
+        this.deletebutton.Dock = DockStyle.Top;
+        this.deletebutton.Location = new Point(10, 258);
+        this.deletebutton.Name = "deletebutton";
+        this.deletebutton.Size = new Size(181, 26);
+        this.deletebutton.TabIndex = 9;
+        this.deletebutton.Text = "Supprimer client";
+        this.deletebutton.UseVisualStyleBackColor = true;
+        this.deletebutton.Click += this.deletebutton_Click;
         // 
         // editClientbutton
         // 
-        editClientbutton.Dock = DockStyle.Top;
-        editClientbutton.Location = new Point(10, 226);
-        editClientbutton.Name = "editClientbutton";
-        editClientbutton.Size = new Size(181, 35);
-        editClientbutton.TabIndex = 8;
-        editClientbutton.Text = "Mettre a jour information clients";
-        editClientbutton.UseVisualStyleBackColor = true;
-        editClientbutton.Click += this.editClientbutton_Click;
+        this.editClientbutton.Dock = DockStyle.Top;
+        this.editClientbutton.Location = new Point(10, 208);
+        this.editClientbutton.Name = "editClientbutton";
+        this.editClientbutton.Size = new Size(181, 50);
+        this.editClientbutton.TabIndex = 8;
+        this.editClientbutton.Text = "Mettre a jour information clients";
+        this.editClientbutton.UseVisualStyleBackColor = true;
+        this.editClientbutton.Click += this.editClientbutton_Click;
         // 
         // viewClientbutton1
         // 
-        viewClientbutton1.Dock = DockStyle.Top;
-        viewClientbutton1.Location = new Point(10, 191);
-        viewClientbutton1.Name = "viewClientbutton1";
-        viewClientbutton1.Size = new Size(181, 35);
-        viewClientbutton1.TabIndex = 7;
-        viewClientbutton1.Text = "Voir information du client";
-        viewClientbutton1.UseVisualStyleBackColor = true;
-        viewClientbutton1.Click += this.viewClientbutton1_Click;
+        this.viewClientbutton1.Dock = DockStyle.Top;
+        this.viewClientbutton1.Location = new Point(10, 182);
+        this.viewClientbutton1.Name = "viewClientbutton1";
+        this.viewClientbutton1.Size = new Size(181, 26);
+        this.viewClientbutton1.TabIndex = 7;
+        this.viewClientbutton1.Text = "Voir information du client";
+        this.viewClientbutton1.UseVisualStyleBackColor = true;
+        this.viewClientbutton1.Click += this.viewClientbutton1_Click;
         // 
         // ClientslistBox1
         // 
-        ClientslistBox1.Dock = DockStyle.Top;
-        ClientslistBox1.FormattingEnabled = true;
-        ClientslistBox1.ItemHeight = 15;
-        ClientslistBox1.Location = new Point(10, 97);
-        ClientslistBox1.Name = "ClientslistBox1";
-        ClientslistBox1.Size = new Size(181, 94);
-        ClientslistBox1.TabIndex = 6;
-        ClientslistBox1.SelectedIndexChanged += this.ClientslistBox1_SelectedIndexChanged;
+        this.ClientslistBox1.Dock = DockStyle.Top;
+        this.ClientslistBox1.FormattingEnabled = true;
+        this.ClientslistBox1.ItemHeight = 15;
+        this.ClientslistBox1.Location = new Point(10, 88);
+        this.ClientslistBox1.Name = "ClientslistBox1";
+        this.ClientslistBox1.Size = new Size(181, 94);
+        this.ClientslistBox1.TabIndex = 6;
+        this.ClientslistBox1.SelectedIndexChanged += this.ClientslistBox1_SelectedIndexChanged;
         // 
         // filterClienttextBox1
         // 
-        filterClienttextBox1.Dock = DockStyle.Top;
-        filterClienttextBox1.Location = new Point(10, 74);
-        filterClienttextBox1.Name = "filterClienttextBox1";
-        filterClienttextBox1.Size = new Size(181, 23);
-        filterClienttextBox1.TabIndex = 5;
-        filterClienttextBox1.UseSystemPasswordChar = true;
-        filterClienttextBox1.TextChanged += this.filterClienttextBox1_TextChanged;
+        this.filterClienttextBox1.Dock = DockStyle.Top;
+        this.filterClienttextBox1.Location = new Point(10, 65);
+        this.filterClienttextBox1.Name = "filterClienttextBox1";
+        this.filterClienttextBox1.Size = new Size(181, 23);
+        this.filterClienttextBox1.TabIndex = 5;
+        this.filterClienttextBox1.UseSystemPasswordChar = true;
+        this.filterClienttextBox1.TextChanged += this.filterClienttextBox1_TextChanged;
         // 
         // createClientbutton1
         // 
-        createClientbutton1.Dock = DockStyle.Top;
-        createClientbutton1.Location = new Point(10, 39);
-        createClientbutton1.Name = "createClientbutton1";
-        createClientbutton1.Size = new Size(181, 35);
-        createClientbutton1.TabIndex = 2;
-        createClientbutton1.Text = "Créer un client";
-        createClientbutton1.UseVisualStyleBackColor = true;
-        createClientbutton1.Click += this.createClientbutton1_Click;
+        this.createClientbutton1.Dock = DockStyle.Top;
+        this.createClientbutton1.Location = new Point(10, 39);
+        this.createClientbutton1.Name = "createClientbutton1";
+        this.createClientbutton1.Size = new Size(181, 26);
+        this.createClientbutton1.TabIndex = 2;
+        this.createClientbutton1.Text = "Créer un client";
+        this.createClientbutton1.UseVisualStyleBackColor = true;
+        this.createClientbutton1.Click += this.createClientbutton1_Click;
         // 
         // label2
         // 
-        label2.Dock = DockStyle.Top;
-        label2.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        label2.Location = new Point(10, 9);
-        label2.Name = "label2";
-        label2.Size = new Size(181, 30);
-        label2.TabIndex = 1;
-        label2.Text = "Gestion des Clients";
-        label2.TextAlign = ContentAlignment.MiddleCenter;
+        this.label2.Dock = DockStyle.Top;
+        this.label2.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.label2.Location = new Point(10, 9);
+        this.label2.Name = "label2";
+        this.label2.Size = new Size(181, 30);
+        this.label2.TabIndex = 1;
+        this.label2.Text = "Gestion des Clients";
+        this.label2.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // entrpotPanel
         // 
-        entrpotPanel.Controls.Add(deleteEntrepotButton);
-        entrpotPanel.Controls.Add(editEntrepotButton);
-        entrpotPanel.Controls.Add(viewEntrepotButton);
-        entrpotPanel.Controls.Add(entrepotSelector);
-        entrpotPanel.Controls.Add(createEntrepotButton);
-        entrpotPanel.Controls.Add(entrepotLabel);
-        entrpotPanel.Dock = DockStyle.Fill;
-        entrpotPanel.Location = new Point(210, 2);
-        entrpotPanel.Margin = new Padding(3, 2, 3, 2);
-        entrpotPanel.Name = "entrpotPanel";
-        entrpotPanel.Padding = new Padding(9, 8, 9, 15);
-        entrpotPanel.Size = new Size(201, 289);
-        entrpotPanel.TabIndex = 4;
+        this.entrpotPanel.Controls.Add(this.deleteEntrepotButton);
+        this.entrpotPanel.Controls.Add(this.editEntrepotButton);
+        this.entrpotPanel.Controls.Add(this.viewEntrepotButton);
+        this.entrpotPanel.Controls.Add(this.entrepotSelector);
+        this.entrpotPanel.Controls.Add(this.createEntrepotButton);
+        this.entrpotPanel.Controls.Add(this.entrepotLabel);
+        this.entrpotPanel.Dock = DockStyle.Fill;
+        this.entrpotPanel.Location = new Point(210, 2);
+        this.entrpotPanel.Margin = new Padding(3, 2, 3, 2);
+        this.entrpotPanel.Name = "entrpotPanel";
+        this.entrpotPanel.Padding = new Padding(9, 8, 9, 15);
+        this.entrpotPanel.Size = new Size(201, 289);
+        this.entrpotPanel.TabIndex = 4;
         // 
         // deleteEntrepotButton
         // 
-        deleteEntrepotButton.Dock = DockStyle.Top;
-        deleteEntrepotButton.Location = new Point(9, 139);
-        deleteEntrepotButton.Margin = new Padding(3, 2, 3, 2);
-        deleteEntrepotButton.Name = "deleteEntrepotButton";
-        deleteEntrepotButton.Size = new Size(183, 26);
-        deleteEntrepotButton.TabIndex = 6;
-        deleteEntrepotButton.Text = "Supprimer l'entrepot";
-        deleteEntrepotButton.UseVisualStyleBackColor = true;
-        deleteEntrepotButton.Click += this.DeleteEntrepotButton_Click;
+        this.deleteEntrepotButton.Dock = DockStyle.Top;
+        this.deleteEntrepotButton.Location = new Point(9, 139);
+        this.deleteEntrepotButton.Margin = new Padding(3, 2, 3, 2);
+        this.deleteEntrepotButton.Name = "deleteEntrepotButton";
+        this.deleteEntrepotButton.Size = new Size(183, 26);
+        this.deleteEntrepotButton.TabIndex = 6;
+        this.deleteEntrepotButton.Text = "Supprimer l'entrepot";
+        this.deleteEntrepotButton.UseVisualStyleBackColor = true;
+        this.deleteEntrepotButton.Click += this.DeleteEntrepotButton_Click;
         // 
         // editEntrepotButton
         // 
-        editEntrepotButton.Dock = DockStyle.Top;
-        editEntrepotButton.Location = new Point(9, 113);
-        editEntrepotButton.Margin = new Padding(3, 2, 3, 2);
-        editEntrepotButton.Name = "editEntrepotButton";
-        editEntrepotButton.Size = new Size(183, 26);
-        editEntrepotButton.TabIndex = 5;
-        editEntrepotButton.Text = "Éditer l'entrepot";
-        editEntrepotButton.UseVisualStyleBackColor = true;
-        editEntrepotButton.Click += this.EditEntrepotButton_Click;
+        this.editEntrepotButton.Dock = DockStyle.Top;
+        this.editEntrepotButton.Location = new Point(9, 113);
+        this.editEntrepotButton.Margin = new Padding(3, 2, 3, 2);
+        this.editEntrepotButton.Name = "editEntrepotButton";
+        this.editEntrepotButton.Size = new Size(183, 26);
+        this.editEntrepotButton.TabIndex = 5;
+        this.editEntrepotButton.Text = "Éditer l'entrepot";
+        this.editEntrepotButton.UseVisualStyleBackColor = true;
+        this.editEntrepotButton.Click += this.EditEntrepotButton_Click;
         // 
         // viewEntrepotButton
         // 
-        viewEntrepotButton.Dock = DockStyle.Top;
-        viewEntrepotButton.Location = new Point(9, 87);
-        viewEntrepotButton.Margin = new Padding(3, 2, 3, 2);
-        viewEntrepotButton.Name = "viewEntrepotButton";
-        viewEntrepotButton.Size = new Size(183, 26);
-        viewEntrepotButton.TabIndex = 4;
-        viewEntrepotButton.Text = "Voir détails de l'entrepot";
-        viewEntrepotButton.UseVisualStyleBackColor = true;
-        viewEntrepotButton.Click += this.ViewEntrepotButton_Click;
+        this.viewEntrepotButton.Dock = DockStyle.Top;
+        this.viewEntrepotButton.Location = new Point(9, 87);
+        this.viewEntrepotButton.Margin = new Padding(3, 2, 3, 2);
+        this.viewEntrepotButton.Name = "viewEntrepotButton";
+        this.viewEntrepotButton.Size = new Size(183, 26);
+        this.viewEntrepotButton.TabIndex = 4;
+        this.viewEntrepotButton.Text = "Voir détails de l'entrepot";
+        this.viewEntrepotButton.UseVisualStyleBackColor = true;
+        this.viewEntrepotButton.Click += this.ViewEntrepotButton_Click;
         // 
         // entrepotSelector
         // 
-        entrepotSelector.Dock = DockStyle.Top;
-        entrepotSelector.FormattingEnabled = true;
-        entrepotSelector.Location = new Point(9, 64);
-        entrepotSelector.Margin = new Padding(3, 2, 3, 2);
-        entrepotSelector.Name = "entrepotSelector";
-        entrepotSelector.Size = new Size(183, 23);
-        entrepotSelector.TabIndex = 3;
-        entrepotSelector.SelectedIndexChanged += this.EntrepotSelector_SelectedIndexChanged;
+        this.entrepotSelector.Dock = DockStyle.Top;
+        this.entrepotSelector.FormattingEnabled = true;
+        this.entrepotSelector.Location = new Point(9, 64);
+        this.entrepotSelector.Margin = new Padding(3, 2, 3, 2);
+        this.entrepotSelector.Name = "entrepotSelector";
+        this.entrepotSelector.Size = new Size(183, 23);
+        this.entrepotSelector.TabIndex = 3;
+        this.entrepotSelector.SelectedIndexChanged += this.EntrepotSelector_SelectedIndexChanged;
         // 
         // createEntrepotButton
         // 
-        createEntrepotButton.Dock = DockStyle.Top;
-        createEntrepotButton.Location = new Point(9, 38);
-        createEntrepotButton.Margin = new Padding(3, 2, 3, 2);
-        createEntrepotButton.Name = "createEntrepotButton";
-        createEntrepotButton.Size = new Size(183, 26);
-        createEntrepotButton.TabIndex = 2;
-        createEntrepotButton.Text = "Créer un entrepot";
-        createEntrepotButton.UseVisualStyleBackColor = true;
-        createEntrepotButton.Click += this.CreateEntrepotButton_Click;
+        this.createEntrepotButton.Dock = DockStyle.Top;
+        this.createEntrepotButton.Location = new Point(9, 38);
+        this.createEntrepotButton.Margin = new Padding(3, 2, 3, 2);
+        this.createEntrepotButton.Name = "createEntrepotButton";
+        this.createEntrepotButton.Size = new Size(183, 26);
+        this.createEntrepotButton.TabIndex = 2;
+        this.createEntrepotButton.Text = "Créer un entrepot";
+        this.createEntrepotButton.UseVisualStyleBackColor = true;
+        this.createEntrepotButton.Click += this.CreateEntrepotButton_Click;
         // 
         // entrepotLabel
         // 
-        entrepotLabel.Dock = DockStyle.Top;
-        entrepotLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        entrepotLabel.Location = new Point(9, 8);
-        entrepotLabel.Name = "entrepotLabel";
-        entrepotLabel.Size = new Size(183, 30);
-        entrepotLabel.TabIndex = 1;
-        entrepotLabel.Text = "Gestion des Entrepots";
-        entrepotLabel.TextAlign = ContentAlignment.MiddleCenter;
+        this.entrepotLabel.Dock = DockStyle.Top;
+        this.entrepotLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.entrepotLabel.Location = new Point(9, 8);
+        this.entrepotLabel.Name = "entrepotLabel";
+        this.entrepotLabel.Size = new Size(183, 30);
+        this.entrepotLabel.TabIndex = 1;
+        this.entrepotLabel.Text = "Gestion des Entrepots";
+        this.entrepotLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // addressPanel
         // 
-        addressPanel.Controls.Add(AdresseDeleteButton);
-        addressPanel.Controls.Add(AdresseEditButton);
-        addressPanel.Controls.Add(AdresseViewButton);
-        addressPanel.Controls.Add(AdresseListBox);
-        addressPanel.Controls.Add(AdresseFiltreTextBox);
-        addressPanel.Controls.Add(createAdresseButton);
-        addressPanel.Controls.Add(adresseLabel);
-        addressPanel.Dock = DockStyle.Fill;
-        addressPanel.Location = new Point(417, 2);
-        addressPanel.Margin = new Padding(3, 2, 3, 2);
-        addressPanel.Name = "addressPanel";
-        addressPanel.Padding = new Padding(9, 8, 9, 8);
-        addressPanel.Size = new Size(201, 289);
-        addressPanel.TabIndex = 5;
+        this.addressPanel.Controls.Add(this.AdresseDeleteButton);
+        this.addressPanel.Controls.Add(this.AdresseEditButton);
+        this.addressPanel.Controls.Add(this.AdresseViewButton);
+        this.addressPanel.Controls.Add(this.AdresseListBox);
+        this.addressPanel.Controls.Add(this.AdresseFiltreTextBox);
+        this.addressPanel.Controls.Add(this.createAdresseButton);
+        this.addressPanel.Controls.Add(this.adresseLabel);
+        this.addressPanel.Dock = DockStyle.Fill;
+        this.addressPanel.Location = new Point(417, 2);
+        this.addressPanel.Margin = new Padding(3, 2, 3, 2);
+        this.addressPanel.Name = "addressPanel";
+        this.addressPanel.Padding = new Padding(9, 8, 9, 8);
+        this.addressPanel.Size = new Size(201, 289);
+        this.addressPanel.TabIndex = 5;
         // 
         // AdresseDeleteButton
         // 
-        AdresseDeleteButton.Dock = DockStyle.Top;
-        AdresseDeleteButton.Location = new Point(9, 218);
-        AdresseDeleteButton.Margin = new Padding(3, 2, 3, 2);
-        AdresseDeleteButton.Name = "AdresseDeleteButton";
-        AdresseDeleteButton.Size = new Size(183, 26);
-        AdresseDeleteButton.TabIndex = 9;
-        AdresseDeleteButton.Text = "Supprimer l'adresse";
-        AdresseDeleteButton.UseVisualStyleBackColor = true;
-        AdresseDeleteButton.Click += this.AdresseDeleteButton_Click;
+        this.AdresseDeleteButton.Dock = DockStyle.Top;
+        this.AdresseDeleteButton.Location = new Point(9, 218);
+        this.AdresseDeleteButton.Margin = new Padding(3, 2, 3, 2);
+        this.AdresseDeleteButton.Name = "AdresseDeleteButton";
+        this.AdresseDeleteButton.Size = new Size(183, 26);
+        this.AdresseDeleteButton.TabIndex = 9;
+        this.AdresseDeleteButton.Text = "Supprimer l'adresse";
+        this.AdresseDeleteButton.UseVisualStyleBackColor = true;
+        this.AdresseDeleteButton.Click += this.AdresseDeleteButton_Click;
         // 
         // AdresseEditButton
         // 
-        AdresseEditButton.Dock = DockStyle.Top;
-        AdresseEditButton.Location = new Point(9, 192);
-        AdresseEditButton.Margin = new Padding(3, 2, 3, 2);
-        AdresseEditButton.Name = "AdresseEditButton";
-        AdresseEditButton.Size = new Size(183, 26);
-        AdresseEditButton.TabIndex = 8;
-        AdresseEditButton.Text = "Éditer l'adresse";
-        AdresseEditButton.UseVisualStyleBackColor = true;
-        AdresseEditButton.Click += this.AdresseEditButton_Click;
+        this.AdresseEditButton.Dock = DockStyle.Top;
+        this.AdresseEditButton.Location = new Point(9, 192);
+        this.AdresseEditButton.Margin = new Padding(3, 2, 3, 2);
+        this.AdresseEditButton.Name = "AdresseEditButton";
+        this.AdresseEditButton.Size = new Size(183, 26);
+        this.AdresseEditButton.TabIndex = 8;
+        this.AdresseEditButton.Text = "Éditer l'adresse";
+        this.AdresseEditButton.UseVisualStyleBackColor = true;
+        this.AdresseEditButton.Click += this.AdresseEditButton_Click;
         // 
         // AdresseViewButton
         // 
-        AdresseViewButton.Dock = DockStyle.Top;
-        AdresseViewButton.Location = new Point(9, 166);
-        AdresseViewButton.Margin = new Padding(3, 2, 3, 2);
-        AdresseViewButton.Name = "AdresseViewButton";
-        AdresseViewButton.Size = new Size(183, 26);
-        AdresseViewButton.TabIndex = 7;
-        AdresseViewButton.Text = "Voir détails de l'adresse";
-        AdresseViewButton.UseVisualStyleBackColor = true;
-        AdresseViewButton.Click += this.AdresseViewButton_Click;
+        this.AdresseViewButton.Dock = DockStyle.Top;
+        this.AdresseViewButton.Location = new Point(9, 166);
+        this.AdresseViewButton.Margin = new Padding(3, 2, 3, 2);
+        this.AdresseViewButton.Name = "AdresseViewButton";
+        this.AdresseViewButton.Size = new Size(183, 26);
+        this.AdresseViewButton.TabIndex = 7;
+        this.AdresseViewButton.Text = "Voir détails de l'adresse";
+        this.AdresseViewButton.UseVisualStyleBackColor = true;
+        this.AdresseViewButton.Click += this.AdresseViewButton_Click;
         // 
         // AdresseListBox
         // 
-        AdresseListBox.Dock = DockStyle.Top;
-        AdresseListBox.FormattingEnabled = true;
-        AdresseListBox.ItemHeight = 15;
-        AdresseListBox.Location = new Point(9, 87);
-        AdresseListBox.Margin = new Padding(3, 2, 3, 2);
-        AdresseListBox.Name = "AdresseListBox";
-        AdresseListBox.Size = new Size(183, 79);
-        AdresseListBox.TabIndex = 6;
-        AdresseListBox.SelectedIndexChanged += this.AdresseListBox_SelectedIndexChanged;
+        this.AdresseListBox.Dock = DockStyle.Top;
+        this.AdresseListBox.FormattingEnabled = true;
+        this.AdresseListBox.ItemHeight = 15;
+        this.AdresseListBox.Location = new Point(9, 87);
+        this.AdresseListBox.Margin = new Padding(3, 2, 3, 2);
+        this.AdresseListBox.Name = "AdresseListBox";
+        this.AdresseListBox.Size = new Size(183, 79);
+        this.AdresseListBox.TabIndex = 6;
+        this.AdresseListBox.SelectedIndexChanged += this.AdresseListBox_SelectedIndexChanged;
         // 
         // AdresseFiltreTextBox
         // 
-        AdresseFiltreTextBox.BackColor = SystemColors.Window;
-        AdresseFiltreTextBox.Dock = DockStyle.Top;
-        AdresseFiltreTextBox.Location = new Point(9, 64);
-        AdresseFiltreTextBox.Margin = new Padding(3, 2, 3, 2);
-        AdresseFiltreTextBox.Name = "AdresseFiltreTextBox";
-        AdresseFiltreTextBox.Size = new Size(183, 23);
-        AdresseFiltreTextBox.TabIndex = 4;
-        AdresseFiltreTextBox.UseSystemPasswordChar = true;
-        AdresseFiltreTextBox.TextChanged += this.AdresseFiltreTextBox_TextChanged;
+        this.AdresseFiltreTextBox.BackColor = SystemColors.Window;
+        this.AdresseFiltreTextBox.Dock = DockStyle.Top;
+        this.AdresseFiltreTextBox.Location = new Point(9, 64);
+        this.AdresseFiltreTextBox.Margin = new Padding(3, 2, 3, 2);
+        this.AdresseFiltreTextBox.Name = "AdresseFiltreTextBox";
+        this.AdresseFiltreTextBox.Size = new Size(183, 23);
+        this.AdresseFiltreTextBox.TabIndex = 4;
+        this.AdresseFiltreTextBox.UseSystemPasswordChar = true;
+        this.AdresseFiltreTextBox.TextChanged += this.AdresseFiltreTextBox_TextChanged;
         // 
         // createAdresseButton
         // 
-        createAdresseButton.Dock = DockStyle.Top;
-        createAdresseButton.Location = new Point(9, 38);
-        createAdresseButton.Margin = new Padding(3, 2, 3, 2);
-        createAdresseButton.Name = "createAdresseButton";
-        createAdresseButton.Size = new Size(183, 26);
-        createAdresseButton.TabIndex = 3;
-        createAdresseButton.Text = "Créer une adresse";
-        createAdresseButton.UseVisualStyleBackColor = true;
-        createAdresseButton.Click += this.CreateAdresseButton_Click;
+        this.createAdresseButton.Dock = DockStyle.Top;
+        this.createAdresseButton.Location = new Point(9, 38);
+        this.createAdresseButton.Margin = new Padding(3, 2, 3, 2);
+        this.createAdresseButton.Name = "createAdresseButton";
+        this.createAdresseButton.Size = new Size(183, 26);
+        this.createAdresseButton.TabIndex = 3;
+        this.createAdresseButton.Text = "Créer une adresse";
+        this.createAdresseButton.UseVisualStyleBackColor = true;
+        this.createAdresseButton.Click += this.CreateAdresseButton_Click;
         // 
         // adresseLabel
         // 
-        adresseLabel.Dock = DockStyle.Top;
-        adresseLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        adresseLabel.Location = new Point(9, 8);
-        adresseLabel.Name = "adresseLabel";
-        adresseLabel.Size = new Size(183, 30);
-        adresseLabel.TabIndex = 2;
-        adresseLabel.Text = "Gestion des Adresses";
-        adresseLabel.TextAlign = ContentAlignment.MiddleCenter;
+        this.adresseLabel.Dock = DockStyle.Top;
+        this.adresseLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        this.adresseLabel.Location = new Point(9, 8);
+        this.adresseLabel.Name = "adresseLabel";
+        this.adresseLabel.Size = new Size(183, 30);
+        this.adresseLabel.TabIndex = 2;
+        this.adresseLabel.Text = "Gestion des Adresses";
+        this.adresseLabel.TextAlign = ContentAlignment.MiddleCenter;
         // 
         // AdminUserMainMenu
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(1036, 646);
-        this.Controls.Add(tableLayoutPanel1);
-        this.Controls.Add(bottomBarPanel);
-        this.Controls.Add(topBarPanel);
+        this.Controls.Add(this.tableLayoutPanel1);
+        this.Controls.Add(this.bottomBarPanel);
+        this.Controls.Add(this.topBarPanel);
         this.Margin = new Padding(3, 2, 3, 2);
         this.Name = "AdminUserMainMenu";
         this.Text = "AdminUserMainMenu";
-        bottomBarPanel.ResumeLayout(false);
-        tableLayoutPanel1.ResumeLayout(false);
-        panelGestionShipment.ResumeLayout(false);
-        panelGestionShipment.PerformLayout();
-        fournisseurPanel.ResumeLayout(false);
-        fournisseurPanel.PerformLayout();
-        rolePanel.ResumeLayout(false);
-        userManagementPanel.ResumeLayout(false);
-        Clientpanel4.ResumeLayout(false);
-        Clientpanel4.PerformLayout();
-        entrpotPanel.ResumeLayout(false);
-        addressPanel.ResumeLayout(false);
-        addressPanel.PerformLayout();
+        this.bottomBarPanel.ResumeLayout(false);
+        this.tableLayoutPanel1.ResumeLayout(false);
+        this.panelGestionShipment.ResumeLayout(false);
+        this.panelGestionShipment.PerformLayout();
+        this.fournisseurPanel.ResumeLayout(false);
+        this.fournisseurPanel.PerformLayout();
+        this.rolePanel.ResumeLayout(false);
+        this.userManagementPanel.ResumeLayout(false);
+        this.Clientpanel4.ResumeLayout(false);
+        this.Clientpanel4.PerformLayout();
+        this.entrpotPanel.ResumeLayout(false);
+        this.addressPanel.ResumeLayout(false);
+        this.addressPanel.PerformLayout();
         this.ResumeLayout(false);
     }
 
