@@ -152,4 +152,14 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
     private void Quitbutton1_Click(object sender, EventArgs e) {
         this.DialogResult = DialogResult.Cancel;
     }
+
+    private void CreateAddressButton_Click(object sender, EventArgs e) {
+        Adresse? nouvelleAdresse = this.facade.GetService<AdresseService>().CreateNewDtoInstance();
+        if (nouvelleAdresse is not null) {
+            this.LoadAdresseComboBox();
+            if (this.adresseClientcomboBox1.Items.Contains(nouvelleAdresse)) {
+                this.adresseClientcomboBox1.SelectedItem = nouvelleAdresse;
+            }
+        }
+    }
 }
