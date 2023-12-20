@@ -144,9 +144,8 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
         Adresse? ajouternouvelleAdresse = this.ParentFacade.GetService<AdresseService>().CreateNewDtoInstance();
         if (ajouternouvelleAdresse is not null) {
             this.LoadAdresseInComboBox();
-            if (this.entrepotadresseComboBox.Items.Contains(ajouternouvelleAdresse)) 
-            { 
-              this.entrepotadresseComboBox.SelectedItem = ajouternouvelleAdresse;
+            if (this.entrepotadresseComboBox.Items.Contains(ajouternouvelleAdresse)) {
+                this.entrepotadresseComboBox.SelectedItem = ajouternouvelleAdresse;
             }
 
 

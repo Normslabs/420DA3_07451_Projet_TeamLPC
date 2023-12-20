@@ -69,4 +69,8 @@ internal partial class EmployeBureauMainMenu : Form {
     }
 
     #endregion
+
+    private void QuitButton_Click(object sender, EventArgs e) {
+        this.DialogResult = DialogResult.Cancel;
+    }
 }
