@@ -30,6 +30,8 @@ partial class ClientWindows {
         this.Idlabel = new Label();
         this.tableLayoutPanel1 = new TableLayoutPanel();
         this.infopanel2 = new Panel();
+        this.tableLayoutPanel2 = new TableLayoutPanel();
+        this.createAddressButton = new Button();
         this.adresseClientcomboBox1 = new ComboBox();
         this.adresselabel1 = new Label();
         this.entrepotClientcomboBox1 = new ComboBox();
@@ -44,8 +46,6 @@ partial class ClientWindows {
         this.prenomClientlabel1 = new Label();
         this.nomClienttextBox1 = new TextBox();
         this.nomlabel1 = new Label();
-        this.tableLayoutPanel2 = new TableLayoutPanel();
-        this.createAddressButton = new Button();
         this.panel1.SuspendLayout();
         this.tableLayoutPanel1.SuspendLayout();
         this.infopanel2.SuspendLayout();
@@ -128,9 +128,35 @@ partial class ClientWindows {
         this.infopanel2.Dock = DockStyle.Fill;
         this.infopanel2.Location = new Point(69, 3);
         this.infopanel2.Name = "infopanel2";
-        this.infopanel2.Padding = new Padding(25, 25, 25, 25);
+        this.infopanel2.Padding = new Padding(25);
         this.infopanel2.Size = new Size(392, 331);
         this.infopanel2.TabIndex = 0;
+        // 
+        // tableLayoutPanel2
+        // 
+        this.tableLayoutPanel2.ColumnCount = 2;
+        this.tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        this.tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
+        this.tableLayoutPanel2.Controls.Add(this.createAddressButton, 1, 0);
+        this.tableLayoutPanel2.Controls.Add(this.adresseClientcomboBox1, 0, 0);
+        this.tableLayoutPanel2.Dock = DockStyle.Top;
+        this.tableLayoutPanel2.Location = new Point(25, 268);
+        this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+        this.tableLayoutPanel2.RowCount = 1;
+        this.tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.tableLayoutPanel2.Size = new Size(342, 30);
+        this.tableLayoutPanel2.TabIndex = 14;
+        // 
+        // createAddressButton
+        // 
+        this.createAddressButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+        this.createAddressButton.Location = new Point(305, 3);
+        this.createAddressButton.Name = "createAddressButton";
+        this.createAddressButton.Size = new Size(34, 24);
+        this.createAddressButton.TabIndex = 14;
+        this.createAddressButton.Text = "+";
+        this.createAddressButton.UseVisualStyleBackColor = true;
+        this.createAddressButton.Click += this.CreateAddressButton_Click;
         // 
         // adresseClientcomboBox1
         // 
@@ -260,32 +286,6 @@ partial class ClientWindows {
         this.nomlabel1.Size = new Size(43, 15);
         this.nomlabel1.TabIndex = 0;
         this.nomlabel1.Text = "Nom : ";
-        // 
-        // tableLayoutPanel2
-        // 
-        this.tableLayoutPanel2.ColumnCount = 2;
-        this.tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-        this.tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 40F));
-        this.tableLayoutPanel2.Controls.Add(this.createAddressButton, 1, 0);
-        this.tableLayoutPanel2.Controls.Add(this.adresseClientcomboBox1, 0, 0);
-        this.tableLayoutPanel2.Dock = DockStyle.Top;
-        this.tableLayoutPanel2.Location = new Point(25, 268);
-        this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-        this.tableLayoutPanel2.RowCount = 1;
-        this.tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        this.tableLayoutPanel2.Size = new Size(342, 30);
-        this.tableLayoutPanel2.TabIndex = 14;
-        // 
-        // createAddressButton
-        // 
-        this.createAddressButton.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-        this.createAddressButton.Location = new Point(305, 3);
-        this.createAddressButton.Name = "createAddressButton";
-        this.createAddressButton.Size = new Size(34, 24);
-        this.createAddressButton.TabIndex = 14;
-        this.createAddressButton.Text = "+";
-        this.createAddressButton.UseVisualStyleBackColor = true;
-        this.createAddressButton.Click += this.CreateAddressButton_Click;
         // 
         // ClientWindows
         // 
