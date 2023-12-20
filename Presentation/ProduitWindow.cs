@@ -25,7 +25,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     public ProduitWindow(AbstractFacade facade) {
         this.facade = facade;
-        InitializeComponent();
+        this.InitializeComponent();
 
 
     }

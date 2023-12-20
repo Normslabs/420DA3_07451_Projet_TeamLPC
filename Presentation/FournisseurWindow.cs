@@ -134,8 +134,39 @@ public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur> {
 
     }
 
+
+    private bool ValidateFields() {
+        if (!System.Text.RegularExpressions.Regex.IsMatch(this.EmailContacttextBox.Text, @"^[\w\.-]+@[\w\.-]+\.\w{2,4}$")) {
+            _ = MessageBox.Show("L'adresse email n'est pas valide.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
+        Dictionary<TextBox, string> fields = new Dictionary<TextBox, string> {
+        { this.PrenomContacttextBox1, "Prénom du contact" },
+        { this.NomContacttextBox, "Nom du contact" },
+        { this.AdresseContacttextBox, "Adresse" },
+        { this.FournisseurNomtextBox, "Nom du fournisseur" }
+    };
+
+        foreach (KeyValuePair<TextBox, string> field in fields) {
+            if (string.IsNullOrWhiteSpace(field.Key.Text)) {
+                _ = MessageBox.Show($"Le champ '{field.Value}' ne peut pas être vide.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            } else if (field.Key.Text.Length < 3 || field.Key.Text.Length > 100) {
+                _ = MessageBox.Show($"La longueur du champ '{field.Value}' doit être comprise entre 3 et 100 caractères.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     private void ActionBtn_Click(object sender, EventArgs e) {
         try {
+            if (!this.ValidateFields()) {
+                return;
+            }
+
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
                 case ViewIntentEnum.Edition:
@@ -153,4 +184,5 @@ public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur> {
             return;
         }
     }
+
 }
