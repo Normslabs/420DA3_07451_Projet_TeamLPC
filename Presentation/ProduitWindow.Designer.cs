@@ -26,6 +26,10 @@ partial class ProduitWindow {
     private void InitializeComponent() {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.supplierListBox = new System.Windows.Forms.ListBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.clientListBox = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.qtyInStockNumeric = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -40,25 +44,21 @@ partial class ProduitWindow {
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.actionBtn = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.clientListBox = new System.Windows.Forms.ListBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.supplierListBox = new System.Windows.Forms.ListBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qtyInStockNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -105,6 +105,44 @@ partial class ProduitWindow {
             this.panel2.Size = new System.Drawing.Size(503, 562);
             this.panel2.TabIndex = 0;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // supplierListBox
+            // 
+            this.supplierListBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.supplierListBox.FormattingEnabled = true;
+            this.supplierListBox.ItemHeight = 15;
+            this.supplierListBox.Location = new System.Drawing.Point(0, 417);
+            this.supplierListBox.Name = "supplierListBox";
+            this.supplierListBox.Size = new System.Drawing.Size(503, 94);
+            this.supplierListBox.TabIndex = 18;
+            // 
+            // label11
+            // 
+            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label11.Location = new System.Drawing.Point(0, 402);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(503, 15);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Supplier";
+            // 
+            // clientListBox
+            // 
+            this.clientListBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.clientListBox.FormattingEnabled = true;
+            this.clientListBox.ItemHeight = 15;
+            this.clientListBox.Location = new System.Drawing.Point(0, 308);
+            this.clientListBox.Name = "clientListBox";
+            this.clientListBox.Size = new System.Drawing.Size(503, 94);
+            this.clientListBox.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label10.Location = new System.Drawing.Point(0, 293);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(503, 15);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Client";
             // 
             // qtyInStockNumeric
             // 
@@ -236,6 +274,42 @@ partial class ProduitWindow {
             this.label1.TabIndex = 0;
             this.label1.Text = "ID :";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(248, 562);
+            this.panel3.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(69, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 15);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Supplier";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label9);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(766, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(250, 562);
+            this.panel4.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(75, 6);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 15);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Client";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.cancelBtn);
@@ -264,80 +338,6 @@ partial class ProduitWindow {
             this.actionBtn.Text = "Action";
             this.actionBtn.UseVisualStyleBackColor = true;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(248, 562);
-            this.panel3.TabIndex = 1;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(766, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(250, 562);
-            this.panel4.TabIndex = 2;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(69, 6);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 15);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Supplier";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(75, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 15);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Client";
-            // 
-            // label10
-            // 
-            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label10.Location = new System.Drawing.Point(0, 293);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(503, 15);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Client";
-            // 
-            // clientListBox
-            // 
-            this.clientListBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.clientListBox.FormattingEnabled = true;
-            this.clientListBox.ItemHeight = 15;
-            this.clientListBox.Location = new System.Drawing.Point(0, 308);
-            this.clientListBox.Name = "clientListBox";
-            this.clientListBox.Size = new System.Drawing.Size(503, 94);
-            this.clientListBox.TabIndex = 16;
-            // 
-            // label11
-            // 
-            this.label11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label11.Location = new System.Drawing.Point(0, 402);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(503, 15);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Supplier";
-            // 
-            // supplierListBox
-            // 
-            this.supplierListBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.supplierListBox.FormattingEnabled = true;
-            this.supplierListBox.ItemHeight = 15;
-            this.supplierListBox.Location = new System.Drawing.Point(0, 417);
-            this.supplierListBox.Name = "supplierListBox";
-            this.supplierListBox.Size = new System.Drawing.Size(503, 94);
-            this.supplierListBox.TabIndex = 18;
-            // 
             // ProduitWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -353,11 +353,11 @@ partial class ProduitWindow {
             ((System.ComponentModel.ISupportInitialize)(this.qtyInStockNumeric)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }

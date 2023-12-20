@@ -31,7 +31,7 @@ partial class PurchaseOrderWindow {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.purchaseListView = new System.Windows.Forms.ListView();
+            this.dsa = new System.Windows.Forms.ListView();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@ partial class PurchaseOrderWindow {
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.purchaseListView);
+            this.panel1.Controls.Add(this.dsa);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.textBox1);
@@ -113,12 +113,12 @@ partial class PurchaseOrderWindow {
             // 
             // purchaseListView
             // 
-            this.purchaseListView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.purchaseListView.Location = new System.Drawing.Point(0, 91);
-            this.purchaseListView.Name = "purchaseListView";
-            this.purchaseListView.Size = new System.Drawing.Size(394, 353);
-            this.purchaseListView.TabIndex = 5;
-            this.purchaseListView.UseCompatibleStateImageBehavior = false;
+            this.dsa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dsa.Location = new System.Drawing.Point(0, 91);
+            this.dsa.Name = "purchaseListView";
+            this.dsa.Size = new System.Drawing.Size(394, 353);
+            this.dsa.TabIndex = 5;
+            this.dsa.UseCompatibleStateImageBehavior = false;
             // 
             // PurchaseOrderWindow
             // 
@@ -141,9 +141,9 @@ partial class PurchaseOrderWindow {
     private TableLayoutPanel tableLayoutPanel1;
     private Panel panel1;
     private Label label1;
-    private TextBox textBox2;
-    private Label label3;
     private TextBox textBox1;
     private Label label2;
     private ListView purchaseListView;
+    private TextBox textBox2;
+    private Label label3;
 }
