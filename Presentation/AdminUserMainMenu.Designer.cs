@@ -56,12 +56,29 @@ partial class AdminUserMainMenu {
         userSelector = new ComboBox();
         createUserButton = new Button();
         userLabel = new Label();
+        adressePanel = new Panel();
+        deleteEntrepotButton = new Button();
+        editEntrepotButton = new Button();
+        viewEntrepotButton = new Button();
+        entrepotSelector = new ComboBox();
+        createEntrepotButton = new Button();
+        entrepotLabel = new Label();
+        entrepotPanel = new Panel();
+        AdresseViewButton = new Button();
+        AdresseListBox = new ListBox();
+        AdresseFiltreTextBox = new TextBox();
+        createAdresseButton = new Button();
+        adresseLabel = new Label();
+        AdresseEditButton = new Button();
+        AdresseDeleteButton = new Button();
         bottomBarPanel.SuspendLayout();
         tableLayoutPanel1.SuspendLayout();
         panel3.SuspendLayout();
         panel2.SuspendLayout();
         panel1.SuspendLayout();
         userManagementPanel.SuspendLayout();
+        adressePanel.SuspendLayout();
+        entrepotPanel.SuspendLayout();
         this.SuspendLayout();
         // 
         // topBarPanel
@@ -71,7 +88,6 @@ partial class AdminUserMainMenu {
         topBarPanel.Name = "topBarPanel";
         topBarPanel.Size = new Size(1184, 40);
         topBarPanel.TabIndex = 0;
-
         // 
         // bottomBarPanel
         // 
@@ -104,6 +120,8 @@ partial class AdminUserMainMenu {
         tableLayoutPanel1.Controls.Add(panel2, 0, 1);
         tableLayoutPanel1.Controls.Add(panel1, 0, 1);
         tableLayoutPanel1.Controls.Add(userManagementPanel, 0, 0);
+        tableLayoutPanel1.Controls.Add(adressePanel, 1, 0);
+        tableLayoutPanel1.Controls.Add(entrepotPanel, 2, 0);
         tableLayoutPanel1.Dock = DockStyle.Fill;
         tableLayoutPanel1.Location = new Point(0, 40);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -112,7 +130,6 @@ partial class AdminUserMainMenu {
         tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
         tableLayoutPanel1.Size = new Size(1184, 781);
         tableLayoutPanel1.TabIndex = 2;
-
         // 
         // panel3
         // 
@@ -192,7 +209,7 @@ partial class AdminUserMainMenu {
         panel2.Controls.Add(FournisseurCreateBtn);
         panel2.Controls.Add(fournisseurLabel);
         panel2.Dock = DockStyle.Fill;
-        panel2.Location = new Point(475, 393);
+        panel2.Location = new Point(239, 393);
         panel2.Name = "panel2";
         panel2.Padding = new Padding(10);
         panel2.Size = new Size(230, 385);
@@ -283,7 +300,7 @@ partial class AdminUserMainMenu {
         panel1.Controls.Add(createRoleButton);
         panel1.Controls.Add(roleLabel);
         panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(239, 393);
+        panel1.Location = new Point(475, 393);
         panel1.Name = "panel1";
         panel1.Padding = new Padding(10);
         panel1.Size = new Size(230, 385);
@@ -433,7 +450,168 @@ partial class AdminUserMainMenu {
         userLabel.TabIndex = 0;
         userLabel.Text = "Gestion des Utilisateurs";
         userLabel.TextAlign = ContentAlignment.MiddleCenter;
-
+        // 
+        // adressePanel
+        // 
+        adressePanel.Controls.Add(deleteEntrepotButton);
+        adressePanel.Controls.Add(editEntrepotButton);
+        adressePanel.Controls.Add(viewEntrepotButton);
+        adressePanel.Controls.Add(entrepotSelector);
+        adressePanel.Controls.Add(createEntrepotButton);
+        adressePanel.Controls.Add(entrepotLabel);
+        adressePanel.Dock = DockStyle.Fill;
+        adressePanel.Location = new Point(239, 3);
+        adressePanel.Name = "adressePanel";
+        adressePanel.Padding = new Padding(10, 10, 10, 20);
+        adressePanel.Size = new Size(230, 384);
+        adressePanel.TabIndex = 4;
+        // 
+        // deleteEntrepotButton
+        // 
+        deleteEntrepotButton.Dock = DockStyle.Top;
+        deleteEntrepotButton.Location = new Point(10, 178);
+        deleteEntrepotButton.Name = "deleteEntrepotButton";
+        deleteEntrepotButton.Size = new Size(210, 35);
+        deleteEntrepotButton.TabIndex = 6;
+        deleteEntrepotButton.Text = "Supprimer l'entrepot";
+        deleteEntrepotButton.UseVisualStyleBackColor = true;
+        // 
+        // editEntrepotButton
+        // 
+        editEntrepotButton.Dock = DockStyle.Top;
+        editEntrepotButton.Location = new Point(10, 143);
+        editEntrepotButton.Name = "editEntrepotButton";
+        editEntrepotButton.Size = new Size(210, 35);
+        editEntrepotButton.TabIndex = 5;
+        editEntrepotButton.Text = "Éditer l'entrepot";
+        editEntrepotButton.UseVisualStyleBackColor = true;
+        // 
+        // viewEntrepotButton
+        // 
+        viewEntrepotButton.Dock = DockStyle.Top;
+        viewEntrepotButton.Location = new Point(10, 108);
+        viewEntrepotButton.Name = "viewEntrepotButton";
+        viewEntrepotButton.Size = new Size(210, 35);
+        viewEntrepotButton.TabIndex = 4;
+        viewEntrepotButton.Text = "Voir détails de l'entrepot";
+        viewEntrepotButton.UseVisualStyleBackColor = true;
+        // 
+        // entrepotSelector
+        // 
+        entrepotSelector.Dock = DockStyle.Top;
+        entrepotSelector.FormattingEnabled = true;
+        entrepotSelector.Location = new Point(10, 85);
+        entrepotSelector.Name = "entrepotSelector";
+        entrepotSelector.Size = new Size(210, 23);
+        entrepotSelector.TabIndex = 3;
+        // 
+        // createEntrepotButton
+        // 
+        createEntrepotButton.Dock = DockStyle.Top;
+        createEntrepotButton.Location = new Point(10, 50);
+        createEntrepotButton.Name = "createEntrepotButton";
+        createEntrepotButton.Size = new Size(210, 35);
+        createEntrepotButton.TabIndex = 2;
+        createEntrepotButton.Text = "Créer un entrepot";
+        createEntrepotButton.UseVisualStyleBackColor = true;
+        // 
+        // entrepotLabel
+        // 
+        entrepotLabel.Dock = DockStyle.Top;
+        entrepotLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        entrepotLabel.Location = new Point(10, 10);
+        entrepotLabel.Name = "entrepotLabel";
+        entrepotLabel.Size = new Size(210, 40);
+        entrepotLabel.TabIndex = 1;
+        entrepotLabel.Text = "Gestion des Entrepots";
+        entrepotLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // entrepotPanel
+        // 
+        entrepotPanel.Controls.Add(AdresseDeleteButton);
+        entrepotPanel.Controls.Add(AdresseEditButton);
+        entrepotPanel.Controls.Add(AdresseViewButton);
+        entrepotPanel.Controls.Add(AdresseListBox);
+        entrepotPanel.Controls.Add(AdresseFiltreTextBox);
+        entrepotPanel.Controls.Add(createAdresseButton);
+        entrepotPanel.Controls.Add(adresseLabel);
+        entrepotPanel.Dock = DockStyle.Fill;
+        entrepotPanel.Location = new Point(475, 3);
+        entrepotPanel.Name = "entrepotPanel";
+        entrepotPanel.Padding = new Padding(10);
+        entrepotPanel.Size = new Size(230, 384);
+        entrepotPanel.TabIndex = 5;
+        // 
+        // AdresseViewButton
+        // 
+        AdresseViewButton.Dock = DockStyle.Top;
+        AdresseViewButton.Location = new Point(10, 202);
+        AdresseViewButton.Name = "AdresseViewButton";
+        AdresseViewButton.Size = new Size(210, 35);
+        AdresseViewButton.TabIndex = 7;
+        AdresseViewButton.Text = "Voir détails de l'adresse";
+        AdresseViewButton.UseVisualStyleBackColor = true;
+        // 
+        // AdresseListBox
+        // 
+        AdresseListBox.Dock = DockStyle.Top;
+        AdresseListBox.FormattingEnabled = true;
+        AdresseListBox.ItemHeight = 15;
+        AdresseListBox.Location = new Point(10, 108);
+        AdresseListBox.Name = "AdresseListBox";
+        AdresseListBox.Size = new Size(210, 94);
+        AdresseListBox.TabIndex = 6;
+        // 
+        // AdresseFiltreTextBox
+        // 
+        AdresseFiltreTextBox.BackColor = SystemColors.Window;
+        AdresseFiltreTextBox.Dock = DockStyle.Top;
+        AdresseFiltreTextBox.Location = new Point(10, 85);
+        AdresseFiltreTextBox.Name = "AdresseFiltreTextBox";
+        AdresseFiltreTextBox.Size = new Size(210, 23);
+        AdresseFiltreTextBox.TabIndex = 4;
+        AdresseFiltreTextBox.UseSystemPasswordChar = true;
+        // 
+        // createAdresseButton
+        // 
+        createAdresseButton.Dock = DockStyle.Top;
+        createAdresseButton.Location = new Point(10, 50);
+        createAdresseButton.Name = "createAdresseButton";
+        createAdresseButton.Size = new Size(210, 35);
+        createAdresseButton.TabIndex = 3;
+        createAdresseButton.Text = "Créer une adresse";
+        createAdresseButton.UseVisualStyleBackColor = true;
+        // 
+        // adresseLabel
+        // 
+        adresseLabel.Dock = DockStyle.Top;
+        adresseLabel.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        adresseLabel.Location = new Point(10, 10);
+        adresseLabel.Name = "adresseLabel";
+        adresseLabel.Size = new Size(210, 40);
+        adresseLabel.TabIndex = 2;
+        adresseLabel.Text = "Gestion des Adresses";
+        adresseLabel.TextAlign = ContentAlignment.MiddleCenter;
+        // 
+        // AdresseEditButton
+        // 
+        AdresseEditButton.Dock = DockStyle.Top;
+        AdresseEditButton.Location = new Point(10, 237);
+        AdresseEditButton.Name = "AdresseEditButton";
+        AdresseEditButton.Size = new Size(210, 35);
+        AdresseEditButton.TabIndex = 8;
+        AdresseEditButton.Text = "Éditer l'adresse";
+        AdresseEditButton.UseVisualStyleBackColor = true;
+        // 
+        // AdresseDeleteButton
+        // 
+        AdresseDeleteButton.Dock = DockStyle.Top;
+        AdresseDeleteButton.Location = new Point(10, 272);
+        AdresseDeleteButton.Name = "AdresseDeleteButton";
+        AdresseDeleteButton.Size = new Size(210, 35);
+        AdresseDeleteButton.TabIndex = 9;
+        AdresseDeleteButton.Text = "Supprimer l'adresse";
+        AdresseDeleteButton.UseVisualStyleBackColor = true;
         // 
         // AdminUserMainMenu
         // 
@@ -453,6 +631,9 @@ partial class AdminUserMainMenu {
         panel2.PerformLayout();
         panel1.ResumeLayout(false);
         userManagementPanel.ResumeLayout(false);
+        adressePanel.ResumeLayout(false);
+        entrepotPanel.ResumeLayout(false);
+        entrepotPanel.PerformLayout();
         this.ResumeLayout(false);
     }
 
@@ -490,4 +671,19 @@ partial class AdminUserMainMenu {
     private Button FournisseurDeleteBtn;
     private Button FournisseurEditBtn;
     private Button FournisseurViewBtn;
+    private Panel adressePanel;
+    private Button createEntrepotButton;
+    private Label entrepotLabel;
+    private Button editEntrepotButton;
+    private Button viewEntrepotButton;
+    private ComboBox entrepotSelector;
+    private Button deleteEntrepotButton;
+    private Panel entrepotPanel;
+    private Label adresseLabel;
+    private TextBox AdresseFiltreTextBox;
+    private Button createAdresseButton;
+    private Button AdresseViewButton;
+    private ListBox AdresseListBox;
+    private Button AdresseEditButton;
+    private Button AdresseDeleteButton;
 }

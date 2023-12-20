@@ -176,15 +176,14 @@ internal partial class AdminUserMainMenu : Form {
 
     #region Shipment
     private void ShipmentFiltreTextbox_TextChanged(object sender, EventArgs e) {
-       this.ShipmentListBox.DataSource = this.facade.GetService<ShipmentService>().SearchShipment(this.ShipmentFiltreTextbox.Text);
+        this.ShipmentListBox.DataSource = this.facade.GetService<ShipmentService>().SearchShipment(this.ShipmentFiltreTextbox.Text);
     }
 
     private void ShipmentListBox_SelectedIndexChanged(object sender, EventArgs e) {
-        if(this.ShipmentListBox.SelectedItem !=  null) { 
+        if (this.ShipmentListBox.SelectedItem != null) {
             this.ShipmentCreateBtn.Enabled = true;
-            this.ShipmentViewBtn.Enabled = true;    
-        }
-        else {
+            this.ShipmentViewBtn.Enabled = true;
+        } else {
             this.ShipmentCreateBtn.Enabled = true;
             this.ShipmentViewBtn.Enabled = false;
         }
@@ -195,15 +194,14 @@ internal partial class AdminUserMainMenu : Form {
     }
 
     private void ShipmentViewBtn_Click(object sender, EventArgs e) {
-       if (this.ShipmentListBox != null) {
+        if (this.ShipmentListBox != null) {
             ShipmentDTO selectedShipment = (ShipmentDTO) this.ShipmentListBox.SelectedItem;
             _ = this.facade.GetService<ShipmentService>().DisplayDtoInstance(selectedShipment);
-       }
-       else {
+        } else {
             _ = MessageBox.Show("Pas de shipment sélectionné");
-       }
-        
-  
+        }
+
+
     }
 
 
@@ -223,8 +221,7 @@ internal partial class AdminUserMainMenu : Form {
             this.FournisseurEditBtn.Enabled = true;
             this.FournisseurViewBtn.Enabled = true;
             this.FournisseurDeleteBtn.Enabled = true;
-        }
-        else {
+        } else {
             this.FournisseurCreateBtn.Enabled = true;
             this.FournisseurEditBtn.Enabled = false;
             this.FournisseurViewBtn.Enabled = false;
@@ -240,18 +237,16 @@ internal partial class AdminUserMainMenu : Form {
         if (this.FournisseurListBox != null) {
             Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
             _ = this.facade.GetService<FournisseurService>().DisplayDtoInstance(selectedFournisseur);
-        }
-        else {
+        } else {
             _ = MessageBox.Show("Pas de fournisseur sélectionné");
         }
     }
 
     private void FournisseurEditBtn_Click(object sender, EventArgs e) {
-        if(this.FournisseurListBox != null) {
+        if (this.FournisseurListBox != null) {
             Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
             _ = this.facade.GetService<FournisseurService>().UpdateDtoInstance(selectedFournisseur);
-        }
-        else {
+        } else {
             _ = MessageBox.Show("Pas de fournisseur sélectionné");
         }
     }
