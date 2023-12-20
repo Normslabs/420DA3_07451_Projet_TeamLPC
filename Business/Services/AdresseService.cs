@@ -28,6 +28,11 @@ public class AdresseService : AbstractDtoService<Adresse, int> {
         return this.Dao.GetAll();
     }
 
+    public List<Adresse> SearchAdresse(string filter) 
+    { 
+       return this.Dao.SearchAdresse(filter);
+    }
+
         
     public override void Shutdown() {
         throw new NotImplementedException();

@@ -20,6 +20,7 @@ internal partial class AdminUserMainMenu : Form {
         this.facade = facade;
         this.InitializeComponent();
         this.ReloadUserCombobox();
+        this.ReloadEntrepotComboBox();
     }
 
 
@@ -293,45 +294,119 @@ internal partial class AdminUserMainMenu : Form {
     }
 
     private void CreateEntrepotButton_Click(object sender, EventArgs e) {
-       _ = this.facade.GetService<EntrepotService>().CreateNewDtoInstance();
+        _ = this.facade.GetService<EntrepotService>().CreateNewDtoInstance();
         this.ReloadEntrepotComboBox();
     }
 
     private void EntrepotSelector_SelectedIndexChanged(object sender, EventArgs e) {
-        if(this.entrepotSelector.SelectedItem != null) 
-        { 
-          this.ActivateEntrepotManagementButtons();
-        } 
-        else 
-        {
-          this.DeactivateEntrepotManagementButtons();
+        if (this.entrepotSelector.SelectedItem != null) {
+            this.ActivateEntrepotManagementButtons();
+        } else {
+            this.DeactivateEntrepotManagementButtons();
         }
     }
 
-    private void ViewEntrepotButton_Click(object sender, EventArgs e) 
-    {
-       if(this.entrepotSelector.SelectedItem is null) 
-       {
+    private void ViewEntrepotButton_Click(object sender, EventArgs e) {
+        if (this.entrepotSelector.SelectedItem is null) {
             _ = MessageBox.Show("Pas d'entrepot selectionner.");
-       } 
-       else 
-       {
-          Entrepot selectedEntrepot = (Entrepot) this.entrepotSelector.SelectedItem;
-          _ = this.facade.GetService<EntrepotService>().UpdateDtoInstance(selectedEntrepot);
-          this.ReloadEntrepotComboBox();
-       }
+        } else {
+            Entrepot selectedEntrepot = (Entrepot) this.entrepotSelector.SelectedItem;
+            _ = this.facade.GetService<EntrepotService>().DisplayDtoInstance(selectedEntrepot);
+
+        }
     }
 
     private void EditEntrepotButton_Click(object sender, EventArgs e) {
-
+        if (this.entrepotSelector.SelectedItem is null) {
+            _ = MessageBox.Show("Pas d'entrepot selectionner.");
+        } else {
+            Entrepot selectedEntrepot = (Entrepot) this.entrepotSelector.SelectedItem;
+            _ = this.facade.GetService<EntrepotService>().UpdateDtoInstance(selectedEntrepot);
+            this.ReloadEntrepotComboBox();
+        }
     }
 
     private void DeleteEntrepotButton_Click(object sender, EventArgs e) {
+        if (this.entrepotSelector.SelectedItem is null) {
+            _ = MessageBox.Show("Pas d'entrepot selectionner.");
+        } else {
+            Entrepot selectedEntrepot = (Entrepot) this.entrepotSelector.SelectedItem;
+            _ = this.facade.GetService<EntrepotService>().DeleteDtoInstance(selectedEntrepot);
+            this.ReloadEntrepotComboBox();
+        }
+
 
     }
 
 
+    #endregion
 
+    #region Adresse
+
+
+    private void AdresseFiltreTextBox_TextChanged(object sender, EventArgs e) 
+    {
+        this.AdresseListBox.DataSource = this.facade.GetService<AdresseService>().SearchAdresse(this.AdresseFiltreTextBox.Text);
+    }
+
+    private void AdresseListBox_SelectedIndexChanged(object sender, EventArgs e) 
+    {
+        if (this.AdresseListBox != null) {
+            this.createAdresseButton.Enabled = true;
+            this.AdresseEditButton.Enabled = true;
+            this.AdresseViewButton.Enabled = true;
+            this.AdresseDeleteButton.Enabled = true;
+        } 
+        else 
+        {
+            this.createAdresseButton.Enabled = true;
+            this.AdresseEditButton.Enabled = false;
+            this.AdresseViewButton.Enabled = false;
+            this.AdresseDeleteButton.Enabled = false;
+        }
+    }
+
+    private void CreateAdresseButton_Click(object sender, EventArgs e) 
+    {
+        _ = this.facade.GetService<AdresseService>().CreateNewDtoInstance();
+    }
+
+    private void AdresseViewButton_Click(object sender, EventArgs e)
+    {
+        if(this.AdresseListBox != null) 
+        {
+            Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
+            _ = this.facade.GetService<AdresseService>().DisplayDtoInstance(selectedAdresse);
+        } 
+        else 
+        {
+            _ = MessageBox.Show("Pas d'adresse selectionné");
+        }
+    }
+
+    private void AdresseEditButton_Click(object sender, EventArgs e) 
+    {
+        if (this.AdresseListBox != null) {
+            Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
+            _ = this.facade.GetService<AdresseService>().UpdateDtoInstance(selectedAdresse);
+        } 
+        else 
+        {
+            _ = MessageBox.Show("Pas d'adresse selectionné");
+        }
+    }
+
+    private void AdresseDeleteButton_Click(object sender, EventArgs e) 
+    {
+        if (this.AdresseListBox != null) {
+            Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
+            _ = this.facade.GetService<AdresseService>().DisplayDtoInstance(selectedAdresse);
+        } 
+        else 
+        {
+            _ = MessageBox.Show("Pas d'adresse selectionné");
+        }
+    }
 
     #endregion
 
@@ -369,8 +444,9 @@ internal partial class AdminUserMainMenu : Form {
 
     private void editClientbutton_Click(object sender, EventArgs e) {
         ClientsDTO selectedClient = (ClientsDTO) this.ClientslistBox1.SelectedItem;
-        _= this.facade.GetService<ClientService>().UpdateDtoInstance(selectedClient);
+        _ = this.facade.GetService<ClientService>().UpdateDtoInstance(selectedClient);
     }
 
     #endregion
+
 }
