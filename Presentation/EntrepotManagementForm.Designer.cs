@@ -178,6 +178,7 @@ partial class EntrepotManagementForm {
         createadresseBtn.TabIndex = 0;
         createadresseBtn.Text = "Crée Adresse";
         createadresseBtn.UseVisualStyleBackColor = true;
+        createadresseBtn.Click += this.CreateadresseBtn_Click;
         // 
         // EntrepotManagementForm
         // 
