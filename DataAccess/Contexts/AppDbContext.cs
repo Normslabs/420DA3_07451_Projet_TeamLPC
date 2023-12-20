@@ -544,9 +544,9 @@ internal class AppDbContext : AbstractContext {
 
 
         _ = modelBuilder.Entity<ShipmentDTO>()
-            .HasOne(shipment => shipment.ShippingOrderID)
-            .WithOne("lipe variable")
-            .hasForeignKey<ShipmentDTO>(shipment => shipment.ShippingOrderID);
+            .HasOne(shipment => shipment.ShippingOrder)
+            .WithOne(shipOrd => shipOrd.Shipment)
+            .HasForeignKey<ShipmentDTO>(shipment => shipment.ShippingOrderID);
 
         #endregion
     }
