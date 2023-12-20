@@ -10,6 +10,11 @@ internal class ShippingOrderProducts {
     public int ShipmentOrderDTOId;
     public int Quantite;
 
+
+    public Produit Produit;
+
+    public ShipmentOrderDTO ShipmentOrderDTO;
+
     public ShippingOrderProducts() {
 
     }
