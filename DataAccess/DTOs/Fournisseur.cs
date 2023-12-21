@@ -44,8 +44,8 @@ public class Fournisseur : AbstractDTO<int> {
     /// Déclaration des propriétés de navigation
     /// </summary>
 
-    public Adresse SupplierAdresse { get; set; } = null!;
-    public List<Produit> ProduitsFournis { get; set; } = new List<Produit>();
+    public virtual Adresse SupplierAdresse { get; set; } = null!;
+    public virtual List<Produit> ProduitsFournis { get; set; } = new List<Produit>();
 
 
 

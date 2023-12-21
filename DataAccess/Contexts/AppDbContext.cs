@@ -1,5 +1,6 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,10 +12,20 @@ using System.Threading.Tasks;
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 internal class AppDbContext : AbstractContext {
 
-
+    // Entités
     public DbSet<Utilisateur> Utilisateurs { get; set; }
-
     public DbSet<Role> Roles { get; set; }
+    public DbSet<Adresse> Adresses { get; set; }
+    public DbSet<ClientsDTO> Clients { get; set; }
+    public DbSet<Entrepot> Entrepots { get; set; }
+    public DbSet<Fournisseur> Fournisseurs { get; set; }
+    public DbSet<Produit> Produits { get; set; }
+    public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+    public DbSet<ShipmentDTO> Shipments { get; set; }
+    public DbSet<ShipmentOrderDTO> ShipmentOrders { get; set; }
+
+    // Pivots
+    public DbSet<ShippingOrderProducts> ShippingOrderProducts { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
@@ -494,6 +505,31 @@ internal class AppDbContext : AbstractContext {
             .Property(shipment => shipment.RowVersion)
             .HasColumnName("Version")
             .IsRowVersion();
+
+
+        #endregion
+
+
+        #region Pivots
+
+        _ = modelBuilder.Entity<ShippingOrderProducts>()
+            .ToTable("ShippingOrderProducts")
+            .HasKey(sop => new { sop.ProduitId, sop.ShipmentOrderDTOId });
+
+        _ = modelBuilder.Entity<ShippingOrderProducts>()
+            .Property(sop => sop.ProduitId)
+            .HasColumnName("ProduitId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<ShippingOrderProducts>()
+            .Property(sop => sop.ShipmentOrderDTOId)
+            .HasColumnName("ShipmentOrderDTOId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<ShippingOrderProducts>()
+            .Property(sop => sop.Quantite)
+            .HasColumnName("Quantite")
+            .HasColumnType("int");
 
 
         #endregion
