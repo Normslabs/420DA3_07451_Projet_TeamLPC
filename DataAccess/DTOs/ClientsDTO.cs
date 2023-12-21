@@ -103,6 +103,10 @@ public class ClientsDTO : AbstractDTO<int> {
     public static bool ValideCompanyName(string companyName) {
         return companyName.Length <= COMPANYNAME_MAX_LENGTH;
     }
+
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.CompanyName;
+    }
 }
 
 

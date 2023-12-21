@@ -86,30 +86,23 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
     /// </summary>
     /// <returns></returns>
     public override string ToString() {
-        return
-               "ID: " + this.Id.ToString() + " " +
-               "Client ID: " + this.ClientsId.ToString() + " " +
-               "Entrepot Original ID " + this.EntrepotOriginalId.ToString() + " " +
-               "Employe Entrepot ID: " + this.EmployeEntrepotId.ToString() + " " +
-               "Shipment ID: " + this.ShipmentId.ToString() + " " +
-               "Status: " + this.Status.ToString() + " " +
-               "Date Created: " + this.DateCreated.ToString() + " " +
-               "Date Shipped: " + this.DateShipped.ToString() + " " +
-               "Row Version: " + BitConverter.ToString(this.RowVersion);
+        return this.Id.ToString() + " - État:" + this.Status.ToString() + " Client: " + this.Clients.CompanyName;
+    }
 
-}
     /// <summary>
     /// Fait en sorte que commande soit considere comme complétée.
     /// </summary>
     public void SetCompleted() {
         this.Status = ShippingOrderStatusEnum.COMPLETED;
     }
+
     /// <summary>
     ///Fait en sorte que commande soit considere comme emballer. 
     /// </summary>
     public void SetPackaged() {
         this.Status = ShippingOrderStatusEnum.PACKAGED;
     }
+
     /// <summary>
     /// Asigner la commande a un employe d'entrepot
     /// </summary>
@@ -151,6 +144,5 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
     public static bool ValidervCodePostal(string codepostal) {
         return codepostal.Length <= CODEPOSTAL_MAX_LENGHT;
     }
-
 
 }

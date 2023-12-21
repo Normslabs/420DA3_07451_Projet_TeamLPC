@@ -151,6 +151,8 @@ public class Adresse : AbstractDTO<int> {
         return ville.Length <= MAX_VILLE_LENGTH;
     }
 
-
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.NumeroCivique + " " + this.Rue + ", " + this.Ville;
+    }
 
 }

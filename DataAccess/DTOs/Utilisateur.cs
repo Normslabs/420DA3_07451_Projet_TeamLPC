@@ -117,4 +117,8 @@ public class Utilisateur : AbstractDTO<int> {
     }
 
     #endregion
+
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.Username;
+    }
 }

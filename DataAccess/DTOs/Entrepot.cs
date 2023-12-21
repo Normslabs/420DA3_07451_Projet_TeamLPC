@@ -102,4 +102,8 @@ public class Entrepot : AbstractDTO<int> {
         return nomEntrepot.Length <= MAX_NOMENTREPOT_LENGTH;
     }
 
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.NomEntrepot;
+    }
+
 }

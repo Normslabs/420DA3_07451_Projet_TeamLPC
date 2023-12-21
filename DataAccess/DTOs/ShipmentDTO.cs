@@ -105,7 +105,9 @@ public class ShipmentDTO : AbstractDTO<int> {
     }
 
 
-
+    public override string ToString() {
+        return this.Id.ToString() + " - " + this.Service.ToString() + " " + this.TrackingNumber;
+    }
 
 
 }
