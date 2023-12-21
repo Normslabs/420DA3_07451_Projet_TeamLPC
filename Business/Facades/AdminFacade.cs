@@ -22,6 +22,7 @@ internal class AdminFacade : AbstractFacade {
     public ProduitService ProduitService { get; set; }
     public PurchaseOrderService PurchaseOrderService { get; set; }
     public ShipmentOrderService ShipmentOrderService { get; set; }
+    public ClientService ClientService { get; set; }
     
     
     // TODO: @Everyone: ajoutez des propriétés pour vos services ici
@@ -39,6 +40,7 @@ internal class AdminFacade : AbstractFacade {
         this.ProduitService = new ProduitService(this, this.facadeContext);
         this.PurchaseOrderService = new PurchaseOrderService(this, this.facadeContext);
         this.ShipmentOrderService = new ShipmentOrderService(this, this.facadeContext);
+        this.ClientService = new ClientService(this, this.facadeContext);
 
         
         this.mainMenu = new AdminUserMainMenu(this);

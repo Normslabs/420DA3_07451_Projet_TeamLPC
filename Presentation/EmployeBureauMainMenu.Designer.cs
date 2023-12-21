@@ -112,6 +112,7 @@ partial class EmployeBureauMainMenu {
         // ClientViewBtn
         // 
         ClientViewBtn.Dock = DockStyle.Top;
+        ClientViewBtn.Enabled = false;
         ClientViewBtn.Location = new Point(0, 193);
         ClientViewBtn.Name = "ClientViewBtn";
         ClientViewBtn.Size = new Size(294, 23);
@@ -123,6 +124,7 @@ partial class EmployeBureauMainMenu {
         // ClientEditBtn
         // 
         ClientEditBtn.Dock = DockStyle.Top;
+        ClientEditBtn.Enabled = false;
         ClientEditBtn.Location = new Point(0, 170);
         ClientEditBtn.Name = "ClientEditBtn";
         ClientEditBtn.Size = new Size(294, 23);
@@ -200,6 +202,7 @@ partial class EmployeBureauMainMenu {
         this.Controls.Add(tableLayoutPanel1);
         this.Name = "EmployeBureauMainMenu";
         this.Text = "EmployeBureauMainMenu";
+        this.Load += this.EmployeBureauMainMenu_Load;
         tableLayoutPanel1.ResumeLayout(false);
         panel2.ResumeLayout(false);
         panel1.ResumeLayout(false);
