@@ -119,5 +119,9 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
         return order;
     }
 
+    public List<ShipmentOrderDTO> SearchShipmentOrders(string filter) {
+        return this.Dao.SearchShipmentOrder(filter);
+    }
+
 
 }

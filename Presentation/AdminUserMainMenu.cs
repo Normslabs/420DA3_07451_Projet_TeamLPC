@@ -570,7 +570,7 @@ internal partial class AdminUserMainMenu : Form {
     }
 
     private void filtreShipmentOrdertextBox1_TextChanged(object sender, EventArgs e) {
-
+        this.ClientslistBox1.DataSource = this.facade.GetService<ShipmentOrderService>().SearchShipmentOrders(this.filtreShipmentOrdertextBox1.Text);
     }
     #endregion 
 
