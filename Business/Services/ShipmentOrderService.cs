@@ -50,15 +50,5 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
         }
     }
 
-    //public ShipmentOrderDTO CreateShipmentOrder(ShipmentOrderDTO newShipmentOrder) {
-    //    return this.Dao.Create(newShipmentOrder);
-    //}
 
-    //public ShipmentOrderDTO DeleteShipmentOrder(ShipmentOrderDTO shipmentOrder) {
-    //    return this.Dao.Delete(shipmentOrder);
-    //}
-
-    //public ShipmentOrderDTO UpdateShipmentOrder(ShipmentOrderDTO shipmentOrder) {
-    //    return this.Dao.Update(shipmentOrder);
-    //}
 }

@@ -25,21 +25,6 @@ namespace _420DA3_07451_Projet_Initial.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("RoleUtilisateur", b =>
-                {
-                    b.Property<int>("RolesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UtilisateursPossedantRoleId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RolesId", "UtilisateursPossedantRoleId");
-
-                    b.HasIndex("UtilisateursPossedantRoleId");
-
-                    b.ToTable("RoleUtilisateur");
-                });
-
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Adresse", b =>
                 {
                     b.Property<int>("Id")
@@ -70,8 +55,11 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .HasColumnName("Province");
 
                     b.Property<byte[]>("Rowversion")
+                        .IsConcurrencyToken()
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion")
+                        .HasColumnName("Version");
 
                     b.Property<string>("Rue")
                         .IsRequired()
@@ -86,6 +74,68 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Adresse", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "5A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "55A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "555A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "1A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "11A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "111A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ClientsDTO", b =>
@@ -144,6 +194,30 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .IsUnique();
 
                     b.ToTable("Clients", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AsignedWarehouseID = 1,
+                            ClientAdressId = 4,
+                            CompanyName = "Client Test 1",
+                            Courriel = "john.doe@client.net",
+                            Nom = "Doe",
+                            Prenom = "John",
+                            Telephone = 5145555555L
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AsignedWarehouseID = 1,
+                            ClientAdressId = 5,
+                            CompanyName = "Normslabs Entertainment Inc.",
+                            Courriel = "ze.norm@client.net",
+                            Nom = "Norm",
+                            Prenom = "Ze",
+                            Telephone = 5145551234L
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Entrepot", b =>
@@ -177,6 +251,14 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .IsUnique();
 
                     b.ToTable("Entrepot", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdresseId = 1,
+                            NomEntrepot = "Entrepot Test"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Fournisseur", b =>
@@ -188,28 +270,23 @@ namespace _420DA3_07451_Projet_Initial.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AdresseContact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(80")
-                        .HasColumnName("AdresseContact");
-
                     b.Property<int>("AdresseId")
                         .HasColumnType("int")
                         .HasColumnName("AdresseId");
 
                     b.Property<string>("EmailContact")
                         .IsRequired()
-                        .HasColumnType("nvarchar(128")
+                        .HasColumnType("nvarchar(128)")
                         .HasColumnName("EmailContact");
 
                     b.Property<string>("NomContact")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20")
+                        .HasColumnType("nvarchar(20)")
                         .HasColumnName("NomContact");
 
                     b.Property<string>("PrenomContact")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20")
+                        .HasColumnType("nvarchar(20)")
                         .HasColumnName("PrenomContact");
 
                     b.Property<byte[]>("RowVersion")
@@ -221,8 +298,13 @@ namespace _420DA3_07451_Projet_Initial.Migrations
 
                     b.Property<string>("SupplierName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(100")
+                        .HasColumnType("nvarchar(100)")
                         .HasColumnName("NomFournisseur");
+
+                    b.Property<string>("TelephoneContact")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(24)")
+                        .HasColumnName("TelephoneContact");
 
                     b.HasKey("Id");
 
@@ -230,6 +312,18 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .IsUnique();
 
                     b.ToTable("Fournisseurs", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdresseId = 4,
+                            EmailContact = "john.doe@fournisseur.net",
+                            NomContact = "Doe",
+                            PrenomContact = "John",
+                            SupplierName = "Fournisseur Test 1",
+                            TelephoneContact = "5145555555"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots.ShippingOrderProducts", b =>
@@ -251,6 +345,40 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasIndex("ShipmentOrderDTOId");
 
                     b.ToTable("ShippingOrderProducts", (string)null);
+                });
+
+            modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots.UtilisateursRoles", b =>
+                {
+                    b.Property<int>("UtilisateurId")
+                        .HasColumnType("int")
+                        .HasColumnName("UtilisateurId");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int")
+                        .HasColumnName("RoleId");
+
+                    b.HasKey("UtilisateurId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("RolesUtilisateurs", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UtilisateurId = 1,
+                            RoleId = 1
+                        },
+                        new
+                        {
+                            UtilisateurId = 1,
+                            RoleId = 2
+                        },
+                        new
+                        {
+                            UtilisateurId = 1,
+                            RoleId = 3
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Produit", b =>
@@ -317,6 +445,64 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasIndex("FournisseurId");
 
                     b.ToTable("Produits", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClientsDTOId = 1,
+                            Description = "Un produit de test.",
+                            DoAutoRestock = true,
+                            FournisseurId = 1,
+                            InstockQuantity = 50,
+                            Name = "TestProduit",
+                            SupplierCode = "A535",
+                            TargetStockQuantity = 30,
+                            UpcCode = 15347634L,
+                            WeightInKg = 1.35m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClientsDTOId = 1,
+                            Description = "Un produit de test.",
+                            DoAutoRestock = true,
+                            FournisseurId = 1,
+                            InstockQuantity = 50,
+                            Name = "TestProduit2",
+                            SupplierCode = "A534",
+                            TargetStockQuantity = 30,
+                            UpcCode = 15347635L,
+                            WeightInKg = 1.35m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClientsDTOId = 1,
+                            Description = "Un produit de test.",
+                            DoAutoRestock = true,
+                            FournisseurId = 1,
+                            InstockQuantity = 50,
+                            Name = "TestProduit3",
+                            SupplierCode = "A533",
+                            TargetStockQuantity = 30,
+                            UpcCode = 15347636L,
+                            WeightInKg = 1.35m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClientsDTOId = 1,
+                            Description = "Un produit de test.",
+                            DoAutoRestock = true,
+                            FournisseurId = 1,
+                            InstockQuantity = 50,
+                            Name = "TestProduit4",
+                            SupplierCode = "A532",
+                            TargetStockQuantity = 30,
+                            UpcCode = 15347637L,
+                            WeightInKg = 1.35m
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.PurchaseOrder", b =>
@@ -395,6 +581,26 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            RoleDescription = "Role Administrateur",
+                            RoleName = "Administrator"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            RoleDescription = "Employés de bureau",
+                            RoleName = "OfficeEmployee"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            RoleDescription = "Employés d'entrepôt",
+                            RoleName = "WarehouseEmployee"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ShipmentDTO", b =>
@@ -549,21 +755,16 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .IsUnique();
 
                     b.ToTable("Utilisateurs", (string)null);
-                });
 
-            modelBuilder.Entity("RoleUtilisateur", b =>
-                {
-                    b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Role", null)
-                        .WithMany()
-                        .HasForeignKey("RolesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Utilisateur", null)
-                        .WithMany()
-                        .HasForeignKey("UtilisateursPossedantRoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EntrepotDeTravailId = 1,
+                            PasswordHash = "AC72E9D92E94CEC187922736EFE36904643D6267C63D6AB84752D62C1C2817F5:80E423C38FB59F822BAF448F8A8943E7:100000:SHA256",
+                            Username = "testUser"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ClientsDTO", b =>
@@ -571,13 +772,13 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Entrepot", "AsignedWarehouse")
                         .WithMany("Clients")
                         .HasForeignKey("AsignedWarehouseID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Adresse", "ClientAdress")
                         .WithOne("Client")
                         .HasForeignKey("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ClientsDTO", "ClientAdressId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AsignedWarehouse");
@@ -590,7 +791,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Adresse", "AdresseEntrepot")
                         .WithOne("AdresseEntrepot")
                         .HasForeignKey("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Entrepot", "AdresseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("AdresseEntrepot");
@@ -601,7 +802,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Adresse", "SupplierAdresse")
                         .WithOne("AdresseFournisseur")
                         .HasForeignKey("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Fournisseur", "AdresseId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("SupplierAdresse");
@@ -612,13 +813,13 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Produit", "Produit")
                         .WithMany("ShippingOrderProducts")
                         .HasForeignKey("ProduitId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ShipmentOrderDTO", "ShipmentOrderDTO")
                         .WithMany("AssociationsProduits")
                         .HasForeignKey("ShipmentOrderDTOId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Produit");
@@ -626,18 +827,37 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.Navigation("ShipmentOrderDTO");
                 });
 
+            modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots.UtilisateursRoles", b =>
+                {
+                    b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Role", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Utilisateur", "Utilisateur")
+                        .WithMany()
+                        .HasForeignKey("UtilisateurId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+
+                    b.Navigation("Utilisateur");
+                });
+
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Produit", b =>
                 {
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ClientsDTO", "ClientsDTO")
                         .WithMany("Produit")
                         .HasForeignKey("ClientsDTOId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Fournisseur", "Fournisseur")
                         .WithMany("ProduitsFournis")
                         .HasForeignKey("FournisseurId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("ClientsDTO");
@@ -650,13 +870,13 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Entrepot", "DestinationWarehouse")
                         .WithMany("PurchaseOrders")
                         .HasForeignKey("DestinationWarehouseID")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Produit", "Product")
                         .WithMany("PurchaseOrders")
                         .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("DestinationWarehouse");
@@ -668,7 +888,8 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                 {
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ShipmentOrderDTO", "ShippingOrder")
                         .WithOne("Shipment")
-                        .HasForeignKey("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ShipmentDTO", "ShippingOrderID");
+                        .HasForeignKey("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ShipmentDTO", "ShippingOrderID")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("ShippingOrder");
                 });
@@ -678,17 +899,18 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ClientsDTO", "Clients")
                         .WithMany("ShipmentOrders")
                         .HasForeignKey("ClientsId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Utilisateur", "EmployeEntrepot")
                         .WithMany("AssignedShipmentOrders")
-                        .HasForeignKey("EmployeEntrepotId");
+                        .HasForeignKey("EmployeEntrepotId")
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.HasOne("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Entrepot", "EntrepotOriginal")
                         .WithMany("ShipmentOrder")
                         .HasForeignKey("EntrepotOriginalId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Clients");

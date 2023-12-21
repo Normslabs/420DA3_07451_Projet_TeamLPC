@@ -13,13 +13,15 @@ internal class AdminFacade : AbstractFacade {
     private readonly AdminUserMainMenu mainMenu;
     private readonly AppDbContext facadeContext;
 
-    private UtilisateurService UtilisateurService { get; set; }
-    private RoleService RoleService { get; set; }
-
-    // declaration du service fournisseur dans la facade admin
-    private FournisseurService FournisseurService { get; set; }
-    // declaration du service shipment dans la facade admin
-    private ShipmentService ShipmentService { get; set; }
+    public UtilisateurService UtilisateurService { get; set; }
+    public RoleService RoleService { get; set; }
+    public FournisseurService FournisseurService { get; set; }
+    public ShipmentService ShipmentService { get; set; }
+    public AdresseService AdresseService { get; set; }
+    public EntrepotService EntrepotService { get; set; }
+    public ProduitService ProduitService { get; set; }
+    public PurchaseOrderService PurchaseOrderService { get; set; }
+    public ShipmentOrderService ShipmentOrderService { get; set; }
     
     
     // TODO: @Everyone: ajoutez des propriétés pour vos services ici
@@ -30,12 +32,13 @@ internal class AdminFacade : AbstractFacade {
         this.facadeContext = new AppDbContext();
         this.UtilisateurService = new UtilisateurService(this, this.facadeContext);
         this.RoleService = new RoleService(this, this.facadeContext);
-        //Ajout du service fournisseur dans la facade admin
         this.FournisseurService = new FournisseurService(this, this.facadeContext);
-        // ajout du service shipment dans la facade admin
         this.ShipmentService = new ShipmentService(this, this.facadeContext);
-
-        // TODO: @Everyone: initialisez vos services ici
+        this.AdresseService = new AdresseService(this, this.facadeContext);
+        this.EntrepotService = new EntrepotService(this, this.facadeContext);
+        this.ProduitService = new ProduitService(this, this.facadeContext);
+        this.PurchaseOrderService = new PurchaseOrderService(this, this.facadeContext);
+        this.ShipmentOrderService = new ShipmentOrderService(this, this.facadeContext);
 
         
         this.mainMenu = new AdminUserMainMenu(this);

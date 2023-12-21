@@ -166,7 +166,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
 
     private void ValidationFields() {
 
-        if(!ClientsDTO.ValiderNomClient(this.nomClienttextBox1.Text)) {
+        if (!ClientsDTO.ValiderNomClient(this.nomClienttextBox1.Text)) {
             throw new Exception("Nom invalide");
         }
         if (!ClientsDTO.ValiderPrenomClient(this.prenomtextBox1.Text)) {

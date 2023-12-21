@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business.Facades;
 internal class LoginFacade : AbstractFacade {
-    protected UtilisateurService UtilisateurService { get; set; }
-    protected RoleService RoleService { get; set; }
+    public UtilisateurService UtilisateurService { get; set; }
+    public RoleService RoleService { get; set; }
+
+    public new LoginService LoginService {  get; set; }
 
 
 #pragma warning disable CS0618 // Type or member is obsolete

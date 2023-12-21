@@ -26,30 +26,41 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
         this.facade = facade;
         InitializeComponent();
         this.LoadEntrepotComboBox();
-
     }
-    #region Public Methods
-    public DialogResult OpenForCreation(PurchaseOrder blankInstance) {
-        throw new NotImplementedException();
-    }
-
-    public DialogResult OpenForDeletion(PurchaseOrder instance) {
-        throw new NotImplementedException();
-    }
-
-    public DialogResult OpenForEdition(PurchaseOrder instance) {
-        throw new NotImplementedException();
-    }
-
-    public DialogResult OpenForVisualization(PurchaseOrder instance) {
-        throw new NotImplementedException();
-    }
-    #endregion
-
-    #region Private Methods
     private void LoadEntrepotComboBox() {
         this.entrepotComboBox.DataSource = this.facade.GetService<EntrepotService>().GetAllEntrepot();
     }
+    #region Public Methods
+    public DialogResult OpenForCreation(PurchaseOrder blankInstance) {
+        this.workingIntent = ViewIntentEnum.Creation;
+        this.ActionBtn.Text = "Creer";
+        return this.OpenFor(blankInstance);
+    }
+
+    public DialogResult OpenForDeletion(PurchaseOrder instance) {
+        this.workingIntent = ViewIntentEnum.Deletion;
+        this.ActionBtn.Text = "OK";
+        return this.OpenFor(instance);
+    }
+
+    public DialogResult OpenForEdition(PurchaseOrder instance) {
+        this.workingIntent = ViewIntentEnum.Edition;
+        this.ActionBtn.Text = "OK";
+        return this.OpenFor(instance);
+    }
+
+    public DialogResult OpenForVisualization(PurchaseOrder instance) {
+        this.workingIntent = ViewIntentEnum.Visualization;
+        this.ActionBtn.Text = "OK";
+        return this.OpenFor(instance);
+    }
+
+    
+    #endregion
+
+
+    #region Private Methods
+
     private  DialogResult OpenFor(PurchaseOrder instance) {
         this.po = instance;
         switch (this.workingIntent) {
@@ -59,7 +70,7 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
                 break;
             case ViewIntentEnum.Creation:
             case ViewIntentEnum.Edition:
-                this.DisableControls();
+                this.EnabledControls();
                 break;
             default:
                 throw new Exception("View Intent not supported");
@@ -67,8 +78,6 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
         this.LoadProduitDataInControls(instance);
         return this.ShowDialog();
     }
-
-    //produitListView
     private void SaveDataInInstace() {
         this.ValidateFields();
         this.po.ProductId = (int) this.idNumericUpDown.Value;
@@ -76,7 +85,6 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
         this.po.Status = (PurchaseOrderStatusEnum) this.StatusComboBox.SelectedItem;
         this.po.DestinationWarehouse = (Entrepot) this.entrepotComboBox.SelectedItem;
     }
-    //incomplet LoadProduitDataInControls
     private void LoadProduitDataInControls(PurchaseOrder po) {
         this.idNumericUpDown.Value = po.ProductId;
         if (!this.produitListView.Items.Contains(po.Product)) {
@@ -86,24 +94,35 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
         this.StatusComboBox.SelectedItem = po.Status;
         this.entrepotComboBox.SelectedItem = po.DestinationWarehouse;
     }
-
-
     private void ValidateFields() {
         if (!PurchaseOrder.ValiderQTYOrder((int) this.QTYnumericUpDown.Value)) {
             throw new Exception("La quantité à commander ne peut pas être en dessous de 0");
         }
     }
-
-    private void AnnulerBtn_Click(object sender, EventArgs e) {
-        this.DialogResult = DialogResult.Cancel;
+    private void EnabledControls() {
+        this.idNumericUpDown.Enabled = false;
+        this.produitTextBox.Enabled = true;
+        this.produitListView.Enabled = true;
+        this.QTYnumericUpDown.Enabled = true;
+        this.StatusComboBox.Enabled = true;
+        this.entrepotComboBox.Enabled = true;
     }
+    private void DisableControls() {
+        this.idNumericUpDown.Enabled = false;
+        this.produitTextBox.Enabled = false;
+        this.produitListView.Enabled = false;
+        this.QTYnumericUpDown.Enabled = false;
+        this.StatusComboBox.Enabled = false;
+        this.entrepotComboBox.Enabled = false;
+    }
+    #endregion
     private void ActionBtn_Click(object sender, EventArgs e) {
         try {
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
                 case ViewIntentEnum.Edition:
                     SaveDataInInstace();
-                        break;
+                    break;
                 case ViewIntentEnum.Deletion:
                 case ViewIntentEnum.Visualization:
                 default:
@@ -115,29 +134,10 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
         } catch (Exception ex) {
             _ = MessageBox.Show(ex.Message);
             return;
-        
+
         }
     }
-
-    private void EnabledControls() {
-        this.idNumericUpDown.Enabled = false;
-        this.produitTextBox.Enabled = true;
-        this.produitListView.Enabled = true;
-        this.QTYnumericUpDown.Enabled = true;
-        this.StatusComboBox.Enabled = true;
-        this.entrepotComboBox.Enabled = true;
+    private void AnnulerBtn_Click(object sender, EventArgs e) {
+        this.DialogResult = DialogResult.Cancel;
     }
-
-    private void DisableControls() {
-        this.idNumericUpDown.Enabled = false;
-        this.produitTextBox.Enabled = false;
-        this.produitListView.Enabled = false;
-        this.QTYnumericUpDown.Enabled = false;
-        this.StatusComboBox.Enabled = false;
-        this.entrepotComboBox.Enabled = false;
-    }
-    #endregion
-
-
-
 }

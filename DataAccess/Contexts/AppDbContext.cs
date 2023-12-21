@@ -152,6 +152,11 @@ internal class AppDbContext : AbstractContext {
             .HasColumnName("Rue")
             .HasColumnType($"nvarchar({Adresse.MAX_RUE_LENGTH})");
 
+        _ = modelBuilder.Entity<Adresse>()
+            .Property(addr => addr.Rowversion)
+            .HasColumnName("Version")
+            .IsRowVersion();
+
         // Entrepot
 
         _ = modelBuilder.Entity<Entrepot>()
@@ -434,7 +439,7 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.SupplierName)
             .HasColumnName("NomFournisseur")
-            .HasColumnType($"nvarchar({Fournisseur.SUPPLIER_NAME_MAXLENGHT}");
+            .HasColumnType($"nvarchar({Fournisseur.SUPPLIER_NAME_MAXLENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
@@ -446,25 +451,25 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.PrenomContact)
             .HasColumnName("PrenomContact")
-            .HasColumnType($"nvarchar({Fournisseur.PRENOMCONTACT_MAX_LENGHT}");
+            .HasColumnType($"nvarchar({Fournisseur.PRENOMCONTACT_MAX_LENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.NomContact)
             .HasColumnName("NomContact")
-            .HasColumnType ($"nvarchar({Fournisseur.NOMCONTACT_MAX_LENGHT}");
+            .HasColumnType ($"nvarchar({Fournisseur.NOMCONTACT_MAX_LENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
-            .Property(fournisseur => fournisseur.AdresseContact)
-            .HasColumnName("AdresseContact")
-            .HasColumnType ($"nvarchar({Fournisseur.ADRESSECONTACT_MAX_LENGHT}");
+            .Property(fournisseur => fournisseur.TelephoneContact)
+            .HasColumnName("TelephoneContact")
+            .HasColumnType ($"nvarchar({Fournisseur.TELEPHONECONTACT_MAX_LENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.EmailContact)
             .HasColumnName("EmailContact")
-            .HasColumnType ($"nvarchar({Fournisseur.EMAILCONTACT_MAX_LENGHT}");
+            .HasColumnType ($"nvarchar({Fournisseur.EMAILCONTACT_MAX_LENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
@@ -532,6 +537,29 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType("int");
 
 
+
+        _ = modelBuilder.Entity<UtilisateursRoles>()
+            .ToTable("RolesUtilisateurs")
+            .HasKey(ur => new { ur.UtilisateurId, ur.RoleId });
+
+        _ = modelBuilder.Entity<UtilisateursRoles>()
+            .Property(ur => ur.UtilisateurId)
+            .HasColumnName("UtilisateurId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<UtilisateursRoles>()
+            .Property(ur => ur.RoleId)
+            .HasColumnName("RoleId")
+            .HasColumnType("int");
+
+
+        _ = modelBuilder.Entity<UtilisateursRoles>()
+            .HasData(
+                new { UtilisateurId = 1, RoleId = 1 },
+                new { UtilisateurId = 1, RoleId = 2 },
+                new { UtilisateurId = 1, RoleId = 3 }
+                );
+
         #endregion
 
 
@@ -540,91 +568,155 @@ internal class AppDbContext : AbstractContext {
         // N-à-N entre Utilisateur et Role
         _ = modelBuilder.Entity<Utilisateur>()
             .HasMany(user => user.Roles)
-            .WithMany(role => role.UtilisateursPossedantRole);
+            .WithMany(role => role.UtilisateursPossedantRole)
+            .UsingEntity<UtilisateursRoles>();
 
         // 1-à-1 entre Entrepot et Adresse 
         _ = modelBuilder.Entity<Entrepot>()
-           .HasOne(entrepot => entrepot.AdresseEntrepot)
-           .WithOne(adresse => adresse.AdresseEntrepot)
-           .HasForeignKey<Entrepot>(wh=>wh.AdresseId);
+            .HasOne(entrepot => entrepot.AdresseEntrepot)
+            .WithOne(adresse => adresse.AdresseEntrepot)
+            .HasForeignKey<Entrepot>(wh=>wh.AdresseId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre Client et Entrepot
         _ = modelBuilder.Entity<ClientsDTO>()
             .HasOne(client => client.AsignedWarehouse)
             .WithMany(entrepot => entrepot.Clients)
-            .HasForeignKey(client => client.AsignedWarehouseID);
+            .HasForeignKey(client => client.AsignedWarehouseID)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-1 entre Client et Entrepot
         _ = modelBuilder.Entity<ClientsDTO>()
             .HasOne(client => client.ClientAdress)
             .WithOne(adresse => adresse.Client)
-            .HasForeignKey<ClientsDTO>(client => client.ClientAdressId);
+            .HasForeignKey<ClientsDTO>(client => client.ClientAdressId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // N-à-1 entre produit et client
         _ = modelBuilder.Entity<ClientsDTO>()
             .HasMany(client => client.Produit)
             .WithOne(produit => produit.ClientsDTO)
-            .HasForeignKey(produit => produit.ClientsDTOId);
+            .HasForeignKey(produit => produit.ClientsDTOId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // N-à-1 entre ShipmentOrders et clients
         _ = modelBuilder.Entity<ClientsDTO>()
             .HasMany(client => client.ShipmentOrders)
             .WithOne(shipmentorder => shipmentorder.Clients)
-            .HasForeignKey(so => so.ClientsId);
+            .HasForeignKey(so => so.ClientsId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // N-à-1 entre ShipmentOrders et entrepot
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasOne(shipmentO => shipmentO.EntrepotOriginal)
             .WithMany(entrepot => entrepot.ShipmentOrder)
-            .HasForeignKey(so => so.EntrepotOriginalId);
+            .HasForeignKey(so => so.EntrepotOriginalId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre ShipmentOrder et ShippingOrderProducts (pivot)
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasMany(shipmentO => shipmentO.AssociationsProduits)
             .WithOne(sop => sop.ShipmentOrderDTO)
-            .HasForeignKey(sop => sop.ShipmentOrderDTOId);
+            .HasForeignKey(sop => sop.ShipmentOrderDTOId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre Produit et ShippingOrderProducts (pivot)
         _ = modelBuilder.Entity<Produit>()
             .HasMany(produit => produit.ShippingOrderProducts)
             .WithOne(sop => sop.Produit)
-            .HasForeignKey(sop => sop.ProduitId);
+            .HasForeignKey(sop => sop.ProduitId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre Utilisateur (employe d'entrepôt) et ShipmentOrders
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasOne(shipmento => shipmento.EmployeEntrepot)
             .WithMany(utilisateur => utilisateur.AssignedShipmentOrders)
-            .HasForeignKey(so => so.EmployeEntrepotId);
+            .HasForeignKey(so => so.EmployeEntrepotId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre Fournisseur et Produits
         _ = modelBuilder.Entity<Produit>()
             .HasOne(produit => produit.Fournisseur)
             .WithMany(fournisseur => fournisseur.ProduitsFournis)
-            .HasForeignKey(produit => produit.FournisseurId);
+            .HasForeignKey(produit => produit.FournisseurId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre Entrepot et PurchaseOrders
         _ = modelBuilder.Entity<PurchaseOrder>()
             .HasOne(po => po.DestinationWarehouse)
             .WithMany(wh => wh.PurchaseOrders)
-            .HasForeignKey(po => po.DestinationWarehouseID);
+            .HasForeignKey(po => po.DestinationWarehouseID)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre Produit et PurchaseOrders
         _ = modelBuilder.Entity<PurchaseOrder>()
             .HasOne(po => po.Product)
             .WithMany(product => product.PurchaseOrders)
-            .HasForeignKey(po => po.ProductId);
+            .HasForeignKey(po => po.ProductId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-1 entre Adresse et Fournisseur
         _ = modelBuilder.Entity<Fournisseur>()
             .HasOne(fournisseur => fournisseur.SupplierAdresse)
             .WithOne(adresse => adresse.AdresseFournisseur)
-            .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
+            .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId)
+            .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-1 entre Shipment et ShippingOrder
         _ = modelBuilder.Entity<ShipmentDTO>()
             .HasOne(shipment => shipment.ShippingOrder)
             .WithOne(shipOrd => shipOrd.Shipment)
-            .HasForeignKey<ShipmentDTO>(shipment => shipment.ShippingOrderID);
+            .HasForeignKey<ShipmentDTO>(shipment => shipment.ShippingOrderID)
+            .OnDelete(DeleteBehavior.Restrict);
+
+
+        #endregion
+
+
+        #region Initial Data
+
+        _ = modelBuilder.Entity<Adresse>().HasData(
+            new Adresse("Montréal", "5A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 1 },
+            new Adresse("Montréal", "55A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 2 },
+            new Adresse("Montréal", "555A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 3 },
+            new Adresse("Montréal", "1A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 4 },
+            new Adresse("Montréal", "11A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 5 },
+            new Adresse("Montréal", "111A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 6 }
+            );
+
+        _ = modelBuilder.Entity<Entrepot>().HasData(
+            new Entrepot("Entrepot Test", 1) { Id = 1 }
+            );
+
+        _ = modelBuilder.Entity<ClientsDTO>().HasData(
+            new ClientsDTO() { Id = 1, CompanyName = "Client Test 1", AsignedWarehouseID = 1, ClientAdressId = 4, Nom = "Doe", Prenom = "John", Courriel = "john.doe@client.net", Telephone = 5145555555L },
+            new ClientsDTO() { Id = 2, CompanyName = "Normslabs Entertainment Inc.", AsignedWarehouseID = 1, ClientAdressId = 5, Nom = "Norm", Prenom = "Ze", Courriel = "ze.norm@client.net", Telephone = 5145551234L }
+            );
+
+        _ = modelBuilder.Entity<Fournisseur>().HasData(
+            new Fournisseur() { Id = 1, SupplierName = "Fournisseur Test 1", AdresseId = 4, NomContact = "Doe", PrenomContact = "John", EmailContact = "john.doe@fournisseur.net", TelephoneContact = "5145555555"  }
+            );
+
+        _ = modelBuilder.Entity<Produit>().HasData(
+            new Produit(15347634L, "TestProduit", "Un produit de test.", "A535", true, 50, 30, 1.35M, 1) { Id = 1, FournisseurId = 1 },
+            new Produit(15347635L, "TestProduit2", "Un produit de test.", "A534", true, 50, 30, 1.35M, 1) { Id = 2, FournisseurId = 1 },
+            new Produit(15347636L, "TestProduit3", "Un produit de test.", "A533", true, 50, 30, 1.35M, 1) { Id = 3, FournisseurId = 1 },
+            new Produit(15347637L, "TestProduit4", "Un produit de test.", "A532", true, 50, 30, 1.35M, 1) { Id = 4, FournisseurId = 1 }
+            );
+
+        Role roleAdmin = new Role() { Id = Role.ADMINISTRATOR_ROLE_ID, RoleName = "Administrator", RoleDescription = "Role Administrateur" };
+        Role roleOfficeWorker = new Role() { Id = Role.OFFICE_EMPLOYEE_ROLE_ID, RoleName = "OfficeEmployee", RoleDescription = "Employés de bureau" };
+        Role roleWHWorker = new Role() { Id = Role.WAREHOUSE_EMPLOYEE_ROLE_ID, RoleName = "WarehouseEmployee", RoleDescription = "Employés d'entrepôt" };
+        
+        _ = modelBuilder.Entity<Role>().HasData(
+            roleAdmin,
+            roleOfficeWorker,
+            roleWHWorker
+            );
+
+        _ = modelBuilder.Entity<Utilisateur>().HasData(
+                new Utilisateur() { Id = 1, Username = "testUser", PasswordHash = "AC72E9D92E94CEC187922736EFE36904643D6267C63D6AB84752D62C1C2817F5:80E423C38FB59F822BAF448F8A8943E7:100000:SHA256", EntrepotDeTravailId = 1 }
+                );
 
 
         #endregion

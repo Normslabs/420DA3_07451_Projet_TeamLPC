@@ -17,8 +17,16 @@ GetIncompleteForWarehouse(intIdEntrepot OU objEntrepot)
 */
 public class PurchaseOrderDAO : AbstractDao<PurchaseOrder, int> {
 
+    /// <summary>
+    /// Obtient le contexte de la base de donne
+    /// </summary>
+    /// <param name="context"></param>
     protected override AbstractContext Context { get; }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="context"></param>
     public PurchaseOrderDAO(AbstractContext context) {
         this.Context = context;
     }
