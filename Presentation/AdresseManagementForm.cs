@@ -102,7 +102,7 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
         this.paysTextBox.Text = adresse.Rue;
 
     }
-
+   
     private void QuitButton_Click(object sender, EventArgs e) {
         this.DialogResult = DialogResult.Cancel;
     }
