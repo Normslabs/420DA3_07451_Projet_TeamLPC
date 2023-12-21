@@ -68,6 +68,11 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
             .SingleOrDefault();
     }
 
+    /// <summary>
+    /// Méthode de recherche d'utilisateurs par nom de rôle
+    /// </summary>
+    /// <param name="filter"></param>
+    /// <returns></returns>
     public List<Utilisateur> SearchUsersByRoleName(string filter) {
         return this.Context.GetDbSet<Utilisateur>()
             .Include(user => user.Roles)
@@ -77,6 +82,10 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
             ).ToList();
     }
 
+    /// <summary>
+    /// Retourne la liste de tous les employés d'entrepôt.
+    /// </summary>
+    /// <returns></returns>
     public List<Utilisateur> GetEmployesDEntrepot() {
         return this.Context.GetDbSet<Utilisateur>()
             .Include(user => user.Roles)
@@ -85,6 +94,11 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
             .ToList();
     }
 
+    /// <summary>
+    /// Retourne tous les employés d'entrepôt travaillant dans un entrepot spécifié en paramètre.
+    /// </summary>
+    /// <param name="entrepot"></param>
+    /// <returns></returns>
     public List<Utilisateur> GetEmployesDEntrepot(Entrepot entrepot) {
         return this.Context.GetDbSet<Utilisateur>()
             .Include(user => user.Roles)
