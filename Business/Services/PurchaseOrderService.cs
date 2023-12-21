@@ -18,6 +18,7 @@ public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
     /// </summary>
     protected override PurchaseOrderDAO Dao { get; }
     protected override PurchaseOrderForm DtoManagementWindow { get; }
+    protected ProduitDAO ProduitDAO { get; }
     /// <summary>
     /// Declaration du constructeur 
     /// </summary>
@@ -27,6 +28,7 @@ public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
         facade.RegisterDependent(this);
         this.Dao = new PurchaseOrderDAO(context);
         this.DtoManagementWindow = new PurchaseOrderForm(facade);
+        this.ProduitDAO = new ProduitDAO(context);
     }
     //Fonction shutdown pour fermer l'application
     public override void Shutdown() {
@@ -35,8 +37,26 @@ public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
         }
     }
     //Methode qui retourne tout les incompleted purchase order
-    public PurchaseOrder GetPurchaseOrder(int id) {
-        return this.Dao.GetIncompleteForWarehouse(id);
+    public List<PurchaseOrder> GetPurchaseOrder() {
+        return this.Dao.GetAll();
+    }
+
+
+    public List<PurchaseOrder> GetIncompleteForWarehouse(Entrepot entrepot) {
+        return this.Dao.GetIncompleteForWarehouse(entrepot.Id);
+    }
+
+
+    public PurchaseOrder CompletePurchaseOrder(PurchaseOrder purchaseOrder) {
+        Produit produit = purchaseOrder.Product;
+        produit.InstockQuantity += purchaseOrder.QuantityOrdered;
+        this.ProduitDAO.Update(produit);
+        purchaseOrder.Status = PurchaseOrderStatusEnum.Completed;
+        this.Dao.Update(purchaseOrder);
+
+        return purchaseOrder;
+
+        
     }
 
 }

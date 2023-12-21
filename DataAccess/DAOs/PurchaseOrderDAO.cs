@@ -32,10 +32,10 @@ public class PurchaseOrderDAO : AbstractDao<PurchaseOrder, int> {
     /// </summary>
     /// <param name="IdEntrepot"></param>
     /// <returns></returns>
-    public PurchaseOrder GetIncompleteForWarehouse(int IdEntrepot) {
+    public List<PurchaseOrder> GetIncompleteForWarehouse(int IdEntrepot) {
         return this.Context.GetDbSet<PurchaseOrder>()
             .Where(po => po.Status != PurchaseOrderStatusEnum.Completed && po.DestinationWarehouseID == IdEntrepot )
-            .First();
+            .ToList();
     }
 
     //ajouter au service

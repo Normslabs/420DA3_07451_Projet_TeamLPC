@@ -33,7 +33,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
     /// <param name="facade"></param>
     public EntrepotManagementForm(AbstractFacade facade) {
         this.ParentFacade = facade;
-        this.InitializeComponent();       
+        this.InitializeComponent();
     }
 
     /// <summary>
