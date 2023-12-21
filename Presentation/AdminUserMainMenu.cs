@@ -315,7 +315,9 @@ internal partial class AdminUserMainMenu : Form {
     #endregion
 
     #region Entrepot
-
+    /// <summary>
+    /// Fonction qui permet de recharger le combo box d'entrepot
+    /// </summary>
     private void ReloadEntrepotComboBox() {
         Entrepot? selectedEntrepot = null;
         if (this.entrepotSelector.SelectedItem != null) {
@@ -332,23 +334,39 @@ internal partial class AdminUserMainMenu : Form {
 
     }
 
+    /// <summary>
+    /// Fonctionq qui permet de activer tout les bouttons chosie
+    /// </summary>
     private void ActivateEntrepotManagementButtons() {
         this.viewEntrepotButton.Enabled = true;
         this.editEntrepotButton.Enabled = true;
         this.deleteEntrepotButton.Enabled = true;
     }
 
+    /// <summary>
+    /// Fonction qui permet de desactiver tout les bouttons choisie
+    /// </summary>
     private void DeactivateEntrepotManagementButtons() {
         this.viewEntrepotButton.Enabled = false;
         this.editEntrepotButton.Enabled = false;
         this.deleteEntrepotButton.Enabled = false;
     }
 
+    /// <summary>
+    /// Fonction qui permet de cree un entrepot
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void CreateEntrepotButton_Click(object sender, EventArgs e) {
         _ = this.facade.GetService<EntrepotService>().CreateNewDtoInstance();
         this.ReloadEntrepotComboBox();
     }
 
+    /// <summary>
+    /// Fonction qui permet de selectionner un entrepot
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void EntrepotSelector_SelectedIndexChanged(object sender, EventArgs e) {
         if (this.entrepotSelector.SelectedItem != null) {
             this.ActivateEntrepotManagementButtons();
@@ -357,6 +375,11 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction qui permet de visualier un entrepot
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ViewEntrepotButton_Click(object sender, EventArgs e) {
         if (this.entrepotSelector.SelectedItem is null) {
             _ = MessageBox.Show("Pas d'entrepot selectionner.");
@@ -367,6 +390,11 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction qui permet de modifier un entrepot
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void EditEntrepotButton_Click(object sender, EventArgs e) {
         if (this.entrepotSelector.SelectedItem is null) {
             _ = MessageBox.Show("Pas d'entrepot selectionner.");
@@ -377,6 +405,11 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction qui permet de supprimer un entrepot 
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void DeleteEntrepotButton_Click(object sender, EventArgs e) {
         if (this.entrepotSelector.SelectedItem is null) {
             _ = MessageBox.Show("Pas d'entrepot selectionner.");
@@ -394,12 +427,21 @@ internal partial class AdminUserMainMenu : Form {
 
     #region Adresse
 
-
+    /// <summary>
+    /// Fonction qui permet de filter la recherche pour l'adresse voulu en passant par le service adresse.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AdresseFiltreTextBox_TextChanged(object sender, EventArgs e) 
     {
         this.AdresseListBox.DataSource = this.facade.GetService<AdresseService>().SearchAdresse(this.AdresseFiltreTextBox.Text);
     }
 
+    /// <summary>
+    /// Fonction qui permet d'activer les bouttons ou desactiver dependament si un choix a ete fait dans la liste
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AdresseListBox_SelectedIndexChanged(object sender, EventArgs e) 
     {
         if (this.AdresseListBox != null) {
@@ -417,11 +459,21 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction qui permet de cree une nouvelle adresse en appelant la service adresse.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void CreateAdresseButton_Click(object sender, EventArgs e) 
     {
         _ = this.facade.GetService<AdresseService>().CreateNewDtoInstance();
     }
 
+    /// <summary>
+    /// Fonction qui permet la visualisation d'une adresse en passant par le service adresse
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AdresseViewButton_Click(object sender, EventArgs e)
     {
         if(this.AdresseListBox != null) 
@@ -435,6 +487,11 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction qui permet la modification d'une adresse en passant par l'adresse service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AdresseEditButton_Click(object sender, EventArgs e) 
     {
         if (this.AdresseListBox != null) {
@@ -447,6 +504,11 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction qui permet la supprimation d'une adresse en passant par l'adresse service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void AdresseDeleteButton_Click(object sender, EventArgs e) 
     {
         if (this.AdresseListBox != null) {
