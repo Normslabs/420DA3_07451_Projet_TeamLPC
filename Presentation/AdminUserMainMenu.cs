@@ -501,9 +501,7 @@ internal partial class AdminUserMainMenu : Form {
         if (this.AdresseListBox != null) {
             Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
             _ = this.facade.GetService<AdresseService>().DeleteDtoInstance(selectedAdresse);
-        } 
-        else 
-        {
+        } else {
             _ = MessageBox.Show("Pas d'adresse selectionné");
         }
     }
@@ -556,7 +554,7 @@ internal partial class AdminUserMainMenu : Form {
 
     private void editShipmentOrderbutton1_Click(object sender, EventArgs e) {
         ShipmentOrderDTO selectShipmentOrder = (ShipmentOrderDTO) this.ShipmentOrderlistBox1.SelectedItem;
-        _= this.facade.GetService<ShipmentOrderService>().UpdateDtoInstance(selectShipmentOrder);
+        _ = this.facade.GetService<ShipmentOrderService>().UpdateDtoInstance(selectShipmentOrder);
     }
 
     private void supprimerShipmentOrderbutton2_Click(object sender, EventArgs e) {
@@ -640,7 +638,6 @@ internal partial class AdminUserMainMenu : Form {
         this.PurchaseOrderListBox.DataSource = this.facade.GetService<ProduitService>().GetProductsByName(this.PurchaseOrderListBox.Text);
     }
     #endregion
-
 
 
 }
