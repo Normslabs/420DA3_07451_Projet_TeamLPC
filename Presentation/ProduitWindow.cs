@@ -171,5 +171,22 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     private void actionBtn_Click(object sender, EventArgs e) {
 
+        try {
+            switch (this.workingIntent) {
+                case ViewIntentEnum.Creation:
+                case ViewIntentEnum.Edition:
+                    this.SaveDataInInstance();
+                    break;
+                case ViewIntentEnum.Deletion:
+                case ViewIntentEnum.Visualization:
+                default:
+                    break;
+            }
+            this.DialogResult = DialogResult.OK;
+
+        } catch (Exception ex) {
+            _ = MessageBox.Show(ex.Message);
+            return;
+        }
     }
 }
