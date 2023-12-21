@@ -462,7 +462,7 @@ internal class AppDbContext : AbstractContext {
         #region Fournisseur et Shipment
 
 
-        // fournisseur 
+        //Model builder permettant de créer la table pour Fournisseur et de creer les colonnes dans la base de donnée à l'aide d'une migration
 
         _ = modelBuilder.Entity<Fournisseur>()
             .ToTable("Fournisseur")
@@ -522,7 +522,7 @@ internal class AppDbContext : AbstractContext {
             .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
 
 
-        // shipment 
+        //Model builder permettant de créer la table pour Fournisseur et de creer les colonnes dans la base de donnée à l'aide d'une migration
 
 
         _ = modelBuilder.Entity<ShipmentDTO>()

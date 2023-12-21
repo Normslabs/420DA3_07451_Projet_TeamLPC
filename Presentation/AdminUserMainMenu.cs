@@ -176,10 +176,21 @@ internal partial class AdminUserMainMenu : Form {
     // TODO: @Everyone ajoutez vos propres sections ici
 
     #region Shipment
+
+    /// <summary>
+    /// Fonction permettant de filtrer la recherche pour le shipment
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ShipmentFiltreTextbox_TextChanged(object sender, EventArgs e) {
         this.ShipmentListBox.DataSource = this.facade.GetService<ShipmentService>().SearchShipment(this.ShipmentFiltreTextbox.Text);
     }
 
+    /// <summary>
+    /// Fonction pour activer les boutons si un choix a été fait dans la liste
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ShipmentListBox_SelectedIndexChanged(object sender, EventArgs e) {
         if (this.ShipmentListBox.SelectedItem != null) {
             this.ShipmentCreateBtn.Enabled = true;
@@ -190,10 +201,21 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction du bouton de création appellant le shipment service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ShipmentCreateBtn_Click(object sender, EventArgs e) {
         _ = this.facade.GetService<ShipmentService>().CreateNewDtoInstance();
     }
 
+
+    /// <summary>
+    /// Fonction du bouton de visualisation appellant le shipment service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ShipmentViewBtn_Click(object sender, EventArgs e) {
         if (this.ShipmentListBox != null) {
             ShipmentDTO selectedShipment = (ShipmentDTO) this.ShipmentListBox.SelectedItem;
@@ -210,11 +232,20 @@ internal partial class AdminUserMainMenu : Form {
 
     #region Fournisseur
 
-
+    /// <summary>
+    /// Fonction permettant de filtrer la recherche pour le fournisseur appellant le service fournisseur
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FournisseurFiltreTextBox_TextChanged(object sender, EventArgs e) {
         this.FournisseurListBox.DataSource = this.facade.GetService<FournisseurService>().SearchFournisseur(this.FournisseurFiltreTextBox.Text);
     }
 
+    /// <summary>
+    /// Fonction pour activer les boutons si un choix a été fait dans la liste
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FournisseurListBox_SelectedIndexChanged(object sender, EventArgs e) {
         if (this.FournisseurListBox != null) {
             this.FournisseurCreateBtn.Enabled = true;
@@ -229,10 +260,20 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction du bouton de création appellant le fournisseur service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FournisseurCreateBtn_Click(object sender, EventArgs e) {
         _ = this.facade.GetService<FournisseurService>().CreateNewDtoInstance();
     }
 
+    /// <summary>
+    /// Fonction du bouton de visualisation appellant le fournisseur service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FournisseurViewBtn_Click(object sender, EventArgs e) {
         if (this.FournisseurListBox != null) {
             Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
@@ -242,6 +283,11 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction du bouton d'édition appellant le fournisseur service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FournisseurEditBtn_Click(object sender, EventArgs e) {
         if (this.FournisseurListBox != null) {
             Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;
@@ -251,6 +297,11 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
 
+    /// <summary>
+    /// Fonction du bouton de suppression appellant le fournisseur service
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void FournisseurDeleteBtn_Click(object sender, EventArgs e) {
         if (this.FournisseurListBox != null) {
             Fournisseur selectedFournisseur = (Fournisseur) this.FournisseurListBox.SelectedItem;

@@ -53,7 +53,10 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     }
 
 
+
     #endregion
 
+    private void ActionBtn_Click(object sender, EventArgs e) {
 
+    }
 }

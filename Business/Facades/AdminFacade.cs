@@ -15,7 +15,10 @@ internal class AdminFacade : AbstractFacade {
 
     private UtilisateurService UtilisateurService { get; set; }
     private RoleService RoleService { get; set; }
+
+    // declaration du service fournisseur dans la facade admin
     private FournisseurService FournisseurService { get; set; }
+    // declaration du service shipment dans la facade admin
     private ShipmentService ShipmentService { get; set; }
     
     
@@ -27,7 +30,9 @@ internal class AdminFacade : AbstractFacade {
         this.facadeContext = new AppDbContext();
         this.UtilisateurService = new UtilisateurService(this, this.facadeContext);
         this.RoleService = new RoleService(this, this.facadeContext);
+        //Ajout du service fournisseur dans la facade admin
         this.FournisseurService = new FournisseurService(this, this.facadeContext);
+        // ajout du service shipment dans la facade admin
         this.ShipmentService = new ShipmentService(this, this.facadeContext);
 
         // TODO: @Everyone: initialisez vos services ici
