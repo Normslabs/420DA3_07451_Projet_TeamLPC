@@ -14,7 +14,7 @@ public class Produit : AbstractDTO<int> {
     public const int INSTOCK_MIN_QTY = 0;
     public const int SUPPLIERCODE_MAX_LENGTH = 4;
 
-
+    
     public string? Description { get; set; }//
     public bool DoAutoRestock { get; set; }///////////
     public int InstockQuantity { get; set; }//

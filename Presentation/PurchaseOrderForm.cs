@@ -25,7 +25,7 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     public PurchaseOrderForm(AbstractFacade facade) {
         this.facade = facade;
         InitializeComponent();
-
+        this.LoadEntrepotComboBox();
 
     }
     #region Public Methods
@@ -47,6 +47,26 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     #endregion
 
     #region Private Methods
+    private void LoadEntrepotComboBox() {
+        this.entrepotComboBox.DataSource = this.facade.GetService<EntrepotService>().GetAllEntrepot();
+    }
+    private  DialogResult OpenFor(PurchaseOrder instance) {
+        this.po = instance;
+        switch (this.workingIntent) {
+            case ViewIntentEnum.Visualization:
+            case ViewIntentEnum.Deletion:
+                this.DisableControls();
+                break;
+            case ViewIntentEnum.Creation:
+            case ViewIntentEnum.Edition:
+                this.DisableControls();
+                break;
+            default:
+                throw new Exception("View Intent not supported");
+        }
+        this.LoadProduitDataInControls(instance);
+        return this.ShowDialog();
+    }
     private void SaveDataInInstace() {
         this.ValidateFields();
         this.po.ProductId = (int) this.idNumericUpDown.Value;
