@@ -29,7 +29,7 @@ public class ShipmentDTO : AbstractDTO<int> {
     /// <summary>
     /// Déclaration de propriété de navigation
     /// </summary>
-    public ShipmentOrderDTO ShippingOrder { get; set; } = null!;
+    public virtual ShipmentOrderDTO ShippingOrder { get; set; } = null!;
 
 
     /// <summary>

@@ -45,7 +45,7 @@ public class Role : AbstractDTO<int> {
     /// <summary>
     /// Les utilisateurs qui possèdent le rôle.
     /// </summary>
-    public List<Utilisateur> UtilisateursPossedantRole { get; set; } = null!;
+    public virtual List<Utilisateur> UtilisateursPossedantRole { get; set; } = null!;
 
 
     /// <summary>

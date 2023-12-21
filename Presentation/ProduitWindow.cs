@@ -86,11 +86,11 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         switch (this.workingIntent) {
             case ViewIntentEnum.Visualization:
             case ViewIntentEnum.Deletion:
-                DisableControls();
+                this.DisableControls();
                 break;
             case ViewIntentEnum.Creation:
             case ViewIntentEnum.Edition:
-                EnableControls();
+                this.EnableControls();
                 break;
             default:
                 throw new Exception("View Intent not supported");
