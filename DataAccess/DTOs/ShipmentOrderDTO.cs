@@ -3,8 +3,8 @@ using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ShipmentOrderDTO : AbstractDTO<int> {
-    public const int ADRESSCIVIQUE_MAX_LENGHT = 56;
-    public const int CONCTACT_MAX_LENGHT = 56;
+    public const int ADRESSCIVIQUE_MAX_LENGHT = 48;
+    public const int CONCTACT_MAX_LENGHT = 48;
     public const int CODEPOSTAL_MAX_LENGHT = 7;
 
     public ClientsDTO Clients { get; set; } = null!;
