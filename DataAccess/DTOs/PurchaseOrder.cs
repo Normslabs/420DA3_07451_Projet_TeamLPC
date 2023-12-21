@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class PurchaseOrder : AbstractDTO<int> {
+    public const int QTY_ORDER_MIN = 0;
+
+
     public DateTime? DateCompleted { get; set; }//
     public DateTime DateCreated { get; set; }//
     public Entrepot DestinationWarehouse { get; set; } = null!;//
@@ -48,5 +51,9 @@ public class PurchaseOrder : AbstractDTO<int> {
 
     public PurchaseOrder() {
 
+    }
+
+    public static bool ValiderQTYOrder(int QTYOrdered) {
+        return QTYOrdered >= QTY_ORDER_MIN;
     }
 }

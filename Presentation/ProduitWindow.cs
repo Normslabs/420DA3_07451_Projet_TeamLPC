@@ -129,7 +129,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     private void ValidateFields() {
         if (!Produit.ValiderUPCCode((int)this.upcCodeNumUpDown.Value)) {
-            throw new Exception("UPC Code");
+            throw new Exception("UPC Code non valide");
         }
         if (string.IsNullOrEmpty(this.nameTextBox.Text)) {
             throw new Exception("Veuillez rentrer un nom valide");
