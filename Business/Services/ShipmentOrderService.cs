@@ -50,17 +50,25 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
         return this.Dao.GetAll();
     }
     /// <summary>
-    /// 
+    /// Obtient la liste des commandes d'expedition incomplete assignee a une commande spécifie
     /// </summary>
     /// <param name="orderId"></param>
     /// <returns></returns>
     public List<ShipmentOrderDTO> GetIncompleteOrdersAssignedTo(int orderId) {
         return this.GetIncompleteOrdersAssignedTo(orderId);
     }
-
+    /// <summary>
+    /// Obtien la liste des nouvelle commande selon l'entrepot specifier
+    /// </summary>
+    /// <param name="entrepotId"></param>
+    /// <returns></returns>
     public List<ShipmentOrderDTO> GetNewOrdersForWarehouse(int entrepotId) {
         return this.Dao.GetNewOrdersForWarehouse(entrepotId);
     }
+
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public override void Shutdown() {
         try {
             if (!this.DtoManagementWindow.IsDisposed) {
