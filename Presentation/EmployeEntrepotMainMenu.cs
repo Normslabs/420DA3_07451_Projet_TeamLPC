@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class EmployeEntrepotMainMenu : Form {
     private readonly AbstractFacade ParentFacade;
-    
+
 
     public EmployeEntrepotMainMenu(AbstractFacade facade) {
         this.ParentFacade = facade;
@@ -44,11 +44,11 @@ public partial class EmployeEntrepotMainMenu : Form {
         ShipmentOrderDTO selectedOrder = (ShipmentOrderDTO) this.userIncompleteSOListBox.SelectedItem;
         this.ParentFacade.GetService<ShipmentOrderService>().MarkAsCompleted(selectedOrder);
         this.userIncompleteSOListBox.Items.Remove(selectedOrder);
-        
+
     }
 
     private void markPoAsCompletedButton_Click(object sender, EventArgs e) {
-       PurchaseOrder selectedOrder = (PurchaseOrder) this.warehouseIncompletePoListBox.SelectedItem;
+        PurchaseOrder selectedOrder = (PurchaseOrder) this.warehouseIncompletePoListBox.SelectedItem;
         this.ParentFacade.GetService<PurchaseOrderService>().CompletePurchaseOrder(selectedOrder);
         this.warehouseIncompletePoListBox.Items.Remove(selectedOrder);
     }
@@ -80,7 +80,7 @@ public partial class EmployeEntrepotMainMenu : Form {
 
     private void userIncompleteSOListBox_SelectedIndexChanged(object sender, EventArgs e) {
         if (this.userIncompleteSOListBox.SelectedItem != null) {
-            this.markSoAsCompletedButton.Enabled= true;
+            this.markSoAsCompletedButton.Enabled = true;
             this.markSoAsPickedUpButton.Enabled = true;
         } else {
             this.markSoAsCompletedButton.Enabled = false;
@@ -89,11 +89,10 @@ public partial class EmployeEntrepotMainMenu : Form {
     }
 
     private void warehouseIncompletePoListBox_SelectedIndexChanged(object sender, EventArgs e) {
-        if ( this.warehouseIncompletePoListBox.SelectedItem != null) {
-            this.markPoAsCompletedButton.Enabled= true;
+        if (this.warehouseIncompletePoListBox.SelectedItem != null) {
+            this.markPoAsCompletedButton.Enabled = true;
 
-        }
-        else {
+        } else {
             this.markPoAsCompletedButton.Enabled = false;
         }
     }
