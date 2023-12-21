@@ -102,7 +102,15 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO, int> {
             .SingleOrDefault();
     }
 
-    public List<ShipmentOrderDTO> SearchShipmentOrderProduct(string filter) {
-       
+    public List<ShipmentOrderDTO> SearchShipmentOrder(string filter) {
+       return this.Context.GetDbSet<ShipmentOrderDTO>()
+            .Include(so => so.Clients)
+            .Include(so => so.EntrepotOriginal)
+            .Include(so => so.EmployeEntrepot)
+            .Include(so => so.AssociationsProduits)
+            .Include(so => so.Shipment)
+            .Where(so => so.Id.ToString()
+            .StartsWith(filter) || so.Clients.CompanyName.StartsWith(filter))
+            .ToList();
     }
 }
