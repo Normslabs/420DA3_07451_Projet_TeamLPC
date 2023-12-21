@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,8 +56,8 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
     /// </summary>
     /// <param name="orderId"></param>
     /// <returns></returns>
-    public List<ShipmentOrderDTO> GetIncompleteOrdersAssignedTo(int orderId) {
-        return this.GetIncompleteOrdersAssignedTo(orderId);
+    public List<ShipmentOrderDTO> GetIncompleteOrdersAssignedTo(int userId) {
+        return this.Dao.GetClientShipmentOrderById(userId);
     }
     /// <summary>
     /// Obtien la liste des nouvelle commande selon l'entrepot specifier
@@ -94,6 +95,28 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
             return dto;
         }
         return null;
+    }
+
+
+    public ShipmentOrderDTO AssignOrderToUser(ShipmentOrderDTO order,Utilisateur user) {
+        order.EmployeEntrepot = user;
+        order.Status = ShippingOrderStatusEnum.PROCESSING;
+        _ = this.Dao.Update(order);
+        return order;
+    }
+
+
+    public ShipmentOrderDTO MarkAsCompleted(ShipmentOrderDTO order) {
+        order.Status = ShippingOrderStatusEnum.COMPLETED;
+        _ = this.Dao.Update(order);
+        return order;
+    }
+
+
+    public ShipmentOrderDTO MarkAsPickedup(ShipmentOrderDTO order) {
+        order.Status = ShippingOrderStatusEnum.PACKAGED;
+        _ = this.Dao.Update(order);
+        return order;
     }
 
 

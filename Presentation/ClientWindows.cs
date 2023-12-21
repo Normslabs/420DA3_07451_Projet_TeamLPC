@@ -27,7 +27,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
     public ClientWindows(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-      
+
 
     }
     /// <summary>
