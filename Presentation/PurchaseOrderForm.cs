@@ -25,7 +25,7 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     public PurchaseOrderForm(AbstractFacade facade) {
         this.facade = facade;
         InitializeComponent();
-        
+
     }
     private void LoadEntrepotComboBox() {
         this.entrepotComboBox.DataSource = this.facade.GetService<EntrepotService>().GetAllEntrepot();
@@ -62,13 +62,13 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
         return this.OpenFor(instance);
     }
 
-    
+
     #endregion
 
 
     #region Private Methods
 
-    private  DialogResult OpenFor(PurchaseOrder instance) {
+    private DialogResult OpenFor(PurchaseOrder instance) {
         this.LoadEntrepotComboBox();
         this.LoadStatusComboBox();
         this.po = instance;
@@ -97,7 +97,7 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     private void LoadProduitDataInControls(PurchaseOrder po) {
         this.idNumericUpDown.Value = po.ProductId;
         if (!this.produitListView.Items.Contains(po.Product)) {
-            
+
         }
         this.QTYnumericUpDown.Value = po.QuantityOrdered;
         this.StatusComboBox.SelectedItem = po.Status;

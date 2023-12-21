@@ -14,6 +14,7 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 
 public class Produit : AbstractDTO<int> {
     public const int UPCCODE_MIN = 0;
+    public const int UPCCODE_MAX = 1000000000;
     public const int NAME_MAX_LENGTH = 128;
     public const int INSTOCK_MIN_QTY = 0;
     public const int SUPPLIERCODE_MAX_LENGTH = 4;
@@ -82,7 +83,7 @@ public class Produit : AbstractDTO<int> {
     #region Methode de validation
     //Validation du UPC Code fournis par l'utilisateur
     public static bool ValiderUPCCode(int upcCode) {
-        return upcCode >= UPCCODE_MIN;
+        return upcCode >= UPCCODE_MIN && upcCode <= UPCCODE_MAX;
 
     }
     //Validation de la propriete Name fournis par l'utilisateur

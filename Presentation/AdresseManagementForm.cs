@@ -138,12 +138,12 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
     /// <param name="adresse"></param>
     private void LoadAdresseInControls(Adresse adresse) {
         this.IdField.Value = adresse.Id;
-        this.numerociviqueTextBox.Text = adresse.Ville;
-        this.rueTextBox.Text = adresse.NumeroCivique;
-        this.villeTextBox.Text = adresse.Pays;
+        this.numerociviqueTextBox.Text = adresse.NumeroCivique;
+        this.rueTextBox.Text = adresse.Rue;
+        this.villeTextBox.Text = adresse.Ville;
         this.codepostalTextBox.Text = adresse.CodePostal;
         this.provinceTextBox.Text = adresse.Province;
-        this.paysTextBox.Text = adresse.Rue;
+        this.paysTextBox.Text = adresse.Pays;
 
     }
    

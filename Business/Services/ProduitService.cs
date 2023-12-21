@@ -45,7 +45,7 @@ public class ProduitService : AbstractDtoService<Produit, int> {
     /// </summary>
     /// <param name="productName"></param>
     /// <returns></returns>
-    public Produit GetProductsByName(string productName) {
+    public List<Produit> GetProductsByName(string productName) {
         return this.Dao.GetByProductNameWithFournisseur(productName);
     }
     /// <summary>

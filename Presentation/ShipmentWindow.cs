@@ -145,6 +145,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
     /// Fonction pour charger le combobox des shipments
     /// </summary>
     private void LoadShipmentDataInComboBox() {
+       this.ServicelistBox.Items.Clear();
         foreach (ShipmentDTO.ShipmentServiceEnum ShipmentService in Enum.GetValues(typeof(ShipmentDTO.ShipmentServiceEnum))) {
             _ = this.ServicelistBox.Items.Add(ShipmentService);
         }

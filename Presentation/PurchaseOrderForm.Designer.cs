@@ -24,224 +24,213 @@ partial class PurchaseOrderForm {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        this.panel1 = new Panel();
-        this.entrepotComboBox = new ComboBox();
-        this.Entrepotlabel = new Label();
-        this.StatusComboBox = new ComboBox();
-        this.Status = new Label();
-        this.QTYnumericUpDown = new NumericUpDown();
-        this.QTYlabel = new Label();
-        this.produitListView = new ListBox();
-        this.AnnulerBtn = new Button();
-        this.ActionBtn = new Button();
-        this.listProduitLabel = new Label();
-        this.produitTextBox = new TextBox();
-        this.RechercheLabel = new Label();
-        this.idNumericUpDown = new NumericUpDown();
-        this.poIdLabel = new Label();
-        this.tableLayoutPanel1 = new TableLayoutPanel();
-        this.panel1.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize) this.QTYnumericUpDown).BeginInit();
-        ((System.ComponentModel.ISupportInitialize) this.idNumericUpDown).BeginInit();
-        this.tableLayoutPanel1.SuspendLayout();
+        panel1 = new Panel();
+        entrepotComboBox = new ComboBox();
+        Entrepotlabel = new Label();
+        StatusComboBox = new ComboBox();
+        Status = new Label();
+        QTYnumericUpDown = new NumericUpDown();
+        QTYlabel = new Label();
+        produitListView = new ListBox();
+        AnnulerBtn = new Button();
+        ActionBtn = new Button();
+        listProduitLabel = new Label();
+        produitTextBox = new TextBox();
+        RechercheLabel = new Label();
+        idNumericUpDown = new NumericUpDown();
+        poIdLabel = new Label();
+        tableLayoutPanel1 = new TableLayoutPanel();
+        panel1.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize) QTYnumericUpDown).BeginInit();
+        ((System.ComponentModel.ISupportInitialize) idNumericUpDown).BeginInit();
+        tableLayoutPanel1.SuspendLayout();
         this.SuspendLayout();
         // 
         // panel1
         // 
-        this.panel1.Controls.Add(this.entrepotComboBox);
-        this.panel1.Controls.Add(this.Entrepotlabel);
-        this.panel1.Controls.Add(this.StatusComboBox);
-        this.panel1.Controls.Add(this.Status);
-        this.panel1.Controls.Add(this.QTYnumericUpDown);
-        this.panel1.Controls.Add(this.QTYlabel);
-        this.panel1.Controls.Add(this.produitListView);
-        this.panel1.Controls.Add(this.AnnulerBtn);
-        this.panel1.Controls.Add(this.ActionBtn);
-        this.panel1.Controls.Add(this.listProduitLabel);
-        this.panel1.Controls.Add(this.produitTextBox);
-        this.panel1.Controls.Add(this.RechercheLabel);
-        this.panel1.Controls.Add(this.idNumericUpDown);
-        this.panel1.Controls.Add(this.poIdLabel);
-        this.panel1.Dock = DockStyle.Fill;
-        this.panel1.Location = new Point(124, 4);
-        this.panel1.Margin = new Padding(3, 4, 3, 4);
-        this.panel1.Name = "panel1";
-        this.panel1.Size = new Size(563, 681);
-        this.panel1.TabIndex = 0;
+        panel1.Controls.Add(entrepotComboBox);
+        panel1.Controls.Add(Entrepotlabel);
+        panel1.Controls.Add(StatusComboBox);
+        panel1.Controls.Add(Status);
+        panel1.Controls.Add(QTYnumericUpDown);
+        panel1.Controls.Add(QTYlabel);
+        panel1.Controls.Add(produitListView);
+        panel1.Controls.Add(AnnulerBtn);
+        panel1.Controls.Add(ActionBtn);
+        panel1.Controls.Add(listProduitLabel);
+        panel1.Controls.Add(produitTextBox);
+        panel1.Controls.Add(RechercheLabel);
+        panel1.Controls.Add(idNumericUpDown);
+        panel1.Controls.Add(poIdLabel);
+        panel1.Dock = DockStyle.Fill;
+        panel1.Location = new Point(109, 3);
+        panel1.Name = "panel1";
+        panel1.Size = new Size(491, 511);
+        panel1.TabIndex = 0;
         // 
         // entrepotComboBox
         // 
-        this.entrepotComboBox.Dock = DockStyle.Top;
-        this.entrepotComboBox.FormattingEnabled = true;
-        this.entrepotComboBox.Location = new Point(0, 353);
-        this.entrepotComboBox.Margin = new Padding(3, 4, 3, 4);
-        this.entrepotComboBox.Name = "entrepotComboBox";
-        this.entrepotComboBox.Size = new Size(563, 28);
-        this.entrepotComboBox.TabIndex = 20;
+        entrepotComboBox.Dock = DockStyle.Top;
+        entrepotComboBox.FormattingEnabled = true;
+        entrepotComboBox.Location = new Point(0, 276);
+        entrepotComboBox.Name = "entrepotComboBox";
+        entrepotComboBox.Size = new Size(491, 23);
+        entrepotComboBox.TabIndex = 20;
         // 
         // Entrepotlabel
         // 
-        this.Entrepotlabel.AutoSize = true;
-        this.Entrepotlabel.Dock = DockStyle.Top;
-        this.Entrepotlabel.Location = new Point(0, 333);
-        this.Entrepotlabel.Name = "Entrepotlabel";
-        this.Entrepotlabel.Size = new Size(112, 20);
-        this.Entrepotlabel.TabIndex = 19;
-        this.Entrepotlabel.Text = "Entrepôt stocké";
+        Entrepotlabel.AutoSize = true;
+        Entrepotlabel.Dock = DockStyle.Top;
+        Entrepotlabel.Location = new Point(0, 261);
+        Entrepotlabel.Name = "Entrepotlabel";
+        Entrepotlabel.Size = new Size(89, 15);
+        Entrepotlabel.TabIndex = 19;
+        Entrepotlabel.Text = "Entrepôt stocké";
         // 
         // StatusComboBox
         // 
-        this.StatusComboBox.Dock = DockStyle.Top;
-        this.StatusComboBox.FormattingEnabled = true;
-        this.StatusComboBox.Location = new Point(0, 305);
-        this.StatusComboBox.Margin = new Padding(3, 4, 3, 4);
-        this.StatusComboBox.Name = "StatusComboBox";
-        this.StatusComboBox.Size = new Size(563, 28);
-        this.StatusComboBox.TabIndex = 18;
+        StatusComboBox.Dock = DockStyle.Top;
+        StatusComboBox.FormattingEnabled = true;
+        StatusComboBox.Location = new Point(0, 238);
+        StatusComboBox.Name = "StatusComboBox";
+        StatusComboBox.Size = new Size(491, 23);
+        StatusComboBox.TabIndex = 18;
         // 
         // Status
         // 
-        this.Status.AutoSize = true;
-        this.Status.Dock = DockStyle.Top;
-        this.Status.Location = new Point(0, 285);
-        this.Status.Name = "Status";
-        this.Status.Size = new Size(165, 20);
-        this.Status.TabIndex = 17;
-        this.Status.Text = "Status de la commande";
+        Status.AutoSize = true;
+        Status.Dock = DockStyle.Top;
+        Status.Location = new Point(0, 223);
+        Status.Name = "Status";
+        Status.Size = new Size(131, 15);
+        Status.TabIndex = 17;
+        Status.Text = "Status de la commande";
         // 
         // QTYnumericUpDown
         // 
-        this.QTYnumericUpDown.Dock = DockStyle.Top;
-        this.QTYnumericUpDown.Location = new Point(0, 258);
-        this.QTYnumericUpDown.Margin = new Padding(3, 4, 3, 4);
-        this.QTYnumericUpDown.Name = "QTYnumericUpDown";
-        this.QTYnumericUpDown.Size = new Size(563, 27);
-        this.QTYnumericUpDown.TabIndex = 16;
+        QTYnumericUpDown.Dock = DockStyle.Top;
+        QTYnumericUpDown.Location = new Point(0, 200);
+        QTYnumericUpDown.Name = "QTYnumericUpDown";
+        QTYnumericUpDown.Size = new Size(491, 23);
+        QTYnumericUpDown.TabIndex = 16;
         // 
         // QTYlabel
         // 
-        this.QTYlabel.AutoSize = true;
-        this.QTYlabel.Dock = DockStyle.Top;
-        this.QTYlabel.Location = new Point(0, 238);
-        this.QTYlabel.Name = "QTYlabel";
-        this.QTYlabel.Size = new Size(162, 20);
-        this.QTYlabel.TabIndex = 15;
-        this.QTYlabel.Text = "Quantité à commander";
+        QTYlabel.AutoSize = true;
+        QTYlabel.Dock = DockStyle.Top;
+        QTYlabel.Location = new Point(0, 185);
+        QTYlabel.Name = "QTYlabel";
+        QTYlabel.Size = new Size(130, 15);
+        QTYlabel.TabIndex = 15;
+        QTYlabel.Text = "Quantité à commander";
         // 
         // produitListView
         // 
-        this.produitListView.Dock = DockStyle.Top;
-        this.produitListView.FormattingEnabled = true;
-        this.produitListView.ItemHeight = 20;
-        this.produitListView.Location = new Point(0, 114);
-        this.produitListView.Margin = new Padding(3, 4, 3, 4);
-        this.produitListView.Name = "produitListView";
-        this.produitListView.Size = new Size(563, 124);
-        this.produitListView.TabIndex = 14;
+        produitListView.Dock = DockStyle.Top;
+        produitListView.FormattingEnabled = true;
+        produitListView.ItemHeight = 15;
+        produitListView.Location = new Point(0, 91);
+        produitListView.Name = "produitListView";
+        produitListView.Size = new Size(491, 94);
+        produitListView.TabIndex = 14;
         // 
         // AnnulerBtn
         // 
-        this.AnnulerBtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        this.AnnulerBtn.Location = new Point(474, 615);
-        this.AnnulerBtn.Margin = new Padding(3, 4, 3, 4);
-        this.AnnulerBtn.Name = "AnnulerBtn";
-        this.AnnulerBtn.Size = new Size(86, 55);
-        this.AnnulerBtn.TabIndex = 13;
-        this.AnnulerBtn.Text = "Annuler";
-        this.AnnulerBtn.UseVisualStyleBackColor = true;
-        this.AnnulerBtn.Click += this.AnnulerBtn_Click;
+        AnnulerBtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        AnnulerBtn.Location = new Point(413, 461);
+        AnnulerBtn.Name = "AnnulerBtn";
+        AnnulerBtn.Size = new Size(75, 41);
+        AnnulerBtn.TabIndex = 13;
+        AnnulerBtn.Text = "Annuler";
+        AnnulerBtn.UseVisualStyleBackColor = true;
+        AnnulerBtn.Click += this.AnnulerBtn_Click;
         // 
         // ActionBtn
         // 
-        this.ActionBtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Left;
-        this.ActionBtn.Location = new Point(3, 615);
-        this.ActionBtn.Margin = new Padding(3, 4, 3, 4);
-        this.ActionBtn.Name = "ActionBtn";
-        this.ActionBtn.Size = new Size(86, 55);
-        this.ActionBtn.TabIndex = 12;
-        this.ActionBtn.Text = "Action";
-        this.ActionBtn.UseVisualStyleBackColor = true;
-        this.ActionBtn.Click += this.ActionBtn_Click;
+        ActionBtn.Anchor =  AnchorStyles.Bottom | AnchorStyles.Left;
+        ActionBtn.Location = new Point(3, 461);
+        ActionBtn.Name = "ActionBtn";
+        ActionBtn.Size = new Size(75, 41);
+        ActionBtn.TabIndex = 12;
+        ActionBtn.Text = "Action";
+        ActionBtn.UseVisualStyleBackColor = true;
+        ActionBtn.Click += this.ActionBtn_Click;
         // 
         // listProduitLabel
         // 
-        this.listProduitLabel.AutoSize = true;
-        this.listProduitLabel.Dock = DockStyle.Top;
-        this.listProduitLabel.Location = new Point(0, 94);
-        this.listProduitLabel.Name = "listProduitLabel";
-        this.listProduitLabel.Size = new Size(125, 20);
-        this.listProduitLabel.TabIndex = 4;
-        this.listProduitLabel.Tag = "";
-        this.listProduitLabel.Text = "Liste des produits";
+        listProduitLabel.AutoSize = true;
+        listProduitLabel.Dock = DockStyle.Top;
+        listProduitLabel.Location = new Point(0, 76);
+        listProduitLabel.Name = "listProduitLabel";
+        listProduitLabel.Size = new Size(99, 15);
+        listProduitLabel.TabIndex = 4;
+        listProduitLabel.Tag = "";
+        listProduitLabel.Text = "Liste des produits";
         // 
         // produitTextBox
         // 
-        this.produitTextBox.Dock = DockStyle.Top;
-        this.produitTextBox.Location = new Point(0, 67);
-        this.produitTextBox.Margin = new Padding(3, 4, 3, 4);
-        this.produitTextBox.Name = "produitTextBox";
-        this.produitTextBox.Size = new Size(563, 27);
-        this.produitTextBox.TabIndex = 3;
+        produitTextBox.Dock = DockStyle.Top;
+        produitTextBox.Location = new Point(0, 53);
+        produitTextBox.Name = "produitTextBox";
+        produitTextBox.Size = new Size(491, 23);
+        produitTextBox.TabIndex = 3;
         // 
         // RechercheLabel
         // 
-        this.RechercheLabel.AutoSize = true;
-        this.RechercheLabel.Dock = DockStyle.Top;
-        this.RechercheLabel.Location = new Point(0, 47);
-        this.RechercheLabel.Name = "RechercheLabel";
-        this.RechercheLabel.Size = new Size(125, 20);
-        this.RechercheLabel.TabIndex = 2;
-        this.RechercheLabel.Text = "Produit recherché";
+        RechercheLabel.AutoSize = true;
+        RechercheLabel.Dock = DockStyle.Top;
+        RechercheLabel.Location = new Point(0, 38);
+        RechercheLabel.Name = "RechercheLabel";
+        RechercheLabel.Size = new Size(101, 15);
+        RechercheLabel.TabIndex = 2;
+        RechercheLabel.Text = "Produit recherché";
         // 
         // idNumericUpDown
         // 
-        this.idNumericUpDown.Dock = DockStyle.Top;
-        this.idNumericUpDown.Location = new Point(0, 20);
-        this.idNumericUpDown.Margin = new Padding(3, 4, 3, 4);
-        this.idNumericUpDown.Name = "idNumericUpDown";
-        this.idNumericUpDown.Size = new Size(563, 27);
-        this.idNumericUpDown.TabIndex = 1;
+        idNumericUpDown.Dock = DockStyle.Top;
+        idNumericUpDown.Location = new Point(0, 15);
+        idNumericUpDown.Name = "idNumericUpDown";
+        idNumericUpDown.Size = new Size(491, 23);
+        idNumericUpDown.TabIndex = 1;
         // 
         // poIdLabel
         // 
-        this.poIdLabel.AutoSize = true;
-        this.poIdLabel.Dock = DockStyle.Top;
-        this.poIdLabel.Location = new Point(0, 0);
-        this.poIdLabel.Name = "poIdLabel";
-        this.poIdLabel.Size = new Size(96, 20);
-        this.poIdLabel.TabIndex = 0;
-        this.poIdLabel.Text = "Id du produit";
+        poIdLabel.AutoSize = true;
+        poIdLabel.Dock = DockStyle.Top;
+        poIdLabel.Location = new Point(0, 0);
+        poIdLabel.Name = "poIdLabel";
+        poIdLabel.Size = new Size(76, 15);
+        poIdLabel.TabIndex = 0;
+        poIdLabel.Text = "Id du produit";
         // 
         // tableLayoutPanel1
         // 
-        this.tableLayoutPanel1.ColumnCount = 3;
-        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
-        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
-        this.tableLayoutPanel1.Controls.Add(this.panel1, 1, 0);
-        this.tableLayoutPanel1.Dock = DockStyle.Fill;
-        this.tableLayoutPanel1.Location = new Point(0, 0);
-        this.tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
-        this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-        this.tableLayoutPanel1.RowCount = 1;
-        this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        this.tableLayoutPanel1.Size = new Size(813, 689);
-        this.tableLayoutPanel1.TabIndex = 0;
+        tableLayoutPanel1.ColumnCount = 3;
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70F));
+        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+        tableLayoutPanel1.Controls.Add(panel1, 1, 0);
+        tableLayoutPanel1.Dock = DockStyle.Fill;
+        tableLayoutPanel1.Location = new Point(0, 0);
+        tableLayoutPanel1.Name = "tableLayoutPanel1";
+        tableLayoutPanel1.RowCount = 1;
+        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        tableLayoutPanel1.Size = new Size(711, 517);
+        tableLayoutPanel1.TabIndex = 0;
         // 
         // PurchaseOrderForm
         // 
-        this.AutoScaleDimensions = new SizeF(8F, 20F);
+        this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.ClientSize = new Size(813, 689);
-        this.Controls.Add(this.tableLayoutPanel1);
-        this.Margin = new Padding(3, 4, 3, 4);
+        this.ClientSize = new Size(711, 517);
+        this.Controls.Add(tableLayoutPanel1);
         this.Name = "PurchaseOrderForm";
         this.Text = "PurchaseOrderForm";
-        this.panel1.ResumeLayout(false);
-        this.panel1.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize) this.QTYnumericUpDown).EndInit();
-        ((System.ComponentModel.ISupportInitialize) this.idNumericUpDown).EndInit();
-        this.tableLayoutPanel1.ResumeLayout(false);
+        panel1.ResumeLayout(false);
+        panel1.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize) QTYnumericUpDown).EndInit();
+        ((System.ComponentModel.ISupportInitialize) idNumericUpDown).EndInit();
+        tableLayoutPanel1.ResumeLayout(false);
         this.ResumeLayout(false);
     }
 

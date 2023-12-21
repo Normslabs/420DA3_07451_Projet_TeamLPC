@@ -39,7 +39,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.supplierComboBox.DataSource = this.facade.GetService<FournisseurService>().GetAllFournisseur();
     }
 
-    
+
 
     private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
 
@@ -104,13 +104,13 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
     }
     private void SaveDataInInstance() {
         this.ValidateFields();
-        this.produit.UpcCode = (int)this.upcCodeNumUpDown.Value;
+        this.produit.UpcCode = (int) this.upcCodeNumUpDown.Value;
         this.produit.Name = this.nameTextBox.Text;
         this.produit.Description = this.descriptionTextBox.Text;
         this.produit.SupplierCode = this.supplierCodeTextBox.Text;
         this.produit.DoAutoRestock = this.AutoCheckBox.Checked;
-        this.produit.InstockQuantity = (int)this.qtyInStockNumeric.Value;
-        this.produit.ClientsDTO = (ClientsDTO)this.clientComboBox.SelectedItem;
+        this.produit.InstockQuantity = (int) this.qtyInStockNumeric.Value;
+        this.produit.ClientsDTO = (ClientsDTO) this.clientComboBox.SelectedItem;
         this.produit.Fournisseur = (Fournisseur) this.supplierComboBox.SelectedItem;
     }
     private void LoadProduitDataInControls(Produit produit) {
@@ -125,7 +125,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.supplierComboBox.SelectedItem = produit.SupplierCode;
     }
     private void ValidateFields() {
-        if (!Produit.ValiderUPCCode((int)this.upcCodeNumUpDown.Value)) {
+        if (!Produit.ValiderUPCCode((int) this.upcCodeNumUpDown.Value)) {
             throw new Exception("UPC Code non valide");
         }
         if (string.IsNullOrEmpty(this.nameTextBox.Text)) {

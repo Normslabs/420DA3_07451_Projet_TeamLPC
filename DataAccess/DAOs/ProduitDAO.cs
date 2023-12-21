@@ -29,10 +29,12 @@ public class ProduitDAO : AbstractDao<Produit, int> {
     /// </summary>
     /// <param name="productName"></param>
     /// <returns></returns>
-    public Produit GetByProductNameWithFournisseur(string productName) {
+    public List<Produit> GetByProductNameWithFournisseur(string productName) {
         return this.Context.GetDbSet<Produit>()
+            .Where(p => p.Name.StartsWith(productName) && p.Name != null)
             .Include(p => p.Fournisseur)
-            .Single(p => p.Name == productName);
+            .ToList();
+            
 
     }
     /// <summary>
@@ -42,7 +44,6 @@ public class ProduitDAO : AbstractDao<Produit, int> {
     /// <returns></returns>
     public Produit GetByUpcCodeWithQuantity(int upcCode) {
         return this.Context.GetDbSet<Produit>()
-            .Include(p => p.InstockQuantity)
             .Single(u => u.UpcCode == upcCode);
     }
 
