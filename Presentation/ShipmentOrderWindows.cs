@@ -20,6 +20,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     private readonly AbstractFacade facade;
     private ShipmentOrderDTO workingInstance = null!;
     private ViewIntentEnum workingIntent;
+    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; }
     /// <summary>
     /// Initialise une nouvelle instance de la classe ClientWindows.
     /// </summary>
@@ -27,7 +28,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     public ShipmentOrderWindows(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-    
+
     }
     /// <summary>
     ///  Charge la fenetre pour la creation d'une nouveaulle commande avec une instance vide
@@ -170,7 +171,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.codepostaltextBox4.Enabled = true;
         this.statutcomboBox1.Enabled = true;
         this.produitfiltertextBox.Enabled = true;
-        this.produitorderlistBox1.Enabled =false;
+        this.produitorderlistBox1.Enabled = false;
         this.produitalllistBox.Enabled = true;
         this.qtyproductnumericUpDown1.Enabled = true;
 
@@ -182,6 +183,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
             case ViewIntentEnum.Creation:
             case ViewIntentEnum.Edition:
                 this.SaveShipmentOrderInInstance();
+                this.ShippingOrderProducts = this.produitorderlistBox1.Items.Cast<ShippingOrderProducts>().ToList();
                 break;
             case ViewIntentEnum.Deletion:
             case ViewIntentEnum.Visualization:
@@ -203,7 +205,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.codepostaltextBox4.Text = instance.DestinationPostalCode;
         this.statutcomboBox1.SelectedItem = instance.Status;
         this.produitorderlistBox1.Items.Clear();
-        foreach(ShippingOrderProducts sop in instance.AssociationsProduits) {
+        foreach (ShippingOrderProducts sop in instance.AssociationsProduits) {
             this.produitorderlistBox1.Items.Add(sop);
         }
         this.LoadEmployeEntrepotComboBox(instance.EntrepotOriginal);
@@ -239,6 +241,32 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         }
         if (!ShipmentOrderDTO.ValidervCodePostal(this.codepostaltextBox4.Text)) {
             throw new Exception("Code Postal invalide");
+        }
+    }
+
+    private void addproductbutton2_Click(object sender, EventArgs e) {
+        
+        if(this.produitalllistBox.SelectedItem != null) {
+           
+            if(this.qtyproductnumericUpDown1.Value > 0) {
+                Produit produitselected = (Produit) this.produitalllistBox.SelectedItem;
+                ShippingOrderProducts produitassociation = new ShippingOrderProducts() { ProduitId = produitselected.Id, Quantite = (int)this.qtyproductnumericUpDown1.Value};
+                this.produitorderlistBox1.Items.Add(produitassociation);
+            } else {
+                MessageBox.Show("Veuillez entrer une quantite");
+            }
+        } else {
+            MessageBox.Show("Pas de produit selectione");
+        }
+    }
+
+    private void retireProductbutton1_Click(object sender, EventArgs e) {
+
+        if (this.produitorderlistBox1.SelectedItem != null) {
+            ShippingOrderProducts produitassociation = (ShippingOrderProducts) this.produitorderlistBox1.SelectedItem;
+            this.produitorderlistBox1.Items.Remove(produitassociation);          
+        } else {
+            MessageBox.Show("Pas de produit selectione");
         }
     }
 }
