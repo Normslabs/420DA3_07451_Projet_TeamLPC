@@ -14,22 +14,25 @@ public class Produit : AbstractDTO<int> {
     public const int INSTOCK_MIN_QTY = 0;
     public const int SUPPLIERCODE_MAX_LENGTH = 4;
 
-    
+
+    public string Name { get; set; }//
     public string? Description { get; set; }//
     public bool DoAutoRestock { get; set; }///////////
     public int InstockQuantity { get; set; }//
-    public string Name { get; set; }//
-    public ClientsDTO ClientsDTO { get; set; } = null!;//
-    public int ClientsDTOId { get; set; }//
-    public List<PurchaseOrder> PurchaseOrders {get; set;} = new List<PurchaseOrder>();
-    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();//
-    public byte[] RowVersion { get; set; } = null!;
-    public Fournisseur Fournisseur { get; set; } = null!;//
-    public int FournisseurId { get; set; }//
-    public string? SupplierCode { get; set; }
     public int TargetStockQuantity { get; set; }//
+    public string? SupplierCode { get; set; }
     public long UpcCode { get; set; }//
     public decimal? WeightInKg { get; set; }//
+    public int ClientsDTOId { get; set; }//
+    public int FournisseurId { get; set; }//
+    public byte[] RowVersion { get; set; } = null!;
+
+
+    public ClientsDTO ClientsDTO { get; set; } = null!;//
+    public Fournisseur Fournisseur { get; set; } = null!;//
+    public List<PurchaseOrder> PurchaseOrders {get; set;} = new List<PurchaseOrder>();
+    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();//
+
 
     #region Constructeur
     protected Produit(int id, long upcCode, string name, string description, string supplierCode, bool doAutoRestock, int inStockQuantity, int targetStockQuantity, decimal weightInKg, byte[] rowVersion, int fournisseurId) {
