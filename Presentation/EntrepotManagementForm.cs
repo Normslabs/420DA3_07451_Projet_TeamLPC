@@ -33,8 +33,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
     /// <param name="facade"></param>
     public EntrepotManagementForm(AbstractFacade facade) {
         this.ParentFacade = facade;
-        this.InitializeComponent();
-        this.LoadAdresseInComboBox();
+        this.InitializeComponent();       
     }
 
     /// <summary>
@@ -94,6 +93,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
     /// <param name="instance"></param>
     /// <returns></returns>
     private DialogResult OpenFor(Entrepot instance) {
+        this.LoadAdresseInComboBox();
         this.workingInstance = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
@@ -155,7 +155,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
         }
 
     }
-    
+
     /// <summary>
     /// Fonction pour sauvegarder les donnes dans l'instance
     /// </summary>

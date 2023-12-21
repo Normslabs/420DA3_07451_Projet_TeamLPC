@@ -44,8 +44,6 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     public UtilisateurManagementForm(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
-        this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepot());
     }
 
 
@@ -93,6 +91,8 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
     #region Private Methods
 
     private DialogResult OpenFor(Utilisateur instance) {
+        this.LoadRolesListBox(this.facade.GetService<RoleService>().GetAllRoles());
+        this.LoadWarehousesInCombobox(this.facade.GetService<EntrepotService>().GetAllEntrepot());
         this.workingInstance = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
