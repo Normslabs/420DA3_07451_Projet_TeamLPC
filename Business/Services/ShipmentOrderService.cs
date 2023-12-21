@@ -35,24 +35,40 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
         this.Dao = new ShipmentOrdersDAO(context);
     }
     /// <summary>
-    /// Recevoir
+    /// Donne la liste de commande d'un client selon son Id
     /// </summary>
     /// <param name="clientid"></param>
     /// <returns></returns>
     public List<ShipmentOrderDTO> GetClientShipmentOrderById(int clientid) {
         return this.GetClientShipmentOrderById(clientid);
     }
+    /// <summary>
+    /// Permet de recevoir la liste de toute les commandes
+    /// </summary>
+    /// <returns></returns>
     public List<ShipmentOrderDTO> GetAllShipmentOrders() {
         return this.Dao.GetAll();
     }
-
+    /// <summary>
+    /// Obtient la liste des commandes d'expedition incomplete assignee a une commande spécifie
+    /// </summary>
+    /// <param name="orderId"></param>
+    /// <returns></returns>
     public List<ShipmentOrderDTO> GetIncompleteOrdersAssignedTo(int orderId) {
         return this.GetIncompleteOrdersAssignedTo(orderId);
     }
-
+    /// <summary>
+    /// Obtien la liste des nouvelle commande selon l'entrepot specifier
+    /// </summary>
+    /// <param name="entrepotId"></param>
+    /// <returns></returns>
     public List<ShipmentOrderDTO> GetNewOrdersForWarehouse(int entrepotId) {
         return this.Dao.GetNewOrdersForWarehouse(entrepotId);
     }
+
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public override void Shutdown() {
         try {
             if (!this.DtoManagementWindow.IsDisposed) {

@@ -20,32 +20,51 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     private readonly AbstractFacade facade;
     private ShipmentOrderDTO workingInstance = null!;
     private ViewIntentEnum workingIntent;
-
+    /// <summary>
+    /// Initialise une nouvelle instance de la classe ClientWindows.
+    /// </summary>
+    /// <param name="facade"></param>
     public ShipmentOrderWindows(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-        this.LoadClientComboBox();
-        this.LoadStatutComboBox();
-        this.LoadEntrepotComboBox();
+    
     }
+    /// <summary>
+    ///  Charge la fenetre pour la creation d'une nouveaulle commande avec une instance vide
+    /// </summary>
+    /// <param name="blankInstance"></param>
+    /// <returns></returns>
     public DialogResult OpenForCreation(ShipmentOrderDTO blankInstance) {
         this.workingIntent = ViewIntentEnum.Creation;
         this.actionbutton1.Text = "Créer";
         return this.OpenFor(blankInstance);
 
     }
+    /// <summary>
+    /// Charge la fenetre pour la suppression d'une commande d'expedition
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <returns></returns>
     public DialogResult OpenForDeletion(ShipmentOrderDTO instance) {
         this.workingIntent = ViewIntentEnum.Deletion;
         this.actionbutton1.Text = "Supprimer";
         return this.OpenFor(instance);
     }
-
+    /// <summary>
+    /// Charge la fenetre pour la modification d'une commmande d'expedition
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <returns></returns>
     public DialogResult OpenForEdition(ShipmentOrderDTO instance) {
         this.workingIntent = ViewIntentEnum.Edition;
         this.actionbutton1.Text = "Éditer";
         return this.OpenFor(instance);
     }
-
+    /// <summary>
+    /// charge la fenetre pour pouvoir voir une commande d'expedition
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <returns></returns>
     public DialogResult OpenForVisualization(ShipmentOrderDTO instance) {
         this.workingIntent = ViewIntentEnum.Visualization;
         this.actionbutton1.Text = "Vu";
@@ -63,30 +82,45 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
 
     }
-
+    /// <summary>
+    /// Permet de charger la liste des client dans la combobox client
+    /// </summary>
     public void LoadClientComboBox() {
         this.clientShipmentcomboBox1.DataSource = this.facade.GetService<ClientService>().GetAllClients();
 
     }
-
+    /// <summary>
+    /// Permet de charger la liste des entrepots dans la combobox entrepot
+    /// </summary>
     public void LoadEntrepotComboBox() {
         this.entrepotcomboBox1.DataSource = this.facade.GetService<EntrepotService>().GetAllEntrepot();
     }
-
+    /// <summary>
+    /// Permet de charger la liste des employe selon leur entrepot dans le combobox entrepot
+    /// </summary>
+    /// <param name="entrepot"></param>
     public void LoadEmployeEntrepotComboBox(Entrepot entrepot) {
         this.employeEntrepotcomboBox.DataSource = this.facade.GetService<UtilisateurService>().GetAllEmployesEntrepotDunEntrepot(entrepot);
 
     }
-
+    /// <summary>
+    /// Permet de prendre les Statut de la classe ShippingOrderStatusEnum et de les charger dans la combobox
+    /// </summary>
     public void LoadStatutComboBox() {
         this.statutcomboBox1.Items.Clear();
         foreach (ShippingOrderStatusEnum status in Enum.GetValues(typeof(ShippingOrderStatusEnum))) {
             this.statutcomboBox1.Items.Add(status);
         }
     }
-
+    /// <summary>
+    /// Charge la fenetre pour une operation specifique sur le commande d'expedition tout en chargant les liste box
+    /// </summary>
+    /// <param name="shipmentOrderDTO"></param>
+    /// <returns></returns>
     public DialogResult OpenFor(ShipmentOrderDTO shipmentOrderDTO) {
-
+        this.LoadClientComboBox();
+        this.LoadStatutComboBox();
+        this.LoadEntrepotComboBox();
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
                 this.EnableControl();
@@ -103,7 +137,9 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         }
         return this.ShowDialog();
     }
-
+    /// <summary>
+    /// Restreint l'acces des textbox de la fenetre. 
+    /// </summary>
     public void DisableControl() {
         this.clientShipmentcomboBox1.Enabled = false;
         this.employeEntrepotcomboBox.Enabled = false;
@@ -120,7 +156,9 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.qtyproductnumericUpDown1.Enabled = false;
 
     }
-
+    /// <summary>
+    /// Donne l'acces des textbox de la fenetre. 
+    /// </summary>
     public void EnableControl() {
         this.clientShipmentcomboBox1.Enabled = true;
         this.employeEntrepotcomboBox.Enabled = true;
@@ -151,6 +189,10 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         }
         this.DialogResult = DialogResult.OK;
     }
+    /// <summary>
+    /// Charge les donne du client dans la fenetre 
+    /// </summary>
+    /// <param name="instance"></param>
     public void LoadShipmentOrderDataInControls(ShipmentOrderDTO instance) {
         this.clientShipmentcomboBox1.SelectedItem = instance.Clients;
         this.entrepotcomboBox1.SelectedItem = instance.EntrepotOriginal;
@@ -168,7 +210,9 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.employeEntrepotcomboBox.SelectedItem = instance.EmployeEntrepot;
 
     }
-
+    /// <summary>
+    /// Sauvegarde les donnees dans l'instance de commande d'expedition
+    /// </summary>
     public void SaveShipmentOrderInInstance() {
         this.ValidationFields();
         this.workingInstance.Clients = (ClientsDTO) this.clientShipmentcomboBox1.SelectedItem;
@@ -181,7 +225,10 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.workingInstance.AssociationsProduits = this.produitorderlistBox1.Items.Cast<ShippingOrderProducts>().ToList();
 
     }
-
+    /// <summary>
+    /// Validation des textebox
+    /// </summary>
+    /// <exception cref="Exception"></exception>
     private void ValidationFields() {
 
         if (!ShipmentOrderDTO.ValiderContactDestinataire(this.contactdestinatairetextBox3.Text)) {
