@@ -1,8 +1,5 @@
 using _420DA3_07451_Projet_Initial.Business;
 using _420DA3_07451_Projet_Initial.Business.Services;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.Presentation;
-using System.Configuration;
 using System.Diagnostics;
 
 namespace _420DA3_07451_Projet_Initial;
@@ -18,7 +15,7 @@ internal static class Program {
             Debug.WriteLine(CryptographyService.HashPassword("potatoes"));
             // Zone de tests pour le prof
 
-        } else if (args.Contains("-olivierTests")) { 
+        } else if (args.Contains("-olivierTests")) {
 
             // Zone de tests pour Olivier
 

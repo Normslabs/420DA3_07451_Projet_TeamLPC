@@ -1,11 +1,6 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 
@@ -22,7 +17,7 @@ public class RoleDAO : AbstractDao<Role, int> {
     /// Constructeur
     /// </summary>
     /// <param name="context">Le contexte EF Core utilisé par le DAO.</param>
-    public RoleDAO(AbstractContext context) { 
+    public RoleDAO(AbstractContext context) {
         this.Context = context;
     }
 
@@ -82,7 +77,7 @@ public class RoleDAO : AbstractDao<Role, int> {
     /// <returns></returns>
     public List<Role> SearchRole(string userInput) {
         return this.Context.GetDbSet<Role>().Where(
-                role => role.RoleName.StartsWith(userInput) 
+                role => role.RoleName.StartsWith(userInput)
                 || (role.RoleDescription != null && role.RoleDescription.StartsWith(userInput))
             ).ToList();
     }

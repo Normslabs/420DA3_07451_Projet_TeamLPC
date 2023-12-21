@@ -1,30 +1,19 @@
-﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
-using _420DA3_07451_Projet_Initial.Business;
-using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.Business.Facades;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder> {
 
     private readonly AbstractFacade facade;
-    private PurchaseOrder po; //working instance
+    private PurchaseOrder po = null!; //working instance
     private ViewIntentEnum workingIntent;
 
     public PurchaseOrderForm(AbstractFacade facade) {
         this.facade = facade;
-        InitializeComponent();
+        this.InitializeComponent();
 
     }
     private void LoadEntrepotComboBox() {
@@ -130,7 +119,7 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
                 case ViewIntentEnum.Edition:
-                    SaveDataInInstace();
+                    this.SaveDataInInstace();
                     break;
                 case ViewIntentEnum.Deletion:
                 case ViewIntentEnum.Visualization:

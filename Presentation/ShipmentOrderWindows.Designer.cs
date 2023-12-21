@@ -81,7 +81,7 @@ partial class ShipmentOrderWindows {
         this.actionbutton1.TabIndex = 1;
         this.actionbutton1.Text = "Action";
         this.actionbutton1.UseVisualStyleBackColor = true;
-        this.actionbutton1.Click += this.actionbutton1_Click;
+        this.actionbutton1.Click += this.Actionbutton1_Click;
         // 
         // Quitbutton1
         // 
@@ -109,7 +109,6 @@ partial class ShipmentOrderWindows {
         this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
         this.tableLayoutPanel1.Size = new Size(728, 659);
         this.tableLayoutPanel1.TabIndex = 1;
-        this.tableLayoutPanel1.Paint += this.tableLayoutPanel1_Paint;
         // 
         // infopanel
         // 
@@ -155,7 +154,7 @@ partial class ShipmentOrderWindows {
         this.addproductbutton2.TabIndex = 23;
         this.addproductbutton2.Text = "Ajouter";
         this.addproductbutton2.UseVisualStyleBackColor = true;
-        this.addproductbutton2.Click += this.addproductbutton2_Click;
+        this.addproductbutton2.Click += this.Addproductbutton2_Click;
         // 
         // retireProductbutton1
         // 
@@ -167,7 +166,7 @@ partial class ShipmentOrderWindows {
         this.retireProductbutton1.TabIndex = 2;
         this.retireProductbutton1.Text = "Retirer";
         this.retireProductbutton1.UseVisualStyleBackColor = true;
-        this.retireProductbutton1.Click += this.retireProductbutton1_Click;
+        this.retireProductbutton1.Click += this.RetireProductbutton1_Click;
         // 
         // qtyproductnumericUpDown1
         // 
@@ -389,7 +388,6 @@ partial class ShipmentOrderWindows {
         this.clientlabel1.Size = new Size(58, 20);
         this.clientlabel1.TabIndex = 0;
         this.clientlabel1.Text = "Client : ";
-        this.clientlabel1.Click += this.clientlabel1_Click;
         // 
         // ShipmentOrderWindows
         // 
@@ -401,7 +399,6 @@ partial class ShipmentOrderWindows {
         this.Margin = new Padding(3, 4, 3, 4);
         this.Name = "ShipmentOrderWindows";
         this.Text = "ShipmentOrderWindows";
-        this.Load += this.ShipmentOrderWindows_Load;
         this.panel1.ResumeLayout(false);
         this.tableLayoutPanel1.ResumeLayout(false);
         this.infopanel.ResumeLayout(false);

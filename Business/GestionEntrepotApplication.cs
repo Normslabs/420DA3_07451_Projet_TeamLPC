@@ -3,11 +3,6 @@ using _420DA3_07451_Projet_Initial.Business.Facades;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business;
 internal class GestionEntrepotApplication : AbstractApplication {

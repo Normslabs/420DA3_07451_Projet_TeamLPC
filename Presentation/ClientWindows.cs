@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using _420DA3_07451_Projet_Initial.Business.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
@@ -28,8 +19,8 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.facade = facade;
         this.InitializeComponent();
 
-
     }
+
     /// <summary>
     /// Charge la fenetre pour la creation d'un nouveau client avec une instance vide
     /// </summary>
@@ -51,6 +42,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.actionbutton1.Text = "Supprimer";
         return this.OpenFor(instance);
     }
+
     /// <summary>
     /// Charge la fenetre pour l'edition d'un client
     /// </summary>
@@ -61,6 +53,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.actionbutton1.Text = "Éditer";
         return this.OpenFor(instance);
     }
+
     /// <summary>
     /// Charge la fenetre pour la visualiation du client
     /// </summary>
@@ -72,17 +65,6 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         return this.OpenFor(instance);
     }
 
-    private void ClientWindows_Load(object sender, EventArgs e) {
-
-    }
-
-    private void label1_Click(object sender, EventArgs e) {
-
-    }
-
-    private void produitlabel1_Click(object sender, EventArgs e) {
-
-    }
     /// <summary>
     /// Permet d'ajouter la liste des adresse dans la combobox d'adresse
     /// </summary>
@@ -90,12 +72,14 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.adresseClientcomboBox1.DataSource = this.facade.GetService<AdresseService>().GetAllAddresses();
 
     }
+
     /// <summary>
     /// Permet d'ajouter la liste des entrepot dans la combo box d'entrepot
     /// </summary>
     public void LoadEntrepotComboBox() {
         this.entrepotClientcomboBox1.DataSource = this.facade.GetService<EntrepotService>().GetAllEntrepot();
     }
+
     /// <summary>
     /// Permet de resteindre l'acces de certaine textebox
     /// </summary>
@@ -108,6 +92,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.entrepotClientcomboBox1.Enabled = false;
         this.adresseClientcomboBox1.Enabled = false;
     }
+
     /// <summary>
     /// Permet de donner l'acces a certaine textbox
     /// </summary>
@@ -120,6 +105,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.entrepotClientcomboBox1.Enabled = true;
         this.adresseClientcomboBox1.Enabled = true;
     }
+
     /// <summary>
     /// Charge les donne du client dans les controles de la fenetre.
     /// </summary>
@@ -133,6 +119,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.entrepotClientcomboBox1.SelectedItem = clients.AsignedWarehouse;
         this.adresseClientcomboBox1.SelectedItem = clients.ClientAdress;
     }
+
     /// <summary>
     /// Sauvegarde les donnes de l'instance du client.
     /// </summary>
@@ -146,6 +133,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         this.workingInstance.AsignedWarehouse = (Entrepot) this.entrepotClientcomboBox1.SelectedItem;
         this.workingInstance.ClientAdress = (Adresse) this.adresseClientcomboBox1.SelectedItem;
     }
+
     /// <summary>
     /// Charge la fenetre pour une operation specifique sur le client.
     /// </summary>
@@ -177,7 +165,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
         return this.ShowDialog();
     }
 
-    private void actionbutton1_Click(object sender, EventArgs e) {
+    private void Actionbutton1_Click(object sender, EventArgs e) {
 
         switch (this.workinIntent) {
             case ViewIntentEnum.Creation:
@@ -195,6 +183,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
     private void Quitbutton1_Click(object sender, EventArgs e) {
         this.facade.ShutdownParentApplication();
     }
+
     /// <summary>
     /// Bouton de creation pour l'adresse
     /// </summary>
@@ -209,6 +198,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
             }
         }
     }
+
     /// <summary>
     /// Validation des champs de texte
     /// </summary>

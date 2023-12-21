@@ -1,12 +1,4 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Microsoft.VisualBasic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 /// <summary>
@@ -50,7 +42,7 @@ public class PurchaseOrder : AbstractDTO<int> {
     }
 
     //
-    public PurchaseOrder(int ProductId, int destinationWarehouseId, int quantityOrdered) { 
+    public PurchaseOrder(int ProductId, int destinationWarehouseId, int quantityOrdered) {
         this.ProductId = ProductId;
         this.DestinationWarehouseID = destinationWarehouseId;
         this.QuantityOrdered = quantityOrdered;

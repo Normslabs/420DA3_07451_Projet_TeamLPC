@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
-using Microsoft.Identity.Client;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 
@@ -20,7 +13,7 @@ public class ShipmentDTO : AbstractDTO<int> {
     /// </summary>
 
 
-    public ShipmentServiceEnum Service {  get; set; }
+    public ShipmentServiceEnum Service { get; set; }
     public string? TrackingNumber { get; set; } = null!;
     public int? ShippingOrderID { get; set; } = null!;
     public byte[] RowVersion { get; set; } = null!;
@@ -36,7 +29,7 @@ public class ShipmentDTO : AbstractDTO<int> {
     /// Déclaration de random permettant de créer un string alpha numérique aléatoire
     /// </summary>
     [NotMapped]
-    private static Random random = new Random();
+    private static readonly Random RANDOM = new Random();
 
 
     /// <summary>
@@ -49,7 +42,7 @@ public class ShipmentDTO : AbstractDTO<int> {
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         return new string(Enumerable.Repeat(chars, length)
             .Select(s => {
-                return s[random.Next(s.Length)];
+                return s[RANDOM.Next(s.Length)];
             }).ToArray());
     }
 
@@ -57,7 +50,7 @@ public class ShipmentDTO : AbstractDTO<int> {
     /// <summary>
     /// Constructeur permettant de generer la fonction RandomString
     /// </summary>
-    public ShipmentDTO() : base() { 
+    public ShipmentDTO() : base() {
         this.TrackingNumber = RandomString(15);
     }
 
@@ -72,7 +65,7 @@ public class ShipmentDTO : AbstractDTO<int> {
         this.Service = Service;
         this.TrackingNumber = RandomString(15);
 
-        
+
 
     }
 
@@ -85,8 +78,7 @@ public class ShipmentDTO : AbstractDTO<int> {
     /// <param name="ShippingId"></param>
     /// <param name="TrackNumber"></param>
     /// <param name="RowVersion"></param>
-    protected ShipmentDTO(int Id, ShipmentServiceEnum Service, int ShippingId, string TrackNumber, byte[] RowVersion ) 
-    {
+    protected ShipmentDTO(int Id, ShipmentServiceEnum Service, int ShippingId, string TrackNumber, byte[] RowVersion) {
         this.Id = Id;
         this.ShippingOrderID = ShippingId;
         this.TrackingNumber = TrackNumber;
@@ -99,8 +91,7 @@ public class ShipmentDTO : AbstractDTO<int> {
     /// <summary>
     /// Constructeur créant l'énumération de shipment service
     /// </summary>
-    public enum ShipmentServiceEnum 
-    {
+    public enum ShipmentServiceEnum {
         PUROLATOR, CANADAPOST, FEDEX
     }
 

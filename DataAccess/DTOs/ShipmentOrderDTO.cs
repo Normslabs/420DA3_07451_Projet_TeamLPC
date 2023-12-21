@@ -22,7 +22,7 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
     public string DestinationPostalCode { get; set; } = null!;
     public DateTime DateCreated { get; set; }
     public DateTime? DateShipped { get; set; }
-    public byte[] RowVersion { get; set; }
+    public byte[] RowVersion { get; set; } = null!;
 
 
     public virtual ClientsDTO Clients { get; set; } = null!;
@@ -75,10 +75,10 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
     /// <param name="entrepotOriginalId"></param>
     public ShipmentOrderDTO(string destinationContact, string destinationCivicAdress, string destinationPostalCode, int clientId, int entrepotOriginalId) {
         this.DestinationContact = destinationContact;
-        this.DestinationCivicAdress= destinationCivicAdress;
+        this.DestinationCivicAdress = destinationCivicAdress;
         this.DestinationPostalCode = destinationPostalCode;
         this.ClientsId = clientId;
-        this.EntrepotOriginalId= entrepotOriginalId;
+        this.EntrepotOriginalId = entrepotOriginalId;
     }
 
     /// <summary>

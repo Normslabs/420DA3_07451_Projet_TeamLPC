@@ -1,19 +1,13 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
-using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business.Facades;
 internal class LoginFacade : AbstractFacade {
     public UtilisateurService UtilisateurService { get; set; }
     public RoleService RoleService { get; set; }
 
-    public new LoginService LoginService {  get; set; }
+    public new LoginService LoginService { get; set; }
 
 
 #pragma warning disable CS0618 // Type or member is obsolete

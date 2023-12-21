@@ -1,12 +1,6 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 
@@ -26,7 +20,7 @@ public class FournisseurDAO : AbstractDao<Fournisseur, int> {
     /// Constructeur pour le abstractContext
     /// </summary>
     /// <param name="context"></param>
-    public FournisseurDAO (AbstractContext context) {
+    public FournisseurDAO(AbstractContext context) {
         this.Context = context;
     }
 

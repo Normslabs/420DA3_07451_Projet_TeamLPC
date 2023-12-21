@@ -1,11 +1,4 @@
-﻿ using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static _420DA3_07451_Projet_Initial.DataAccess.DTOs.ShipmentDTO;
+﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 
@@ -32,7 +25,7 @@ public class Fournisseur : AbstractDTO<int> {
     /// </summary>
 
     public string SupplierName { get; set; } = null!;
-    public int AdresseId { get; set; } 
+    public int AdresseId { get; set; }
     public string PrenomContact { get; set; } = null!;
     public string NomContact { get; set; } = null!;
     public string TelephoneContact { get; set; } = null!;
@@ -56,7 +49,7 @@ public class Fournisseur : AbstractDTO<int> {
     /// Constructeur par defaut
     /// </summary>
     public Fournisseur() : base() {
-        
+
     }
 
 
@@ -76,7 +69,7 @@ public class Fournisseur : AbstractDTO<int> {
         this.TelephoneContact = telephoneContact;
         this.EmailContact = EmailContact;
         this.SupplierName = SupplierName;
-        
+
     }
 
     /// <summary>

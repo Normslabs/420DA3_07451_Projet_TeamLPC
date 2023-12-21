@@ -1,22 +1,11 @@
 ﻿using _420DA3_07451_Projet_Initial.Business;
 using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.Business.Facades;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 
@@ -178,7 +167,7 @@ public partial class UtilisateurManagementForm : Form, IDtoManagementView<Utilis
         if (!Utilisateur.ValiderUsername(this.userUsernameTextBox.Text)) {
             throw new Exception("Nom d'utilisateur invalide");
         }
-        if (!string.IsNullOrEmpty(this.userPasswordTextBox.Text) 
+        if (!string.IsNullOrEmpty(this.userPasswordTextBox.Text)
             && !Utilisateur.ValidatePassword(this.userPasswordTextBox.Text)) {
             throw new Exception("Password invalide");
         }

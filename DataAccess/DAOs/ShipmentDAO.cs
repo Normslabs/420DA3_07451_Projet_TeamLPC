@@ -2,11 +2,6 @@
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 
@@ -52,11 +47,11 @@ public class ShipmentDAO : AbstractDao<ShipmentDTO, int> {
         return this.Context.GetDbSet<ShipmentDTO>()
             .Where(shipment => shipment.Id.ToString().StartsWith(Filter) || (shipment.TrackingNumber != null && shipment.TrackingNumber.StartsWith(Filter)))
             .ToList();
-       
+
     }
 
 
 
-  
+
 
 }

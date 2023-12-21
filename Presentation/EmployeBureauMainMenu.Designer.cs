@@ -202,7 +202,6 @@ partial class EmployeBureauMainMenu {
         this.Controls.Add(tableLayoutPanel1);
         this.Name = "EmployeBureauMainMenu";
         this.Text = "EmployeBureauMainMenu";
-        this.Load += this.EmployeBureauMainMenu_Load;
         tableLayoutPanel1.ResumeLayout(false);
         panel2.ResumeLayout(false);
         panel1.ResumeLayout(false);

@@ -1,14 +1,4 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class RoleSelectionForm : Form {
@@ -34,7 +24,7 @@ public partial class RoleSelectionForm : Form {
             this.roleSelectionPanel.Controls.Add(button);
             button.Text = role.RoleName;
             button.Size = new Size(190, 40);
-            button.Location = new Point(0, 20 + (count*50));
+            button.Location = new Point(0, 20 + (count * 50));
             button.Tag = role;
             button.Click += this.DynamicButtonClickHandler;
             button.Dock = DockStyle.Top;

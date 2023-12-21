@@ -1,34 +1,20 @@
-﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
-using _420DA3_07451_Projet_Initial.Business;
-using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.Business.Facades;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Diagnostics;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     private readonly AbstractFacade facade;
-    private Produit produit;
+    private Produit produit = null!;
     private ViewIntentEnum workingIntent;
-    private int nullclientListBoxItemIndex = 0;
-    private int nullsupplierListBoxItemIndex = 0;
 
     public ProduitWindow(AbstractFacade facade) {
         this.facade = facade;
 
-        InitializeComponent();
+        this.InitializeComponent();
 
     }
     private void LoadClientComboBox() {
@@ -40,15 +26,6 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.supplierComboBox.DataSource = this.facade.GetService<FournisseurService>().GetAllFournisseur();
     }
 
-
-
-    private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
-
-    }
-
-    private void panel2_Paint(object sender, PaintEventArgs e) {
-
-    }
 
 
     #region Public Methods
@@ -164,10 +141,12 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     }
     #endregion
-    private void cancelBtn_Click(object sender, EventArgs e) {
+    
+    private void CancelBtn_Click(object sender, EventArgs e) {
         this.DialogResult = DialogResult.Cancel;
     }
-    private void actionBtn_Click(object sender, EventArgs e) {
+    
+    private void ActionBtn_Click(object sender, EventArgs e) {
 
         try {
             switch (this.workingIntent) {

@@ -551,7 +551,7 @@ partial class AdminUserMainMenu {
         this.deletebutton.TabIndex = 9;
         this.deletebutton.Text = "Supprimer client";
         this.deletebutton.UseVisualStyleBackColor = true;
-        this.deletebutton.Click += this.deletebutton_Click;
+        this.deletebutton.Click += this.DeleteClientButton_Click;
         // 
         // editClientbutton
         // 
@@ -563,7 +563,7 @@ partial class AdminUserMainMenu {
         this.editClientbutton.TabIndex = 8;
         this.editClientbutton.Text = "Mettre a jour information clients";
         this.editClientbutton.UseVisualStyleBackColor = true;
-        this.editClientbutton.Click += this.editClientbutton_Click;
+        this.editClientbutton.Click += this.EditClientbutton_Click;
         // 
         // viewClientbutton1
         // 
@@ -575,7 +575,7 @@ partial class AdminUserMainMenu {
         this.viewClientbutton1.TabIndex = 7;
         this.viewClientbutton1.Text = "Voir information du client";
         this.viewClientbutton1.UseVisualStyleBackColor = true;
-        this.viewClientbutton1.Click += this.viewClientbutton1_Click;
+        this.viewClientbutton1.Click += this.ViewClientbutton1_Click;
         // 
         // ClientslistBox1
         // 
@@ -595,7 +595,7 @@ partial class AdminUserMainMenu {
         this.filterClienttextBox1.Name = "filterClienttextBox1";
         this.filterClienttextBox1.Size = new Size(210, 23);
         this.filterClienttextBox1.TabIndex = 5;
-        this.filterClienttextBox1.TextChanged += this.filterClienttextBox1_TextChanged;
+        this.filterClienttextBox1.TextChanged += this.FilterClienttextBox1_TextChanged;
         // 
         // createClientbutton1
         // 
@@ -606,7 +606,7 @@ partial class AdminUserMainMenu {
         this.createClientbutton1.TabIndex = 2;
         this.createClientbutton1.Text = "Créer un client";
         this.createClientbutton1.UseVisualStyleBackColor = true;
-        this.createClientbutton1.Click += this.createClientbutton1_Click;
+        this.createClientbutton1.Click += this.CreateClientbutton1_Click;
         // 
         // label2
         // 
@@ -981,7 +981,7 @@ partial class AdminUserMainMenu {
         this.viewShipmentOrderbutton3.TabIndex = 10;
         this.viewShipmentOrderbutton3.Text = "Voir un ordre d'expedition";
         this.viewShipmentOrderbutton3.UseVisualStyleBackColor = true;
-        this.viewShipmentOrderbutton3.Click += this.viewShipmentOrderbutton3_Click;
+        this.viewShipmentOrderbutton3.Click += this.ViewShipmentOrderbutton3_Click;
         // 
         // supprimerShipmentOrderbutton2
         // 
@@ -993,7 +993,7 @@ partial class AdminUserMainMenu {
         this.supprimerShipmentOrderbutton2.TabIndex = 9;
         this.supprimerShipmentOrderbutton2.Text = "Supprimer un ordre d'expedition";
         this.supprimerShipmentOrderbutton2.UseVisualStyleBackColor = true;
-        this.supprimerShipmentOrderbutton2.Click += this.supprimerShipmentOrderbutton2_Click;
+        this.supprimerShipmentOrderbutton2.Click += this.SupprimerShipmentOrderbutton2_Click;
         // 
         // editShipmentOrderbutton1
         // 
@@ -1005,7 +1005,7 @@ partial class AdminUserMainMenu {
         this.editShipmentOrderbutton1.TabIndex = 8;
         this.editShipmentOrderbutton1.Text = "Modifier un ordre d'expedition";
         this.editShipmentOrderbutton1.UseVisualStyleBackColor = true;
-        this.editShipmentOrderbutton1.Click += this.editShipmentOrderbutton1_Click;
+        this.editShipmentOrderbutton1.Click += this.EditShipmentOrderbutton1_Click;
         // 
         // ShipmentOrderlistBox1
         // 
@@ -1017,7 +1017,7 @@ partial class AdminUserMainMenu {
         this.ShipmentOrderlistBox1.Size = new Size(234, 109);
         this.ShipmentOrderlistBox1.TabIndex = 7;
         this.ShipmentOrderlistBox1.SelectedIndexChanged += this.ProduitFiltreTextBox_TextChanged;
-        this.ShipmentOrderlistBox1.StyleChanged += this.createShipmentordebutton1_Click;
+        this.ShipmentOrderlistBox1.StyleChanged += this.CreateShipmentordebutton1_Click;
         // 
         // filtreShipmentOrdertextBox1
         // 
@@ -1026,7 +1026,7 @@ partial class AdminUserMainMenu {
         this.filtreShipmentOrdertextBox1.Name = "filtreShipmentOrdertextBox1";
         this.filtreShipmentOrdertextBox1.Size = new Size(234, 23);
         this.filtreShipmentOrdertextBox1.TabIndex = 6;
-        this.filtreShipmentOrdertextBox1.TextChanged += this.filtreShipmentOrdertextBox1_TextChanged;
+        this.filtreShipmentOrdertextBox1.TextChanged += this.FiltreShipmentOrdertextBox1_TextChanged;
         // 
         // createShipmentordebutton1
         // 
@@ -1037,7 +1037,7 @@ partial class AdminUserMainMenu {
         this.createShipmentordebutton1.TabIndex = 3;
         this.createShipmentordebutton1.Text = "Créer un ordre d'expedition";
         this.createShipmentordebutton1.UseVisualStyleBackColor = true;
-        this.createShipmentordebutton1.Click += this.createShipmentordebutton1_Click;
+        this.createShipmentordebutton1.Click += this.CreateShipmentordebutton1_Click;
         // 
         // ShippingOrderlabel1
         // 

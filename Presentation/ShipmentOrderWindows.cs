@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using _420DA3_07451_Projet_Initial.Business.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
+using System.Data;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrderDTO> {
@@ -20,7 +12,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     private readonly AbstractFacade facade;
     private ShipmentOrderDTO workingInstance = null!;
     private ViewIntentEnum workingIntent;
-    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; }
+    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
     /// <summary>
     /// Initialise une nouvelle instance de la classe ClientWindows.
     /// </summary>
@@ -28,7 +20,6 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     public ShipmentOrderWindows(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-
     }
     /// <summary>
     ///  Charge la fenetre pour la creation d'une nouveaulle commande avec une instance vide
@@ -71,18 +62,6 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.actionbutton1.Text = "Vu";
         return this.OpenFor(instance);
     }
-
-    private void ShipmentOrderWindows_Load(object sender, EventArgs e) {
-
-    }
-
-    private void clientlabel1_Click(object sender, EventArgs e) {
-
-    }
-
-    private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e) {
-
-    }
     /// <summary>
     /// Permet de charger la liste des client dans la combobox client
     /// </summary>
@@ -110,7 +89,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     public void LoadStatutComboBox() {
         this.statutcomboBox1.Items.Clear();
         foreach (ShippingOrderStatusEnum status in Enum.GetValues(typeof(ShippingOrderStatusEnum))) {
-            this.statutcomboBox1.Items.Add(status);
+            _ = this.statutcomboBox1.Items.Add(status);
         }
     }
     /// <summary>
@@ -119,6 +98,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     /// <param name="shipmentOrderDTO"></param>
     /// <returns></returns>
     public DialogResult OpenFor(ShipmentOrderDTO shipmentOrderDTO) {
+        this.workingInstance = shipmentOrderDTO;
         this.LoadClientComboBox();
         this.LoadStatutComboBox();
         this.LoadEntrepotComboBox();
@@ -136,6 +116,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
                 this.DisableControl();
                 break;
         }
+        this.LoadShipmentOrderDataInControls(shipmentOrderDTO);
         return this.ShowDialog();
     }
     /// <summary>
@@ -177,7 +158,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
 
     }
 
-    private void actionbutton1_Click(object sender, EventArgs e) {
+    private void Actionbutton1_Click(object sender, EventArgs e) {
         switch (this.workingIntent) {
 
             case ViewIntentEnum.Creation:
@@ -206,7 +187,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.statutcomboBox1.SelectedItem = instance.Status;
         this.produitorderlistBox1.Items.Clear();
         foreach (ShippingOrderProducts sop in instance.AssociationsProduits) {
-            this.produitorderlistBox1.Items.Add(sop);
+            _ = this.produitorderlistBox1.Items.Add(sop);
         }
         this.LoadEmployeEntrepotComboBox(instance.EntrepotOriginal);
         this.employeEntrepotcomboBox.SelectedItem = instance.EmployeEntrepot;
@@ -244,29 +225,29 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         }
     }
 
-    private void addproductbutton2_Click(object sender, EventArgs e) {
-        
-        if(this.produitalllistBox.SelectedItem != null) {
-           
-            if(this.qtyproductnumericUpDown1.Value > 0) {
+    private void Addproductbutton2_Click(object sender, EventArgs e) {
+
+        if (this.produitalllistBox.SelectedItem != null) {
+
+            if (this.qtyproductnumericUpDown1.Value > 0) {
                 Produit produitselected = (Produit) this.produitalllistBox.SelectedItem;
-                ShippingOrderProducts produitassociation = new ShippingOrderProducts() { ProduitId = produitselected.Id, Quantite = (int)this.qtyproductnumericUpDown1.Value};
-                this.produitorderlistBox1.Items.Add(produitassociation);
+                ShippingOrderProducts produitassociation = new ShippingOrderProducts() { ProduitId = produitselected.Id, Quantite = (int) this.qtyproductnumericUpDown1.Value };
+                _ = this.produitorderlistBox1.Items.Add(produitassociation);
             } else {
-                MessageBox.Show("Veuillez entrer une quantite");
+                _ = MessageBox.Show("Veuillez entrer une quantite");
             }
         } else {
-            MessageBox.Show("Pas de produit selectione");
+            _ = MessageBox.Show("Pas de produit selectione");
         }
     }
 
-    private void retireProductbutton1_Click(object sender, EventArgs e) {
+    private void RetireProductbutton1_Click(object sender, EventArgs e) {
 
         if (this.produitorderlistBox1.SelectedItem != null) {
             ShippingOrderProducts produitassociation = (ShippingOrderProducts) this.produitorderlistBox1.SelectedItem;
-            this.produitorderlistBox1.Items.Remove(produitassociation);          
+            this.produitorderlistBox1.Items.Remove(produitassociation);
         } else {
-            MessageBox.Show("Pas de produit selectione");
+            _ = MessageBox.Show("Pas de produit selectione");
         }
     }
 }

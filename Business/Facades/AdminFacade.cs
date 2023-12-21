@@ -2,11 +2,6 @@
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 using _420DA3_07451_Projet_Initial.Presentation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business.Facades;
 internal class AdminFacade : AbstractFacade {
@@ -23,11 +18,11 @@ internal class AdminFacade : AbstractFacade {
     public PurchaseOrderService PurchaseOrderService { get; set; }
     public ShipmentOrderService ShipmentOrderService { get; set; }
     public ClientService ClientService { get; set; }
-    
-    
+
+
     // TODO: @Everyone: ajoutez des propriétés pour vos services ici
 
-    public AdminFacade(AbstractApplication parentApp, AbstractLoginService loginService) 
+    public AdminFacade(AbstractApplication parentApp, AbstractLoginService loginService)
         : base(parentApp, loginService) {
         parentApp.RegisterDependent(this);
         this.facadeContext = new AppDbContext();
@@ -42,7 +37,7 @@ internal class AdminFacade : AbstractFacade {
         this.ShipmentOrderService = new ShipmentOrderService(this, this.facadeContext);
         this.ClientService = new ClientService(this, this.facadeContext);
 
-        
+
         this.mainMenu = new AdminUserMainMenu(this);
     }
 

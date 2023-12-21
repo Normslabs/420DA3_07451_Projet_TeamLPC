@@ -1,9 +1,4 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 
@@ -30,12 +25,12 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class Entrepot : AbstractDTO<int> {
 
     public const int MAX_NOMENTREPOT_LENGTH = 25;
-   
+
 
     public string NomEntrepot { get; set; } = null!;
     public int AdresseId { get; set; }
     public virtual Adresse AdresseEntrepot { get; set; } = null!;
-    
+
     /// <summary>
     /// Les Utilisateurs qui possedent un entrepot
     /// </summary>
@@ -62,14 +57,14 @@ public class Entrepot : AbstractDTO<int> {
     /// <summary>
     /// Constructeur vide
     /// </summary>
-    public Entrepot() : base(){ }
+    public Entrepot() : base() { }
 
     /// <summary>
     /// Constructeur utilisable dans les services.
     /// </summary>
     /// <param name="nomEntrepot">Le nom de l'entrepot.</param>
     /// <param name="adresseId">L'identifiant de l'Adresse de l'Entrepôt</param>
-    public Entrepot(string nomEntrepot, int adresseId) { 
+    public Entrepot(string nomEntrepot, int adresseId) {
         this.NomEntrepot = nomEntrepot;
         this.AdresseId = adresseId;
     }
@@ -82,8 +77,8 @@ public class Entrepot : AbstractDTO<int> {
     /// <param name="nomEntrepot">Le nom de l'entrepot</param>
     /// <param name="adresseId">L'identifiant de l'Adresse de l'entrepôt</param>
     /// <param name="rowversion">Une signature anti-concurrence.</param>
-    protected Entrepot(int id, string nomEntrepot, int adresseId, byte[] rowversion  ) {
-       
+    protected Entrepot(int id, string nomEntrepot, int adresseId, byte[] rowversion) {
+
         this.Id = id;
         this.NomEntrepot = nomEntrepot;
         this.AdresseId = adresseId;
@@ -97,8 +92,7 @@ public class Entrepot : AbstractDTO<int> {
     /// </summary>
     /// <param name="nomEntrepot">Le nom d'entrepot potentiel à valider</param>
     /// <returns><see langword="true"/> si le nom de l'entrepot potentiel est valide, <see langword="false"/> sinon.</returns>
-    public static bool ValiderNomEntrepot(string nomEntrepot) 
-    {
+    public static bool ValiderNomEntrepot(string nomEntrepot) {
         return nomEntrepot.Length <= MAX_NOMENTREPOT_LENGTH;
     }
 

@@ -1,9 +1,4 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ClientsDTO : AbstractDTO<int> {
@@ -15,13 +10,13 @@ public class ClientsDTO : AbstractDTO<int> {
     public const int COURRIEL_MAX_LENGTH = 128;
     public const int TELEPHONE_MAX_LENGTH = 10;
     public const int COMPANYNAME_MAX_LENGTH = 50;
- 
+
     public int AsignedWarehouseID { get; set; }
     public int ClientAdressId { get; set; }
     public string CompanyName { get; set; } = null!;
     public byte[] RowVersion { get; set; } = null!;
 
-    public string Nom {  get; set; } = null!;
+    public string Nom { get; set; } = null!;
     public string Prenom { get; set; } = null!;
     public string Courriel { get; set; } = null!;
     public long Telephone { get; set; }
@@ -52,7 +47,7 @@ public class ClientsDTO : AbstractDTO<int> {
     /// <param name="prenom"></param>
     /// <param name="courriel"></param>
     /// <param name="telephone"></param>
-   public ClientsDTO(int Id, int asignedWarehouseID, int clientAdressId, string companyName, byte[] rowVersion,  string nom, string prenom, string courriel, int telephone) {
+    public ClientsDTO(int Id, int asignedWarehouseID, int clientAdressId, string companyName, byte[] rowVersion, string nom, string prenom, string courriel, int telephone) {
         this.Id = Id;
         this.AsignedWarehouseID = asignedWarehouseID;
         this.ClientAdressId = clientAdressId;

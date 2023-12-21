@@ -24,342 +24,340 @@ partial class ProduitWindow {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        tableLayoutPanel1 = new TableLayoutPanel();
-        panel2 = new Panel();
-        supplierComboBox = new ComboBox();
-        supplierLabel = new Label();
-        clientComboBox = new ComboBox();
-        label10 = new Label();
-        qtyInStockNumeric = new NumericUpDown();
-        label7 = new Label();
-        AutoCheckBox = new CheckBox();
-        label6 = new Label();
-        supplierCodeTextBox = new TextBox();
-        label5 = new Label();
-        descriptionTextBox = new TextBox();
-        label4 = new Label();
-        nameTextBox = new TextBox();
-        label3 = new Label();
-        upcCodeNumUpDown = new NumericUpDown();
-        label2 = new Label();
-        idNumUpDown = new NumericUpDown();
-        label1 = new Label();
-        panel3 = new Panel();
-        label8 = new Label();
-        panel4 = new Panel();
-        label9 = new Label();
-        panel1 = new Panel();
-        cancelBtn = new Button();
-        actionBtn = new Button();
-        tableLayoutPanel1.SuspendLayout();
-        panel2.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize) qtyInStockNumeric).BeginInit();
-        ((System.ComponentModel.ISupportInitialize) upcCodeNumUpDown).BeginInit();
-        ((System.ComponentModel.ISupportInitialize) idNumUpDown).BeginInit();
-        panel3.SuspendLayout();
-        panel4.SuspendLayout();
-        panel1.SuspendLayout();
+        this.tableLayoutPanel1 = new TableLayoutPanel();
+        this.panel2 = new Panel();
+        this.supplierComboBox = new ComboBox();
+        this.supplierLabel = new Label();
+        this.clientComboBox = new ComboBox();
+        this.label10 = new Label();
+        this.qtyInStockNumeric = new NumericUpDown();
+        this.label7 = new Label();
+        this.AutoCheckBox = new CheckBox();
+        this.label6 = new Label();
+        this.supplierCodeTextBox = new TextBox();
+        this.label5 = new Label();
+        this.descriptionTextBox = new TextBox();
+        this.label4 = new Label();
+        this.nameTextBox = new TextBox();
+        this.label3 = new Label();
+        this.upcCodeNumUpDown = new NumericUpDown();
+        this.label2 = new Label();
+        this.idNumUpDown = new NumericUpDown();
+        this.label1 = new Label();
+        this.panel3 = new Panel();
+        this.label8 = new Label();
+        this.panel4 = new Panel();
+        this.label9 = new Label();
+        this.panel1 = new Panel();
+        this.cancelBtn = new Button();
+        this.actionBtn = new Button();
+        this.tableLayoutPanel1.SuspendLayout();
+        this.panel2.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize) this.qtyInStockNumeric).BeginInit();
+        ((System.ComponentModel.ISupportInitialize) this.upcCodeNumUpDown).BeginInit();
+        ((System.ComponentModel.ISupportInitialize) this.idNumUpDown).BeginInit();
+        this.panel3.SuspendLayout();
+        this.panel4.SuspendLayout();
+        this.panel1.SuspendLayout();
         this.SuspendLayout();
         // 
         // tableLayoutPanel1
         // 
-        tableLayoutPanel1.ColumnCount = 3;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-        tableLayoutPanel1.Controls.Add(panel2, 1, 0);
-        tableLayoutPanel1.Controls.Add(panel3, 0, 0);
-        tableLayoutPanel1.Controls.Add(panel4, 2, 0);
-        tableLayoutPanel1.Dock = DockStyle.Fill;
-        tableLayoutPanel1.Location = new Point(0, 0);
-        tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 1;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        tableLayoutPanel1.Size = new Size(1019, 568);
-        tableLayoutPanel1.TabIndex = 0;
-        tableLayoutPanel1.Paint += this.tableLayoutPanel1_Paint;
+        this.tableLayoutPanel1.ColumnCount = 3;
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+        this.tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+        this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
+        this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+        this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 0);
+        this.tableLayoutPanel1.Dock = DockStyle.Fill;
+        this.tableLayoutPanel1.Location = new Point(0, 0);
+        this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+        this.tableLayoutPanel1.RowCount = 1;
+        this.tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        this.tableLayoutPanel1.Size = new Size(1019, 568);
+        this.tableLayoutPanel1.TabIndex = 0;
         // 
         // panel2
         // 
-        panel2.Controls.Add(supplierComboBox);
-        panel2.Controls.Add(supplierLabel);
-        panel2.Controls.Add(clientComboBox);
-        panel2.Controls.Add(label10);
-        panel2.Controls.Add(qtyInStockNumeric);
-        panel2.Controls.Add(label7);
-        panel2.Controls.Add(AutoCheckBox);
-        panel2.Controls.Add(label6);
-        panel2.Controls.Add(supplierCodeTextBox);
-        panel2.Controls.Add(label5);
-        panel2.Controls.Add(descriptionTextBox);
-        panel2.Controls.Add(label4);
-        panel2.Controls.Add(nameTextBox);
-        panel2.Controls.Add(label3);
-        panel2.Controls.Add(upcCodeNumUpDown);
-        panel2.Controls.Add(label2);
-        panel2.Controls.Add(idNumUpDown);
-        panel2.Controls.Add(label1);
-        panel2.Dock = DockStyle.Fill;
-        panel2.Location = new Point(257, 3);
-        panel2.Name = "panel2";
-        panel2.Size = new Size(503, 562);
-        panel2.TabIndex = 0;
-        panel2.Paint += this.panel2_Paint;
+        this.panel2.Controls.Add(this.supplierComboBox);
+        this.panel2.Controls.Add(this.supplierLabel);
+        this.panel2.Controls.Add(this.clientComboBox);
+        this.panel2.Controls.Add(this.label10);
+        this.panel2.Controls.Add(this.qtyInStockNumeric);
+        this.panel2.Controls.Add(this.label7);
+        this.panel2.Controls.Add(this.AutoCheckBox);
+        this.panel2.Controls.Add(this.label6);
+        this.panel2.Controls.Add(this.supplierCodeTextBox);
+        this.panel2.Controls.Add(this.label5);
+        this.panel2.Controls.Add(this.descriptionTextBox);
+        this.panel2.Controls.Add(this.label4);
+        this.panel2.Controls.Add(this.nameTextBox);
+        this.panel2.Controls.Add(this.label3);
+        this.panel2.Controls.Add(this.upcCodeNumUpDown);
+        this.panel2.Controls.Add(this.label2);
+        this.panel2.Controls.Add(this.idNumUpDown);
+        this.panel2.Controls.Add(this.label1);
+        this.panel2.Dock = DockStyle.Fill;
+        this.panel2.Location = new Point(257, 3);
+        this.panel2.Name = "panel2";
+        this.panel2.Size = new Size(503, 562);
+        this.panel2.TabIndex = 0;
         // 
         // supplierComboBox
         // 
-        supplierComboBox.Dock = DockStyle.Top;
-        supplierComboBox.FormattingEnabled = true;
-        supplierComboBox.Location = new Point(0, 346);
-        supplierComboBox.Name = "supplierComboBox";
-        supplierComboBox.Size = new Size(503, 23);
-        supplierComboBox.TabIndex = 20;
+        this.supplierComboBox.Dock = DockStyle.Top;
+        this.supplierComboBox.FormattingEnabled = true;
+        this.supplierComboBox.Location = new Point(0, 346);
+        this.supplierComboBox.Name = "supplierComboBox";
+        this.supplierComboBox.Size = new Size(503, 23);
+        this.supplierComboBox.TabIndex = 20;
         // 
         // supplierLabel
         // 
-        supplierLabel.AutoSize = true;
-        supplierLabel.Dock = DockStyle.Top;
-        supplierLabel.Location = new Point(0, 331);
-        supplierLabel.Name = "supplierLabel";
-        supplierLabel.Size = new Size(50, 15);
-        supplierLabel.TabIndex = 19;
-        supplierLabel.Text = "Supplier";
+        this.supplierLabel.AutoSize = true;
+        this.supplierLabel.Dock = DockStyle.Top;
+        this.supplierLabel.Location = new Point(0, 331);
+        this.supplierLabel.Name = "supplierLabel";
+        this.supplierLabel.Size = new Size(50, 15);
+        this.supplierLabel.TabIndex = 19;
+        this.supplierLabel.Text = "Supplier";
         // 
         // clientComboBox
         // 
-        clientComboBox.Dock = DockStyle.Top;
-        clientComboBox.FormattingEnabled = true;
-        clientComboBox.Location = new Point(0, 308);
-        clientComboBox.Name = "clientComboBox";
-        clientComboBox.Size = new Size(503, 23);
-        clientComboBox.TabIndex = 18;
+        this.clientComboBox.Dock = DockStyle.Top;
+        this.clientComboBox.FormattingEnabled = true;
+        this.clientComboBox.Location = new Point(0, 308);
+        this.clientComboBox.Name = "clientComboBox";
+        this.clientComboBox.Size = new Size(503, 23);
+        this.clientComboBox.TabIndex = 18;
         // 
         // label10
         // 
-        label10.Dock = DockStyle.Top;
-        label10.Location = new Point(0, 293);
-        label10.Name = "label10";
-        label10.Size = new Size(503, 15);
-        label10.TabIndex = 15;
-        label10.Text = "Client";
+        this.label10.Dock = DockStyle.Top;
+        this.label10.Location = new Point(0, 293);
+        this.label10.Name = "label10";
+        this.label10.Size = new Size(503, 15);
+        this.label10.TabIndex = 15;
+        this.label10.Text = "Client";
         // 
         // qtyInStockNumeric
         // 
-        qtyInStockNumeric.Dock = DockStyle.Top;
-        qtyInStockNumeric.Location = new Point(0, 270);
-        qtyInStockNumeric.Name = "qtyInStockNumeric";
-        qtyInStockNumeric.Size = new Size(503, 23);
-        qtyInStockNumeric.TabIndex = 13;
+        this.qtyInStockNumeric.Dock = DockStyle.Top;
+        this.qtyInStockNumeric.Location = new Point(0, 270);
+        this.qtyInStockNumeric.Name = "qtyInStockNumeric";
+        this.qtyInStockNumeric.Size = new Size(503, 23);
+        this.qtyInStockNumeric.TabIndex = 13;
         // 
         // label7
         // 
-        label7.AutoSize = true;
-        label7.Dock = DockStyle.Top;
-        label7.Location = new Point(0, 255);
-        label7.Name = "label7";
-        label7.Size = new Size(100, 15);
-        label7.TabIndex = 12;
-        label7.Text = "Quantité en stock";
+        this.label7.AutoSize = true;
+        this.label7.Dock = DockStyle.Top;
+        this.label7.Location = new Point(0, 255);
+        this.label7.Name = "label7";
+        this.label7.Size = new Size(100, 15);
+        this.label7.TabIndex = 12;
+        this.label7.Text = "Quantité en stock";
         // 
         // AutoCheckBox
         // 
-        AutoCheckBox.AutoSize = true;
-        AutoCheckBox.Dock = DockStyle.Top;
-        AutoCheckBox.Location = new Point(0, 236);
-        AutoCheckBox.Name = "AutoCheckBox";
-        AutoCheckBox.Size = new Size(503, 19);
-        AutoCheckBox.TabIndex = 11;
-        AutoCheckBox.Text = "Yes";
-        AutoCheckBox.UseVisualStyleBackColor = true;
+        this.AutoCheckBox.AutoSize = true;
+        this.AutoCheckBox.Dock = DockStyle.Top;
+        this.AutoCheckBox.Location = new Point(0, 236);
+        this.AutoCheckBox.Name = "AutoCheckBox";
+        this.AutoCheckBox.Size = new Size(503, 19);
+        this.AutoCheckBox.TabIndex = 11;
+        this.AutoCheckBox.Text = "Yes";
+        this.AutoCheckBox.UseVisualStyleBackColor = true;
         // 
         // label6
         // 
-        label6.AutoSize = true;
-        label6.Dock = DockStyle.Top;
-        label6.Location = new Point(0, 221);
-        label6.Name = "label6";
-        label6.Size = new Size(77, 15);
-        label6.TabIndex = 10;
-        label6.Text = "Auto Restock";
+        this.label6.AutoSize = true;
+        this.label6.Dock = DockStyle.Top;
+        this.label6.Location = new Point(0, 221);
+        this.label6.Name = "label6";
+        this.label6.Size = new Size(77, 15);
+        this.label6.TabIndex = 10;
+        this.label6.Text = "Auto Restock";
         // 
         // supplierCodeTextBox
         // 
-        supplierCodeTextBox.Dock = DockStyle.Top;
-        supplierCodeTextBox.Location = new Point(0, 198);
-        supplierCodeTextBox.Name = "supplierCodeTextBox";
-        supplierCodeTextBox.Size = new Size(503, 23);
-        supplierCodeTextBox.TabIndex = 9;
+        this.supplierCodeTextBox.Dock = DockStyle.Top;
+        this.supplierCodeTextBox.Location = new Point(0, 198);
+        this.supplierCodeTextBox.Name = "supplierCodeTextBox";
+        this.supplierCodeTextBox.Size = new Size(503, 23);
+        this.supplierCodeTextBox.TabIndex = 9;
         // 
         // label5
         // 
-        label5.AutoSize = true;
-        label5.Dock = DockStyle.Top;
-        label5.Location = new Point(0, 183);
-        label5.Name = "label5";
-        label5.Size = new Size(81, 15);
-        label5.TabIndex = 8;
-        label5.Text = "Supplier Code";
+        this.label5.AutoSize = true;
+        this.label5.Dock = DockStyle.Top;
+        this.label5.Location = new Point(0, 183);
+        this.label5.Name = "label5";
+        this.label5.Size = new Size(81, 15);
+        this.label5.TabIndex = 8;
+        this.label5.Text = "Supplier Code";
         // 
         // descriptionTextBox
         // 
-        descriptionTextBox.Dock = DockStyle.Top;
-        descriptionTextBox.Location = new Point(0, 129);
-        descriptionTextBox.Multiline = true;
-        descriptionTextBox.Name = "descriptionTextBox";
-        descriptionTextBox.Size = new Size(503, 54);
-        descriptionTextBox.TabIndex = 7;
+        this.descriptionTextBox.Dock = DockStyle.Top;
+        this.descriptionTextBox.Location = new Point(0, 129);
+        this.descriptionTextBox.Multiline = true;
+        this.descriptionTextBox.Name = "descriptionTextBox";
+        this.descriptionTextBox.Size = new Size(503, 54);
+        this.descriptionTextBox.TabIndex = 7;
         // 
         // label4
         // 
-        label4.AutoSize = true;
-        label4.Dock = DockStyle.Top;
-        label4.Location = new Point(0, 114);
-        label4.Name = "label4";
-        label4.Size = new Size(67, 15);
-        label4.TabIndex = 6;
-        label4.Text = "Description";
+        this.label4.AutoSize = true;
+        this.label4.Dock = DockStyle.Top;
+        this.label4.Location = new Point(0, 114);
+        this.label4.Name = "label4";
+        this.label4.Size = new Size(67, 15);
+        this.label4.TabIndex = 6;
+        this.label4.Text = "Description";
         // 
         // nameTextBox
         // 
-        nameTextBox.Dock = DockStyle.Top;
-        nameTextBox.Location = new Point(0, 91);
-        nameTextBox.Name = "nameTextBox";
-        nameTextBox.Size = new Size(503, 23);
-        nameTextBox.TabIndex = 5;
+        this.nameTextBox.Dock = DockStyle.Top;
+        this.nameTextBox.Location = new Point(0, 91);
+        this.nameTextBox.Name = "nameTextBox";
+        this.nameTextBox.Size = new Size(503, 23);
+        this.nameTextBox.TabIndex = 5;
         // 
         // label3
         // 
-        label3.AutoSize = true;
-        label3.Dock = DockStyle.Top;
-        label3.Location = new Point(0, 76);
-        label3.Name = "label3";
-        label3.Size = new Size(39, 15);
-        label3.TabIndex = 4;
-        label3.Text = "Name";
+        this.label3.AutoSize = true;
+        this.label3.Dock = DockStyle.Top;
+        this.label3.Location = new Point(0, 76);
+        this.label3.Name = "label3";
+        this.label3.Size = new Size(39, 15);
+        this.label3.TabIndex = 4;
+        this.label3.Text = "Name";
         // 
         // upcCodeNumUpDown
         // 
-        upcCodeNumUpDown.Dock = DockStyle.Top;
-        upcCodeNumUpDown.Location = new Point(0, 53);
-        upcCodeNumUpDown.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
-        upcCodeNumUpDown.Name = "upcCodeNumUpDown";
-        upcCodeNumUpDown.Size = new Size(503, 23);
-        upcCodeNumUpDown.TabIndex = 3;
+        this.upcCodeNumUpDown.Dock = DockStyle.Top;
+        this.upcCodeNumUpDown.Location = new Point(0, 53);
+        this.upcCodeNumUpDown.Maximum = new decimal(new int[] { 100000000, 0, 0, 0 });
+        this.upcCodeNumUpDown.Name = "upcCodeNumUpDown";
+        this.upcCodeNumUpDown.Size = new Size(503, 23);
+        this.upcCodeNumUpDown.TabIndex = 3;
         // 
         // label2
         // 
-        label2.AutoSize = true;
-        label2.Dock = DockStyle.Top;
-        label2.Location = new Point(0, 38);
-        label2.Name = "label2";
-        label2.Size = new Size(67, 15);
-        label2.TabIndex = 2;
-        label2.Text = "UPC Code :";
+        this.label2.AutoSize = true;
+        this.label2.Dock = DockStyle.Top;
+        this.label2.Location = new Point(0, 38);
+        this.label2.Name = "label2";
+        this.label2.Size = new Size(67, 15);
+        this.label2.TabIndex = 2;
+        this.label2.Text = "UPC Code :";
         // 
         // idNumUpDown
         // 
-        idNumUpDown.Dock = DockStyle.Top;
-        idNumUpDown.Location = new Point(0, 15);
-        idNumUpDown.Name = "idNumUpDown";
-        idNumUpDown.Size = new Size(503, 23);
-        idNumUpDown.TabIndex = 1;
+        this.idNumUpDown.Dock = DockStyle.Top;
+        this.idNumUpDown.Location = new Point(0, 15);
+        this.idNumUpDown.Name = "idNumUpDown";
+        this.idNumUpDown.Size = new Size(503, 23);
+        this.idNumUpDown.TabIndex = 1;
         // 
         // label1
         // 
-        label1.AutoSize = true;
-        label1.Dock = DockStyle.Top;
-        label1.Location = new Point(0, 0);
-        label1.Name = "label1";
-        label1.Size = new Size(24, 15);
-        label1.TabIndex = 0;
-        label1.Text = "ID :";
+        this.label1.AutoSize = true;
+        this.label1.Dock = DockStyle.Top;
+        this.label1.Location = new Point(0, 0);
+        this.label1.Name = "label1";
+        this.label1.Size = new Size(24, 15);
+        this.label1.TabIndex = 0;
+        this.label1.Text = "ID :";
         // 
         // panel3
         // 
-        panel3.Controls.Add(label8);
-        panel3.Dock = DockStyle.Fill;
-        panel3.Location = new Point(3, 3);
-        panel3.Name = "panel3";
-        panel3.Size = new Size(248, 562);
-        panel3.TabIndex = 1;
+        this.panel3.Controls.Add(this.label8);
+        this.panel3.Dock = DockStyle.Fill;
+        this.panel3.Location = new Point(3, 3);
+        this.panel3.Name = "panel3";
+        this.panel3.Size = new Size(248, 562);
+        this.panel3.TabIndex = 1;
         // 
         // label8
         // 
-        label8.AutoSize = true;
-        label8.Location = new Point(69, 6);
-        label8.Name = "label8";
-        label8.Size = new Size(50, 15);
-        label8.TabIndex = 0;
-        label8.Text = "Supplier";
+        this.label8.AutoSize = true;
+        this.label8.Location = new Point(69, 6);
+        this.label8.Name = "label8";
+        this.label8.Size = new Size(50, 15);
+        this.label8.TabIndex = 0;
+        this.label8.Text = "Supplier";
         // 
         // panel4
         // 
-        panel4.Controls.Add(label9);
-        panel4.Dock = DockStyle.Fill;
-        panel4.Location = new Point(766, 3);
-        panel4.Name = "panel4";
-        panel4.Size = new Size(250, 562);
-        panel4.TabIndex = 2;
+        this.panel4.Controls.Add(this.label9);
+        this.panel4.Dock = DockStyle.Fill;
+        this.panel4.Location = new Point(766, 3);
+        this.panel4.Name = "panel4";
+        this.panel4.Size = new Size(250, 562);
+        this.panel4.TabIndex = 2;
         // 
         // label9
         // 
-        label9.AutoSize = true;
-        label9.Location = new Point(75, 6);
-        label9.Name = "label9";
-        label9.Size = new Size(38, 15);
-        label9.TabIndex = 1;
-        label9.Text = "Client";
+        this.label9.AutoSize = true;
+        this.label9.Location = new Point(75, 6);
+        this.label9.Name = "label9";
+        this.label9.Size = new Size(38, 15);
+        this.label9.TabIndex = 1;
+        this.label9.Text = "Client";
         // 
         // panel1
         // 
-        panel1.Controls.Add(cancelBtn);
-        panel1.Controls.Add(actionBtn);
-        panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(0, 515);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(1019, 53);
-        panel1.TabIndex = 1;
+        this.panel1.Controls.Add(this.cancelBtn);
+        this.panel1.Controls.Add(this.actionBtn);
+        this.panel1.Dock = DockStyle.Bottom;
+        this.panel1.Location = new Point(0, 515);
+        this.panel1.Name = "panel1";
+        this.panel1.Size = new Size(1019, 53);
+        this.panel1.TabIndex = 1;
         // 
         // cancelBtn
         // 
-        cancelBtn.Location = new Point(909, 14);
-        cancelBtn.Name = "cancelBtn";
-        cancelBtn.Size = new Size(98, 33);
-        cancelBtn.TabIndex = 1;
-        cancelBtn.Text = "Annuler";
-        cancelBtn.UseVisualStyleBackColor = true;
-        cancelBtn.Click += this.cancelBtn_Click;
+        this.cancelBtn.Location = new Point(909, 14);
+        this.cancelBtn.Name = "cancelBtn";
+        this.cancelBtn.Size = new Size(98, 33);
+        this.cancelBtn.TabIndex = 1;
+        this.cancelBtn.Text = "Annuler";
+        this.cancelBtn.UseVisualStyleBackColor = true;
+        this.cancelBtn.Click += this.CancelBtn_Click;
         // 
         // actionBtn
         // 
-        actionBtn.Location = new Point(24, 14);
-        actionBtn.Name = "actionBtn";
-        actionBtn.Size = new Size(98, 33);
-        actionBtn.TabIndex = 0;
-        actionBtn.Text = "Action";
-        actionBtn.UseVisualStyleBackColor = true;
-        actionBtn.Click += this.actionBtn_Click;
+        this.actionBtn.Location = new Point(24, 14);
+        this.actionBtn.Name = "actionBtn";
+        this.actionBtn.Size = new Size(98, 33);
+        this.actionBtn.TabIndex = 0;
+        this.actionBtn.Text = "Action";
+        this.actionBtn.UseVisualStyleBackColor = true;
+        this.actionBtn.Click += this.ActionBtn_Click;
         // 
         // ProduitWindow
         // 
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(1019, 568);
-        this.Controls.Add(panel1);
-        this.Controls.Add(tableLayoutPanel1);
+        this.Controls.Add(this.panel1);
+        this.Controls.Add(this.tableLayoutPanel1);
         this.Name = "ProduitWindow";
         this.Text = "ProduitWindow";
-        tableLayoutPanel1.ResumeLayout(false);
-        panel2.ResumeLayout(false);
-        panel2.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize) qtyInStockNumeric).EndInit();
-        ((System.ComponentModel.ISupportInitialize) upcCodeNumUpDown).EndInit();
-        ((System.ComponentModel.ISupportInitialize) idNumUpDown).EndInit();
-        panel3.ResumeLayout(false);
-        panel3.PerformLayout();
-        panel4.ResumeLayout(false);
-        panel4.PerformLayout();
-        panel1.ResumeLayout(false);
+        this.tableLayoutPanel1.ResumeLayout(false);
+        this.panel2.ResumeLayout(false);
+        this.panel2.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize) this.qtyInStockNumeric).EndInit();
+        ((System.ComponentModel.ISupportInitialize) this.upcCodeNumUpDown).EndInit();
+        ((System.ComponentModel.ISupportInitialize) this.idNumUpDown).EndInit();
+        this.panel3.ResumeLayout(false);
+        this.panel3.PerformLayout();
+        this.panel4.ResumeLayout(false);
+        this.panel4.PerformLayout();
+        this.panel1.ResumeLayout(false);
         this.ResumeLayout(false);
     }
 

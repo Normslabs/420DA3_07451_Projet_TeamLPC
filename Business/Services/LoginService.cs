@@ -1,15 +1,7 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Exceptions;
-using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
-using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation;
-using Microsoft.VisualBasic.ApplicationServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 internal class LoginService : AbstractLoginService {
@@ -46,8 +38,8 @@ internal class LoginService : AbstractLoginService {
     }
 
     public override Utilisateur GetLoggedInUser() {
-        return this.LoggedInUser is null 
-            ? throw new NoLoggedInUserException("Pas d'utilisateur connecté en ce moment.") 
+        return this.LoggedInUser is null
+            ? throw new NoLoggedInUserException("Pas d'utilisateur connecté en ce moment.")
             : this.LoggedInUser;
     }
 

@@ -1,16 +1,6 @@
-﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.Business.Facades;
+﻿using _420DA3_07451_Projet_Initial.Business.Facades;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 internal partial class AdminUserMainMenu : Form {
@@ -20,6 +10,7 @@ internal partial class AdminUserMainMenu : Form {
         this.facade = facade;
         this.InitializeComponent();
         this.ReloadUserCombobox();
+        this.ReloadRolesCombobox();
         this.ReloadEntrepotComboBox();
     }
 
@@ -513,11 +504,11 @@ internal partial class AdminUserMainMenu : Form {
 
     }
 
-    private void createClientbutton1_Click(object sender, EventArgs e) {
+    private void CreateClientbutton1_Click(object sender, EventArgs e) {
         _ = this.facade.GetService<ClientService>().CreateNewDtoInstance();
     }
 
-    private void filterClienttextBox1_TextChanged(object sender, EventArgs e) {
+    private void FilterClienttextBox1_TextChanged(object sender, EventArgs e) {
         this.ClientslistBox1.DataSource = this.facade.GetService<ClientService>().SearchClient(this.filterClienttextBox1.Text);
     }
 
@@ -525,18 +516,18 @@ internal partial class AdminUserMainMenu : Form {
 
     }
 
-    private void viewClientbutton1_Click(object sender, EventArgs e) {
+    private void ViewClientbutton1_Click(object sender, EventArgs e) {
         ClientsDTO selectClient = (ClientsDTO) this.ClientslistBox1.SelectedItem;
         _ = this.facade.GetService<ClientService>().DisplayDtoInstance(selectClient);
 
     }
 
-    private void deletebutton_Click(object sender, EventArgs e) {
+    private void DeleteClientButton_Click(object sender, EventArgs e) {
         ClientsDTO selectedClient = (ClientsDTO) this.ClientslistBox1.SelectedItem;
         _ = this.facade.GetService<ClientService>().DeleteDtoInstance(selectedClient);
     }
 
-    private void editClientbutton_Click(object sender, EventArgs e) {
+    private void EditClientbutton_Click(object sender, EventArgs e) {
         ClientsDTO selectedClient = (ClientsDTO) this.ClientslistBox1.SelectedItem;
         _ = this.facade.GetService<ClientService>().UpdateDtoInstance(selectedClient);
     }
@@ -544,26 +535,26 @@ internal partial class AdminUserMainMenu : Form {
     #endregion
 
     #region ShipmentOrder
-    private void createShipmentordebutton1_Click(object sender, EventArgs e) {
-        this.facade.GetService<ShipmentOrderService>().CreateNewDtoInstance();
+    private void CreateShipmentordebutton1_Click(object sender, EventArgs e) {
+        _ = this.facade.GetService<ShipmentOrderService>().CreateNewDtoInstance();
     }
 
-    private void editShipmentOrderbutton1_Click(object sender, EventArgs e) {
+    private void EditShipmentOrderbutton1_Click(object sender, EventArgs e) {
         ShipmentOrderDTO selectShipmentOrder = (ShipmentOrderDTO) this.ShipmentOrderlistBox1.SelectedItem;
         _ = this.facade.GetService<ShipmentOrderService>().UpdateDtoInstance(selectShipmentOrder);
     }
 
-    private void supprimerShipmentOrderbutton2_Click(object sender, EventArgs e) {
+    private void SupprimerShipmentOrderbutton2_Click(object sender, EventArgs e) {
         ShipmentOrderDTO selectShipmentOrder = (ShipmentOrderDTO) this.ShipmentOrderlistBox1.SelectedItem;
         _ = this.facade.GetService<ShipmentOrderService>().DeleteDtoInstance(selectShipmentOrder);
     }
 
-    private void viewShipmentOrderbutton3_Click(object sender, EventArgs e) {
+    private void ViewShipmentOrderbutton3_Click(object sender, EventArgs e) {
         ShipmentOrderDTO selectShipmentOrder = (ShipmentOrderDTO) this.ShipmentOrderlistBox1.SelectedItem;
         _ = this.facade.GetService<ShipmentOrderService>().DisplayDtoInstance(selectShipmentOrder);
     }
 
-    private void filtreShipmentOrdertextBox1_TextChanged(object sender, EventArgs e) {
+    private void FiltreShipmentOrdertextBox1_TextChanged(object sender, EventArgs e) {
         this.ClientslistBox1.DataSource = this.facade.GetService<ShipmentOrderService>().SearchShipmentOrders(this.filtreShipmentOrdertextBox1.Text);
     }
     #endregion 

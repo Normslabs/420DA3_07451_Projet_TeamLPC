@@ -57,7 +57,7 @@ public abstract class AbstractFacade : IFacade {
         List<PropertyInfo> properties = this.GetType().GetProperties(BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance).ToList();
         foreach (PropertyInfo property in properties) {
             if (property.PropertyType == typeof(ServiceType)) {
-                return (ServiceType) (property.GetValue(this) 
+                return (ServiceType) (property.GetValue(this)
                     ?? throw new Exception($"Property of type [{typeof(ServiceType).Name}] is empty (not initialized)."));
             }
         }

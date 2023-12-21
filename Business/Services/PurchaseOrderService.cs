@@ -3,22 +3,15 @@ using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation;
-using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
-    /// <summary>
-    /// Déclaration du PurchaseOrderService data access ainsi que la fenetre de management
-    /// </summary>
+
     protected override PurchaseOrderDAO Dao { get; }
     protected override PurchaseOrderForm DtoManagementWindow { get; }
     protected ProduitDAO ProduitDAO { get; }
+
     /// <summary>
     /// Declaration du constructeur 
     /// </summary>
@@ -30,7 +23,10 @@ public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
         this.DtoManagementWindow = new PurchaseOrderForm(facade);
         this.ProduitDAO = new ProduitDAO(context);
     }
-    //Fonction shutdown pour fermer l'application
+
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public override void Shutdown() {
         if (!this.DtoManagementWindow.IsDisposed) {
             this.DtoManagementWindow.Dispose();
@@ -50,9 +46,9 @@ public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
     public PurchaseOrder CompletePurchaseOrder(PurchaseOrder purchaseOrder) {
         Produit produit = purchaseOrder.Product;
         produit.InstockQuantity += purchaseOrder.QuantityOrdered;
-        this.ProduitDAO.Update(produit);
+        _ = this.ProduitDAO.Update(produit);
         purchaseOrder.Status = PurchaseOrderStatusEnum.Completed;
-        this.Dao.Update(purchaseOrder);
+        _ = this.Dao.Update(purchaseOrder);
 
         return purchaseOrder;
 

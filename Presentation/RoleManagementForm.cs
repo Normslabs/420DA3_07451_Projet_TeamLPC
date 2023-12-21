@@ -1,17 +1,7 @@
-﻿using _420DA3_07451_Projet_Initial.Business;
-using _420DA3_07451_Projet_Initial.Business.Abstracts;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class RoleManagementForm : Form, IDtoManagementView<Role> {
@@ -30,25 +20,25 @@ public partial class RoleManagementForm : Form, IDtoManagementView<Role> {
 
     public DialogResult OpenForCreation(Role blankInstance) {
         this.workingIntent = ViewIntentEnum.Creation;
-        this.boutonAction.Text = "Créer!";
+        this.actionButton.Text = "Créer!";
         return this.OpenFor(blankInstance);
     }
 
     public DialogResult OpenForDeletion(Role instance) {
         this.workingIntent = ViewIntentEnum.Deletion;
-        this.boutonAction.Text = "Supprimer";
+        this.actionButton.Text = "Supprimer";
         return this.OpenFor(instance);
     }
 
     public DialogResult OpenForEdition(Role instance) {
         this.workingIntent = ViewIntentEnum.Edition;
-        this.boutonAction.Text = "Sauvegarder";
+        this.actionButton.Text = "Sauvegarder";
         return this.OpenFor(instance);
     }
 
     public DialogResult OpenForVisualization(Role instance) {
         this.workingIntent = ViewIntentEnum.Visualization;
-        this.boutonAction.Text = "OK";
+        this.actionButton.Text = "OK";
         return this.OpenFor(instance);
     }
 
@@ -105,7 +95,7 @@ public partial class RoleManagementForm : Form, IDtoManagementView<Role> {
         if (!Role.ValidateRoleName(this.roleNameTextBox.Text)) {
             throw new Exception("Nom du role invalide");
         }
-        if (!string.IsNullOrEmpty(this.roleDescriptionTextBox.Text) 
+        if (!string.IsNullOrEmpty(this.roleDescriptionTextBox.Text)
             && !Role.ValidateRoleDesc(this.roleDescriptionTextBox.Text)) {
             throw new Exception("Description du role invalide");
         }

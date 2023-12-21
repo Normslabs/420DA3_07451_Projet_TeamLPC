@@ -2,12 +2,7 @@
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 internal class AppDbContext : AbstractContext {
@@ -112,45 +107,45 @@ internal class AppDbContext : AbstractContext {
         #region Adresse et Entrepot 
 
         // Adresse
-       
-        _ = modelBuilder.Entity<Adresse>()
-            .ToTable("Adresse")
-            .HasKey(adresse => adresse.Id); 
 
         _ = modelBuilder.Entity<Adresse>()
-            .Property(adresse =>adresse.Id)
+            .ToTable("Adresse")
+            .HasKey(adresse => adresse.Id);
+
+        _ = modelBuilder.Entity<Adresse>()
+            .Property(adresse => adresse.Id)
             .HasColumnName("Id")
             .HasColumnType("int");
 
-         _ = modelBuilder.Entity<Adresse>()
-            .Property(adresse => adresse.Ville)
-            .HasColumnName("Ville")
-            .HasColumnType($"nvarchar({Adresse.MAX_VILLE_LENGTH})");
+        _ = modelBuilder.Entity<Adresse>()
+           .Property(adresse => adresse.Ville)
+           .HasColumnName("Ville")
+           .HasColumnType($"nvarchar({Adresse.MAX_VILLE_LENGTH})");
 
-         _ = modelBuilder.Entity<Adresse>()
-            .Property(adresse => adresse.NumeroCivique)
-            .HasColumnName("NumeroCivique")
-            .HasColumnType($"nvarchar({Adresse.MAX_NUMEROCIVIQUE_LENGTH})");
+        _ = modelBuilder.Entity<Adresse>()
+           .Property(adresse => adresse.NumeroCivique)
+           .HasColumnName("NumeroCivique")
+           .HasColumnType($"nvarchar({Adresse.MAX_NUMEROCIVIQUE_LENGTH})");
 
-         _ = modelBuilder.Entity<Adresse>()
-            .Property(adresse => adresse.Pays)
-            .HasColumnName("Pays")
-            .HasColumnType($"nvarchar({Adresse.MAX_PAYS_LENGTH})");
+        _ = modelBuilder.Entity<Adresse>()
+           .Property(adresse => adresse.Pays)
+           .HasColumnName("Pays")
+           .HasColumnType($"nvarchar({Adresse.MAX_PAYS_LENGTH})");
 
-         _ = modelBuilder.Entity<Adresse>()
-            .Property(adresse => adresse.CodePostal)
-            .HasColumnName("CodePostal")
-            .HasColumnType($"nvarchar({Adresse.MAX_CODEPOSTAL_LENGTH})");
+        _ = modelBuilder.Entity<Adresse>()
+           .Property(adresse => adresse.CodePostal)
+           .HasColumnName("CodePostal")
+           .HasColumnType($"nvarchar({Adresse.MAX_CODEPOSTAL_LENGTH})");
 
-         _ = modelBuilder.Entity<Adresse>()
-            .Property(adresse => adresse.Province)
-            .HasColumnName("Province")
-            .HasColumnType($"nvarchar({Adresse.MAX_PROVINCE_LENGTH})");
+        _ = modelBuilder.Entity<Adresse>()
+           .Property(adresse => adresse.Province)
+           .HasColumnName("Province")
+           .HasColumnType($"nvarchar({Adresse.MAX_PROVINCE_LENGTH})");
 
-         _ = modelBuilder.Entity<Adresse>()
-            .Property(adresse => adresse.Rue)
-            .HasColumnName("Rue")
-            .HasColumnType($"nvarchar({Adresse.MAX_RUE_LENGTH})");
+        _ = modelBuilder.Entity<Adresse>()
+           .Property(adresse => adresse.Rue)
+           .HasColumnName("Rue")
+           .HasColumnType($"nvarchar({Adresse.MAX_RUE_LENGTH})");
 
         _ = modelBuilder.Entity<Adresse>()
             .Property(addr => addr.Rowversion)
@@ -194,7 +189,7 @@ internal class AppDbContext : AbstractContext {
             .ToTable("Clients")
             .HasKey(client => client.Id);
 
-        _= modelBuilder.Entity<ClientsDTO>()
+        _ = modelBuilder.Entity<ClientsDTO>()
             .Property(client => client.Id)
             .HasColumnName("Id")
             .HasColumnType("int");
@@ -286,7 +281,7 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.EmployeEntrepotId)
             .HasColumnName("EmployeEntrepotId")
-            .HasColumnType ("int");
+            .HasColumnType("int");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.DateCreated)
@@ -340,7 +335,7 @@ internal class AppDbContext : AbstractContext {
             .Property(produit => produit.TargetStockQuantity)
             .HasColumnName("TargetStockQuantity")
             .HasColumnType("int");
-        
+
         _ = modelBuilder.Entity<Produit>()
             .Property(produit => produit.SupplierCode)
             .HasColumnName("SupplierCode")
@@ -444,8 +439,8 @@ internal class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.AdresseId)
-            .HasColumnName ("AdresseId")
-            .HasColumnType ("int");
+            .HasColumnName("AdresseId")
+            .HasColumnType("int");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
@@ -457,19 +452,19 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.NomContact)
             .HasColumnName("NomContact")
-            .HasColumnType ($"nvarchar({Fournisseur.NOMCONTACT_MAX_LENGHT})");
+            .HasColumnType($"nvarchar({Fournisseur.NOMCONTACT_MAX_LENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.TelephoneContact)
             .HasColumnName("TelephoneContact")
-            .HasColumnType ($"nvarchar({Fournisseur.TELEPHONECONTACT_MAX_LENGHT})");
+            .HasColumnType($"nvarchar({Fournisseur.TELEPHONECONTACT_MAX_LENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.EmailContact)
             .HasColumnName("EmailContact")
-            .HasColumnType ($"nvarchar({Fournisseur.EMAILCONTACT_MAX_LENGHT})");
+            .HasColumnType($"nvarchar({Fournisseur.EMAILCONTACT_MAX_LENGHT})");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
@@ -487,8 +482,8 @@ internal class AppDbContext : AbstractContext {
             .HasKey(shipment => shipment.Id);
 
         _ = modelBuilder.Entity<ShipmentDTO>()
-            .Property (shipment => shipment.Id)
-            .HasColumnName ("Id")
+            .Property(shipment => shipment.Id)
+            .HasColumnName("Id")
             .HasColumnType("int");
 
         _ = modelBuilder.Entity<ShipmentDTO>()
@@ -502,7 +497,7 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType("nvarchar(15)");
 
         _ = modelBuilder.Entity<ShipmentDTO>()
-            .Property (shipment => shipment.ShippingOrderID)
+            .Property(shipment => shipment.ShippingOrderID)
             .HasColumnName("ShippingOrderId")
             .HasColumnType("int");
 
@@ -575,7 +570,7 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Entrepot>()
             .HasOne(entrepot => entrepot.AdresseEntrepot)
             .WithOne(adresse => adresse.AdresseEntrepot)
-            .HasForeignKey<Entrepot>(wh=>wh.AdresseId)
+            .HasForeignKey<Entrepot>(wh => wh.AdresseId)
             .OnDelete(DeleteBehavior.Restrict);
 
         // 1-à-N entre Client et Entrepot
@@ -694,7 +689,7 @@ internal class AppDbContext : AbstractContext {
             );
 
         _ = modelBuilder.Entity<Fournisseur>().HasData(
-            new Fournisseur() { Id = 1, SupplierName = "Fournisseur Test 1", AdresseId = 4, NomContact = "Doe", PrenomContact = "John", EmailContact = "john.doe@fournisseur.net", TelephoneContact = "5145555555"  }
+            new Fournisseur() { Id = 1, SupplierName = "Fournisseur Test 1", AdresseId = 4, NomContact = "Doe", PrenomContact = "John", EmailContact = "john.doe@fournisseur.net", TelephoneContact = "5145555555" }
             );
 
         _ = modelBuilder.Entity<Produit>().HasData(
@@ -707,7 +702,7 @@ internal class AppDbContext : AbstractContext {
         Role roleAdmin = new Role() { Id = Role.ADMINISTRATOR_ROLE_ID, RoleName = "Administrator", RoleDescription = "Role Administrateur" };
         Role roleOfficeWorker = new Role() { Id = Role.OFFICE_EMPLOYEE_ROLE_ID, RoleName = "OfficeEmployee", RoleDescription = "Employés de bureau" };
         Role roleWHWorker = new Role() { Id = Role.WAREHOUSE_EMPLOYEE_ROLE_ID, RoleName = "WarehouseEmployee", RoleDescription = "Employés d'entrepôt" };
-        
+
         _ = modelBuilder.Entity<Role>().HasData(
             roleAdmin,
             roleOfficeWorker,

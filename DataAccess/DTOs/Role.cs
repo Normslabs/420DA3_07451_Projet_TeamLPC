@@ -1,9 +1,4 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 
@@ -102,6 +97,6 @@ public class Role : AbstractDTO<int> {
     }
 
     public override string ToString() {
-        return  this.Id.ToString() + " - " + this.RoleName;
+        return this.Id.ToString() + " - " + this.RoleName;
     }
 }

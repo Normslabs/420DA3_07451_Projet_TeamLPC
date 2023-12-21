@@ -2,12 +2,6 @@
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 
@@ -26,9 +20,8 @@ public class EntrepotDAO : AbstractDao<Entrepot, int> {
     /// Constructeur
     /// </summary>
     /// <param name="context">Le contexte EF Core utilisé par le DAO.</param>
-    public EntrepotDAO(AbstractContext context) 
-    { 
-       this.Context = context;
+    public EntrepotDAO(AbstractContext context) {
+        this.Context = context;
     }
 
     /// <summary>
@@ -71,7 +64,7 @@ public class EntrepotDAO : AbstractDao<Entrepot, int> {
     public Entrepot? GetEntrepotByIdWithAddress(int id) {
         return this.Context.GetDbSet<Entrepot>()
             .Where(entrepot => entrepot.Id == id)
-            .Include(entrepot => entrepot.AdresseEntrepot) 
+            .Include(entrepot => entrepot.AdresseEntrepot)
             .SingleOrDefault();
     }
 

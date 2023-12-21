@@ -1,11 +1,6 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 
@@ -36,11 +31,11 @@ public abstract class AbstractContext : DbContext {
         List<PropertyInfo> matchingProps = new List<PropertyInfo>();
         foreach (PropertyInfo property in contextProperties) {
             if (property.PropertyType == typeof(DbSet<DtoType>)) {
-                matchingProps.Add(property); 
+                matchingProps.Add(property);
             }
         }
         try {
-            DbSet<DtoType> property = (DbSet<DtoType>?) matchingProps.Single().GetValue(this) 
+            DbSet<DtoType> property = (DbSet<DtoType>?) matchingProps.Single().GetValue(this)
                 ?? throw new Exception($"La propriété de type DbSet<{typeof(DtoType).Name}> dans la classe contexte n'est pas initialisée (elle est vide).");
             return property;
         } catch (InvalidOperationException ioex) {

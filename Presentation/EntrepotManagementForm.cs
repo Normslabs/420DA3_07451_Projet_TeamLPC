@@ -3,15 +3,6 @@ using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 using _420DA3_07451_Projet_Initial.Presentation.Enums;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 
@@ -20,9 +11,6 @@ namespace _420DA3_07451_Projet_Initial.Presentation;
 /// </summary>
 public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot> {
 
-    /// <summary>
-    /// Declaration de la facade pour les intance courrante et l'intention courrante
-    /// </summary>
     private AbstractFacade ParentFacade { get; set; }
     private Entrepot workingInstance = null!;
     private ViewIntentEnum workingIntent;
@@ -186,8 +174,6 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
             if (this.entrepotadresseComboBox.Items.Contains(ajouternouvelleAdresse)) {
                 this.entrepotadresseComboBox.SelectedItem = ajouternouvelleAdresse;
             }
-
-
         }
     }
 

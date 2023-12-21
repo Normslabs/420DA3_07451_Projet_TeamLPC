@@ -180,6 +180,7 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
             return;
         }
     }
+
     /// <summary>
     /// Fonction qui permet de valider la longueur de tout les champs dans adresses.
     ///  Pour chaque champs la fonction va chercher les fonction de validations dans le AdresseDTO

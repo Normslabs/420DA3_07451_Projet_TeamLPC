@@ -1,28 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
+﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
-using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation;
-using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
+using System.Diagnostics;
 
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class ClientService : AbstractDtoService<ClientsDTO, int> {
-    /// <summary>
-    /// Acce au donne de la Classe ClientDAO
-    /// </summary>
+
     protected override ClientsDAO Dao { get; }
-    /// <summary>
-    /// Acce aux donne du form ClientWindows
-    /// </summary>
     protected override ClientWindows DtoManagementWindow { get; }
 
     /// <summary>
@@ -35,6 +22,7 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
         this.Dao = new ClientsDAO(context);
         this.DtoManagementWindow = new ClientWindows(facade);
     }
+
     /// <summary>
     /// Recherche du client en fonction du filtre
     /// </summary>
@@ -43,6 +31,7 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
     public List<ClientsDTO> SearchClient(string filter) {
         return this.Dao.SearchClients(filter);
     }
+
     /// <summary>
     /// Recevoir le client selon l'Id
     /// </summary>
@@ -51,6 +40,7 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
     public ClientsDTO? GetClientId(int clientId) {
         return this.Dao.GetById(clientId);
     }
+
     /// <summary>
     /// Recevoir les clients avec ces commandes selon son identifiant
     /// </summary>
@@ -59,6 +49,7 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
     public ClientsDTO? GetClientShipmentOrder(int id) {
         return this.Dao.GetClientShipmentOrder(id);
     }
+
     /// <summary>
     /// Obtient la liste de tout les clients
     /// </summary>
@@ -66,6 +57,7 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
     public List<ClientsDTO> GetAllClients() {
         return this.Dao.GetAllClients();
     }
+
     /// <summary>
     /// <inheritdoc/> 
     /// </summary>
@@ -74,10 +66,20 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
             if (!this.DtoManagementWindow.IsDisposed) {
                 this.DtoManagementWindow.Dispose();
             }
-        } catch(Exception ex) {
+        } catch (Exception ex) {
             Debug.WriteLine("Failed to dispose of DtoManagementWindow on shutdown (possible memory leak): " + ex.Message);
         }
     }
+    //public ClientsDTO CreateClient(ClientsDTO clients) {
+    //    return this.dao.Create(clients);
+    //}
+
+    //public ClientsDTO DeleteClient(ClientsDTO clients) {
+    //    return this.dao.Delete(clients);
+    //}
+    //public ClientsDTO UpdateClient(ClientsDTO clients) {
+    //    return this.dao.Update(clients);
+    //}
 
 
 }

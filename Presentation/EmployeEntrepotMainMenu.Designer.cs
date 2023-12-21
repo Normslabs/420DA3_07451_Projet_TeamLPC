@@ -184,7 +184,7 @@ partial class EmployeEntrepotMainMenu {
         markPoAsCompletedButton.TabIndex = 2;
         markPoAsCompletedButton.Text = "Marquer comme reçue";
         markPoAsCompletedButton.UseVisualStyleBackColor = true;
-        markPoAsCompletedButton.Click += this.markPoAsCompletedButton_Click;
+        markPoAsCompletedButton.Click += this.MarkPoAsCompletedButton_Click;
         // 
         // shipOrderOptionsBox
         // 
@@ -207,7 +207,7 @@ partial class EmployeEntrepotMainMenu {
         markSoAsCompletedButton.TabIndex = 2;
         markSoAsCompletedButton.Text = "Marquer comme completer";
         markSoAsCompletedButton.UseVisualStyleBackColor = true;
-        markSoAsCompletedButton.Click += this.markSoAsCompletedButton_Click;
+        markSoAsCompletedButton.Click += this.MarkSoAsCompletedButton_Click;
         // 
         // markSoAsPickedUpButton
         // 
@@ -218,7 +218,7 @@ partial class EmployeEntrepotMainMenu {
         markSoAsPickedUpButton.TabIndex = 1;
         markSoAsPickedUpButton.Text = "Marquer comme ramassée";
         markSoAsPickedUpButton.UseVisualStyleBackColor = true;
-        markSoAsPickedUpButton.Click += this.markSoAsPickedUpButton_Click;
+        markSoAsPickedUpButton.Click += this.MarkSoAsPickedUpButton_Click;
         // 
         // assignToSelfButton
         // 
@@ -229,7 +229,7 @@ partial class EmployeEntrepotMainMenu {
         assignToSelfButton.TabIndex = 0;
         assignToSelfButton.Text = "Assigner à soi-même";
         assignToSelfButton.UseVisualStyleBackColor = true;
-        assignToSelfButton.Click += this.assignToSelfButton_Click;
+        assignToSelfButton.Click += this.AssignToSelfButton_Click;
         // 
         // column4BottomPanel
         // 
@@ -249,7 +249,7 @@ partial class EmployeEntrepotMainMenu {
         quitButton.TabIndex = 4;
         quitButton.Text = "Quitter";
         quitButton.UseVisualStyleBackColor = true;
-        quitButton.Click += this.quitButton_Click;
+        quitButton.Click += this.QuitButton_Click;
         // 
         // column4HeaderLabel
         // 
@@ -292,7 +292,7 @@ partial class EmployeEntrepotMainMenu {
         warehouseIncompletePoListBox.Name = "warehouseIncompletePoListBox";
         warehouseIncompletePoListBox.Size = new Size(270, 635);
         warehouseIncompletePoListBox.TabIndex = 0;
-        warehouseIncompletePoListBox.SelectedIndexChanged += this.warehouseIncompletePoListBox_SelectedIndexChanged;
+        warehouseIncompletePoListBox.SelectedIndexChanged += this.WarehouseIncompletePoListBox_SelectedIndexChanged;
         // 
         // column3BottomPanel
         // 
@@ -326,7 +326,7 @@ partial class EmployeEntrepotMainMenu {
         col3RefreshButton.TabIndex = 2;
         col3RefreshButton.Text = "Mettre à jour";
         col3RefreshButton.UseVisualStyleBackColor = true;
-        col3RefreshButton.Click += this.col3RefreshButton_Click;
+        col3RefreshButton.Click += this.Col3RefreshButton_Click;
         // 
         // column3HeaderLabel
         // 
@@ -369,7 +369,7 @@ partial class EmployeEntrepotMainMenu {
         userIncompleteSOListBox.Name = "userIncompleteSOListBox";
         userIncompleteSOListBox.Size = new Size(270, 635);
         userIncompleteSOListBox.TabIndex = 0;
-        userIncompleteSOListBox.SelectedIndexChanged += this.userIncompleteSOListBox_SelectedIndexChanged;
+        userIncompleteSOListBox.SelectedIndexChanged += this.UserIncompleteSOListBox_SelectedIndexChanged;
         // 
         // column2BottomPanel
         // 
@@ -403,7 +403,7 @@ partial class EmployeEntrepotMainMenu {
         col2RefreshButton.TabIndex = 1;
         col2RefreshButton.Text = "Mettre à jour";
         col2RefreshButton.UseVisualStyleBackColor = true;
-        col2RefreshButton.Click += this.col2RefreshButton_Click;
+        col2RefreshButton.Click += this.Col2RefreshButton_Click;
         // 
         // column2HeaderLabel
         // 
@@ -446,7 +446,7 @@ partial class EmployeEntrepotMainMenu {
         unassignedSOListBox.Name = "unassignedSOListBox";
         unassignedSOListBox.Size = new Size(270, 635);
         unassignedSOListBox.TabIndex = 0;
-        unassignedSOListBox.SelectedIndexChanged += this.unassignedSOListBox_SelectedIndexChanged;
+        unassignedSOListBox.SelectedIndexChanged += this.UnassignedSOListBox_SelectedIndexChanged;
         // 
         // column1BottomPanel
         // 
@@ -480,7 +480,7 @@ partial class EmployeEntrepotMainMenu {
         col1RefreshButton.TabIndex = 0;
         col1RefreshButton.Text = "Mettre à jour";
         col1RefreshButton.UseVisualStyleBackColor = true;
-        col1RefreshButton.Click += this.col1RefreshButton_Click;
+        col1RefreshButton.Click += this.Col1RefreshButton_Click;
         // 
         // column1HeaderLabel
         // 

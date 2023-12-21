@@ -2,11 +2,6 @@
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 
@@ -76,9 +71,7 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
     public List<Utilisateur> SearchUsersByRoleName(string filter) {
         return this.Context.GetDbSet<Utilisateur>()
             .Include(user => user.Roles)
-            .Where(user => user.Roles.Any(
-                role => role.RoleName.StartsWith(filter)
-                )
+            .Where(user => user.Roles.Any(role => role.RoleName.StartsWith(filter))
             ).ToList();
     }
 
@@ -103,8 +96,8 @@ public class UtilisateurDAO : AbstractDao<Utilisateur, int> {
         return this.Context.GetDbSet<Utilisateur>()
             .Include(user => user.Roles)
             .Include(user => user.EntrepotDeTravail)
-            .Where(user => 
-                user.Roles.Any(role => role.Id == Role.WAREHOUSE_EMPLOYEE_ROLE_ID) 
+            .Where(user =>
+                user.Roles.Any(role => role.Id == Role.WAREHOUSE_EMPLOYEE_ROLE_ID)
                 && user.EntrepotDeTravail != null && user.EntrepotDeTravail.Id == entrepot.Id)
             .ToList();
     }

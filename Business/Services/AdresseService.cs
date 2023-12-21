@@ -1,15 +1,8 @@
 ﻿using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
-using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation;
-using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class AdresseService : AbstractDtoService<Adresse, int> {
@@ -45,9 +38,8 @@ public class AdresseService : AbstractDtoService<Adresse, int> {
     /// </remarks>
     /// <param name="filter">Le filtre de recherche</param>
     /// <returns>La <see cref="List{Adresse}"/> les adresses correspondants.</returns>
-    public List<Adresse> SearchAdresse(string filter) 
-    { 
-       return this.Dao.SearchAdresse(filter);
+    public List<Adresse> SearchAdresse(string filter) { 
+        return this.Dao.SearchAdresse(filter);
     }
 
     /// <summary>
@@ -56,6 +48,8 @@ public class AdresseService : AbstractDtoService<Adresse, int> {
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>  
     public override void Shutdown() {
-        throw new NotImplementedException();
+        if (!this.DtoManagementWindow.IsDisposed) {
+            this.DtoManagementWindow.Dispose();
+        }
     }
 }

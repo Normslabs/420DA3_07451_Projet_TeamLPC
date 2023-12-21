@@ -1,11 +1,5 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 /// <summary>
@@ -22,7 +16,7 @@ public class Produit : AbstractDTO<int> {
     /// <summary>
     /// Declaration des propriete de la classe Produit
     /// </summary>
-    public string Name { get; set; }//
+    public string Name { get; set; } = null!;
     public string? Description { get; set; }//
     public bool DoAutoRestock { get; set; }///////////
     public int InstockQuantity { get; set; }//
@@ -39,13 +33,13 @@ public class Produit : AbstractDTO<int> {
     /// </summary>
     public virtual ClientsDTO ClientsDTO { get; set; } = null!;
     public virtual Fournisseur Fournisseur { get; set; } = null!;
-    public virtual List<PurchaseOrder> PurchaseOrders {get; set;} = new List<PurchaseOrder>();
+    public virtual List<PurchaseOrder> PurchaseOrders { get; set; } = new List<PurchaseOrder>();
     public virtual List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();
 
 
     //Constructeur de la classe Produit
     #region Constructeur
-    
+
     protected Produit(int id, long upcCode, string name, string description, string supplierCode, bool doAutoRestock, int inStockQuantity, int targetStockQuantity, decimal weightInKg, byte[] rowVersion, int fournisseurId) {
         this.Id = id;
         this.UpcCode = upcCode;
@@ -61,7 +55,7 @@ public class Produit : AbstractDTO<int> {
     }
 
     //Constructeur de la classe Produit
-    public Produit(long upcCode, string name, string description, string supplierCode, bool doAutoRestock, int inStockQuantity, int  targetStockQuantity, decimal weightInKg, int ownerClientId) {
+    public Produit(long upcCode, string name, string description, string supplierCode, bool doAutoRestock, int inStockQuantity, int targetStockQuantity, decimal weightInKg, int ownerClientId) {
         this.UpcCode = upcCode;
         this.Name = name;
         this.Description = description;
@@ -94,7 +88,7 @@ public class Produit : AbstractDTO<int> {
     //Validation de la quantite in stock fournis par l'utilisateur
     public static bool ValiderInStock(int inStockQuantity) {
         return inStockQuantity >= INSTOCK_MIN_QTY;
-    
+
     }
     //Validation du supplier Code fournis par l'utilisateur
     public static bool ValiderSupplierCode(string suppliercode) {
