@@ -21,24 +21,38 @@ public class ProduitService : AbstractDtoService<Produit, int> {
     protected override ProduitWindow DtoManagementWindow { get;}
 
 
-
+    /// <summary>
+    /// Declaration du constructeur de la facade abstractcontext pour le service de Produit
+    /// </summary>
+    /// <param name="facade"></param>
+    /// <param name="context"></param>
     public ProduitService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(this);
         this.Dao = new ProduitDAO(context);
         this.DtoManagementWindow = new ProduitWindow(facade);
 
     }
-
+    /// <summary>
+    /// Declaration de la methode shutdown qui permet de ferme le management window
+    /// </summary>
     public override void Shutdown() {
         if (!this.DtoManagementWindow.IsDisposed) {
             this.DtoManagementWindow.Dispose();
         }
     }
-
+    /// <summary>
+    /// methode qui permet d'aller chercher les produit avec leur noms, avec leur fournisseurs
+    /// </summary>
+    /// <param name="productName"></param>
+    /// <returns></returns>
     public Produit GetProductsByName(string productName) {
         return this.Dao.GetByProductNameWithFournisseur(productName);
     }
-
+    /// <summary>
+    /// Methode qui permet d'aller prendre un Produit avec le UPC Code ainsi que la quantite du produit
+    /// </summary>
+    /// <param name="UPC"></param>
+    /// <returns></returns>
     public Produit GetProductsByUPC(int UPC) {
         return this.Dao.GetByUpcCodeWithQuantity(UPC);
     }

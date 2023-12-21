@@ -432,8 +432,7 @@ internal partial class AdminUserMainMenu : Form {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void AdresseFiltreTextBox_TextChanged(object sender, EventArgs e) 
-    {
+    private void AdresseFiltreTextBox_TextChanged(object sender, EventArgs e) {
         this.AdresseListBox.DataSource = this.facade.GetService<AdresseService>().SearchAdresse(this.AdresseFiltreTextBox.Text);
     }
 
@@ -442,16 +441,13 @@ internal partial class AdminUserMainMenu : Form {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void AdresseListBox_SelectedIndexChanged(object sender, EventArgs e) 
-    {
+    private void AdresseListBox_SelectedIndexChanged(object sender, EventArgs e) {
         if (this.AdresseListBox != null) {
             this.createAdresseButton.Enabled = true;
             this.AdresseEditButton.Enabled = true;
             this.AdresseViewButton.Enabled = true;
             this.AdresseDeleteButton.Enabled = true;
-        } 
-        else 
-        {
+        } else {
             this.createAdresseButton.Enabled = true;
             this.AdresseEditButton.Enabled = false;
             this.AdresseViewButton.Enabled = false;
@@ -464,8 +460,7 @@ internal partial class AdminUserMainMenu : Form {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void CreateAdresseButton_Click(object sender, EventArgs e) 
-    {
+    private void CreateAdresseButton_Click(object sender, EventArgs e) {
         _ = this.facade.GetService<AdresseService>().CreateNewDtoInstance();
     }
 
@@ -474,15 +469,11 @@ internal partial class AdminUserMainMenu : Form {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void AdresseViewButton_Click(object sender, EventArgs e)
-    {
-        if(this.AdresseListBox != null) 
-        {
+    private void AdresseViewButton_Click(object sender, EventArgs e) {
+        if (this.AdresseListBox != null) {
             Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
             _ = this.facade.GetService<AdresseService>().DisplayDtoInstance(selectedAdresse);
-        } 
-        else 
-        {
+        } else {
             _ = MessageBox.Show("Pas d'adresse selectionné");
         }
     }
@@ -492,14 +483,11 @@ internal partial class AdminUserMainMenu : Form {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void AdresseEditButton_Click(object sender, EventArgs e) 
-    {
+    private void AdresseEditButton_Click(object sender, EventArgs e) {
         if (this.AdresseListBox != null) {
             Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
             _ = this.facade.GetService<AdresseService>().UpdateDtoInstance(selectedAdresse);
-        } 
-        else 
-        {
+        } else {
             _ = MessageBox.Show("Pas d'adresse selectionné");
         }
     }
@@ -509,8 +497,7 @@ internal partial class AdminUserMainMenu : Form {
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void AdresseDeleteButton_Click(object sender, EventArgs e) 
-    {
+    private void AdresseDeleteButton_Click(object sender, EventArgs e) {
         if (this.AdresseListBox != null) {
             Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
             _ = this.facade.GetService<AdresseService>().DeleteDtoInstance(selectedAdresse);
@@ -562,4 +549,76 @@ internal partial class AdminUserMainMenu : Form {
 
     #endregion
 
+    #region Produit
+
+    private void ProduitFiltreTextBox_TextChanged(object sender, EventArgs e) {
+        this.ProduitListBox.DataSource = this.facade.GetService<ProduitService>().GetProductsByName(this.ProduitListBox.Text);
+    }
+    private void CreateProduitButton_Click(object sender, EventArgs e) {
+        _ = this.facade.GetService<ProduitService>().CreateNewDtoInstance();
+    }
+    private void ProduitViewButton_Click(object sender, EventArgs e) {
+        if (this.ProduitListBox != null) {
+            Produit produit = (Produit) this.ProduitListBox.SelectedItem;
+            _ = this.facade.GetService<ProduitService>().DisplayDtoInstance(produit);
+        } else {
+            _ = MessageBox.Show("Pas de produit selectionné");
+        }
+    }
+
+    private void ProduitEditButton_Click(object sender, EventArgs e) {
+        if (this.ProduitListBox != null) {
+            Produit produit = (Produit) this.ProduitListBox.SelectedItem;
+            _ = this.facade.GetService<ProduitService>().UpdateDtoInstance(produit);
+        } else {
+            _ = MessageBox.Show("Pas de produit selectionné");
+        }
+    }
+    private void ProduitDeleteButton_Click(object sender, EventArgs e) {
+        if (this.ProduitListBox != null) {
+            Produit produit = (Produit) this.ProduitListBox.SelectedItem;
+            _ = this.facade.GetService<ProduitService>().DeleteDtoInstance(produit);
+        } else {
+            _ = MessageBox.Show("Pas de produit selectionné");
+        }
+    }
+    private void ProduitListBox_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.ProduitListBox != null) {
+            this.createAdresseButton.Enabled = true;
+            this.ProduitEditButton.Enabled = true;
+            this.ProduitViewButton.Enabled = true;
+            this.ProduitDeleteButton.Enabled = true;
+        } else {
+            this.createAdresseButton.Enabled = true;
+            this.ProduitEditButton.Enabled = false;
+            this.ProduitViewButton.Enabled = false;
+            this.ProduitDeleteButton.Enabled = false;
+        }
+    }
+    #endregion
+    #region Purchase Order
+
+    private void PurchaseOrderListBox_SelectedIndexChanged(object sender, EventArgs e) {
+        if (this.PurchaseOrderListBox != null) {
+            this.createAdresseButton.Enabled = true;
+            this.ProduitEditButton.Enabled = true;
+            this.ProduitViewButton.Enabled = true;
+            this.ProduitDeleteButton.Enabled = true;
+        } else {
+            this.createAdresseButton.Enabled = true;
+            this.ProduitEditButton.Enabled = false;
+            this.ProduitViewButton.Enabled = false;
+            this.ProduitDeleteButton.Enabled = false;
+        }
+    }
+    private void POTextBox_TextChanged(object sender, EventArgs e) {
+        this.PurchaseOrderListBox.DataSource = this.facade.GetService<ProduitService>().GetProductsByName(this.PurchaseOrderListBox.Text);
+    }
+    #endregion
+
+
 }
+
+
+
+
