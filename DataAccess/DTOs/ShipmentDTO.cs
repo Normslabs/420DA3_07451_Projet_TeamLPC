@@ -20,6 +20,8 @@ public class ShipmentDTO : AbstractDTO<int> {
     public int? ShippingOrderID { get; set; } = null!;
 
     public string? TrackingNumber { get; set; } = null!;
+   
+    
     [NotMapped]
     private static Random random = new Random();
 
