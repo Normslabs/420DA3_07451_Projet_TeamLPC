@@ -172,9 +172,6 @@ internal partial class AdminUserMainMenu : Form {
 
     #endregion
 
-
-    // TODO: @Everyone ajoutez vos propres sections ici
-
     #region Shipment
 
     /// <summary>
@@ -223,7 +220,6 @@ internal partial class AdminUserMainMenu : Form {
         } else {
             _ = MessageBox.Show("Pas de shipment sélectionné");
         }
-
 
     }
 
@@ -619,6 +615,7 @@ internal partial class AdminUserMainMenu : Form {
         }
     }
     #endregion
+
     #region Purchase Order
 
     private void PurchaseOrderListBox_SelectedIndexChanged(object sender, EventArgs e) {

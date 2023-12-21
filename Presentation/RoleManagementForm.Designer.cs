@@ -28,19 +28,23 @@ partial class RoleManagementForm {
         this.openModeValueLabel = new Label();
         this.openModeLabel = new Label();
         this.bottomBarPanel = new Panel();
+        this.actionButton = new Button();
+        this.cancelButton = new Button();
         this.boutonAction = new Button();
         this.buttonAnnuler = new Button();
         this.mainPanel = new TableLayoutPanel();
         this.mainPanelLeftPanel = new Panel();
         this.mainPanelRightPanel = new Panel();
-        this.idNumUpDown = new NumericUpDown();
-        this.roleNameTextBox = new TextBox();
         this.roleDescriptionTextBox = new TextBox();
-        this.cancelButton = new Button();
-        this.actionButton = new Button();
+        this.roleNameTextBox = new TextBox();
+        this.idNumUpDown = new NumericUpDown();
+        this.idLabel = new Label();
+        this.roleNameLabel = new Label();
+        this.label1 = new Label();
         this.topbarPanel.SuspendLayout();
         this.bottomBarPanel.SuspendLayout();
         this.mainPanel.SuspendLayout();
+        this.mainPanelLeftPanel.SuspendLayout();
         this.mainPanelRightPanel.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize) this.idNumUpDown).BeginInit();
         this.SuspendLayout();
@@ -87,6 +91,26 @@ partial class RoleManagementForm {
         this.bottomBarPanel.Size = new Size(509, 45);
         this.bottomBarPanel.TabIndex = 7;
         // 
+        // actionButton
+        // 
+        this.actionButton.Location = new Point(310, 10);
+        this.actionButton.Name = "actionButton";
+        this.actionButton.Size = new Size(106, 23);
+        this.actionButton.TabIndex = 3;
+        this.actionButton.Text = "ACTION";
+        this.actionButton.UseVisualStyleBackColor = true;
+        this.actionButton.Click += this.ActionButton_Click;
+        // 
+        // cancelButton
+        // 
+        this.cancelButton.Location = new Point(422, 10);
+        this.cancelButton.Name = "cancelButton";
+        this.cancelButton.Size = new Size(75, 23);
+        this.cancelButton.TabIndex = 2;
+        this.cancelButton.Text = "Annuler";
+        this.cancelButton.UseVisualStyleBackColor = true;
+        this.cancelButton.Click += this.CancelButton_Click;
+        // 
         // boutonAction
         // 
         this.boutonAction.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
@@ -130,6 +154,9 @@ partial class RoleManagementForm {
         // 
         // mainPanelLeftPanel
         // 
+        this.mainPanelLeftPanel.Controls.Add(this.label1);
+        this.mainPanelLeftPanel.Controls.Add(this.roleNameLabel);
+        this.mainPanelLeftPanel.Controls.Add(this.idLabel);
         this.mainPanelLeftPanel.Dock = DockStyle.Fill;
         this.mainPanelLeftPanel.Location = new Point(32, 3);
         this.mainPanelLeftPanel.Name = "mainPanelLeftPanel";
@@ -147,22 +174,6 @@ partial class RoleManagementForm {
         this.mainPanelRightPanel.Size = new Size(294, 222);
         this.mainPanelRightPanel.TabIndex = 1;
         // 
-        // idNumUpDown
-        // 
-        this.idNumUpDown.Enabled = false;
-        this.idNumUpDown.Location = new Point(3, 21);
-        this.idNumUpDown.Name = "idNumUpDown";
-        this.idNumUpDown.Size = new Size(288, 23);
-        this.idNumUpDown.TabIndex = 0;
-        // 
-        // roleNameTextBox
-        // 
-        this.roleNameTextBox.Enabled = false;
-        this.roleNameTextBox.Location = new Point(3, 50);
-        this.roleNameTextBox.Name = "roleNameTextBox";
-        this.roleNameTextBox.Size = new Size(288, 23);
-        this.roleNameTextBox.TabIndex = 1;
-        // 
         // roleDescriptionTextBox
         // 
         this.roleDescriptionTextBox.Enabled = false;
@@ -172,25 +183,49 @@ partial class RoleManagementForm {
         this.roleDescriptionTextBox.Size = new Size(288, 140);
         this.roleDescriptionTextBox.TabIndex = 2;
         // 
-        // cancelButton
+        // roleNameTextBox
         // 
-        this.cancelButton.Location = new Point(422, 10);
-        this.cancelButton.Name = "cancelButton";
-        this.cancelButton.Size = new Size(75, 23);
-        this.cancelButton.TabIndex = 2;
-        this.cancelButton.Text = "Annuler";
-        this.cancelButton.UseVisualStyleBackColor = true;
-        this.cancelButton.Click += this.CancelButton_Click;
+        this.roleNameTextBox.Enabled = false;
+        this.roleNameTextBox.Location = new Point(3, 50);
+        this.roleNameTextBox.Name = "roleNameTextBox";
+        this.roleNameTextBox.Size = new Size(288, 23);
+        this.roleNameTextBox.TabIndex = 1;
         // 
-        // actionButton
+        // idNumUpDown
         // 
-        this.actionButton.Location = new Point(310, 10);
-        this.actionButton.Name = "actionButton";
-        this.actionButton.Size = new Size(106, 23);
-        this.actionButton.TabIndex = 3;
-        this.actionButton.Text = "ACTION";
-        this.actionButton.UseVisualStyleBackColor = true;
-        this.actionButton.Click += this.ActionButton_Click;
+        this.idNumUpDown.Enabled = false;
+        this.idNumUpDown.Location = new Point(3, 21);
+        this.idNumUpDown.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+        this.idNumUpDown.Name = "idNumUpDown";
+        this.idNumUpDown.Size = new Size(288, 23);
+        this.idNumUpDown.TabIndex = 0;
+        // 
+        // idLabel
+        // 
+        this.idLabel.Location = new Point(3, 20);
+        this.idLabel.Name = "idLabel";
+        this.idLabel.Size = new Size(129, 20);
+        this.idLabel.TabIndex = 0;
+        this.idLabel.Text = "Id:";
+        this.idLabel.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // roleNameLabel
+        // 
+        this.roleNameLabel.Location = new Point(3, 50);
+        this.roleNameLabel.Name = "roleNameLabel";
+        this.roleNameLabel.Size = new Size(129, 20);
+        this.roleNameLabel.TabIndex = 1;
+        this.roleNameLabel.Text = "Nom du rôle:";
+        this.roleNameLabel.TextAlign = ContentAlignment.MiddleRight;
+        // 
+        // label1
+        // 
+        this.label1.Location = new Point(3, 79);
+        this.label1.Name = "label1";
+        this.label1.Size = new Size(129, 20);
+        this.label1.TabIndex = 2;
+        this.label1.Text = "Description du rôle:";
+        this.label1.TextAlign = ContentAlignment.MiddleRight;
         // 
         // RoleManagementForm
         // 
@@ -206,6 +241,7 @@ partial class RoleManagementForm {
         this.topbarPanel.PerformLayout();
         this.bottomBarPanel.ResumeLayout(false);
         this.mainPanel.ResumeLayout(false);
+        this.mainPanelLeftPanel.ResumeLayout(false);
         this.mainPanelRightPanel.ResumeLayout(false);
         this.mainPanelRightPanel.PerformLayout();
         ((System.ComponentModel.ISupportInitialize) this.idNumUpDown).EndInit();
@@ -228,4 +264,7 @@ partial class RoleManagementForm {
     private TextBox roleDescriptionTextBox;
     private Button actionButton;
     private Button cancelButton;
+    private Label idLabel;
+    private Label label1;
+    private Label roleNameLabel;
 }

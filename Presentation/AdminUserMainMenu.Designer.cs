@@ -189,6 +189,7 @@ partial class AdminUserMainMenu {
         // ShipmentViewBtn
         // 
         this.ShipmentViewBtn.Dock = DockStyle.Top;
+        this.ShipmentViewBtn.Enabled = false;
         this.ShipmentViewBtn.Location = new Point(9, 222);
         this.ShipmentViewBtn.Margin = new Padding(3, 2, 3, 2);
         this.ShipmentViewBtn.Name = "ShipmentViewBtn";
@@ -264,6 +265,7 @@ partial class AdminUserMainMenu {
         // FournisseurDeleteBtn
         // 
         this.FournisseurDeleteBtn.Dock = DockStyle.Top;
+        this.FournisseurDeleteBtn.Enabled = false;
         this.FournisseurDeleteBtn.Location = new Point(9, 274);
         this.FournisseurDeleteBtn.Margin = new Padding(3, 2, 3, 2);
         this.FournisseurDeleteBtn.Name = "FournisseurDeleteBtn";
@@ -276,6 +278,7 @@ partial class AdminUserMainMenu {
         // FournisseurEditBtn
         // 
         this.FournisseurEditBtn.Dock = DockStyle.Top;
+        this.FournisseurEditBtn.Enabled = false;
         this.FournisseurEditBtn.Location = new Point(9, 248);
         this.FournisseurEditBtn.Margin = new Padding(3, 2, 3, 2);
         this.FournisseurEditBtn.Name = "FournisseurEditBtn";
@@ -288,6 +291,7 @@ partial class AdminUserMainMenu {
         // FournisseurViewBtn
         // 
         this.FournisseurViewBtn.Dock = DockStyle.Top;
+        this.FournisseurViewBtn.Enabled = false;
         this.FournisseurViewBtn.Location = new Point(9, 222);
         this.FournisseurViewBtn.Margin = new Padding(3, 2, 3, 2);
         this.FournisseurViewBtn.Name = "FournisseurViewBtn";
@@ -361,6 +365,7 @@ partial class AdminUserMainMenu {
         // deleteRoleButton
         // 
         this.deleteRoleButton.Dock = DockStyle.Top;
+        this.deleteRoleButton.Enabled = false;
         this.deleteRoleButton.Location = new Point(9, 165);
         this.deleteRoleButton.Margin = new Padding(3, 2, 3, 2);
         this.deleteRoleButton.Name = "deleteRoleButton";
@@ -373,6 +378,7 @@ partial class AdminUserMainMenu {
         // editRoleButton
         // 
         this.editRoleButton.Dock = DockStyle.Top;
+        this.editRoleButton.Enabled = false;
         this.editRoleButton.Location = new Point(9, 139);
         this.editRoleButton.Margin = new Padding(3, 2, 3, 2);
         this.editRoleButton.Name = "editRoleButton";
@@ -385,6 +391,7 @@ partial class AdminUserMainMenu {
         // roleViewButton
         // 
         this.roleViewButton.Dock = DockStyle.Top;
+        this.roleViewButton.Enabled = false;
         this.roleViewButton.Location = new Point(9, 113);
         this.roleViewButton.Margin = new Padding(3, 2, 3, 2);
         this.roleViewButton.Name = "roleViewButton";
@@ -447,6 +454,7 @@ partial class AdminUserMainMenu {
         // deleteUserButton
         // 
         this.deleteUserButton.Dock = DockStyle.Top;
+        this.deleteUserButton.Enabled = false;
         this.deleteUserButton.Location = new Point(9, 165);
         this.deleteUserButton.Margin = new Padding(3, 2, 3, 2);
         this.deleteUserButton.Name = "deleteUserButton";
@@ -459,6 +467,7 @@ partial class AdminUserMainMenu {
         // editUserButton
         // 
         this.editUserButton.Dock = DockStyle.Top;
+        this.editUserButton.Enabled = false;
         this.editUserButton.Location = new Point(9, 139);
         this.editUserButton.Margin = new Padding(3, 2, 3, 2);
         this.editUserButton.Name = "editUserButton";
@@ -471,6 +480,7 @@ partial class AdminUserMainMenu {
         // viewUserButton
         // 
         this.viewUserButton.Dock = DockStyle.Top;
+        this.viewUserButton.Enabled = false;
         this.viewUserButton.Location = new Point(9, 113);
         this.viewUserButton.Margin = new Padding(3, 2, 3, 2);
         this.viewUserButton.Name = "viewUserButton";
@@ -534,6 +544,7 @@ partial class AdminUserMainMenu {
         // deletebutton
         // 
         this.deletebutton.Dock = DockStyle.Top;
+        this.deletebutton.Enabled = false;
         this.deletebutton.Location = new Point(10, 275);
         this.deletebutton.Name = "deletebutton";
         this.deletebutton.Size = new Size(210, 26);
@@ -545,6 +556,7 @@ partial class AdminUserMainMenu {
         // editClientbutton
         // 
         this.editClientbutton.Dock = DockStyle.Top;
+        this.editClientbutton.Enabled = false;
         this.editClientbutton.Location = new Point(10, 249);
         this.editClientbutton.Name = "editClientbutton";
         this.editClientbutton.Size = new Size(210, 26);
@@ -556,6 +568,7 @@ partial class AdminUserMainMenu {
         // viewClientbutton1
         // 
         this.viewClientbutton1.Dock = DockStyle.Top;
+        this.viewClientbutton1.Enabled = false;
         this.viewClientbutton1.Location = new Point(10, 223);
         this.viewClientbutton1.Name = "viewClientbutton1";
         this.viewClientbutton1.Size = new Size(210, 26);
@@ -625,6 +638,7 @@ partial class AdminUserMainMenu {
         // deleteEntrepotButton
         // 
         this.deleteEntrepotButton.Dock = DockStyle.Top;
+        this.deleteEntrepotButton.Enabled = false;
         this.deleteEntrepotButton.Location = new Point(9, 165);
         this.deleteEntrepotButton.Margin = new Padding(3, 2, 3, 2);
         this.deleteEntrepotButton.Name = "deleteEntrepotButton";
@@ -637,6 +651,7 @@ partial class AdminUserMainMenu {
         // editEntrepotButton
         // 
         this.editEntrepotButton.Dock = DockStyle.Top;
+        this.editEntrepotButton.Enabled = false;
         this.editEntrepotButton.Location = new Point(9, 139);
         this.editEntrepotButton.Margin = new Padding(3, 2, 3, 2);
         this.editEntrepotButton.Name = "editEntrepotButton";
@@ -649,6 +664,7 @@ partial class AdminUserMainMenu {
         // viewEntrepotButton
         // 
         this.viewEntrepotButton.Dock = DockStyle.Top;
+        this.viewEntrepotButton.Enabled = false;
         this.viewEntrepotButton.Location = new Point(9, 113);
         this.viewEntrepotButton.Margin = new Padding(3, 2, 3, 2);
         this.viewEntrepotButton.Name = "viewEntrepotButton";
@@ -712,6 +728,7 @@ partial class AdminUserMainMenu {
         // AdresseDeleteButton
         // 
         this.AdresseDeleteButton.Dock = DockStyle.Top;
+        this.AdresseDeleteButton.Enabled = false;
         this.AdresseDeleteButton.Location = new Point(9, 274);
         this.AdresseDeleteButton.Margin = new Padding(3, 2, 3, 2);
         this.AdresseDeleteButton.Name = "AdresseDeleteButton";
@@ -724,6 +741,7 @@ partial class AdminUserMainMenu {
         // AdresseEditButton
         // 
         this.AdresseEditButton.Dock = DockStyle.Top;
+        this.AdresseEditButton.Enabled = false;
         this.AdresseEditButton.Location = new Point(9, 248);
         this.AdresseEditButton.Margin = new Padding(3, 2, 3, 2);
         this.AdresseEditButton.Name = "AdresseEditButton";
@@ -736,6 +754,7 @@ partial class AdminUserMainMenu {
         // AdresseViewButton
         // 
         this.AdresseViewButton.Dock = DockStyle.Top;
+        this.AdresseViewButton.Enabled = false;
         this.AdresseViewButton.Location = new Point(9, 222);
         this.AdresseViewButton.Margin = new Padding(3, 2, 3, 2);
         this.AdresseViewButton.Name = "AdresseViewButton";
@@ -809,6 +828,7 @@ partial class AdminUserMainMenu {
         // ProduitDeleteButton
         // 
         this.ProduitDeleteButton.Dock = DockStyle.Top;
+        this.ProduitDeleteButton.Enabled = false;
         this.ProduitDeleteButton.Location = new Point(0, 266);
         this.ProduitDeleteButton.Margin = new Padding(3, 2, 3, 2);
         this.ProduitDeleteButton.Name = "ProduitDeleteButton";
@@ -821,6 +841,7 @@ partial class AdminUserMainMenu {
         // ProduitEditButton
         // 
         this.ProduitEditButton.Dock = DockStyle.Top;
+        this.ProduitEditButton.Enabled = false;
         this.ProduitEditButton.Location = new Point(0, 240);
         this.ProduitEditButton.Margin = new Padding(3, 2, 3, 2);
         this.ProduitEditButton.Name = "ProduitEditButton";
@@ -833,6 +854,7 @@ partial class AdminUserMainMenu {
         // ProduitViewButton
         // 
         this.ProduitViewButton.Dock = DockStyle.Top;
+        this.ProduitViewButton.Enabled = false;
         this.ProduitViewButton.Location = new Point(0, 214);
         this.ProduitViewButton.Margin = new Padding(3, 2, 3, 2);
         this.ProduitViewButton.Name = "ProduitViewButton";
@@ -952,6 +974,7 @@ partial class AdminUserMainMenu {
         // viewShipmentOrderbutton3
         // 
         this.viewShipmentOrderbutton3.Dock = DockStyle.Top;
+        this.viewShipmentOrderbutton3.Enabled = false;
         this.viewShipmentOrderbutton3.Location = new Point(0, 266);
         this.viewShipmentOrderbutton3.Name = "viewShipmentOrderbutton3";
         this.viewShipmentOrderbutton3.Size = new Size(234, 26);
@@ -963,6 +986,7 @@ partial class AdminUserMainMenu {
         // supprimerShipmentOrderbutton2
         // 
         this.supprimerShipmentOrderbutton2.Dock = DockStyle.Top;
+        this.supprimerShipmentOrderbutton2.Enabled = false;
         this.supprimerShipmentOrderbutton2.Location = new Point(0, 240);
         this.supprimerShipmentOrderbutton2.Name = "supprimerShipmentOrderbutton2";
         this.supprimerShipmentOrderbutton2.Size = new Size(234, 26);
@@ -974,6 +998,7 @@ partial class AdminUserMainMenu {
         // editShipmentOrderbutton1
         // 
         this.editShipmentOrderbutton1.Dock = DockStyle.Top;
+        this.editShipmentOrderbutton1.Enabled = false;
         this.editShipmentOrderbutton1.Location = new Point(0, 214);
         this.editShipmentOrderbutton1.Name = "editShipmentOrderbutton1";
         this.editShipmentOrderbutton1.Size = new Size(234, 26);

@@ -24,273 +24,286 @@ partial class UtilisateurManagementForm {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        panel1 = new Panel();
-        boutonAction = new Button();
-        buttonAnnuler = new Button();
-        panel2 = new Panel();
-        openModeValueLabel = new Label();
-        openModeLabel = new Label();
-        panel3 = new Panel();
-        userDateCreatedTextBox = new TextBox();
-        userPasswordTextBox = new TextBox();
-        userPasswordLabel = new Label();
-        userPasswordAdminResetButton = new Button();
-        userRolesListbox = new ListBox();
-        userRolesLabel = new Label();
-        userWarehouseCombobox = new ComboBox();
-        userWarehouseLabel = new Label();
-        userDateCreatedLabel = new Label();
-        userPasswordHashTextBox = new TextBox();
-        userPasswordHashLabel = new Label();
-        userUsernameTextBox = new TextBox();
-        userUsernameLabel = new Label();
-        userIdNumericUD = new NumericUpDown();
-        userIdLabel = new Label();
-        panel1.SuspendLayout();
-        panel2.SuspendLayout();
-        panel3.SuspendLayout();
-        ((System.ComponentModel.ISupportInitialize) userIdNumericUD).BeginInit();
+        this.panel1 = new Panel();
+        this.boutonAction = new Button();
+        this.buttonAnnuler = new Button();
+        this.panel2 = new Panel();
+        this.openModeValueLabel = new Label();
+        this.openModeLabel = new Label();
+        this.panel3 = new Panel();
+        this.userDateCreatedTextBox = new TextBox();
+        this.userPasswordTextBox = new TextBox();
+        this.userPasswordLabel = new Label();
+        this.userPasswordAdminResetButton = new Button();
+        this.userRolesListbox = new ListBox();
+        this.userRolesLabel = new Label();
+        this.userWarehouseCombobox = new ComboBox();
+        this.userWarehouseLabel = new Label();
+        this.userDateCreatedLabel = new Label();
+        this.userPasswordHashTextBox = new TextBox();
+        this.userPasswordHashLabel = new Label();
+        this.userUsernameTextBox = new TextBox();
+        this.userUsernameLabel = new Label();
+        this.userIdNumericUD = new NumericUpDown();
+        this.userIdLabel = new Label();
+        this.panel1.SuspendLayout();
+        this.panel2.SuspendLayout();
+        this.panel3.SuspendLayout();
+        ((System.ComponentModel.ISupportInitialize) this.userIdNumericUD).BeginInit();
         this.SuspendLayout();
         // 
         // panel1
         // 
-        panel1.Controls.Add(boutonAction);
-        panel1.Controls.Add(buttonAnnuler);
-        panel1.Dock = DockStyle.Bottom;
-        panel1.Location = new Point(0, 463);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(582, 60);
-        panel1.TabIndex = 4;
+        this.panel1.Controls.Add(this.boutonAction);
+        this.panel1.Controls.Add(this.buttonAnnuler);
+        this.panel1.Dock = DockStyle.Bottom;
+        this.panel1.Location = new Point(0, 347);
+        this.panel1.Margin = new Padding(3, 2, 3, 2);
+        this.panel1.Name = "panel1";
+        this.panel1.Size = new Size(509, 45);
+        this.panel1.TabIndex = 4;
         // 
         // boutonAction
         // 
-        boutonAction.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        boutonAction.FlatStyle = FlatStyle.Flat;
-        boutonAction.Location = new Point(300, 13);
-        boutonAction.Name = "boutonAction";
-        boutonAction.Size = new Size(132, 35);
-        boutonAction.TabIndex = 1;
-        boutonAction.Text = "ACTION";
-        boutonAction.UseVisualStyleBackColor = true;
-        boutonAction.Click += this.BoutonAction_Click;
+        this.boutonAction.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        this.boutonAction.FlatStyle = FlatStyle.Flat;
+        this.boutonAction.Location = new Point(262, 10);
+        this.boutonAction.Margin = new Padding(3, 2, 3, 2);
+        this.boutonAction.Name = "boutonAction";
+        this.boutonAction.Size = new Size(116, 26);
+        this.boutonAction.TabIndex = 1;
+        this.boutonAction.Text = "ACTION";
+        this.boutonAction.UseVisualStyleBackColor = true;
+        this.boutonAction.Click += this.BoutonAction_Click;
         // 
         // buttonAnnuler
         // 
-        buttonAnnuler.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
-        buttonAnnuler.FlatStyle = FlatStyle.Flat;
-        buttonAnnuler.Location = new Point(438, 13);
-        buttonAnnuler.Name = "buttonAnnuler";
-        buttonAnnuler.Size = new Size(132, 35);
-        buttonAnnuler.TabIndex = 0;
-        buttonAnnuler.Text = "Annuler";
-        buttonAnnuler.UseVisualStyleBackColor = true;
-        buttonAnnuler.Click += this.ButtonAnnuler_Click;
+        this.buttonAnnuler.Anchor =  AnchorStyles.Bottom | AnchorStyles.Right;
+        this.buttonAnnuler.FlatStyle = FlatStyle.Flat;
+        this.buttonAnnuler.Location = new Point(383, 10);
+        this.buttonAnnuler.Margin = new Padding(3, 2, 3, 2);
+        this.buttonAnnuler.Name = "buttonAnnuler";
+        this.buttonAnnuler.Size = new Size(116, 26);
+        this.buttonAnnuler.TabIndex = 0;
+        this.buttonAnnuler.Text = "Annuler";
+        this.buttonAnnuler.UseVisualStyleBackColor = true;
+        this.buttonAnnuler.Click += this.ButtonAnnuler_Click;
         // 
         // panel2
         // 
-        panel2.Controls.Add(openModeValueLabel);
-        panel2.Controls.Add(openModeLabel);
-        panel2.Dock = DockStyle.Top;
-        panel2.Location = new Point(0, 0);
-        panel2.Name = "panel2";
-        panel2.Size = new Size(582, 50);
-        panel2.TabIndex = 5;
+        this.panel2.Controls.Add(this.openModeValueLabel);
+        this.panel2.Controls.Add(this.openModeLabel);
+        this.panel2.Dock = DockStyle.Top;
+        this.panel2.Location = new Point(0, 0);
+        this.panel2.Margin = new Padding(3, 2, 3, 2);
+        this.panel2.Name = "panel2";
+        this.panel2.Size = new Size(509, 38);
+        this.panel2.TabIndex = 5;
         // 
         // openModeValueLabel
         // 
-        openModeValueLabel.AutoSize = true;
-        openModeValueLabel.Location = new Point(73, 19);
-        openModeValueLabel.Name = "openModeValueLabel";
-        openModeValueLabel.Size = new Size(108, 20);
-        openModeValueLabel.TabIndex = 6;
-        openModeValueLabel.Text = "PLACEHOLDER";
+        this.openModeValueLabel.AutoSize = true;
+        this.openModeValueLabel.Location = new Point(64, 14);
+        this.openModeValueLabel.Name = "openModeValueLabel";
+        this.openModeValueLabel.Size = new Size(87, 15);
+        this.openModeValueLabel.TabIndex = 6;
+        this.openModeValueLabel.Text = "PLACEHOLDER";
         // 
         // openModeLabel
         // 
-        openModeLabel.AutoSize = true;
-        openModeLabel.Location = new Point(12, 19);
-        openModeLabel.Name = "openModeLabel";
-        openModeLabel.Size = new Size(55, 20);
-        openModeLabel.TabIndex = 6;
-        openModeLabel.Text = "Mode :";
+        this.openModeLabel.AutoSize = true;
+        this.openModeLabel.Location = new Point(10, 14);
+        this.openModeLabel.Name = "openModeLabel";
+        this.openModeLabel.Size = new Size(44, 15);
+        this.openModeLabel.TabIndex = 6;
+        this.openModeLabel.Text = "Mode :";
         // 
         // panel3
         // 
-        panel3.Controls.Add(userDateCreatedTextBox);
-        panel3.Controls.Add(userPasswordTextBox);
-        panel3.Controls.Add(userPasswordLabel);
-        panel3.Controls.Add(userPasswordAdminResetButton);
-        panel3.Controls.Add(userRolesListbox);
-        panel3.Controls.Add(userRolesLabel);
-        panel3.Controls.Add(userWarehouseCombobox);
-        panel3.Controls.Add(userWarehouseLabel);
-        panel3.Controls.Add(userDateCreatedLabel);
-        panel3.Controls.Add(userPasswordHashTextBox);
-        panel3.Controls.Add(userPasswordHashLabel);
-        panel3.Controls.Add(userUsernameTextBox);
-        panel3.Controls.Add(userUsernameLabel);
-        panel3.Controls.Add(userIdNumericUD);
-        panel3.Controls.Add(userIdLabel);
-        panel3.Dock = DockStyle.Fill;
-        panel3.Location = new Point(0, 50);
-        panel3.Name = "panel3";
-        panel3.Padding = new Padding(10);
-        panel3.Size = new Size(582, 413);
-        panel3.TabIndex = 6;
+        this.panel3.Controls.Add(this.userDateCreatedTextBox);
+        this.panel3.Controls.Add(this.userPasswordTextBox);
+        this.panel3.Controls.Add(this.userPasswordLabel);
+        this.panel3.Controls.Add(this.userPasswordAdminResetButton);
+        this.panel3.Controls.Add(this.userRolesListbox);
+        this.panel3.Controls.Add(this.userRolesLabel);
+        this.panel3.Controls.Add(this.userWarehouseCombobox);
+        this.panel3.Controls.Add(this.userWarehouseLabel);
+        this.panel3.Controls.Add(this.userDateCreatedLabel);
+        this.panel3.Controls.Add(this.userPasswordHashTextBox);
+        this.panel3.Controls.Add(this.userPasswordHashLabel);
+        this.panel3.Controls.Add(this.userUsernameTextBox);
+        this.panel3.Controls.Add(this.userUsernameLabel);
+        this.panel3.Controls.Add(this.userIdNumericUD);
+        this.panel3.Controls.Add(this.userIdLabel);
+        this.panel3.Dock = DockStyle.Fill;
+        this.panel3.Location = new Point(0, 38);
+        this.panel3.Margin = new Padding(3, 2, 3, 2);
+        this.panel3.Name = "panel3";
+        this.panel3.Padding = new Padding(9, 8, 9, 8);
+        this.panel3.Size = new Size(509, 309);
+        this.panel3.TabIndex = 6;
         // 
         // userDateCreatedTextBox
         // 
-        userDateCreatedTextBox.Enabled = false;
-        userDateCreatedTextBox.Location = new Point(219, 169);
-        userDateCreatedTextBox.Name = "userDateCreatedTextBox";
-        userDateCreatedTextBox.Size = new Size(275, 27);
-        userDateCreatedTextBox.TabIndex = 15;
+        this.userDateCreatedTextBox.Enabled = false;
+        this.userDateCreatedTextBox.Location = new Point(192, 127);
+        this.userDateCreatedTextBox.Margin = new Padding(3, 2, 3, 2);
+        this.userDateCreatedTextBox.Name = "userDateCreatedTextBox";
+        this.userDateCreatedTextBox.Size = new Size(241, 23);
+        this.userDateCreatedTextBox.TabIndex = 15;
         // 
         // userPasswordTextBox
         // 
-        userPasswordTextBox.Location = new Point(219, 108);
-        userPasswordTextBox.Name = "userPasswordTextBox";
-        userPasswordTextBox.PlaceholderText = "New password here";
-        userPasswordTextBox.Size = new Size(275, 27);
-        userPasswordTextBox.TabIndex = 14;
-        userPasswordTextBox.UseSystemPasswordChar = true;
-        userPasswordTextBox.TextChanged += this.UserPasswordTextBox_Leave;
-        userPasswordTextBox.Leave += this.UserPasswordTextBox_Leave;
+        this.userPasswordTextBox.Location = new Point(192, 81);
+        this.userPasswordTextBox.Margin = new Padding(3, 2, 3, 2);
+        this.userPasswordTextBox.Name = "userPasswordTextBox";
+        this.userPasswordTextBox.PlaceholderText = "New password here";
+        this.userPasswordTextBox.Size = new Size(241, 23);
+        this.userPasswordTextBox.TabIndex = 14;
+        this.userPasswordTextBox.UseSystemPasswordChar = true;
+        this.userPasswordTextBox.TextChanged += this.UserPasswordTextBox_Leave;
+        this.userPasswordTextBox.Leave += this.UserPasswordTextBox_Leave;
         // 
         // userPasswordLabel
         // 
-        userPasswordLabel.Location = new Point(13, 107);
-        userPasswordLabel.Name = "userPasswordLabel";
-        userPasswordLabel.Size = new Size(200, 28);
-        userPasswordLabel.TabIndex = 13;
-        userPasswordLabel.Text = "Password :";
-        userPasswordLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userPasswordLabel.Location = new Point(11, 80);
+        this.userPasswordLabel.Name = "userPasswordLabel";
+        this.userPasswordLabel.Size = new Size(175, 21);
+        this.userPasswordLabel.TabIndex = 13;
+        this.userPasswordLabel.Text = "Password :";
+        this.userPasswordLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // userPasswordAdminResetButton
         // 
-        userPasswordAdminResetButton.Enabled = false;
-        userPasswordAdminResetButton.Location = new Point(500, 107);
-        userPasswordAdminResetButton.Name = "userPasswordAdminResetButton";
-        userPasswordAdminResetButton.Size = new Size(71, 28);
-        userPasswordAdminResetButton.TabIndex = 12;
-        userPasswordAdminResetButton.Text = "Reset";
-        userPasswordAdminResetButton.UseVisualStyleBackColor = true;
-        userPasswordAdminResetButton.Click += this.UserPasswordResetButton_Click;
+        this.userPasswordAdminResetButton.Enabled = false;
+        this.userPasswordAdminResetButton.Location = new Point(438, 80);
+        this.userPasswordAdminResetButton.Margin = new Padding(3, 2, 3, 2);
+        this.userPasswordAdminResetButton.Name = "userPasswordAdminResetButton";
+        this.userPasswordAdminResetButton.Size = new Size(62, 21);
+        this.userPasswordAdminResetButton.TabIndex = 12;
+        this.userPasswordAdminResetButton.Text = "Reset";
+        this.userPasswordAdminResetButton.UseVisualStyleBackColor = true;
+        this.userPasswordAdminResetButton.Click += this.UserPasswordResetButton_Click;
         // 
         // userRolesListbox
         // 
-        userRolesListbox.FormattingEnabled = true;
-        userRolesListbox.ItemHeight = 20;
-        userRolesListbox.Location = new Point(219, 236);
-        userRolesListbox.Name = "userRolesListbox";
-        userRolesListbox.Size = new Size(274, 144);
-        userRolesListbox.TabIndex = 11;
+        this.userRolesListbox.FormattingEnabled = true;
+        this.userRolesListbox.ItemHeight = 15;
+        this.userRolesListbox.Location = new Point(192, 177);
+        this.userRolesListbox.Margin = new Padding(3, 2, 3, 2);
+        this.userRolesListbox.Name = "userRolesListbox";
+        this.userRolesListbox.Size = new Size(240, 109);
+        this.userRolesListbox.TabIndex = 11;
         // 
         // userRolesLabel
         // 
-        userRolesLabel.Location = new Point(12, 236);
-        userRolesLabel.Name = "userRolesLabel";
-        userRolesLabel.Size = new Size(200, 28);
-        userRolesLabel.TabIndex = 10;
-        userRolesLabel.Text = "Rôles :";
-        userRolesLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userRolesLabel.Location = new Point(10, 177);
+        this.userRolesLabel.Name = "userRolesLabel";
+        this.userRolesLabel.Size = new Size(175, 21);
+        this.userRolesLabel.TabIndex = 10;
+        this.userRolesLabel.Text = "Rôles :";
+        this.userRolesLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // userWarehouseCombobox
         // 
-        userWarehouseCombobox.FormattingEnabled = true;
-        userWarehouseCombobox.Location = new Point(219, 202);
-        userWarehouseCombobox.Name = "userWarehouseCombobox";
-        userWarehouseCombobox.Size = new Size(274, 28);
-        userWarehouseCombobox.TabIndex = 9;
+        this.userWarehouseCombobox.FormattingEnabled = true;
+        this.userWarehouseCombobox.Location = new Point(192, 152);
+        this.userWarehouseCombobox.Margin = new Padding(3, 2, 3, 2);
+        this.userWarehouseCombobox.Name = "userWarehouseCombobox";
+        this.userWarehouseCombobox.Size = new Size(240, 23);
+        this.userWarehouseCombobox.TabIndex = 9;
         // 
         // userWarehouseLabel
         // 
-        userWarehouseLabel.Location = new Point(13, 201);
-        userWarehouseLabel.Name = "userWarehouseLabel";
-        userWarehouseLabel.Size = new Size(200, 28);
-        userWarehouseLabel.TabIndex = 8;
-        userWarehouseLabel.Text = "Entrpôt de travail :";
-        userWarehouseLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userWarehouseLabel.Location = new Point(11, 151);
+        this.userWarehouseLabel.Name = "userWarehouseLabel";
+        this.userWarehouseLabel.Size = new Size(175, 21);
+        this.userWarehouseLabel.TabIndex = 8;
+        this.userWarehouseLabel.Text = "Entrpôt de travail :";
+        this.userWarehouseLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // userDateCreatedLabel
         // 
-        userDateCreatedLabel.Location = new Point(13, 168);
-        userDateCreatedLabel.Name = "userDateCreatedLabel";
-        userDateCreatedLabel.Size = new Size(200, 28);
-        userDateCreatedLabel.TabIndex = 6;
-        userDateCreatedLabel.Text = "Date de Création :";
-        userDateCreatedLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userDateCreatedLabel.Location = new Point(11, 126);
+        this.userDateCreatedLabel.Name = "userDateCreatedLabel";
+        this.userDateCreatedLabel.Size = new Size(175, 21);
+        this.userDateCreatedLabel.TabIndex = 6;
+        this.userDateCreatedLabel.Text = "Date de Création :";
+        this.userDateCreatedLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // userPasswordHashTextBox
         // 
-        userPasswordHashTextBox.Location = new Point(219, 136);
-        userPasswordHashTextBox.Name = "userPasswordHashTextBox";
-        userPasswordHashTextBox.ReadOnly = true;
-        userPasswordHashTextBox.Size = new Size(275, 27);
-        userPasswordHashTextBox.TabIndex = 5;
+        this.userPasswordHashTextBox.Location = new Point(192, 102);
+        this.userPasswordHashTextBox.Margin = new Padding(3, 2, 3, 2);
+        this.userPasswordHashTextBox.Name = "userPasswordHashTextBox";
+        this.userPasswordHashTextBox.ReadOnly = true;
+        this.userPasswordHashTextBox.Size = new Size(241, 23);
+        this.userPasswordHashTextBox.TabIndex = 5;
         // 
         // userPasswordHashLabel
         // 
-        userPasswordHashLabel.Location = new Point(13, 135);
-        userPasswordHashLabel.Name = "userPasswordHashLabel";
-        userPasswordHashLabel.Size = new Size(200, 28);
-        userPasswordHashLabel.TabIndex = 4;
-        userPasswordHashLabel.Text = "Password Hash :";
-        userPasswordHashLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userPasswordHashLabel.Location = new Point(11, 101);
+        this.userPasswordHashLabel.Name = "userPasswordHashLabel";
+        this.userPasswordHashLabel.Size = new Size(175, 21);
+        this.userPasswordHashLabel.TabIndex = 4;
+        this.userPasswordHashLabel.Text = "Password Hash :";
+        this.userPasswordHashLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // userUsernameTextBox
         // 
-        userUsernameTextBox.Location = new Point(218, 75);
-        userUsernameTextBox.Name = "userUsernameTextBox";
-        userUsernameTextBox.Size = new Size(275, 27);
-        userUsernameTextBox.TabIndex = 3;
-        userUsernameTextBox.TextChanged += this.UserUsernameTextBox_TextChanged;
-        userUsernameTextBox.Leave += this.UserUsernameTextBox_Leave;
+        this.userUsernameTextBox.Location = new Point(191, 56);
+        this.userUsernameTextBox.Margin = new Padding(3, 2, 3, 2);
+        this.userUsernameTextBox.Name = "userUsernameTextBox";
+        this.userUsernameTextBox.Size = new Size(241, 23);
+        this.userUsernameTextBox.TabIndex = 3;
+        this.userUsernameTextBox.TextChanged += this.UserUsernameTextBox_TextChanged;
+        this.userUsernameTextBox.Leave += this.UserUsernameTextBox_Leave;
         // 
         // userUsernameLabel
         // 
-        userUsernameLabel.Location = new Point(12, 74);
-        userUsernameLabel.Name = "userUsernameLabel";
-        userUsernameLabel.Size = new Size(200, 28);
-        userUsernameLabel.TabIndex = 2;
-        userUsernameLabel.Text = "Username :";
-        userUsernameLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userUsernameLabel.Location = new Point(10, 56);
+        this.userUsernameLabel.Name = "userUsernameLabel";
+        this.userUsernameLabel.Size = new Size(175, 21);
+        this.userUsernameLabel.TabIndex = 2;
+        this.userUsernameLabel.Text = "Username :";
+        this.userUsernameLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // userIdNumericUD
         // 
-        userIdNumericUD.Enabled = false;
-        userIdNumericUD.Location = new Point(218, 42);
-        userIdNumericUD.Name = "userIdNumericUD";
-        userIdNumericUD.ReadOnly = true;
-        userIdNumericUD.Size = new Size(275, 27);
-        userIdNumericUD.TabIndex = 1;
+        this.userIdNumericUD.Enabled = false;
+        this.userIdNumericUD.Location = new Point(191, 32);
+        this.userIdNumericUD.Margin = new Padding(3, 2, 3, 2);
+        this.userIdNumericUD.Maximum = new decimal(new int[] { 100000, 0, 0, 0 });
+        this.userIdNumericUD.Name = "userIdNumericUD";
+        this.userIdNumericUD.ReadOnly = true;
+        this.userIdNumericUD.Size = new Size(241, 23);
+        this.userIdNumericUD.TabIndex = 1;
         // 
         // userIdLabel
         // 
-        userIdLabel.Location = new Point(12, 40);
-        userIdLabel.Name = "userIdLabel";
-        userIdLabel.Size = new Size(200, 28);
-        userIdLabel.TabIndex = 0;
-        userIdLabel.Text = "Id :";
-        userIdLabel.TextAlign = ContentAlignment.MiddleRight;
+        this.userIdLabel.Location = new Point(10, 30);
+        this.userIdLabel.Name = "userIdLabel";
+        this.userIdLabel.Size = new Size(175, 21);
+        this.userIdLabel.TabIndex = 0;
+        this.userIdLabel.Text = "Id :";
+        this.userIdLabel.TextAlign = ContentAlignment.MiddleRight;
         // 
         // UtilisateurManagementForm
         // 
-        this.AutoScaleDimensions = new SizeF(8F, 20F);
+        this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
-        this.ClientSize = new Size(582, 523);
-        this.Controls.Add(panel3);
-        this.Controls.Add(panel2);
-        this.Controls.Add(panel1);
-        this.Margin = new Padding(3, 4, 3, 4);
+        this.ClientSize = new Size(509, 392);
+        this.Controls.Add(this.panel3);
+        this.Controls.Add(this.panel2);
+        this.Controls.Add(this.panel1);
         this.Name = "UtilisateurManagementForm";
         this.Text = "Utilisateur Management Form";
-        panel1.ResumeLayout(false);
-        panel2.ResumeLayout(false);
-        panel2.PerformLayout();
-        panel3.ResumeLayout(false);
-        panel3.PerformLayout();
-        ((System.ComponentModel.ISupportInitialize) userIdNumericUD).EndInit();
+        this.panel1.ResumeLayout(false);
+        this.panel2.ResumeLayout(false);
+        this.panel2.PerformLayout();
+        this.panel3.ResumeLayout(false);
+        this.panel3.PerformLayout();
+        ((System.ComponentModel.ISupportInitialize) this.userIdNumericUD).EndInit();
         this.ResumeLayout(false);
     }
 

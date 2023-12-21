@@ -116,7 +116,6 @@ public partial class RoleManagementForm : Form, IDtoManagementView<Role> {
     }
 
     private void ActionButton_Click(object sender, EventArgs e) {
-
         try {
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
