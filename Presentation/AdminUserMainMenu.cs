@@ -547,6 +547,31 @@ internal partial class AdminUserMainMenu : Form {
 
     #endregion
 
+    #region ShipmentOrder
+    private void createShipmentordebutton1_Click(object sender, EventArgs e) {
+        this.facade.GetService<ShipmentOrderService>().CreateNewDtoInstance();
+    }
+
+    private void editShipmentOrderbutton1_Click(object sender, EventArgs e) {
+        ShipmentOrderDTO selectShipmentOrder = (ShipmentOrderDTO) this.ShipmentOrderlistBox1.SelectedItem;
+        _= this.facade.GetService<ShipmentOrderService>().UpdateDtoInstance(selectShipmentOrder);
+    }
+
+    private void supprimerShipmentOrderbutton2_Click(object sender, EventArgs e) {
+        ShipmentOrderDTO selectShipmentOrder = (ShipmentOrderDTO) this.ShipmentOrderlistBox1.SelectedItem;
+        _ = this.facade.GetService<ShipmentOrderService>().DeleteDtoInstance(selectShipmentOrder);
+    }
+
+    private void viewShipmentOrderbutton3_Click(object sender, EventArgs e) {
+        ShipmentOrderDTO selectShipmentOrder = (ShipmentOrderDTO) this.ShipmentOrderlistBox1.SelectedItem;
+        _ = this.facade.GetService<ShipmentOrderService>().DisplayDtoInstance(selectShipmentOrder);
+    }
+
+    private void filtreShipmentOrdertextBox1_TextChanged(object sender, EventArgs e) {
+
+    }
+    #endregion 
+
     #region Produit
 
     private void ProduitFiltreTextBox_TextChanged(object sender, EventArgs e) {
@@ -613,6 +638,7 @@ internal partial class AdminUserMainMenu : Form {
         this.PurchaseOrderListBox.DataSource = this.facade.GetService<ProduitService>().GetProductsByName(this.PurchaseOrderListBox.Text);
     }
     #endregion
+
 
 
 }

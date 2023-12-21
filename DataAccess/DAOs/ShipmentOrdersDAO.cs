@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 
-public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
+public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO, int> {
 
     /// <summary>
     /// Contexte de la base de donne 
@@ -20,9 +20,9 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
     /// Initialisation du contexte dans la classe ShipmentOrdersDAO
     /// </summary>
     /// <param name="context"></param>
-    public ShipmentOrdersDAO(AbstractContext context) { 
-    
-     this.Context = context; 
+    public ShipmentOrdersDAO(AbstractContext context) {
+
+        this.Context = context;
     }
     /// <summary>
     /// Obtient la liste des nouvelle commande pour un entrepot specifique 
@@ -83,7 +83,7 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
         return this.Context.GetDbSet<ShipmentOrderDTO>()
             .Include(so => so.Clients)
             .Include(so => so.EntrepotOriginal)
-            .Include(so => so.EmployeEntrepot) 
+            .Include(so => so.EmployeEntrepot)
             .Include(so => so.AssociationsProduits)
                 .ThenInclude(sop => sop.ShipmentOrderDTO)
             .Include(so => so.Shipment)
@@ -105,5 +105,9 @@ public class ShipmentOrdersDAO : AbstractDao<ShipmentOrderDTO , int> {
             .Include(so => so.Shipment)
             .Where(so => so.Id == identifier)
             .SingleOrDefault();
+    }
+
+    public List<ShipmentOrderDTO> SearchShipmentOrderProduct(string filter) {
+       
     }
 }
