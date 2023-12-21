@@ -26,10 +26,10 @@ public class ClientsDTO : AbstractDTO<int> {
 
 
 
-    public Entrepot AsignedWarehouse { get; set; } = null!;
-    public Adresse ClientAdress { get; set; } = null!;
-    public List<Produit> Produit { get; set; } = new List<Produit>();
-    public List<ShipmentOrderDTO> ShipmentOrders { get; set; } = new List<ShipmentOrderDTO>();
+    public virtual Entrepot AsignedWarehouse { get; set; } = null!;
+    public virtual Adresse ClientAdress { get; set; } = null!;
+    public virtual List<Produit> Produit { get; set; } = new List<Produit>();
+    public virtual List<ShipmentOrderDTO> ShipmentOrders { get; set; } = new List<ShipmentOrderDTO>();
 
 
     public ClientsDTO() { }

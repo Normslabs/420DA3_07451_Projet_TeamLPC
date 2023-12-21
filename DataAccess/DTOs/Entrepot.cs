@@ -34,27 +34,27 @@ public class Entrepot : AbstractDTO<int> {
 
     public string NomEntrepot { get; set; } = null!;
     public int AdresseId { get; set; }
-    public Adresse AdresseEntrepot { get; set; } = null!;
+    public virtual Adresse AdresseEntrepot { get; set; } = null!;
     
     /// <summary>
     /// Les Utilisateurs qui possedent un entrepot
     /// </summary>
-    public List<Utilisateur> Utilisateur { get; set; } = null!;
+    public virtual List<Utilisateur> Utilisateur { get; set; } = null!;
 
     /// <summary>
     /// Les ShipmentOrder qui possèdent un entrepot.
     /// </summary>
-    public List<ShipmentOrderDTO> ShipmentOrder { get; set; } = null!;
+    public virtual List<ShipmentOrderDTO> ShipmentOrder { get; set; } = null!;
 
     /// <summary>
     /// Les PurchaseOrder qui possèdent un entrepot.
     /// </summary>
-    public List<PurchaseOrder> PurchaseOrders { get; set; } = null!;
+    public virtual List<PurchaseOrder> PurchaseOrders { get; set; } = null!;
 
     /// <summary>
     /// Les Clients qui possèdent un entrepot.
     /// </summary>
-    public List<ClientsDTO> Clients { get; set; } = null!;
+    public virtual List<ClientsDTO> Clients { get; set; } = null!;
     public byte[] RowVersion { get; set; } = null!;
 
 

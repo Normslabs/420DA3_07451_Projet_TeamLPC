@@ -33,9 +33,9 @@ public class Adresse : AbstractDTO<int> {
     public string Rue { get; set; } = null!;
 
 
-    public Fournisseur? AdresseFournisseur { get; set; } = null!;
-    public Entrepot? AdresseEntrepot { get; set; } = null!;
-    public ClientsDTO? Client { get; set; } = null!;
+    public virtual Fournisseur? AdresseFournisseur { get; set; } = null!;
+    public virtual Entrepot? AdresseEntrepot { get; set; } = null!;
+    public virtual ClientsDTO? Client { get; set; } = null!;
 
 
     /// <summary>

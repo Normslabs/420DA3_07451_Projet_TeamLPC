@@ -33,7 +33,7 @@ internal static class Program {
             // Zone de tests pour Maximiliano
 
         } else {
-            new ExampleApp().Start();
+            new GestionEntrepotApplication().Start();
         }
     }
 }

@@ -28,10 +28,10 @@ public class Produit : AbstractDTO<int> {
     public byte[] RowVersion { get; set; } = null!;
 
 
-    public ClientsDTO ClientsDTO { get; set; } = null!;//
-    public Fournisseur Fournisseur { get; set; } = null!;//
-    public List<PurchaseOrder> PurchaseOrders {get; set;} = new List<PurchaseOrder>();
-    public List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();//
+    public virtual ClientsDTO ClientsDTO { get; set; } = null!;//
+    public virtual Fournisseur Fournisseur { get; set; } = null!;//
+    public virtual List<PurchaseOrder> PurchaseOrders {get; set;} = new List<PurchaseOrder>();
+    public virtual List<ShippingOrderProducts> ShippingOrderProducts { get; set; } = new List<ShippingOrderProducts>();//
 
 
     #region Constructeur

@@ -18,6 +18,11 @@ public class EntrepotService : AbstractDtoService<Entrepot, int> {
 
     protected override EntrepotManagementForm DtoManagementWindow { get; }
 
+    /// <summary>
+    /// Constructeur
+    /// </summary>
+    /// <param name="facade">La facade-utilisateur de l'exécution.</param>
+    /// <param name="context">Le contexte EF Core de l'application.</param>
     public EntrepotService(AbstractFacade facade, AbstractContext context) {
 
         facade.RegisterDependent(this);
@@ -26,10 +31,18 @@ public class EntrepotService : AbstractDtoService<Entrepot, int> {
         
     }
 
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
     public override void Shutdown() {
         this.DtoManagementWindow.Dispose();
     }
 
+    /// <summary>
+    /// Obtient de la base de données la liste de tous les <see cref="Entrepot"/> existants.
+    /// </summary>
+    /// <returns>La <see cref="List{Entrepot}"/> de tous les entrepots existants.</returns>
     public List<Entrepot> GetAllEntrepot() 
     { 
        return this.Dao.GetAll();    
