@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
@@ -134,7 +135,8 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         if (!Produit.ValiderName(this.nameTextBox.Text)) {
             throw new Exception("Le nom de doit pas depasser 128 caractère");
         }
-        if (!Produit.ValiderSupplierCode(this.supplierComboBox.Text)) {
+        if (!Produit.ValiderSupplierCode(this.supplierCodeTextBox.Text)) {
+
             throw new Exception("Le Supplier Code est trop long");
         }
     }
