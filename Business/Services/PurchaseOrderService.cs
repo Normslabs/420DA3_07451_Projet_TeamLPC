@@ -15,12 +15,12 @@ namespace _420DA3_07451_Projet_Initial.Business.Services;
 public class PurchaseOrderService : AbstractDtoService<PurchaseOrder, int> {
 
     protected override PurchaseOrderDAO Dao { get; }
-    protected override PurchaseOrderWindow DtoManagementWindow { get; }
+    protected override PurchaseOrderForm DtoManagementWindow { get; }
 
     public PurchaseOrderService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(this);
         this.Dao = new PurchaseOrderDAO(context);
-        this.DtoManagementWindow = new PurchaseOrderWindow(facade);
+        this.DtoManagementWindow = new PurchaseOrderForm(facade);
     }
 
     public override void Shutdown() {
