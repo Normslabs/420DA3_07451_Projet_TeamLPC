@@ -26,24 +26,24 @@ partial class PurchaseOrderForm {
     private void InitializeComponent() {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.poIdLabel = new System.Windows.Forms.Label();
-            this.idNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.RechercheLabel = new System.Windows.Forms.Label();
-            this.produitTextBox = new System.Windows.Forms.TextBox();
-            this.listProduitLabel = new System.Windows.Forms.Label();
-            this.produitListView = new System.Windows.Forms.ListView();
-            this.QTYlabel = new System.Windows.Forms.Label();
-            this.QTYnumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.Status = new System.Windows.Forms.Label();
-            this.StatusComboBox = new System.Windows.Forms.ComboBox();
-            this.Entrepotlabel = new System.Windows.Forms.Label();
-            this.entrepotComboBox = new System.Windows.Forms.ComboBox();
-            this.ActionBtn = new System.Windows.Forms.Button();
             this.AnnulerBtn = new System.Windows.Forms.Button();
+            this.ActionBtn = new System.Windows.Forms.Button();
+            this.entrepotComboBox = new System.Windows.Forms.ComboBox();
+            this.Entrepotlabel = new System.Windows.Forms.Label();
+            this.StatusComboBox = new System.Windows.Forms.ComboBox();
+            this.Status = new System.Windows.Forms.Label();
+            this.QTYnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.QTYlabel = new System.Windows.Forms.Label();
+            this.produitListView = new System.Windows.Forms.ListView();
+            this.listProduitLabel = new System.Windows.Forms.Label();
+            this.produitTextBox = new System.Windows.Forms.TextBox();
+            this.RechercheLabel = new System.Windows.Forms.Label();
+            this.idNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.poIdLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.idNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.QTYnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -83,41 +83,92 @@ partial class PurchaseOrderForm {
             this.panel1.Size = new System.Drawing.Size(491, 511);
             this.panel1.TabIndex = 0;
             // 
-            // poIdLabel
+            // AnnulerBtn
             // 
-            this.poIdLabel.AutoSize = true;
-            this.poIdLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.poIdLabel.Location = new System.Drawing.Point(0, 0);
-            this.poIdLabel.Name = "poIdLabel";
-            this.poIdLabel.Size = new System.Drawing.Size(76, 15);
-            this.poIdLabel.TabIndex = 0;
-            this.poIdLabel.Text = "Id du produit";
+            this.AnnulerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AnnulerBtn.Location = new System.Drawing.Point(413, 461);
+            this.AnnulerBtn.Name = "AnnulerBtn";
+            this.AnnulerBtn.Size = new System.Drawing.Size(75, 41);
+            this.AnnulerBtn.TabIndex = 13;
+            this.AnnulerBtn.Text = "Annuler";
+            this.AnnulerBtn.UseVisualStyleBackColor = true;
+            this.AnnulerBtn.Click += new System.EventHandler(this.AnnulerBtn_Click);
             // 
-            // idNumericUpDown
+            // ActionBtn
             // 
-            this.idNumericUpDown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.idNumericUpDown.Location = new System.Drawing.Point(0, 15);
-            this.idNumericUpDown.Name = "idNumericUpDown";
-            this.idNumericUpDown.Size = new System.Drawing.Size(491, 23);
-            this.idNumericUpDown.TabIndex = 1;
+            this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ActionBtn.Location = new System.Drawing.Point(3, 461);
+            this.ActionBtn.Name = "ActionBtn";
+            this.ActionBtn.Size = new System.Drawing.Size(75, 41);
+            this.ActionBtn.TabIndex = 12;
+            this.ActionBtn.Text = "Action";
+            this.ActionBtn.UseVisualStyleBackColor = true;
+            this.ActionBtn.Click += new System.EventHandler(this.ActionBtn_Click);
             // 
-            // RechercheLabel
+            // entrepotComboBox
             // 
-            this.RechercheLabel.AutoSize = true;
-            this.RechercheLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.RechercheLabel.Location = new System.Drawing.Point(0, 38);
-            this.RechercheLabel.Name = "RechercheLabel";
-            this.RechercheLabel.Size = new System.Drawing.Size(101, 15);
-            this.RechercheLabel.TabIndex = 2;
-            this.RechercheLabel.Text = "Produit recherché";
+            this.entrepotComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.entrepotComboBox.FormattingEnabled = true;
+            this.entrepotComboBox.Location = new System.Drawing.Point(0, 393);
+            this.entrepotComboBox.Name = "entrepotComboBox";
+            this.entrepotComboBox.Size = new System.Drawing.Size(491, 23);
+            this.entrepotComboBox.TabIndex = 11;
             // 
-            // produitTextBox
+            // Entrepotlabel
             // 
-            this.produitTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.produitTextBox.Location = new System.Drawing.Point(0, 53);
-            this.produitTextBox.Name = "produitTextBox";
-            this.produitTextBox.Size = new System.Drawing.Size(491, 23);
-            this.produitTextBox.TabIndex = 3;
+            this.Entrepotlabel.AutoSize = true;
+            this.Entrepotlabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Entrepotlabel.Location = new System.Drawing.Point(0, 378);
+            this.Entrepotlabel.Name = "Entrepotlabel";
+            this.Entrepotlabel.Size = new System.Drawing.Size(89, 15);
+            this.Entrepotlabel.TabIndex = 10;
+            this.Entrepotlabel.Text = "Entrepôt stocké";
+            // 
+            // StatusComboBox
+            // 
+            this.StatusComboBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.StatusComboBox.FormattingEnabled = true;
+            this.StatusComboBox.Location = new System.Drawing.Point(0, 355);
+            this.StatusComboBox.Name = "StatusComboBox";
+            this.StatusComboBox.Size = new System.Drawing.Size(491, 23);
+            this.StatusComboBox.TabIndex = 9;
+            // 
+            // Status
+            // 
+            this.Status.AutoSize = true;
+            this.Status.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Status.Location = new System.Drawing.Point(0, 340);
+            this.Status.Name = "Status";
+            this.Status.Size = new System.Drawing.Size(131, 15);
+            this.Status.TabIndex = 8;
+            this.Status.Text = "Status de la commande";
+            // 
+            // QTYnumericUpDown
+            // 
+            this.QTYnumericUpDown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.QTYnumericUpDown.Location = new System.Drawing.Point(0, 317);
+            this.QTYnumericUpDown.Name = "QTYnumericUpDown";
+            this.QTYnumericUpDown.Size = new System.Drawing.Size(491, 23);
+            this.QTYnumericUpDown.TabIndex = 7;
+            // 
+            // QTYlabel
+            // 
+            this.QTYlabel.AutoSize = true;
+            this.QTYlabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.QTYlabel.Location = new System.Drawing.Point(0, 302);
+            this.QTYlabel.Name = "QTYlabel";
+            this.QTYlabel.Size = new System.Drawing.Size(130, 15);
+            this.QTYlabel.TabIndex = 6;
+            this.QTYlabel.Text = "Quantité à commander";
+            // 
+            // produitListView
+            // 
+            this.produitListView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.produitListView.Location = new System.Drawing.Point(0, 91);
+            this.produitListView.Name = "produitListView";
+            this.produitListView.Size = new System.Drawing.Size(491, 211);
+            this.produitListView.TabIndex = 5;
+            this.produitListView.UseCompatibleStateImageBehavior = false;
             // 
             // listProduitLabel
             // 
@@ -130,91 +181,41 @@ partial class PurchaseOrderForm {
             this.listProduitLabel.Tag = "";
             this.listProduitLabel.Text = "Liste des produits";
             // 
-            // produitListView
+            // produitTextBox
             // 
-            this.produitListView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.produitListView.Location = new System.Drawing.Point(0, 91);
-            this.produitListView.Name = "produitListView";
-            this.produitListView.Size = new System.Drawing.Size(491, 211);
-            this.produitListView.TabIndex = 5;
-            this.produitListView.UseCompatibleStateImageBehavior = false;
+            this.produitTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.produitTextBox.Location = new System.Drawing.Point(0, 53);
+            this.produitTextBox.Name = "produitTextBox";
+            this.produitTextBox.Size = new System.Drawing.Size(491, 23);
+            this.produitTextBox.TabIndex = 3;
             // 
-            // QTYlabel
+            // RechercheLabel
             // 
-            this.QTYlabel.AutoSize = true;
-            this.QTYlabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.QTYlabel.Location = new System.Drawing.Point(0, 302);
-            this.QTYlabel.Name = "QTYlabel";
-            this.QTYlabel.Size = new System.Drawing.Size(130, 15);
-            this.QTYlabel.TabIndex = 6;
-            this.QTYlabel.Text = "Quantité à commander";
+            this.RechercheLabel.AutoSize = true;
+            this.RechercheLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.RechercheLabel.Location = new System.Drawing.Point(0, 38);
+            this.RechercheLabel.Name = "RechercheLabel";
+            this.RechercheLabel.Size = new System.Drawing.Size(101, 15);
+            this.RechercheLabel.TabIndex = 2;
+            this.RechercheLabel.Text = "Produit recherché";
             // 
-            // QTYnumericUpDown
+            // idNumericUpDown
             // 
-            this.QTYnumericUpDown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.QTYnumericUpDown.Location = new System.Drawing.Point(0, 317);
-            this.QTYnumericUpDown.Name = "QTYnumericUpDown";
-            this.QTYnumericUpDown.Size = new System.Drawing.Size(491, 23);
-            this.QTYnumericUpDown.TabIndex = 7;
+            this.idNumericUpDown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.idNumericUpDown.Location = new System.Drawing.Point(0, 15);
+            this.idNumericUpDown.Name = "idNumericUpDown";
+            this.idNumericUpDown.Size = new System.Drawing.Size(491, 23);
+            this.idNumericUpDown.TabIndex = 1;
             // 
-            // Status
+            // poIdLabel
             // 
-            this.Status.AutoSize = true;
-            this.Status.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Status.Location = new System.Drawing.Point(0, 340);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(131, 15);
-            this.Status.TabIndex = 8;
-            this.Status.Text = "Status de la commande";
-            // 
-            // StatusComboBox
-            // 
-            this.StatusComboBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.StatusComboBox.FormattingEnabled = true;
-            this.StatusComboBox.Location = new System.Drawing.Point(0, 355);
-            this.StatusComboBox.Name = "StatusComboBox";
-            this.StatusComboBox.Size = new System.Drawing.Size(491, 23);
-            this.StatusComboBox.TabIndex = 9;
-            // 
-            // Entrepotlabel
-            // 
-            this.Entrepotlabel.AutoSize = true;
-            this.Entrepotlabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Entrepotlabel.Location = new System.Drawing.Point(0, 378);
-            this.Entrepotlabel.Name = "Entrepotlabel";
-            this.Entrepotlabel.Size = new System.Drawing.Size(89, 15);
-            this.Entrepotlabel.TabIndex = 10;
-            this.Entrepotlabel.Text = "Entrepôt stocké";
-            // 
-            // entrepotComboBox
-            // 
-            this.entrepotComboBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.entrepotComboBox.FormattingEnabled = true;
-            this.entrepotComboBox.Location = new System.Drawing.Point(0, 393);
-            this.entrepotComboBox.Name = "entrepotComboBox";
-            this.entrepotComboBox.Size = new System.Drawing.Size(491, 23);
-            this.entrepotComboBox.TabIndex = 11;
-            // 
-            // ActionBtn
-            // 
-            this.ActionBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ActionBtn.Location = new System.Drawing.Point(3, 461);
-            this.ActionBtn.Name = "ActionBtn";
-            this.ActionBtn.Size = new System.Drawing.Size(75, 41);
-            this.ActionBtn.TabIndex = 12;
-            this.ActionBtn.Text = "Action";
-            this.ActionBtn.UseVisualStyleBackColor = true;
-            // 
-            // AnnulerBtn
-            // 
-            this.AnnulerBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AnnulerBtn.Location = new System.Drawing.Point(413, 461);
-            this.AnnulerBtn.Name = "AnnulerBtn";
-            this.AnnulerBtn.Size = new System.Drawing.Size(75, 41);
-            this.AnnulerBtn.TabIndex = 13;
-            this.AnnulerBtn.Text = "Annuler";
-            this.AnnulerBtn.UseVisualStyleBackColor = true;
-            this.AnnulerBtn.Click += new System.EventHandler(this.AnnulerBtn_Click);
+            this.poIdLabel.AutoSize = true;
+            this.poIdLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.poIdLabel.Location = new System.Drawing.Point(0, 0);
+            this.poIdLabel.Name = "poIdLabel";
+            this.poIdLabel.Size = new System.Drawing.Size(76, 15);
+            this.poIdLabel.TabIndex = 0;
+            this.poIdLabel.Text = "Id du produit";
             // 
             // PurchaseOrderForm
             // 
@@ -227,8 +228,8 @@ partial class PurchaseOrderForm {
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.idNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.QTYnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idNumericUpDown)).EndInit();
             this.ResumeLayout(false);
 
     }

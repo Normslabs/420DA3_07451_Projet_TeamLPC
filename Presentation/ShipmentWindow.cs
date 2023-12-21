@@ -15,7 +15,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
+
+/// <summary>
+/// Classe de shipmentWindow (UI)
+/// </summary>
 public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
+
+    /// <summary>
+    /// Déclaration de la fac
+    /// </summary>
 
     private readonly AbstractFacade facade;
     private ShipmentDTO workingInstance = null!;
@@ -127,6 +135,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
             return;
         }
     }
+
 
 
     private bool ValidateFields() {
