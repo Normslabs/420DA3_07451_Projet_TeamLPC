@@ -294,42 +294,47 @@ internal class AppDbContext : AbstractContext {
             .Property(shipmento => shipmento.ClientsId)
             .HasColumnName("ClientsId")
             .HasColumnType("int");
+
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.DestinationCivicAdress)
             .HasColumnName("DestinationCivicAdress")
             .HasColumnType("nvarchar(128)");
+
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.DestinationContact)
             .HasColumnName("DestinationContact")
             .HasColumnType("nvarchar(128)");
+
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.DestinationPostalCode)
             .HasColumnName("DestinationPostalCode")
             .HasColumnType("nvarchar(128)");
+
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.EntrepotOriginal)
             .HasColumnName("EntrepotOriginal")
             .HasColumnType("nvarchar(128)");
+
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.RowVersion)
             .HasColumnName("RowVersion")
             .HasColumnType("rowversion")
             .IsRowVersion();
+
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.ShipmentId)
             .HasColumnName("ShipmentId")
             .HasColumnType("int");
+
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.EmployeEntrepotId)
             .HasColumnName("EmployeEntrepotId")
             .HasColumnType ("int");
 
-
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasOne(shipmento => shipmento.Clients)
             .WithMany(clients => clients.ShipmentOrders)
             .HasForeignKey("ClientsId");
-
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .HasOne(shipmentO => shipmentO.EntrepotOriginal)
@@ -342,9 +347,10 @@ internal class AppDbContext : AbstractContext {
             .HasForeignKey(sop => sop.ShipmentOrderDTOId);
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .HasOne(shipmento => shipmento.EmployeEntrepot);
+            .HasOne(shipmento => shipmento.EmployeEntrepot)
+            .WithMany(utilisateur => utilisateur.AssignedShipmentOrders);
 
-        //Pas sure pour EmployeEntrepot a reverifier a le prof 
+       
 
 
 

@@ -92,9 +92,9 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
                 this.EnableControl();
                 break;
             case ViewIntentEnum.Edition:
+                this.EnableControl();
                 break;
             case ViewIntentEnum.Deletion:
-
                 this.DisableControl();
                 break;
             case ViewIntentEnum.Visualization:
@@ -143,6 +143,8 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
 
             case ViewIntentEnum.Creation:
             case ViewIntentEnum.Edition:
+                this.SaveShipmentOrderInInstance();
+                break;
             case ViewIntentEnum.Deletion:
             case ViewIntentEnum.Visualization:
                 break;
