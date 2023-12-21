@@ -16,25 +16,26 @@ namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 /// Héritage de <see cref="AbstractDTO{int}"/>
 /// </para>
 public class Adresse : AbstractDTO<int> {
-
-   
     public const int MAX_NUMEROCIVIQUE_LENGTH = 8;
     public const int MAX_PAYS_LENGTH = 42;
     public const int MAX_CODEPOSTAL_LENGTH = 6;
     public const int MAX_PROVINCE_LENGTH = 38;
     public const int MAX_RUE_LENGTH = 25;
     public const int MAX_VILLE_LENGTH = 25;
-  
-    public Fournisseur? AdresseFournisseur { get; set; } = null!;
-    public Entrepot? AdresseEntrepot { get; set; } = null!;
-    public  string Ville { get; set; } = null!;
-    public  string NumeroCivique { get; set; } = null!;
-    public ClientsDTO? Client { get; set; } = null!;
+
+
+    public string Ville { get; set; } = null!;
+    public string NumeroCivique { get; set; } = null!;
     public string Pays { get; set; } = null!;
     public string CodePostal { get; set; } = null!;
     public string Province { get; set; } = null!;
     public byte[] Rowversion { get; set; } = null!;
     public string Rue { get; set; } = null!;
+
+
+    public Fournisseur? AdresseFournisseur { get; set; } = null!;
+    public Entrepot? AdresseEntrepot { get; set; } = null!;
+    public ClientsDTO? Client { get; set; } = null!;
 
 
     /// <summary>

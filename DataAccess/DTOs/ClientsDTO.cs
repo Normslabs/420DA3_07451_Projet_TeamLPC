@@ -10,29 +10,26 @@ public class ClientsDTO : AbstractDTO<int> {
 
     public const int NAME_MAX_LENGTH = 24;
     public const int PRENOM_MAX_LENGTH = 24;
+    public const int COURRIEL_MAX_LENGTH = 128;
     public const int TELEPHONE_MAX_LENGTH = 10;
     public const int COMPANYNAME_MAX_LENGTH = 50;
-    public Entrepot AsignedWarehouse { get; set; } = null!;
  
-    public int  AsignedWarehouseID  { get; set; }
-
-    public Adresse ClientAdress { get; set; } = null!;
- 
+    public int AsignedWarehouseID { get; set; }
     public int ClientAdressId { get; set; }
-
     public string CompanyName { get; set; } = null!;
-
-    public List<Produit> Produit { get; set; } = null!;
-
     public byte[] RowVersion { get; set; } = null!;
-  
-    public List<ShipmentOrderDTO> ShipmentOrders { get; set; } = null!;
 
     public string Nom {  get; set; } = null!;
     public string Prenom { get; set; } = null!;
-
     public string Courriel { get; set; } = null!;
     public long Telephone { get; set; }
+
+
+
+    public Entrepot AsignedWarehouse { get; set; } = null!;
+    public Adresse ClientAdress { get; set; } = null!;
+    public List<Produit> Produit { get; set; } = new List<Produit>();
+    public List<ShipmentOrderDTO> ShipmentOrders { get; set; } = new List<ShipmentOrderDTO>();
 
 
     public ClientsDTO() { }
@@ -62,8 +59,7 @@ public class ClientsDTO : AbstractDTO<int> {
     }
 
     public static bool ValiderEmailClient(string email) {
-        
-        return email.Contains(" ");
+        return email.Length <= COURRIEL_MAX_LENGTH;
     }
 
     public static bool ValideCompanyName(string companyName) {

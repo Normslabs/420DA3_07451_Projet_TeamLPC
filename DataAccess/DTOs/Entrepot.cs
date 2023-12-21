@@ -33,6 +33,7 @@ public class Entrepot : AbstractDTO<int> {
    
 
     public string NomEntrepot { get; set; } = null!;
+    public int AdresseId { get; set; }
     public Adresse AdresseEntrepot { get; set; } = null!;
     
     /// <summary>
@@ -66,10 +67,11 @@ public class Entrepot : AbstractDTO<int> {
     /// <summary>
     /// Constructeur utilisable dans les services.
     /// </summary>
-    /// <param name="nomEntrepot">Le nom de l'entrepot.</param
-    public Entrepot(string nomEntrepot) { 
-    this.NomEntrepot = nomEntrepot;
-    
+    /// <param name="nomEntrepot">Le nom de l'entrepot.</param>
+    /// <param name="adresseId">L'identifiant de l'Adresse de l'Entrepôt</param>
+    public Entrepot(string nomEntrepot, int adresseId) { 
+        this.NomEntrepot = nomEntrepot;
+        this.AdresseId = adresseId;
     }
 
 
@@ -78,22 +80,13 @@ public class Entrepot : AbstractDTO<int> {
     /// </summary>
     /// <param name="id">L'identifiant interne du l'entrepot</param>
     /// <param name="nomEntrepot">Le nom de l'entrepot</param>
-    /// <param name="adresseEntrepot">La liste des adresses des entrepots/param>
-    /// <param name="utilisateur">La liste des utilisateur des entrepots ( proprieter de navigation) /param>
-    /// <param name="shipmentOrder">La liste des shipment order des entrepots ( proprieter de navigation) /param>
-    /// <param name="purchaseOrder">La liste des purchase order des entrepots ( proprieter de navigation) /param>
-    /// <param name="clients">La liste des clients des entrepots ( proprieter de navigation) /param>
+    /// <param name="adresseId">L'identifiant de l'Adresse de l'entrepôt</param>
     /// <param name="rowversion">Une signature anti-concurrence.</param>
-    protected Entrepot(int id, string nomEntrepot, Adresse adresseEntrepot, List<Utilisateur> utilisateur, List<ShipmentOrderDTO> shipmentOrder, 
-        List<PurchaseOrder> purchaseOrder, List<ClientsDTO> clients, byte[] rowversion  ) {
+    protected Entrepot(int id, string nomEntrepot, int adresseId, byte[] rowversion  ) {
        
         this.Id = id;
         this.NomEntrepot = nomEntrepot;
-        this.AdresseEntrepot = adresseEntrepot;
-        this.Utilisateur = utilisateur;
-        this.ShipmentOrder = shipmentOrder;
-        this.PurchaseOrders = purchaseOrder;
-        this.Clients = clients;
+        this.AdresseId = adresseId;
         this.RowVersion = rowversion;
 
     }

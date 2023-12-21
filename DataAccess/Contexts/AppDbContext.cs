@@ -95,13 +95,8 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType("rowversion")
             .IsRowVersion();
 
-
-        // Relation N-à-N entre Utilisateur et Role
-        _ = modelBuilder.Entity<Utilisateur>()
-            .HasMany(user => user.Roles)
-            .WithMany(role => role.UtilisateursPossedantRole);
-
         #endregion
+
 
         #region Adresse et Entrepot 
 
@@ -158,6 +153,11 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType("int");
 
         _ = modelBuilder.Entity<Entrepot>()
+            .Property(entrepot => entrepot.AdresseId)
+            .HasColumnName("AdresseId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<Entrepot>()
            .Property(entrepot => entrepot.NomEntrepot)
            .HasColumnName("NomEntrepot")
            .HasColumnType($"nvarchar({Entrepot.MAX_NOMENTREPOT_LENGTH})");
@@ -167,36 +167,12 @@ internal class AppDbContext : AbstractContext {
             .HasColumnName("RowVersion")
             .IsRowVersion();
 
-        // Relation 1-à-1 entre Entrepot et Adresse 
-
-        _ = modelBuilder.Entity<Entrepot>()
-           .HasOne(entrepot => entrepot.AdresseEntrepot)
-           .WithOne(adresse => adresse.AdresseEntrepot);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         #endregion
 
 
-
-
-
-
         #region Client et ShippingOrder (Djibril)
-
 
         _ = modelBuilder.Entity<ClientsDTO>()
             .ToTable("Clients")
@@ -206,25 +182,6 @@ internal class AppDbContext : AbstractContext {
             .Property(client => client.Id)
             .HasColumnName("Id")
             .HasColumnType("int");
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .Property(client => client.Nom)
-            .HasColumnName("Nom")
-            .HasColumnType("nvarchar(48)");
-
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .Property(client => client.Prenom)
-            .HasColumnName("Prenom")
-            .HasColumnType("nvarchar(48)");
-
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .Property(client => client.Courriel)
-            .HasColumnName("Courriel")
-            .HasColumnType("nvarchar(128)");
-
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .Property(client => client.Telephone)
-            .HasColumnName("Telephone")
-            .HasColumnType("bigint");
 
         _ = modelBuilder.Entity<ClientsDTO>()
            .Property(client => client.AsignedWarehouseID)
@@ -239,35 +196,35 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<ClientsDTO>()
             .Property(client => client.CompanyName)
             .HasColumnName("CompanyName")
-            .HasColumnType("nvarchar(50)");
+            .HasColumnType($"nvarchar({ClientsDTO.COMPANYNAME_MAX_LENGTH})");
 
         _ = modelBuilder.Entity<ClientsDTO>()
             .Property(client => client.RowVersion)
             .HasColumnName("RowVersion")
-            .HasColumnType("rowversion")
             .IsRowVersion();
 
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Nom)
+            .HasColumnName("Nom")
+            .HasColumnType($"nvarchar({ClientsDTO.NAME_MAX_LENGTH})");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Prenom)
+            .HasColumnName("Prenom")
+            .HasColumnType($"nvarchar({ClientsDTO.PRENOM_MAX_LENGTH})");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Courriel)
+            .HasColumnName("Courriel")
+            .HasColumnType($"nvarchar({ClientsDTO.COURRIEL_MAX_LENGTH})");
+
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .Property(client => client.Telephone)
+            .HasColumnName("Telephone")
+            .HasColumnType("bigint");
+
+
         // Relation de Clients
-
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .HasOne(client => client.AsignedWarehouse)
-            .WithMany(entrepot => entrepot.Clients)
-            .HasForeignKey("AsignedWarehouseID");
-
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .HasOne(client => client.ClientAdress)
-            .WithOne(adresse => adresse.Client)
-            .HasForeignKey("ClientAdressId");
-
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .HasMany(client => client.Produit)
-            .WithOne(produit => produit.ClientsDTO)
-            .HasForeignKey("ClientsDTOId");
-        _ = modelBuilder.Entity<ClientsDTO>()
-            .HasMany(client => client.ShipmentOrders)
-            .WithOne(shipmentorder => shipmentorder.Clients)
-            .HasForeignKey("ClientsId");
-
 
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
@@ -279,17 +236,6 @@ internal class AppDbContext : AbstractContext {
             .HasColumnName("Id")
             .HasColumnType("int");
 
-
-        _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .Property(shipmento => shipmento.DateCreated)
-            .HasColumnName("DateCreated")
-            .HasColumnType("datetime2")
-            .HasComputedColumnSql("getdate()");
-        _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .Property(shipmento => shipmento.DateShipped)
-            .HasColumnName("DateShipped")
-            .HasColumnType("datetime2");
-
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.ClientsId)
             .HasColumnName("ClientsId")
@@ -298,22 +244,17 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.DestinationCivicAdress)
             .HasColumnName("DestinationCivicAdress")
-            .HasColumnType("nvarchar(128)");
+            .HasColumnType($"nvarchar({ShipmentOrderDTO.ADRESSCIVIQUE_MAX_LENGHT})");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.DestinationContact)
             .HasColumnName("DestinationContact")
-            .HasColumnType("nvarchar(128)");
+            .HasColumnType($"nvarchar({ShipmentOrderDTO.CONCTACT_MAX_LENGHT})");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.DestinationPostalCode)
             .HasColumnName("DestinationPostalCode")
-            .HasColumnType("nvarchar(128)");
-
-        _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .Property(shipmento => shipmento.EntrepotOriginal)
-            .HasColumnName("EntrepotOriginal")
-            .HasColumnType("nvarchar(128)");
+            .HasColumnType($"nvarchar({ShipmentOrderDTO.CODEPOSTAL_MAX_LENGHT})");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.RowVersion)
@@ -332,112 +273,115 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType ("int");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .HasOne(shipmento => shipmento.Clients)
-            .WithMany(clients => clients.ShipmentOrders)
-            .HasForeignKey("ClientsId");
+            .Property(shipmento => shipmento.DateCreated)
+            .HasColumnName("DateCreated")
+            .HasColumnType("datetime2(7)")
+            .HasComputedColumnSql("getdate()");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .HasOne(shipmentO => shipmentO.EntrepotOriginal)
-            .WithMany(entrepot => entrepot.ShipmentOrder)
-            .HasForeignKey("EntrepotOriginalId");
+            .Property(shipmento => shipmento.DateShipped)
+            .HasColumnName("DateShipped")
+            .HasColumnType("datetime2(7)");
 
-        _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .HasMany(shipmentO => shipmentO.AssociationsProduits)
-            .WithOne(sop => sop.ShipmentOrderDTO)
-            .HasForeignKey(sop => sop.ShipmentOrderDTOId);
-
-        _ = modelBuilder.Entity<ShipmentOrderDTO>()
-            .HasOne(shipmento => shipmento.EmployeEntrepot)
-            .WithMany(utilisateur => utilisateur.AssignedShipmentOrders);
-
-       
+        #endregion
 
 
+        #region Produit et PurchaseOrder
 
         //Creation Produit
 
         _ = modelBuilder.Entity<Produit>()
-            .Property(produit => produit.Description)
-            .IsRequired(false)
-            .HasColumnName("Description")
-            .HasColumnType("nvarchar(128)");
+            .ToTable("Produits")
+            .HasKey(Produit => Produit.Id);
 
         _ = modelBuilder.Entity<Produit>()
-            .Property(produit => produit.DoAutoRestock)
-            .HasColumnName("Description")
-            .HasColumnType("bit");
-
-        _ = modelBuilder.Entity<Produit>()
-            .Property(produit => produit.InstockQuantity)
-            .HasColumnName("InStockQTY")
-            .HasColumnType($"nvarchar({Produit.INSTOCK_MIN_QTY})");
+            .Property(produit => produit.Id)
+            .HasColumnName("Id")
+            .HasColumnType("int");
 
         _ = modelBuilder.Entity<Produit>()
             .Property(produit => produit.Name)
             .HasColumnName("Name")
             .HasColumnType($"nvarchar({Produit.NAME_MAX_LENGTH})");
 
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.Description)
+            .HasColumnName("Description")
+            .HasColumnType("nvarchar(128)")
+            .IsRequired(false);
 
         _ = modelBuilder.Entity<Produit>()
-           .Property(produit => produit.ClientsDTOId)
-           .HasColumnName("ClientsDTOId")
-           .HasColumnType("int");
-        
+            .Property(produit => produit.DoAutoRestock)
+            .HasColumnName("DoAutoRestock")
+            .HasColumnType("bit");
 
         _ = modelBuilder.Entity<Produit>()
-            .Property(produit => produit.SupplierCode)
-            .IsRequired(false)
-            .HasColumnName("InStockQTY")
-            .HasColumnType($"nvarchar({Produit.SUPPLIERCODE_MAX_LENGTH})");
-
+            .Property(produit => produit.InstockQuantity)
+            .HasColumnName("InstockQuantity")
+            .HasColumnType("int");
 
         _ = modelBuilder.Entity<Produit>()
             .Property(produit => produit.TargetStockQuantity)
             .HasColumnName("TargetStockQuantity")
             .HasColumnType("int");
-
+        
+        _ = modelBuilder.Entity<Produit>()
+            .Property(produit => produit.SupplierCode)
+            .HasColumnName("SupplierCode")
+            .HasColumnType($"nvarchar({Produit.SUPPLIERCODE_MAX_LENGTH})")
+            .IsRequired(false);
 
         _ = modelBuilder.Entity<Produit>()
             .Property(produit => produit.UpcCode)
-            .HasColumnName("UPCCode")
-            .HasColumnType($"nvarchar({Produit.UPCCODE_MIN})");
-
+            .HasColumnName("UpcCode")
+            .HasColumnType("bigint");
 
         _ = modelBuilder.Entity<Produit>()
            .Property(produit => produit.WeightInKg)
            .HasColumnName("WeightInKg")
-           .HasColumnType("int");
+           .HasColumnType("decimal(9,2)")
+           .IsRequired(false);
 
         _ = modelBuilder.Entity<Produit>()
-            .HasMany(produit => produit.ShippingOrderProducts)
-            .WithOne(sop => sop.Produit)
-            .HasForeignKey(sop => sop.ProduitId);
+            .Property(produit => produit.ClientsDTOId)
+            .HasColumnName("ClientsDTOId")
+            .HasColumnType("int");
 
         _ = modelBuilder.Entity<Produit>()
-            .HasOne(produit => produit.Fournisseur)
-            .WithMany(fournisseur => fournisseur.ProduitsFournis)
-            .HasForeignKey(produit => produit.FournisseurId);
+            .Property(produit => produit.FournisseurId)
+            .HasColumnName("DournisseurId")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<Produit>()
+            .Property(prod => prod.RowVersion)
+            .HasColumnName("Version")
+            .IsRowVersion();
+
 
         //Creation Purchase Order 
 
         _ = modelBuilder.Entity<PurchaseOrder>()
-            .HasOne(po => po.DestinationWarehouse)
-            .WithMany(wh => wh.PurchaseOrders)
-            .HasForeignKey(po => po.DestinationWarehouseID);
+            .ToTable("PurchaseOrders")
+            .HasKey(po => po.Id);
 
         _ = modelBuilder.Entity<PurchaseOrder>()
-            .HasOne(po => po.Product)
-            .WithMany(product => product.PurchaseOrders)
-            .HasForeignKey(po => po.ProductId);
-
-        _ = modelBuilder.Entity<PurchaseOrder>()
-            .Property(po => po.ProductId)
-            .HasColumnName("ProductId")
+            .Property(po => po.Id)
+            .HasColumnName("Id")
             .HasColumnType("int");
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.Status)
+            .HasColumnName("Status")
+            .HasColumnType("nvarchar(16)");
 
         _ = modelBuilder.Entity<PurchaseOrder>()
             .Property(po => po.QuantityOrdered)
             .HasColumnName("QuantityOrdered")
+            .HasColumnType("int");
+
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .Property(po => po.ProductId)
+            .HasColumnName("ProductId")
             .HasColumnType("int");
 
         _ = modelBuilder.Entity<PurchaseOrder>()
@@ -446,24 +390,20 @@ internal class AppDbContext : AbstractContext {
             .HasColumnType("int");
 
         _ = modelBuilder.Entity<PurchaseOrder>()
-            .Property(po => po.DateCompleted)
-            .IsRequired(false)
-            .HasColumnName("DateCompleted")
-            .HasColumnType("datetime2");
-
-        _ = modelBuilder.Entity<PurchaseOrder>()
             .Property(po => po.DateCreated)
             .HasColumnName("DateCreated")
-            .HasColumnType("datetime2")
+            .HasColumnType("datetime2(7)")
             .HasComputedColumnSql("getdate()");
 
         _ = modelBuilder.Entity<PurchaseOrder>()
-            .Property(po => po.Status)
-            .HasColumnName("Status")
-            .HasColumnType("nvarchar(16)");
+            .Property(po => po.DateCompleted)
+            .HasColumnName("DateCompleted")
+            .HasColumnType("datetime2(7)")
+            .IsRequired(false);
 
 
         #endregion
+
 
         #region Fournisseur et Shipment
 
@@ -471,7 +411,7 @@ internal class AppDbContext : AbstractContext {
         //Model builder permettant de créer la table pour Fournisseur et de creer les colonnes dans la base de donnée à l'aide d'une migration
 
         _ = modelBuilder.Entity<Fournisseur>()
-            .ToTable("Fournisseur")
+            .ToTable("Fournisseurs")
             .HasKey(fournisseur => fournisseur.Id);
 
         _ = modelBuilder.Entity<Fournisseur>()
@@ -482,7 +422,7 @@ internal class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.SupplierName)
-            .HasColumnName("Nom du fournisseur")
+            .HasColumnName("NomFournisseur")
             .HasColumnType($"nvarchar({Fournisseur.SUPPLIER_NAME_MAXLENGHT}");
 
 
@@ -494,25 +434,25 @@ internal class AppDbContext : AbstractContext {
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.PrenomContact)
-            .HasColumnName("Prenom du Contact")
+            .HasColumnName("PrenomContact")
             .HasColumnType($"nvarchar({Fournisseur.PRENOMCONTACT_MAX_LENGHT}");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.NomContact)
-            .HasColumnName("Nom du contact")
+            .HasColumnName("NomContact")
             .HasColumnType ($"nvarchar({Fournisseur.NOMCONTACT_MAX_LENGHT}");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.AdresseContact)
-            .HasColumnName("Adresse du contact")
+            .HasColumnName("AdresseContact")
             .HasColumnType ($"nvarchar({Fournisseur.ADRESSECONTACT_MAX_LENGHT}");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
             .Property(fournisseur => fournisseur.EmailContact)
-            .HasColumnName("Email du contact")
+            .HasColumnName("EmailContact")
             .HasColumnType ($"nvarchar({Fournisseur.EMAILCONTACT_MAX_LENGHT}");
 
 
@@ -522,17 +462,12 @@ internal class AppDbContext : AbstractContext {
             .IsRowVersion();
 
 
-        _ = modelBuilder.Entity<Fournisseur>()
-            .HasOne(fournisseur => fournisseur.SupplierAdresse)
-            .WithOne(adresse => adresse.AdresseFournisseur)
-            .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
-
 
         //Model builder permettant de créer la table pour Fournisseur et de creer les colonnes dans la base de donnée à l'aide d'une migration
 
 
         _ = modelBuilder.Entity<ShipmentDTO>()
-            .ToTable("Shipment")
+            .ToTable("Shipments")
             .HasKey(shipment => shipment.Id);
 
         _ = modelBuilder.Entity<ShipmentDTO>()
@@ -540,32 +475,124 @@ internal class AppDbContext : AbstractContext {
             .HasColumnName ("Id")
             .HasColumnType("int");
 
-
-        _ = modelBuilder.Entity<ShipmentDTO>()
-            .Property (shipment => shipment.ShippingOrderID)
-            .HasColumnName("ShippingOrderId")
-            .HasColumnType("int");
-
-
         _ = modelBuilder.Entity<ShipmentDTO>()
             .Property(shipment => shipment.Service)
             .HasColumnName("Service")
             .HasColumnType("nvarchar(30)");
-
 
         _ = modelBuilder.Entity<ShipmentDTO>()
             .Property(shipment => shipment.TrackingNumber)
             .HasColumnName("Tracking number")
             .HasColumnType("nvarchar(15)");
 
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .Property (shipment => shipment.ShippingOrderID)
+            .HasColumnName("ShippingOrderId")
+            .HasColumnType("int");
 
+        _ = modelBuilder.Entity<ShipmentDTO>()
+            .Property(shipment => shipment.RowVersion)
+            .HasColumnName("Version")
+            .IsRowVersion();
+
+
+        #endregion
+
+
+        #region Relations
+
+        // N-à-N entre Utilisateur et Role
+        _ = modelBuilder.Entity<Utilisateur>()
+            .HasMany(user => user.Roles)
+            .WithMany(role => role.UtilisateursPossedantRole);
+
+        // 1-à-1 entre Entrepot et Adresse 
+        _ = modelBuilder.Entity<Entrepot>()
+           .HasOne(entrepot => entrepot.AdresseEntrepot)
+           .WithOne(adresse => adresse.AdresseEntrepot)
+           .HasForeignKey<Entrepot>(wh=>wh.AdresseId);
+
+        // 1-à-N entre Client et Entrepot
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasOne(client => client.AsignedWarehouse)
+            .WithMany(entrepot => entrepot.Clients)
+            .HasForeignKey(client => client.AsignedWarehouseID);
+
+        // 1-à-1 entre Client et Entrepot
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasOne(client => client.ClientAdress)
+            .WithOne(adresse => adresse.Client)
+            .HasForeignKey<ClientsDTO>(client => client.ClientAdressId);
+
+        // N-à-1 entre produit et client
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasMany(client => client.Produit)
+            .WithOne(produit => produit.ClientsDTO)
+            .HasForeignKey(produit => produit.ClientsDTOId);
+
+        // N-à-1 entre ShipmentOrders et clients
+        _ = modelBuilder.Entity<ClientsDTO>()
+            .HasMany(client => client.ShipmentOrders)
+            .WithOne(shipmentorder => shipmentorder.Clients)
+            .HasForeignKey(so => so.ClientsId);
+
+        // N-à-1 entre ShipmentOrders et entrepot
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .HasOne(shipmentO => shipmentO.EntrepotOriginal)
+            .WithMany(entrepot => entrepot.ShipmentOrder)
+            .HasForeignKey(so => so.EntrepotOriginalId);
+
+        // 1-à-N entre ShipmentOrder et ShippingOrderProducts (pivot)
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .HasMany(shipmentO => shipmentO.AssociationsProduits)
+            .WithOne(sop => sop.ShipmentOrderDTO)
+            .HasForeignKey(sop => sop.ShipmentOrderDTOId);
+
+        // 1-à-N entre Produit et ShippingOrderProducts (pivot)
+        _ = modelBuilder.Entity<Produit>()
+            .HasMany(produit => produit.ShippingOrderProducts)
+            .WithOne(sop => sop.Produit)
+            .HasForeignKey(sop => sop.ProduitId);
+
+        // 1-à-N entre Utilisateur (employe d'entrepôt) et ShipmentOrders
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .HasOne(shipmento => shipmento.EmployeEntrepot)
+            .WithMany(utilisateur => utilisateur.AssignedShipmentOrders)
+            .HasForeignKey(so => so.EmployeEntrepotId);
+
+        // 1-à-N entre Fournisseur et Produits
+        _ = modelBuilder.Entity<Produit>()
+            .HasOne(produit => produit.Fournisseur)
+            .WithMany(fournisseur => fournisseur.ProduitsFournis)
+            .HasForeignKey(produit => produit.FournisseurId);
+
+        // 1-à-N entre Entrepot et PurchaseOrders
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .HasOne(po => po.DestinationWarehouse)
+            .WithMany(wh => wh.PurchaseOrders)
+            .HasForeignKey(po => po.DestinationWarehouseID);
+
+        // 1-à-N entre Produit et PurchaseOrders
+        _ = modelBuilder.Entity<PurchaseOrder>()
+            .HasOne(po => po.Product)
+            .WithMany(product => product.PurchaseOrders)
+            .HasForeignKey(po => po.ProductId);
+
+        // 1-à-1 entre Adresse et Fournisseur
+        _ = modelBuilder.Entity<Fournisseur>()
+            .HasOne(fournisseur => fournisseur.SupplierAdresse)
+            .WithOne(adresse => adresse.AdresseFournisseur)
+            .HasForeignKey<Fournisseur>(fourn => fourn.AdresseId);
+
+        // 1-à-1 entre Shipment et ShippingOrder
         _ = modelBuilder.Entity<ShipmentDTO>()
             .HasOne(shipment => shipment.ShippingOrder)
             .WithOne(shipOrd => shipOrd.Shipment)
             .HasForeignKey<ShipmentDTO>(shipment => shipment.ShippingOrderID);
 
-        #endregion
-    }
 
+        #endregion
+
+    }
 
 }

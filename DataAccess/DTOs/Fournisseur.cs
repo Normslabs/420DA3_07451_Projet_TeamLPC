@@ -30,17 +30,14 @@ public class Fournisseur : AbstractDTO<int> {
     /// <summary>
     /// Déclaration de mes champs
     /// </summary>
+
+    public string SupplierName { get; set; } = null!;
     public int AdresseId { get; set; } 
-
-    public byte[] RowVersion { get; set; } = null!;
-
     public string PrenomContact { get; set; } = null!;
-
     public string NomContact { get; set; } = null!;
     public string AdresseContact { get; set; } = null!;
     public string EmailContact { get; set; } = null!;
-
-    public string SupplierName { get; set; } = null!;
+    public byte[] RowVersion { get; set; } = null!;
 
 
     /// <summary>
@@ -48,7 +45,6 @@ public class Fournisseur : AbstractDTO<int> {
     /// </summary>
 
     public Adresse SupplierAdresse { get; set; } = null!;
-
     public List<Produit> ProduitsFournis { get; set; } = new List<Produit>();
 
 
