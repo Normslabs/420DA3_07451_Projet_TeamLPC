@@ -337,6 +337,7 @@ partial class ProduitWindow {
             this.actionBtn.TabIndex = 0;
             this.actionBtn.Text = "Action";
             this.actionBtn.UseVisualStyleBackColor = true;
+            this.actionBtn.Click += new System.EventHandler(this.actionBtn_Click);
             // 
             // ProduitWindow
             // 

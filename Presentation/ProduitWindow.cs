@@ -26,6 +26,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     public ProduitWindow(AbstractFacade facade) {
         this.facade = facade;
+
         InitializeComponent();
         this.LoadSupplierComboBox();
         this.LoadClientComboBox();
@@ -165,7 +166,10 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.supplierComboBox.Enabled = false;
 
     }
+
     #endregion
 
+    private void actionBtn_Click(object sender, EventArgs e) {
 
+    }
 }
