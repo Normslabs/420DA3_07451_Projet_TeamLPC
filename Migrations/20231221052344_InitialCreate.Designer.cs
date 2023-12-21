@@ -12,7 +12,7 @@ using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 namespace _420DA3_07451_Projet_Initial.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231221050000_InitialCreate")]
+    [Migration("20231221052344_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -73,8 +73,11 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .HasColumnName("Province");
 
                     b.Property<byte[]>("Rowversion")
+                        .IsConcurrencyToken()
                         .IsRequired()
-                        .HasColumnType("varbinary(max)");
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion")
+                        .HasColumnName("Version");
 
                     b.Property<string>("Rue")
                         .IsRequired()
@@ -89,6 +92,68 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Adresse", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "5A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "55A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "555A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "1A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "11A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CodePostal = "H0H0H0",
+                            NumeroCivique = "111A",
+                            Pays = "Cehnehdeh",
+                            Province = "Quebec",
+                            Rue = "rue Saint-Laurent",
+                            Ville = "Montréal"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.ClientsDTO", b =>
@@ -147,6 +212,30 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .IsUnique();
 
                     b.ToTable("Clients", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AsignedWarehouseID = 1,
+                            ClientAdressId = 4,
+                            CompanyName = "Client Test 1",
+                            Courriel = "john.doe@client.net",
+                            Nom = "Doe",
+                            Prenom = "John",
+                            Telephone = 5145555555L
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AsignedWarehouseID = 1,
+                            ClientAdressId = 5,
+                            CompanyName = "Normslabs Entertainment Inc.",
+                            Courriel = "ze.norm@client.net",
+                            Nom = "Norm",
+                            Prenom = "Ze",
+                            Telephone = 5145551234L
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Entrepot", b =>
@@ -180,6 +269,14 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .IsUnique();
 
                     b.ToTable("Entrepot", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdresseId = 1,
+                            NomEntrepot = "Entrepot Test"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Fournisseur", b =>
@@ -190,11 +287,6 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .HasColumnName("Id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AdresseContact")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(80")
-                        .HasColumnName("AdresseContact");
 
                     b.Property<int>("AdresseId")
                         .HasColumnType("int")
@@ -227,12 +319,29 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         .HasColumnType("nvarchar(100")
                         .HasColumnName("NomFournisseur");
 
+                    b.Property<string>("TelephoneContact")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(24")
+                        .HasColumnName("TelephoneContact");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AdresseId")
                         .IsUnique();
 
                     b.ToTable("Fournisseurs", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AdresseId = 4,
+                            EmailContact = "john.doe@fournisseur.net",
+                            NomContact = "Doe",
+                            PrenomContact = "John",
+                            SupplierName = "Fournisseur Test 1",
+                            TelephoneContact = "5145555555"
+                        });
                 });
 
             modelBuilder.Entity("_420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots.ShippingOrderProducts", b =>

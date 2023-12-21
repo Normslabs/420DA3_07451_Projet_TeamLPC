@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace _420DA3_07451_Projet_Initial.Migrations
 {
     /// <inheritdoc />
@@ -22,7 +24,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     Pays = table.Column<string>(type: "nvarchar(42)", nullable: false),
                     CodePostal = table.Column<string>(type: "nvarchar(6)", nullable: false),
                     Province = table.Column<string>(type: "nvarchar(38)", nullable: false),
-                    Rowversion = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Version = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Rue = table.Column<string>(type: "nvarchar(25)", nullable: false)
                 },
                 constraints: table =>
@@ -76,7 +78,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     AdresseId = table.Column<int>(type: "int", nullable: false),
                     PrenomContact = table.Column<string>(type: "nvarchar(20", nullable: false),
                     NomContact = table.Column<string>(type: "nvarchar(20", nullable: false),
-                    AdresseContact = table.Column<string>(type: "nvarchar(80", nullable: false),
+                    TelephoneContact = table.Column<string>(type: "nvarchar(24", nullable: false),
                     EmailContact = table.Column<string>(type: "nvarchar(128", nullable: false),
                     RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
@@ -319,6 +321,38 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         principalTable: "ShipmentOrder",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Adresse",
+                columns: new[] { "Id", "CodePostal", "NumeroCivique", "Pays", "Province", "Rue", "Ville" },
+                values: new object[,]
+                {
+                    { 1, "H0H0H0", "5A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 2, "H0H0H0", "55A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 3, "H0H0H0", "555A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 4, "H0H0H0", "1A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 5, "H0H0H0", "11A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 6, "H0H0H0", "111A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Entrepot",
+                columns: new[] { "Id", "AdresseId", "NomEntrepot" },
+                values: new object[] { 1, 1, "Entrepot Test" });
+
+            migrationBuilder.InsertData(
+                table: "Fournisseurs",
+                columns: new[] { "Id", "AdresseId", "EmailContact", "NomContact", "PrenomContact", "NomFournisseur", "TelephoneContact" },
+                values: new object[] { 1, 4, "john.doe@fournisseur.net", "Doe", "John", "Fournisseur Test 1", "5145555555" });
+
+            migrationBuilder.InsertData(
+                table: "Clients",
+                columns: new[] { "Id", "AsignedWarehouseID", "ClientAdressId", "CompanyName", "Courriel", "Nom", "Prenom", "Telephone" },
+                values: new object[,]
+                {
+                    { 1, 1, 4, "Client Test 1", "john.doe@client.net", "Doe", "John", 5145555555L },
+                    { 2, 1, 5, "Normslabs Entertainment Inc.", "ze.norm@client.net", "Norm", "Ze", 5145551234L }
                 });
 
             migrationBuilder.CreateIndex(

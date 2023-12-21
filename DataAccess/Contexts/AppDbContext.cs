@@ -152,6 +152,11 @@ internal class AppDbContext : AbstractContext {
             .HasColumnName("Rue")
             .HasColumnType($"nvarchar({Adresse.MAX_RUE_LENGTH})");
 
+        _ = modelBuilder.Entity<Adresse>()
+            .Property(addr => addr.Rowversion)
+            .HasColumnName("Version")
+            .IsRowVersion();
+
         // Entrepot
 
         _ = modelBuilder.Entity<Entrepot>()
@@ -456,9 +461,9 @@ internal class AppDbContext : AbstractContext {
 
 
         _ = modelBuilder.Entity<Fournisseur>()
-            .Property(fournisseur => fournisseur.AdresseContact)
-            .HasColumnName("AdresseContact")
-            .HasColumnType ($"nvarchar({Fournisseur.ADRESSECONTACT_MAX_LENGHT}");
+            .Property(fournisseur => fournisseur.TelephoneContact)
+            .HasColumnName("TelephoneContact")
+            .HasColumnType ($"nvarchar({Fournisseur.TELEPHONECONTACT_MAX_LENGHT}");
 
 
         _ = modelBuilder.Entity<Fournisseur>()
@@ -626,6 +631,33 @@ internal class AppDbContext : AbstractContext {
             .WithOne(shipOrd => shipOrd.Shipment)
             .HasForeignKey<ShipmentDTO>(shipment => shipment.ShippingOrderID);
 
+
+        #endregion
+
+
+        #region Initial Data
+
+        _ = modelBuilder.Entity<Adresse>().HasData(
+            new Adresse("Montréal", "5A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 1 },
+            new Adresse("Montréal", "55A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 2 },
+            new Adresse("Montréal", "555A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 3 },
+            new Adresse("Montréal", "1A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 4 },
+            new Adresse("Montréal", "11A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 5 },
+            new Adresse("Montréal", "111A", "Cehnehdeh", "H0H0H0", "Quebec", "rue Saint-Laurent") { Id = 6 }
+            );
+
+        _ = modelBuilder.Entity<Entrepot>().HasData(
+            new Entrepot("Entrepot Test", 1) { Id = 1 }
+            );
+
+        _ = modelBuilder.Entity<ClientsDTO>().HasData(
+            new ClientsDTO() { Id = 1, CompanyName = "Client Test 1", AsignedWarehouseID = 1, ClientAdressId = 4, Nom = "Doe", Prenom = "John", Courriel = "john.doe@client.net", Telephone = 5145555555L },
+            new ClientsDTO() { Id = 2, CompanyName = "Normslabs Entertainment Inc.", AsignedWarehouseID = 1, ClientAdressId = 5, Nom = "Norm", Prenom = "Ze", Courriel = "ze.norm@client.net", Telephone = 5145551234L }
+            );
+
+        _ = modelBuilder.Entity<Fournisseur>().HasData(
+            new Fournisseur() { Id = 1, SupplierName = "Fournisseur Test 1", AdresseId = 4, NomContact = "Doe", PrenomContact = "John", EmailContact = "john.doe@fournisseur.net", TelephoneContact = "5145555555",  }
+            );
 
         #endregion
 
