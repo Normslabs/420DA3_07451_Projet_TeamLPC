@@ -19,12 +19,11 @@ public class ShipmentDTO : AbstractDTO<int> {
     /// Déclaration de propriété
     /// </summary>
 
-    public byte[] RowVersion { get; set; } = null!;
 
-    public ShipmentServiceEnum Service {  get; set; } 
-    public int? ShippingOrderID { get; set; } = null!;
-
+    public ShipmentServiceEnum Service {  get; set; }
     public string? TrackingNumber { get; set; } = null!;
+    public int? ShippingOrderID { get; set; } = null!;
+    public byte[] RowVersion { get; set; } = null!;
 
 
     /// <summary>

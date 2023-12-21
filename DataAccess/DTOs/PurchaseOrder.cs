@@ -13,15 +13,17 @@ public class PurchaseOrder : AbstractDTO<int> {
     public const int QTY_ORDER_MIN = 0;
 
 
-    public DateTime? DateCompleted { get; set; }//
-    public DateTime DateCreated { get; set; }//
-    public Entrepot DestinationWarehouse { get; set; } = null!;//
-    public int DestinationWarehouseID { get; set; }//
-    public Produit Product { get; set; } = null!;//
-    public int ProductId { get; set; }//
-    public int QuantityOrdered { get; set; }//
-    public byte[] RowVersion { get; set; } = null!;
     public PurchaseOrderStatusEnum? Status { get; set; }//
+    public int QuantityOrdered { get; set; }//
+    public int ProductId { get; set; }//
+    public int DestinationWarehouseID { get; set; }//
+    public DateTime DateCreated { get; set; }//
+    public DateTime? DateCompleted { get; set; }//
+    public byte[] RowVersion { get; set; } = null!;
+
+
+    public Entrepot DestinationWarehouse { get; set; } = null!;//
+    public Produit Product { get; set; } = null!;//
 
     protected PurchaseOrder(int Id, PurchaseOrderStatusEnum Status, int destinationWarehouseId, int quantityOrdered, DateTime dateCreated, DateTime? dateCompleted, byte[] rowVersion) {
         this.Id = Id;
