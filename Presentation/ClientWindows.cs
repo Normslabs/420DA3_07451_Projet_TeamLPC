@@ -193,7 +193,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
     }
 
     private void Quitbutton1_Click(object sender, EventArgs e) {
-        this.DialogResult = DialogResult.Cancel;
+        this.facade.ShutdownParentApplication();
     }
     /// <summary>
     /// Bouton de creation pour l'adresse

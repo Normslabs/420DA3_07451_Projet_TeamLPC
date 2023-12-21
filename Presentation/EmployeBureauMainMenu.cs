@@ -125,4 +125,8 @@ internal partial class EmployeBureauMainMenu : Form {
     private void QuitButton_Click(object sender, EventArgs e) {
         this.DialogResult = DialogResult.Cancel;
     }
+
+    private void EmployeBureauMainMenu_Load(object sender, EventArgs e) {
+
+    }
 }
