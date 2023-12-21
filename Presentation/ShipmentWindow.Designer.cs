@@ -24,8 +24,8 @@ partial class ShipmentWindow {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        tableLayoutPanel1 = new TableLayoutPanel();
-        panel1 = new Panel();
+        ControlLayout = new TableLayoutPanel();
+        DataPanel = new Panel();
         ShippingOrderIdnumericUpDown = new NumericUpDown();
         ControlBtnpanel = new Panel();
         Actionbtn = new Button();
@@ -35,41 +35,41 @@ partial class ShipmentWindow {
         TrackingtextBox = new TextBox();
         label2 = new Label();
         label1 = new Label();
-        tableLayoutPanel1.SuspendLayout();
-        panel1.SuspendLayout();
+        ControlLayout.SuspendLayout();
+        DataPanel.SuspendLayout();
         ((System.ComponentModel.ISupportInitialize) ShippingOrderIdnumericUpDown).BeginInit();
         ControlBtnpanel.SuspendLayout();
         this.SuspendLayout();
         // 
-        // tableLayoutPanel1
+        // ControlLayout
         // 
-        tableLayoutPanel1.ColumnCount = 3;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-        tableLayoutPanel1.Controls.Add(panel1, 1, 0);
-        tableLayoutPanel1.Dock = DockStyle.Fill;
-        tableLayoutPanel1.Location = new Point(0, 0);
-        tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 1;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        tableLayoutPanel1.Size = new Size(800, 450);
-        tableLayoutPanel1.TabIndex = 0;
+        ControlLayout.ColumnCount = 3;
+        ControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+        ControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+        ControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+        ControlLayout.Controls.Add(DataPanel, 1, 0);
+        ControlLayout.Dock = DockStyle.Fill;
+        ControlLayout.Location = new Point(0, 0);
+        ControlLayout.Name = "ControlLayout";
+        ControlLayout.RowCount = 1;
+        ControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        ControlLayout.Size = new Size(800, 450);
+        ControlLayout.TabIndex = 0;
         // 
-        // panel1
+        // DataPanel
         // 
-        panel1.Controls.Add(ShippingOrderIdnumericUpDown);
-        panel1.Controls.Add(ControlBtnpanel);
-        panel1.Controls.Add(ServicelistBox);
-        panel1.Controls.Add(label3);
-        panel1.Controls.Add(TrackingtextBox);
-        panel1.Controls.Add(label2);
-        panel1.Controls.Add(label1);
-        panel1.Dock = DockStyle.Fill;
-        panel1.Location = new Point(83, 3);
-        panel1.Name = "panel1";
-        panel1.Size = new Size(634, 444);
-        panel1.TabIndex = 0;
+        DataPanel.Controls.Add(ShippingOrderIdnumericUpDown);
+        DataPanel.Controls.Add(ControlBtnpanel);
+        DataPanel.Controls.Add(ServicelistBox);
+        DataPanel.Controls.Add(label3);
+        DataPanel.Controls.Add(TrackingtextBox);
+        DataPanel.Controls.Add(label2);
+        DataPanel.Controls.Add(label1);
+        DataPanel.Dock = DockStyle.Fill;
+        DataPanel.Location = new Point(83, 3);
+        DataPanel.Name = "DataPanel";
+        DataPanel.Size = new Size(634, 444);
+        DataPanel.TabIndex = 0;
         // 
         // ShippingOrderIdnumericUpDown
         // 
@@ -159,12 +159,12 @@ partial class ShipmentWindow {
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(800, 450);
-        this.Controls.Add(tableLayoutPanel1);
+        this.Controls.Add(ControlLayout);
         this.Name = "ShipmentWindow";
         this.Text = "ShipmentWindow";
-        tableLayoutPanel1.ResumeLayout(false);
-        panel1.ResumeLayout(false);
-        panel1.PerformLayout();
+        ControlLayout.ResumeLayout(false);
+        DataPanel.ResumeLayout(false);
+        DataPanel.PerformLayout();
         ((System.ComponentModel.ISupportInitialize) ShippingOrderIdnumericUpDown).EndInit();
         ControlBtnpanel.ResumeLayout(false);
         this.ResumeLayout(false);
@@ -172,8 +172,8 @@ partial class ShipmentWindow {
 
     #endregion
 
-    private TableLayoutPanel tableLayoutPanel1;
-    private Panel panel1;
+    private TableLayoutPanel ControlLayout;
+    private Panel DataPanel;
     private Label label1;
     private Panel ControlBtnpanel;
     private Button Actionbtn;
