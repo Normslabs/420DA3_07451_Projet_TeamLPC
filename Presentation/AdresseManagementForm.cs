@@ -14,40 +14,75 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
+
+/// <summary>
+/// Declaration de la classe AdresseManagementForm
+/// </summary>
 public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
+
+    // Champs Proprieter
     private AbstractFacade ParentFacade { get; set; }
     private Adresse workingInstance = null!;
     private ViewIntentEnum workingIntent;
 
+    /// <summary>
+    /// Declaration de la facade, pour les instance courante et les intention instance
+    /// </summary>
+    /// <param name="facade"></param>
     public AdresseManagementForm(AbstractFacade facade) {
         this.ParentFacade = facade;
         this.InitializeComponent();
     }
 
+    /// <summary>
+    /// Fonction de boutton pour ouvrir le form en mode creation
+    /// </summary>
+    /// <param name="blankInstance"></param>
+    /// <returns></returns>
     public DialogResult OpenForCreation(Adresse blankInstance) {
         this.workingIntent = ViewIntentEnum.Creation;
         this.actionButton.Text = "Créer !";
         return this.OpenFor(blankInstance);
     }
 
+    /// <summary>
+    /// Fonction de boutton pour ouvrir le form en mode Supprimer
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <returns></returns>
     public DialogResult OpenForDeletion(Adresse instance) {
         this.workingIntent = ViewIntentEnum.Deletion;
         this.actionButton.Text = " Supprimer !";
         return this.OpenFor(instance);
     }
 
+    /// <summary>
+    /// Fonction de boutton pour ouvrir le form en mode Edition
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <returns></returns>
     public DialogResult OpenForEdition(Adresse instance) {
         this.workingIntent = ViewIntentEnum.Edition;
         this.actionButton.Text = "Enregistrer !";
         return this.OpenFor(instance);
     }
 
+    /// <summary>
+    /// Fonction de boutton pour ouvrir le form en mode Visualiasation
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <returns></returns>
     public DialogResult OpenForVisualization(Adresse instance) {
         this.workingIntent = ViewIntentEnum.Visualization;
         this.actionButton.Text = " OK !";
         return this.OpenFor(instance);
     }
 
+    /// <summary>
+    /// Fonction qui permet de determiner l'activiation ou desactiviation a partir de l'intention de ouverture de la window
+    /// </summary>
+    /// <param name="instance"></param>
+    /// <returns></returns>
     private DialogResult OpenFor(Adresse instance) {
         this.workingInstance = instance;
         switch (this.workingIntent) {
@@ -70,7 +105,9 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
     }
 
 
-
+    /// <summary>
+    /// Fonction qui permet d'activier les boutton pour l'intention voulue
+    /// </summary>
     private void ActivateControls() {
         this.IdField.Enabled = false;
         this.numerociviqueTextBox.Enabled = true;
@@ -82,6 +119,9 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
 
     }
 
+    /// <summary>
+    /// Fonction qui permet desactiver les boutton pour l'intention voulue
+    /// </summary>
     private void DeactivateControls() {
         this.IdField.Enabled = false;
         this.numerociviqueTextBox.Enabled = false;
@@ -92,6 +132,10 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
         this.paysTextBox.Enabled = false;
     }
 
+    /// <summary>
+    /// Fonction qui permet de charger les donner de l'instance 
+    /// </summary>
+    /// <param name="adresse"></param>
     private void LoadAdresseInControls(Adresse adresse) {
         this.IdField.Value = adresse.Id;
         this.numerociviqueTextBox.Text = adresse.Ville;
@@ -103,10 +147,20 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
 
     }
    
+    /// <summary>
+    ///  Fonction du boutton pour quitter le form Adresse
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void QuitButton_Click(object sender, EventArgs e) {
         this.DialogResult = DialogResult.Cancel;
     }
 
+    /// <summary>
+    /// Fonction du boutton d'action : intention deterteminer par le switch case.
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     private void ActionnButton_Click(object sender, EventArgs e) {
         try {
             switch (this.workingIntent) {
@@ -126,7 +180,11 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
             return;
         }
     }
-
+    /// <summary>
+    /// Fonction qui permet de valider la longueur de tout les champs dans adresses.
+    ///  Pour chaque champs la fonction va chercher les fonction de validations dans le AdresseDTO
+    /// </summary>
+    /// <exception cref="Exception"></exception>
     private void ValidatingFields() 
     {
         if(!Adresse.ValiderNumeroCivique(this.numerociviqueTextBox.Text)) 
@@ -156,6 +214,9 @@ public partial class AdresseManagementForm : Form, IDtoManagementView<Adresse> {
 
     }
 
+    /// <summary>
+    /// Fonction qui sauvegarde les donnees dans l'instance
+    /// </summary>
     private void SavaDataInTheInstance() 
     { 
        this.ValidatingFields();
