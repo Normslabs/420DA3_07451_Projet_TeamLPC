@@ -67,6 +67,8 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
         this.LoadProduitDataInControls(instance);
         return this.ShowDialog();
     }
+
+    //produitListView
     private void SaveDataInInstace() {
         this.ValidateFields();
         this.po.ProductId = (int) this.idNumericUpDown.Value;
@@ -77,8 +79,8 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     //incomplet LoadProduitDataInControls
     private void LoadProduitDataInControls(PurchaseOrder po) {
         this.idNumericUpDown.Value = po.ProductId;
-        if (!this.produitListView.Items.Contains(po.)) {
-            // // // // // // //
+        if (!this.produitListView.Items.Contains(po.Product)) {
+            
         }
         this.QTYnumericUpDown.Value = po.QuantityOrdered;
         this.StatusComboBox.SelectedItem = po.Status;
