@@ -327,6 +327,7 @@ partial class ProduitWindow {
             this.cancelBtn.TabIndex = 1;
             this.cancelBtn.Text = "Annuler";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // actionBtn
             // 

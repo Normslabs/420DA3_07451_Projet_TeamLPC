@@ -385,7 +385,7 @@ internal class AppDbContext : AbstractContext {
         _ = modelBuilder.Entity<Produit>()
             .Property(produit => produit.UpcCode)
             .HasColumnName("UPCCode")
-            .HasColumnType($"nvarchar({Produit.UPCCODE_MAX_LENGTH})");
+            .HasColumnType($"nvarchar({Produit.UPCCODE_MIN})");
 
 
         _ = modelBuilder.Entity<Produit>()

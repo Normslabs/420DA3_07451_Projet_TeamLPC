@@ -1,6 +1,10 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
+using _420DA3_07451_Projet_Initial.Business;
+using _420DA3_07451_Projet_Initial.Business.Abstracts;
 using _420DA3_07451_Projet_Initial.Business.Facades;
+using _420DA3_07451_Projet_Initial.Business.Services;
+using _420DA3_07451_Projet_Initial.Presentation.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,9 +14,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using _420DA3_07451_Projet_Initial.Business.Abstracts;
-using _420DA3_07451_Projet_Initial.Presentation.Enums;
-using _420DA3_07451_Projet_Initial.Business.Services;
 
 namespace _420DA3_07451_Projet_Initial.Presentation;
 public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
@@ -26,8 +27,8 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
     public ProduitWindow(AbstractFacade facade) {
         this.facade = facade;
         InitializeComponent();
-
-
+        this.LoadSupplierComboBox();
+        this.LoadClientComboBox();
     }
     private void LoadClientComboBox() {
         this.clientComboBox.DataSource = this.facade.GetService<ClientService>().GetAllClients();
@@ -48,11 +49,12 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     }
 
+
+    #region Public Methods
     public DialogResult OpenForCreation(Produit blankInstance) {
 
         throw new NotImplementedException();
     }
-
     public DialogResult OpenForVisualization(Produit instance) {
         this.workingIntent = ViewIntentEnum.Visualization;
         this.actionBtn.Text = "OK";
@@ -72,10 +74,14 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         return this.OpenFor(instance);
     }
 
-    public DialogResult OpenFor(Produit instance) {
+
+    #endregion
+
+
+
+    #region Private Methods
+    private DialogResult OpenFor(Produit instance) {
         this.produit = instance;
-
-
         switch (this.workingIntent) {
             case ViewIntentEnum.Visualization:
             case ViewIntentEnum.Deletion:
@@ -87,13 +93,55 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
                 break;
             default:
                 throw new Exception("View Intent not supported");
-        
-        }
-        return this.ShowDialog();
 
+        }
+        this.LoadProduitDataInControls(instance);
+        return this.ShowDialog();
     }
 
-    public void EnableControls() {
+    private void cancelBtn_Click(object sender, EventArgs e) {
+        this.DialogResult = DialogResult.Cancel;
+    }
+    private void SaveDataInInstance() {
+        this.ValidateFields();
+        this.produit.UpcCode = (int)this.upcCodeNumUpDown.Value;
+        this.produit.Name = this.nameTextBox.Text;
+        this.produit.Description = this.descriptionTextBox.Text;
+        this.produit.SupplierCode = this.supplierCodeTextBox.Text;
+        this.produit.DoAutoRestock = this.AutoCheckBox.Checked;
+        this.produit.InstockQuantity = (int)this.qtyInStockNumeric.Value;
+        this.produit.ClientsDTO = (ClientsDTO)this.clientComboBox.SelectedItem;
+        this.produit.Fournisseur = (Fournisseur) this.supplierComboBox.SelectedItem;
+    }
+
+    private void LoadProduitDataInControls(Produit produit) {
+        this.idNumUpDown.Value = produit.Id;
+        this.upcCodeNumUpDown.Value = produit.UpcCode;
+        this.nameTextBox.Text = produit.Name;
+        this.descriptionTextBox.Text = produit.Description;
+        this.supplierCodeTextBox.Text = produit.SupplierCode;
+        this.AutoCheckBox.Checked = produit.DoAutoRestock;
+        this.qtyInStockNumeric.Value = produit.InstockQuantity;
+        this.clientComboBox.SelectedItem = produit.ClientsDTO;
+        this.supplierComboBox.SelectedItem = produit.SupplierCode;
+    }
+
+    private void ValidateFields() {
+        if (!Produit.ValiderUPCCode((int)this.upcCodeNumUpDown.Value)) {
+            throw new Exception("UPC Code");
+        }
+        if (string.IsNullOrEmpty(this.nameTextBox.Text)) {
+            throw new Exception("Veuillez rentrer un nom valide");
+        }
+        if (!Produit.ValiderName(this.nameTextBox.Text)) {
+            throw new Exception("Le nom de doit pas depasser 128 caractère");
+        }
+        if (!Produit.ValiderSupplierCode(this.supplierComboBox.Text)) {
+            throw new Exception("Le Supplier Code est trop long");
+        }
+    }
+
+    private void EnableControls() {
         this.idNumUpDown.Enabled = false;
         this.upcCodeNumUpDown.Enabled = true;
         this.nameTextBox.Enabled = true;
@@ -105,7 +153,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.supplierComboBox.Enabled = true;
     }
 
-    public void DisableControls() {
+    private void DisableControls() {
         this.idNumUpDown.Enabled = false;
         this.upcCodeNumUpDown.Enabled = false;
         this.nameTextBox.Enabled = false;
@@ -117,4 +165,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.supplierComboBox.Enabled = false;
 
     }
+    #endregion
+
+
 }
