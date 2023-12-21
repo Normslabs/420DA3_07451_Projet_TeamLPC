@@ -15,17 +15,30 @@ using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
-
+    /// <summary>
+    /// Obtien l'acces au donne pour la classe ShipmentOrderDAO
+    /// </summary>
     protected override ShipmentOrdersDAO Dao { get; }
+    /// <summary>
+    /// Obtien le forme ShipmentOrderWindows
+    /// </summary>
     protected override ShipmentOrderWindows DtoManagementWindow {  get; }
 
-
+    /// <summary>
+    /// Initialisation de l'instance de la clasee ShipmentOrder
+    /// </summary>
+    /// <param name="facade"></param>
+    /// <param name="context"></param>
     public ShipmentOrderService(AbstractFacade facade, AbstractContext context) {
         facade.RegisterDependent(facade);
         this.DtoManagementWindow = new ShipmentOrderWindows(facade);
         this.Dao = new ShipmentOrdersDAO(context);
     }
-
+    /// <summary>
+    /// Recevoir
+    /// </summary>
+    /// <param name="clientid"></param>
+    /// <returns></returns>
     public List<ShipmentOrderDTO> GetClientShipmentOrderById(int clientid) {
         return this.GetClientShipmentOrderById(clientid);
     }
@@ -50,15 +63,5 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
         }
     }
 
-    //public ShipmentOrderDTO CreateShipmentOrder(ShipmentOrderDTO newShipmentOrder) {
-    //    return this.Dao.Create(newShipmentOrder);
-    //}
 
-    //public ShipmentOrderDTO DeleteShipmentOrder(ShipmentOrderDTO shipmentOrder) {
-    //    return this.Dao.Delete(shipmentOrder);
-    //}
-
-    //public ShipmentOrderDTO UpdateShipmentOrder(ShipmentOrderDTO shipmentOrder) {
-    //    return this.Dao.Update(shipmentOrder);
-    //}
 }

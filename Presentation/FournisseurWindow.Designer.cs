@@ -24,7 +24,7 @@ partial class FournisseurWindow {
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-        tableLayoutPanel1 = new TableLayoutPanel();
+        ControlLayout = new TableLayoutPanel();
         label1 = new Label();
         Datapanel = new Panel();
         label8 = new Label();
@@ -42,26 +42,26 @@ partial class FournisseurWindow {
         label4 = new Label();
         PrenomContacttextBox1 = new TextBox();
         label3 = new Label();
-        tableLayoutPanel1.SuspendLayout();
+        ControlLayout.SuspendLayout();
         Datapanel.SuspendLayout();
         BtnControlpanel.SuspendLayout();
         this.SuspendLayout();
         // 
-        // tableLayoutPanel1
+        // ControlLayout
         // 
-        tableLayoutPanel1.ColumnCount = 3;
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
-        tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-        tableLayoutPanel1.Controls.Add(label1, 2, 0);
-        tableLayoutPanel1.Controls.Add(Datapanel, 1, 0);
-        tableLayoutPanel1.Dock = DockStyle.Fill;
-        tableLayoutPanel1.Location = new Point(0, 0);
-        tableLayoutPanel1.Name = "tableLayoutPanel1";
-        tableLayoutPanel1.RowCount = 1;
-        tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-        tableLayoutPanel1.Size = new Size(800, 450);
-        tableLayoutPanel1.TabIndex = 0;
+        ControlLayout.ColumnCount = 3;
+        ControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+        ControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 80F));
+        ControlLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+        ControlLayout.Controls.Add(label1, 2, 0);
+        ControlLayout.Controls.Add(Datapanel, 1, 0);
+        ControlLayout.Dock = DockStyle.Fill;
+        ControlLayout.Location = new Point(0, 0);
+        ControlLayout.Name = "ControlLayout";
+        ControlLayout.RowCount = 1;
+        ControlLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+        ControlLayout.Size = new Size(800, 450);
+        ControlLayout.TabIndex = 0;
         // 
         // label1
         // 
@@ -185,15 +185,15 @@ partial class FournisseurWindow {
         label5.AutoSize = true;
         label5.Location = new Point(3, 195);
         label5.Name = "label5";
-        label5.Size = new Size(170, 15);
+        label5.Size = new Size(183, 15);
         label5.TabIndex = 8;
-        label5.Text = "Adresse du contact d'urgence :";
+        label5.Text = "Téléphone du contact d'urgence :";
         // 
         // AdresseContacttextBox
         // 
         AdresseContacttextBox.Location = new Point(3, 213);
         AdresseContacttextBox.Name = "AdresseContacttextBox";
-        AdresseContacttextBox.PlaceholderText = "Adresse du contact";
+        AdresseContacttextBox.PlaceholderText = "Telephone du contact";
         AdresseContacttextBox.Size = new Size(250, 23);
         AdresseContacttextBox.TabIndex = 7;
         // 
@@ -236,11 +236,11 @@ partial class FournisseurWindow {
         this.AutoScaleDimensions = new SizeF(7F, 15F);
         this.AutoScaleMode = AutoScaleMode.Font;
         this.ClientSize = new Size(800, 450);
-        this.Controls.Add(tableLayoutPanel1);
+        this.Controls.Add(ControlLayout);
         this.Name = "FournisseurWindow";
         this.Text = "FournisseurWindow";
-        tableLayoutPanel1.ResumeLayout(false);
-        tableLayoutPanel1.PerformLayout();
+        ControlLayout.ResumeLayout(false);
+        ControlLayout.PerformLayout();
         Datapanel.ResumeLayout(false);
         Datapanel.PerformLayout();
         BtnControlpanel.ResumeLayout(false);
@@ -249,7 +249,7 @@ partial class FournisseurWindow {
 
     #endregion
 
-    private TableLayoutPanel tableLayoutPanel1;
+    private TableLayoutPanel ControlLayout;
     private Label label1;
     private Panel Datapanel;
     private Label label4;

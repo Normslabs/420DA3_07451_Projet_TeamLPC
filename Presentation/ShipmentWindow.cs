@@ -36,7 +36,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
     public ShipmentWindow(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-        this.LoadShipmentDataInComboBox();
+        
     }
 
 
@@ -90,6 +90,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
     /// <param name="instance"></param>
     /// <returns></returns>
     private DialogResult OpenFor(ShipmentDTO instance) {
+        this.LoadShipmentDataInComboBox();
         this.workingInstance = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
@@ -178,7 +179,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
             if (!this.ValidateFields()) {
                 return;
             }
-            
+
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
                     this.SaveDataInInstance();

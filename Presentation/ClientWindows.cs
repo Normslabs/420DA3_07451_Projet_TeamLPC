@@ -22,8 +22,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
     public ClientWindows(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-        this.LoadAdresseComboBox();
-        this.LoadEntrepotComboBox();
+      
 
     }
     public DialogResult OpenForCreation(ClientsDTO blankInstance) {
@@ -112,6 +111,8 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
     }
 
     public DialogResult OpenFor(ClientsDTO instance) {
+        this.LoadAdresseComboBox();
+        this.LoadEntrepotComboBox();
 
         this.workingInstance = instance;
         switch (this.workinIntent) {
@@ -166,7 +167,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
 
     private void ValidationFields() {
 
-        if(!ClientsDTO.ValiderNomClient(this.nomClienttextBox1.Text)) {
+        if (!ClientsDTO.ValiderNomClient(this.nomClienttextBox1.Text)) {
             throw new Exception("Nom invalide");
         }
         if (!ClientsDTO.ValiderPrenomClient(this.prenomtextBox1.Text)) {

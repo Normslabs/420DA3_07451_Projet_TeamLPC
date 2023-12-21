@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace _420DA3_07451_Projet_Initial.Migrations
 {
     /// <inheritdoc />
@@ -22,7 +24,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                     Pays = table.Column<string>(type: "nvarchar(42)", nullable: false),
                     CodePostal = table.Column<string>(type: "nvarchar(6)", nullable: false),
                     Province = table.Column<string>(type: "nvarchar(38)", nullable: false),
-                    Rowversion = table.Column<byte[]>(type: "varbinary(max)", nullable: false),
+                    Version = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Rue = table.Column<string>(type: "nvarchar(25)", nullable: false)
                 },
                 constraints: table =>
@@ -63,7 +65,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         column: x => x.AdresseId,
                         principalTable: "Adresse",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,12 +74,12 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NomFournisseur = table.Column<string>(type: "nvarchar(100", nullable: false),
+                    NomFournisseur = table.Column<string>(type: "nvarchar(100)", nullable: false),
                     AdresseId = table.Column<int>(type: "int", nullable: false),
-                    PrenomContact = table.Column<string>(type: "nvarchar(20", nullable: false),
-                    NomContact = table.Column<string>(type: "nvarchar(20", nullable: false),
-                    AdresseContact = table.Column<string>(type: "nvarchar(80", nullable: false),
-                    EmailContact = table.Column<string>(type: "nvarchar(128", nullable: false),
+                    PrenomContact = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    NomContact = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    TelephoneContact = table.Column<string>(type: "nvarchar(24)", nullable: false),
+                    EmailContact = table.Column<string>(type: "nvarchar(128)", nullable: false),
                     RowVersion = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
@@ -88,7 +90,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         column: x => x.AdresseId,
                         principalTable: "Adresse",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -114,13 +116,13 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         column: x => x.ClientAdressId,
                         principalTable: "Adresse",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Clients_Entrepot_AsignedWarehouseID",
                         column: x => x.AsignedWarehouseID,
                         principalTable: "Entrepot",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -171,34 +173,34 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         column: x => x.ClientsDTOId,
                         principalTable: "Clients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Produits_Fournisseurs_DournisseurId",
                         column: x => x.DournisseurId,
                         principalTable: "Fournisseurs",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RoleUtilisateur",
+                name: "RolesUtilisateurs",
                 columns: table => new
                 {
-                    RolesId = table.Column<int>(type: "int", nullable: false),
-                    UtilisateursPossedantRoleId = table.Column<int>(type: "int", nullable: false)
+                    UtilisateurId = table.Column<int>(type: "int", nullable: false),
+                    RoleId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RoleUtilisateur", x => new { x.RolesId, x.UtilisateursPossedantRoleId });
+                    table.PrimaryKey("PK_RolesUtilisateurs", x => new { x.UtilisateurId, x.RoleId });
                     table.ForeignKey(
-                        name: "FK_RoleUtilisateur_Roles_RolesId",
-                        column: x => x.RolesId,
+                        name: "FK_RolesUtilisateurs_Roles_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_RoleUtilisateur_Utilisateurs_UtilisateursPossedantRoleId",
-                        column: x => x.UtilisateursPossedantRoleId,
+                        name: "FK_RolesUtilisateurs_Utilisateurs_UtilisateurId",
+                        column: x => x.UtilisateurId,
                         principalTable: "Utilisateurs",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -230,18 +232,19 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         column: x => x.ClientsId,
                         principalTable: "Clients",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ShipmentOrder_Entrepot_EntrepotOriginalId",
                         column: x => x.EntrepotOriginalId,
                         principalTable: "Entrepot",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ShipmentOrder_Utilisateurs_EmployeEntrepotId",
                         column: x => x.EmployeEntrepotId,
                         principalTable: "Utilisateurs",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -266,13 +269,13 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         column: x => x.DestinationWarehouseID,
                         principalTable: "Entrepot",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_PurchaseOrders_Produits_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Produits",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -293,7 +296,8 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         name: "FK_Shipments_ShipmentOrder_ShippingOrderId",
                         column: x => x.ShippingOrderId,
                         principalTable: "ShipmentOrder",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -312,13 +316,81 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                         column: x => x.ProduitId,
                         principalTable: "Produits",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_ShippingOrderProducts_ShipmentOrder_ShipmentOrderDTOId",
                         column: x => x.ShipmentOrderDTOId,
                         principalTable: "ShipmentOrder",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Adresse",
+                columns: new[] { "Id", "CodePostal", "NumeroCivique", "Pays", "Province", "Rue", "Ville" },
+                values: new object[,]
+                {
+                    { 1, "H0H0H0", "5A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 2, "H0H0H0", "55A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 3, "H0H0H0", "555A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 4, "H0H0H0", "1A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 5, "H0H0H0", "11A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" },
+                    { 6, "H0H0H0", "111A", "Cehnehdeh", "Quebec", "rue Saint-Laurent", "Montréal" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Roles",
+                columns: new[] { "Id", "Description", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Role Administrateur", "Administrator" },
+                    { 2, "Employés de bureau", "OfficeEmployee" },
+                    { 3, "Employés d'entrepôt", "WarehouseEmployee" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Entrepot",
+                columns: new[] { "Id", "AdresseId", "NomEntrepot" },
+                values: new object[] { 1, 1, "Entrepot Test" });
+
+            migrationBuilder.InsertData(
+                table: "Fournisseurs",
+                columns: new[] { "Id", "AdresseId", "EmailContact", "NomContact", "PrenomContact", "NomFournisseur", "TelephoneContact" },
+                values: new object[] { 1, 4, "john.doe@fournisseur.net", "Doe", "John", "Fournisseur Test 1", "5145555555" });
+
+            migrationBuilder.InsertData(
+                table: "Clients",
+                columns: new[] { "Id", "AsignedWarehouseID", "ClientAdressId", "CompanyName", "Courriel", "Nom", "Prenom", "Telephone" },
+                values: new object[,]
+                {
+                    { 1, 1, 4, "Client Test 1", "john.doe@client.net", "Doe", "John", 5145555555L },
+                    { 2, 1, 5, "Normslabs Entertainment Inc.", "ze.norm@client.net", "Norm", "Ze", 5145551234L }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Utilisateurs",
+                columns: new[] { "Id", "EntrepotId", "PasswordHash", "Username" },
+                values: new object[] { 1, 1, "AC72E9D92E94CEC187922736EFE36904643D6267C63D6AB84752D62C1C2817F5:80E423C38FB59F822BAF448F8A8943E7:100000:SHA256", "testUser" });
+
+            migrationBuilder.InsertData(
+                table: "Produits",
+                columns: new[] { "Id", "ClientsDTOId", "Description", "DoAutoRestock", "DournisseurId", "InstockQuantity", "Name", "SupplierCode", "TargetStockQuantity", "UpcCode", "WeightInKg" },
+                values: new object[,]
+                {
+                    { 1, 1, "Un produit de test.", true, 1, 50, "TestProduit", "A535", 30, 15347634L, 1.35m },
+                    { 2, 1, "Un produit de test.", true, 1, 50, "TestProduit2", "A534", 30, 15347635L, 1.35m },
+                    { 3, 1, "Un produit de test.", true, 1, 50, "TestProduit3", "A533", 30, 15347636L, 1.35m },
+                    { 4, 1, "Un produit de test.", true, 1, 50, "TestProduit4", "A532", 30, 15347637L, 1.35m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RolesUtilisateurs",
+                columns: new[] { "RoleId", "UtilisateurId" },
+                values: new object[,]
+                {
+                    { 1, 1 },
+                    { 2, 1 },
+                    { 3, 1 }
                 });
 
             migrationBuilder.CreateIndex(
@@ -365,9 +437,9 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RoleUtilisateur_UtilisateursPossedantRoleId",
-                table: "RoleUtilisateur",
-                column: "UtilisateursPossedantRoleId");
+                name: "IX_RolesUtilisateurs_RoleId",
+                table: "RolesUtilisateurs",
+                column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShipmentOrder_ClientsId",
@@ -415,7 +487,7 @@ namespace _420DA3_07451_Projet_Initial.Migrations
                 name: "PurchaseOrders");
 
             migrationBuilder.DropTable(
-                name: "RoleUtilisateur");
+                name: "RolesUtilisateurs");
 
             migrationBuilder.DropTable(
                 name: "Shipments");
