@@ -98,7 +98,7 @@ public partial class RoleManagementForm : Form, IDtoManagementView<Role> {
     private void SaveDataInInstance() {
         this.ValidateFields();
         this.workingInstance.RoleName = this.roleNameTextBox.Text;
-        this.workingInstance.RoleName = this.roleDescriptionTextBox.Text;
+        this.workingInstance.RoleDescription = this.roleDescriptionTextBox.Text;
     }
 
     private void ValidateFields() {
