@@ -9,22 +9,29 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+/// <summary>
+/// Classe de PurchaseOrder, ce qui represente un purchase order.
+/// </summary>
 public class PurchaseOrder : AbstractDTO<int> {
     public const int QTY_ORDER_MIN = 0;
 
-
-    public PurchaseOrderStatusEnum? Status { get; set; }//
-    public int QuantityOrdered { get; set; }//
-    public int ProductId { get; set; }//
-    public int DestinationWarehouseID { get; set; }//
-    public DateTime DateCreated { get; set; }//
-    public DateTime? DateCompleted { get; set; }//
+    /// <summary>
+    /// Declaration des propriete de la classe Purchase Order
+    /// </summary>
+    public PurchaseOrderStatusEnum? Status { get; set; }
+    public int QuantityOrdered { get; set; }
+    public int ProductId { get; set; }
+    public int DestinationWarehouseID { get; set; }
+    public DateTime DateCreated { get; set; }
+    public DateTime? DateCompleted { get; set; }
     public byte[] RowVersion { get; set; } = null!;
-
+    /// <summary>
+    /// Declaration des propriete de navigation
+    /// </summary>
 
     public virtual Entrepot DestinationWarehouse { get; set; } = null!;//
     public virtual Produit Product { get; set; } = null!;//
-
+    //Constructeur de la classe Purchase Order
     protected PurchaseOrder(int Id, PurchaseOrderStatusEnum Status, int destinationWarehouseId, int quantityOrdered, DateTime dateCreated, DateTime? dateCompleted, byte[] rowVersion) {
         this.Id = Id;
         this.Status = Status;
@@ -34,14 +41,14 @@ public class PurchaseOrder : AbstractDTO<int> {
         this.DateCompleted = dateCompleted;
         this.RowVersion = rowVersion;
     }
-
+    //
     public PurchaseOrder(int ProductId, int destinationWarehouseId, int quantityOrdered) { 
         this.ProductId = ProductId;
         this.DestinationWarehouseID = destinationWarehouseId;
         this.QuantityOrdered = quantityOrdered;
     
     }
-
+    //Transformer le format de purchase order a String 
     public override string ToString() {
         return
             "ID: " + this.Id.ToString() + "  " +
@@ -50,11 +57,11 @@ public class PurchaseOrder : AbstractDTO<int> {
             "Quantité commandé: " + this.QuantityOrdered.ToString() + " - " +
             "Date de la commande: " + this.DateCreated.ToString();
     }
-
+    //Constructeur vide
     public PurchaseOrder() {
 
     }
-
+    //Validation de la QTY d'item que l'utilisateur va commander, elle ne peut pas etre en dessous de 0
     public static bool ValiderQTYOrder(int QTYOrdered) {
         return QTYOrdered >= QTY_ORDER_MIN;
     }

@@ -25,10 +25,17 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     public PurchaseOrderForm(AbstractFacade facade) {
         this.facade = facade;
         InitializeComponent();
-        this.LoadEntrepotComboBox();
+        
     }
     private void LoadEntrepotComboBox() {
         this.entrepotComboBox.DataSource = this.facade.GetService<EntrepotService>().GetAllEntrepot();
+    }
+
+    private void LoadStatusComboBox() {
+        this.StatusComboBox.Items.Clear();
+        foreach (PurchaseOrderStatusEnum po in Enum.GetValues(typeof(PurchaseOrderStatusEnum))) {
+            _ = this.StatusComboBox.Items.Add(po);
+        }
     }
     #region Public Methods
     public DialogResult OpenForCreation(PurchaseOrder blankInstance) {
@@ -62,6 +69,8 @@ public partial class PurchaseOrderForm : Form, IDtoManagementView<PurchaseOrder>
     #region Private Methods
 
     private  DialogResult OpenFor(PurchaseOrder instance) {
+        this.LoadEntrepotComboBox();
+        this.LoadStatusComboBox();
         this.po = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Visualization:
