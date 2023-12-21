@@ -177,6 +177,7 @@ partial class EmployeEntrepotMainMenu {
         // 
         // markPoAsCompletedButton
         // 
+        markPoAsCompletedButton.Enabled = false;
         markPoAsCompletedButton.Location = new Point(6, 22);
         markPoAsCompletedButton.Name = "markPoAsCompletedButton";
         markPoAsCompletedButton.Size = new Size(176, 35);
@@ -199,6 +200,7 @@ partial class EmployeEntrepotMainMenu {
         // 
         // markSoAsCompletedButton
         // 
+        markSoAsCompletedButton.Enabled = false;
         markSoAsCompletedButton.Location = new Point(6, 104);
         markSoAsCompletedButton.Name = "markSoAsCompletedButton";
         markSoAsCompletedButton.Size = new Size(176, 35);
@@ -209,6 +211,7 @@ partial class EmployeEntrepotMainMenu {
         // 
         // markSoAsPickedUpButton
         // 
+        markSoAsPickedUpButton.Enabled = false;
         markSoAsPickedUpButton.Location = new Point(6, 63);
         markSoAsPickedUpButton.Name = "markSoAsPickedUpButton";
         markSoAsPickedUpButton.Size = new Size(176, 35);
@@ -219,6 +222,7 @@ partial class EmployeEntrepotMainMenu {
         // 
         // assignToSelfButton
         // 
+        assignToSelfButton.Enabled = false;
         assignToSelfButton.Location = new Point(6, 22);
         assignToSelfButton.Name = "assignToSelfButton";
         assignToSelfButton.Size = new Size(176, 35);

@@ -125,7 +125,7 @@ partial class ClientWindows {
         infopanel2.Dock = DockStyle.Fill;
         infopanel2.Location = new Point(69, 3);
         infopanel2.Name = "infopanel2";
-        infopanel2.Padding = new Padding(25, 25, 25, 25);
+        infopanel2.Padding = new Padding(25);
         infopanel2.Size = new Size(392, 331);
         infopanel2.TabIndex = 0;
         // 
