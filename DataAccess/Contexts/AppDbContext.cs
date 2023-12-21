@@ -279,7 +279,16 @@ internal class AppDbContext : AbstractContext {
             .HasColumnName("Id")
             .HasColumnType("int");
 
-        // dATE CREATED ET DATE SHIPPED QUESTION
+
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.DateCreated)
+            .HasColumnName("DateCreated")
+            .HasColumnType("datetime2")
+            .HasComputedColumnSql("getdate()");
+        _ = modelBuilder.Entity<ShipmentOrderDTO>()
+            .Property(shipmento => shipmento.DateShipped)
+            .HasColumnName("DateShipped")
+            .HasColumnType("datetime2");
 
         _ = modelBuilder.Entity<ShipmentOrderDTO>()
             .Property(shipmento => shipmento.ClientsId)
