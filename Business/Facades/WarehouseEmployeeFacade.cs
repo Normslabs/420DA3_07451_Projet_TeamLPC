@@ -16,7 +16,6 @@ internal class WarehouseEmployeeFacade : AbstractFacade {
 
     public WarehouseEmployeeFacade(AbstractApplication parentApp, AbstractLoginService loginService)
         : base(parentApp, loginService) {
-        parentApp.RegisterDependent(this);
         this.facadeContext = new AppDbContext();
         this.PurchaseOrderService = new PurchaseOrderService(this, this.facadeContext);
         this.ShipmentOrderService = new ShipmentOrderService(this, this.facadeContext);

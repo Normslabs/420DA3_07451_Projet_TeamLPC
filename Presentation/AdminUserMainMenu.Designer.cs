@@ -142,6 +142,7 @@ partial class AdminUserMainMenu {
         this.quitButton.TabIndex = 0;
         this.quitButton.Text = "Quitter";
         this.quitButton.UseVisualStyleBackColor = true;
+        this.quitButton.Click += this.QuitButton_Click;
         // 
         // tableLayoutPanel1
         // 

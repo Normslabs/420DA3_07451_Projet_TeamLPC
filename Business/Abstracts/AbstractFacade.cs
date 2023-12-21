@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 
 namespace _420DA3_07451_Projet_Initial.Business.Abstracts;
 
@@ -28,6 +29,7 @@ public abstract class AbstractFacade : IFacade {
     /// </summary>
     /// <param name="dependent">L'objet dépendent à ajouter au registre.</param>
     public void RegisterDependent(IStoppable dependent) {
+        Debug.WriteLine("Added " + dependent.GetType().Name + " to list of dependents of " + this.GetType().Name);
         this.Dependents.Add(dependent);
     }
 
@@ -83,6 +85,7 @@ public abstract class AbstractFacade : IFacade {
     /// </summary>
     public virtual void Shutdown() {
         foreach (IStoppable stoppable in this.Dependents) {
+            Debug.WriteLine("Stopping " + stoppable.GetType().Name);
             stoppable.Shutdown();
         }
     }

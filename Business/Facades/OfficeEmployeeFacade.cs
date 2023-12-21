@@ -23,7 +23,6 @@ internal class OfficeEmployeeFacade : AbstractFacade {
     /// <param name="loginService"></param>
     public OfficeEmployeeFacade(AbstractApplication parentApp, AbstractLoginService loginService)
         : base(parentApp, loginService) {
-        parentApp.RegisterDependent(this);
         this.facadecontext = new AppDbContext();
         this.ClientService = new ClientService(this, this.facadecontext);
         this.ShipmentOrderService = new ShipmentOrderService(this, this.facadecontext);

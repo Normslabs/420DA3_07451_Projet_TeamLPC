@@ -2,6 +2,7 @@
 using _420DA3_07451_Projet_Initial.Business.Exceptions;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 using _420DA3_07451_Projet_Initial.Presentation;
+using System.Diagnostics;
 
 namespace _420DA3_07451_Projet_Initial.Business.Services;
 internal class LoginService : AbstractLoginService {
@@ -25,7 +26,6 @@ internal class LoginService : AbstractLoginService {
 
     public LoginService(AbstractFacade facade) {
         facade.RegisterDependent(this);
-        this.ParentFacade = facade;
         this.ParentFacade = facade;
         this.loginForm = new LoginForm(facade);
         this.roleSelectionForm = new RoleSelectionForm();

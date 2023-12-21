@@ -18,7 +18,7 @@ public class ClientService : AbstractDtoService<ClientsDTO, int> {
     /// <param name="facade"></param>
     /// <param name="context"></param>
     public ClientService(AbstractFacade facade, AbstractContext context) {
-        facade.RegisterDependent(facade);
+        facade.RegisterDependent(this);
         this.Dao = new ClientsDAO(context);
         this.DtoManagementWindow = new ClientWindows(facade);
     }

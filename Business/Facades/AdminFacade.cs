@@ -24,7 +24,6 @@ internal class AdminFacade : AbstractFacade {
 
     public AdminFacade(AbstractApplication parentApp, AbstractLoginService loginService)
         : base(parentApp, loginService) {
-        parentApp.RegisterDependent(this);
         this.facadeContext = new AppDbContext();
         this.UtilisateurService = new UtilisateurService(this, this.facadeContext);
         this.RoleService = new RoleService(this, this.facadeContext);

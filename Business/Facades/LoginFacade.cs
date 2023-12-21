@@ -15,8 +15,6 @@ internal class LoginFacade : AbstractFacade {
         : base(parentApp, new LoginService()) {
         // ^^ fake login service passed to parent constructor.
 
-        parentApp.RegisterDependent(this);
-
         // replaced by real login service.
         this.LoginService = new LoginService(this);
         this.UtilisateurService = new UtilisateurService(this, context);

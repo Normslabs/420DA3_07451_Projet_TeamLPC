@@ -19,7 +19,7 @@ public class UtilisateurService : AbstractDtoService<Utilisateur, int> {
     protected override UtilisateurManagementForm DtoManagementWindow { get; }
 
     public UtilisateurService(AbstractFacade facade, AbstractContext context) {
-        facade.RegisterDependent(facade);
+        facade.RegisterDependent(this);
         this.Dao = new UtilisateurDAO(context);
         this.DtoManagementWindow = new UtilisateurManagementForm(facade);
     }

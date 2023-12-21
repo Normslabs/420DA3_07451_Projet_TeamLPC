@@ -1,4 +1,6 @@
-﻿namespace _420DA3_07451_Projet_Initial.Business.Abstracts;
+﻿using System.Diagnostics;
+
+namespace _420DA3_07451_Projet_Initial.Business.Abstracts;
 
 /// <summary>
 /// Classe abstraite fournissant des services de terminaison (shutdown) pour les
@@ -24,6 +26,7 @@ public abstract class AbstractApplication : IStartable, IStoppable {
     /// </summary>
     /// <param name="dependent">L'objet dépendent à ajouter au registre.</param>
     public void RegisterDependent(IStoppable dependent) {
+        Debug.WriteLine("Added " + dependent.GetType().Name + " to list of dependents of " + this.GetType().Name);
         this.Dependents.Add(dependent);
     }
 
@@ -37,6 +40,7 @@ public abstract class AbstractApplication : IStartable, IStoppable {
     /// </summary>
     public virtual void Shutdown() {
         foreach (IStoppable stoppable in this.Dependents) {
+            Debug.WriteLine("Stopping " + stoppable.GetType().Name);
             stoppable.Shutdown();
         }
     }

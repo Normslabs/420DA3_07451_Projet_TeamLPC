@@ -23,7 +23,7 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int> 
     /// <param name="facade"></param>
     /// <param name="context"></param>
     public ShipmentOrderService(AbstractFacade facade, AbstractContext context) {
-        facade.RegisterDependent(facade);
+        facade.RegisterDependent(this);
         this.DtoManagementWindow = new ShipmentOrderWindows(facade);
         this.Dao = new ShipmentOrdersDAO(context);
     }

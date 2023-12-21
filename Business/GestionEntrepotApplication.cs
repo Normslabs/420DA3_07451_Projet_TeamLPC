@@ -3,6 +3,7 @@ using _420DA3_07451_Projet_Initial.Business.Facades;
 using _420DA3_07451_Projet_Initial.Business.Services;
 using _420DA3_07451_Projet_Initial.DataAccess.Contexts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using System.Diagnostics;
 
 namespace _420DA3_07451_Projet_Initial.Business;
 internal class GestionEntrepotApplication : AbstractApplication {
@@ -58,6 +59,7 @@ internal class GestionEntrepotApplication : AbstractApplication {
 
     public override void Shutdown() {
         base.Shutdown();
+        Debug.WriteLine("All dependents have shut down. Exiting...");
         Application.Exit();
     }
 }
