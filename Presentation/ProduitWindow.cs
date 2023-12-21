@@ -53,8 +53,9 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     #region Public Methods
     public DialogResult OpenForCreation(Produit blankInstance) {
-
-        throw new NotImplementedException();
+        this.workingIntent = ViewIntentEnum.Creation;
+        this.actionBtn.Text = "Creer";
+        return this.OpenFor(blankInstance);
     }
     public DialogResult OpenForVisualization(Produit instance) {
         this.workingIntent = ViewIntentEnum.Visualization;
@@ -99,10 +100,6 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.LoadProduitDataInControls(instance);
         return this.ShowDialog();
     }
-
-    private void cancelBtn_Click(object sender, EventArgs e) {
-        this.DialogResult = DialogResult.Cancel;
-    }
     private void SaveDataInInstance() {
         this.ValidateFields();
         this.produit.UpcCode = (int)this.upcCodeNumUpDown.Value;
@@ -114,7 +111,6 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.produit.ClientsDTO = (ClientsDTO)this.clientComboBox.SelectedItem;
         this.produit.Fournisseur = (Fournisseur) this.supplierComboBox.SelectedItem;
     }
-
     private void LoadProduitDataInControls(Produit produit) {
         this.idNumUpDown.Value = produit.Id;
         this.upcCodeNumUpDown.Value = produit.UpcCode;
@@ -126,7 +122,6 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.clientComboBox.SelectedItem = produit.ClientsDTO;
         this.supplierComboBox.SelectedItem = produit.SupplierCode;
     }
-
     private void ValidateFields() {
         if (!Produit.ValiderUPCCode((int)this.upcCodeNumUpDown.Value)) {
             throw new Exception("UPC Code non valide");
@@ -141,7 +136,6 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
             throw new Exception("Le Supplier Code est trop long");
         }
     }
-
     private void EnableControls() {
         this.idNumUpDown.Enabled = false;
         this.upcCodeNumUpDown.Enabled = true;
@@ -153,7 +147,6 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.clientComboBox.Enabled = true;
         this.supplierComboBox.Enabled = true;
     }
-
     private void DisableControls() {
         this.idNumUpDown.Enabled = false;
         this.upcCodeNumUpDown.Enabled = false;
@@ -166,9 +159,10 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.supplierComboBox.Enabled = false;
 
     }
-
     #endregion
-
+    private void cancelBtn_Click(object sender, EventArgs e) {
+        this.DialogResult = DialogResult.Cancel;
+    }
     private void actionBtn_Click(object sender, EventArgs e) {
 
         try {
