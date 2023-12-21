@@ -92,9 +92,9 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
                 this.EnableControl();
                 break;
             case ViewIntentEnum.Edition:
+                this.EnableControl();
                 break;
             case ViewIntentEnum.Deletion:
-
                 this.DisableControl();
                 break;
             case ViewIntentEnum.Visualization:
@@ -143,6 +143,8 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
 
             case ViewIntentEnum.Creation:
             case ViewIntentEnum.Edition:
+                this.SaveShipmentOrderInInstance();
+                break;
             case ViewIntentEnum.Deletion:
             case ViewIntentEnum.Visualization:
                 break;
@@ -159,7 +161,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.codepostaltextBox4.Text = instance.DestinationPostalCode;
         this.statutcomboBox1.SelectedItem = instance.Status;
         this.produitorderlistBox1.Items.Clear();
-        foreach(ShippingOrderProducts sop in instance.Produits) {
+        foreach(ShippingOrderProducts sop in instance.AssociationsProduits) {
             this.produitorderlistBox1.Items.Add(sop);
         }
         this.LoadEmployeEntrepotComboBox(instance.EntrepotOriginal);
@@ -168,6 +170,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     }
 
     public void SaveShipmentOrderInInstance() {
+        this.ValidationFields();
         this.workingInstance.Clients = (ClientsDTO) this.clientShipmentcomboBox1.SelectedItem;
         this.workingInstance.EntrepotOriginal = (Entrepot) this.entrepotcomboBox1.SelectedItem;
         this.workingInstance.EmployeEntrepot = (Utilisateur) this.employeEntrepotcomboBox.SelectedItem;
@@ -175,8 +178,20 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
         this.workingInstance.DestinationContact = this.contactdestinatairetextBox3.Text;
         this.workingInstance.DestinationPostalCode = this.codepostaltextBox4.Text;
         this.workingInstance.Status = (ShippingOrderStatusEnum) this.statutcomboBox1.SelectedItem;
-        this.workingInstance.Produits = this.produitorderlistBox1.Items.Cast<ShippingOrderProducts>().ToList();
+        this.workingInstance.AssociationsProduits = this.produitorderlistBox1.Items.Cast<ShippingOrderProducts>().ToList();
 
     }
-    
+
+    private void ValidationFields() {
+
+        if (!ShipmentOrderDTO.ValiderContactDestinataire(this.contactdestinatairetextBox3.Text)) {
+            throw new Exception("Contact du destinataire invalide");
+        }
+        if (!ShipmentOrderDTO.ValiderAdresseCivique(this.adresseciviquetextBox2.Text)) {
+            throw new Exception("Adresse civique invalide");
+        }
+        if (!ShipmentOrderDTO.ValidervCodePostal(this.codepostaltextBox4.Text)) {
+            throw new Exception("Code Postal invalide");
+        }
+    }
 }

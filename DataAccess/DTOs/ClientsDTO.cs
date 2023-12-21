@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ClientsDTO : AbstractDTO<int> {
+
+    public const int NAME_MAX_LENGTH = 24;
+    public const int PRENOM_MAX_LENGTH = 24;
+    public const int TELEPHONE_MAX_LENGTH = 10;
+    public const int COMPANYNAME_MAX_LENGTH = 50;
     public Entrepot AsignedWarehouse { get; set; } = null!;
  
     public int  AsignedWarehouseID  { get; set; }
@@ -42,6 +47,27 @@ public class ClientsDTO : AbstractDTO<int> {
         this.Prenom = prenom;
         this.Courriel = courriel;
         this.Telephone = telephone;
+    }
+
+    public static bool ValiderNomClient(string nom) {
+        return nom.Length <= NAME_MAX_LENGTH;
+    }
+
+    public static bool ValiderPrenomClient(string prenom) {
+        return prenom.Length <= PRENOM_MAX_LENGTH;
+    }
+
+    public static bool ValiderTelephoneClient(long telephone) {
+        return telephone <= TELEPHONE_MAX_LENGTH;
+    }
+
+    public static bool ValiderEmailClient(string email) {
+        
+        return email.Contains(" ");
+    }
+
+    public static bool ValideCompanyName(string companyName) {
+        return companyName.Length <= COMPANYNAME_MAX_LENGTH;
     }
 }
 

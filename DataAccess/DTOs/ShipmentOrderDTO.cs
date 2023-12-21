@@ -1,14 +1,11 @@
 ﻿using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _420DA3_07451_Projet_Initial.DataAccess.DTOs;
 public class ShipmentOrderDTO : AbstractDTO<int> {
+    public const int ADRESSCIVIQUE_MAX_LENGHT = 56;
+    public const int CONCTACT_MAX_LENGHT = 56;
+    public const int CODEPOSTAL_MAX_LENGHT = 7;
 
     public ClientsDTO Clients { get; set; } = null!;
 
@@ -95,4 +92,18 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
     public Adresse GetOriginAdress() {
         return this.EntrepotOriginal.AdresseEntrepot;
     }
+
+    public static bool ValiderAdresseCivique(string adressecivique) {
+        return adressecivique.Length <= ADRESSCIVIQUE_MAX_LENGHT;
+    }
+
+    public static bool ValiderContactDestinataire(string contactdestinataire) {
+        return contactdestinataire.Length <= CONCTACT_MAX_LENGHT;
+    }
+
+    public static bool ValidervCodePostal(string codepostal) {
+        return codepostal.Length <= CODEPOSTAL_MAX_LENGHT;
+    }
+
+
 }

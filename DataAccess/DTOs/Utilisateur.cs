@@ -44,6 +44,7 @@ public class Utilisateur : AbstractDTO<int> {
     /// La liste des rôles que l'utilisateur possède.
     /// </summary>
     public List<Role> Roles { get; set; } = new List<Role>();
+    public List<ShipmentOrderDTO> AssignedShipmentOrders { get; set; } = new List<ShipmentOrderDTO>();
 
 
     #region Constructeurs
