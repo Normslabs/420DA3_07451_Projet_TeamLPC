@@ -11,6 +11,7 @@ using _420DA3_07451_Projet_Initial.DataAccess.Contexts.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs;
 using _420DA3_07451_Projet_Initial.DataAccess.DAOs.Abstracts;
 using _420DA3_07451_Projet_Initial.DataAccess.DTOs;
+using _420DA3_07451_Projet_Initial.DataAccess.DTOs.Pivots;
 using _420DA3_07451_Projet_Initial.Presentation;
 using _420DA3_07451_Projet_Initial.Presentation.Abstracts;
 
@@ -78,6 +79,22 @@ internal class ShipmentOrderService : AbstractDtoService<ShipmentOrderDTO, int>{
         } catch (Exception ex) {
             Debug.WriteLine("Failed to dispose of DtoManagementWindow on shutdown (possible memory leak): " + ex.Message);
         }
+    }
+
+    public override ShipmentOrderDTO? CreateNewDtoInstance() {
+
+        ShipmentOrderDTO dto = new ShipmentOrderDTO();
+        if (this.DtoManagementWindow.OpenForCreation(dto) == DialogResult.OK) {
+            _ = this.Dao.Create(dto);
+            List<ShippingOrderProducts> associatedproducts = this.DtoManagementWindow.ShippingOrderProducts;
+            foreach(ShippingOrderProducts association in associatedproducts) {
+                association.ShipmentOrderDTOId = dto.Id;            
+            }
+            dto.AssociationsProduits = associatedproducts;
+            this.Dao.Update(dto);
+            return dto;
+        }
+        return null;
     }
 
 

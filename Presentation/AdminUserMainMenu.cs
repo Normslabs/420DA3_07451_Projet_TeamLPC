@@ -500,8 +500,10 @@ internal partial class AdminUserMainMenu : Form {
     private void AdresseDeleteButton_Click(object sender, EventArgs e) {
         if (this.AdresseListBox != null) {
             Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
-            _ = this.facade.GetService<AdresseService>().DisplayDtoInstance(selectedAdresse);
-        } else {
+            _ = this.facade.GetService<AdresseService>().DeleteDtoInstance(selectedAdresse);
+        } 
+        else 
+        {
             _ = MessageBox.Show("Pas d'adresse selectionné");
         }
     }

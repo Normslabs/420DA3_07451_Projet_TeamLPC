@@ -155,6 +155,7 @@ partial class ShipmentOrderWindows {
         this.addproductbutton2.TabIndex = 23;
         this.addproductbutton2.Text = "Ajouter";
         this.addproductbutton2.UseVisualStyleBackColor = true;
+        this.addproductbutton2.Click += this.addproductbutton2_Click;
         // 
         // retireProductbutton1
         // 
@@ -166,6 +167,7 @@ partial class ShipmentOrderWindows {
         this.retireProductbutton1.TabIndex = 2;
         this.retireProductbutton1.Text = "Retirer";
         this.retireProductbutton1.UseVisualStyleBackColor = true;
+        this.retireProductbutton1.Click += this.retireProductbutton1_Click;
         // 
         // qtyproductnumericUpDown1
         // 
