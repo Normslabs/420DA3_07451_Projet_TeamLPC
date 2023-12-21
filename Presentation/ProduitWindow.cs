@@ -28,8 +28,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
         this.facade = facade;
 
         InitializeComponent();
-        this.LoadSupplierComboBox();
-        this.LoadClientComboBox();
+
     }
     private void LoadClientComboBox() {
         this.clientComboBox.DataSource = this.facade.GetService<ClientService>().GetAllClients();
@@ -83,6 +82,8 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
 
     #region Private Methods
     private DialogResult OpenFor(Produit instance) {
+        this.LoadSupplierComboBox();
+        this.LoadClientComboBox();
         this.produit = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Visualization:
@@ -97,6 +98,7 @@ public partial class ProduitWindow : Form, IDtoManagementView<Produit> {
                 throw new Exception("View Intent not supported");
 
         }
+
         this.LoadProduitDataInControls(instance);
         return this.ShowDialog();
     }

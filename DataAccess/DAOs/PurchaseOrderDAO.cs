@@ -16,13 +16,22 @@ GetIncompleteForWarehouse(intIdEntrepot OU objEntrepot)
 -> retrourne les purchase orders ou le statut n'Est pas 'completed' et ou l'entrepot de destination = valeur passée
 */
 public class PurchaseOrderDAO : AbstractDao<PurchaseOrder, int> {
-
+    /// <summary>
+    /// Constructeur de AbstractContext
+    /// </summary>
     protected override AbstractContext Context { get; }
-
+    /// <summary>
+    /// Constructeur de PurchaseOrderDAO
+    /// </summary>
+    /// <param name="context"></param>
     public PurchaseOrderDAO(AbstractContext context) {
         this.Context = context;
     }
-
+    /// <summary>
+    /// Methode pour retourner 
+    /// </summary>
+    /// <param name="IdEntrepot"></param>
+    /// <returns></returns>
     public PurchaseOrder GetIncompleteForWarehouse(int IdEntrepot) {
         return this.Context.GetDbSet<PurchaseOrder>()
             .Where(po => po.Status != PurchaseOrderStatusEnum.Completed && po.DestinationWarehouseID == IdEntrepot )
