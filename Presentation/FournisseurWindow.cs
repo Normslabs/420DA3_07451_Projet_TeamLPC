@@ -171,7 +171,7 @@ public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur> {
     private void LoadFournisseurDataInControls(Fournisseur fournisseur) {
         this.PrenomContacttextBox1.Text = fournisseur.PrenomContact;
         this.NomContacttextBox.Text = fournisseur.NomContact;
-        this.AdresseContacttextBox.Text = fournisseur.AdresseContact;
+        this.AdresseContacttextBox.Text = fournisseur.TelephoneContact;
         this.EmailContacttextBox.Text = fournisseur.EmailContact;
         this.FournisseurNomtextBox.Text = fournisseur.SupplierName;
         if (this.AdressecomboBox.Items.Contains(fournisseur.SupplierAdresse)) {
@@ -185,7 +185,7 @@ public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur> {
     private void SaveDataInInstance() {
         this.workingInstance.PrenomContact = this.PrenomContacttextBox1.Text;
         this.workingInstance.NomContact = this.NomContacttextBox.Text;
-        this.workingInstance.AdresseContact = this.AdresseContacttextBox.Text;
+        this.workingInstance.TelephoneContact = this.AdresseContacttextBox.Text;
         this.workingInstance.EmailContact = this.EmailContacttextBox.Text;
         this.workingInstance.SupplierName = this.FournisseurNomtextBox.Text;
         this.workingInstance.SupplierAdresse = (Adresse) this.AdressecomboBox.SelectedItem;

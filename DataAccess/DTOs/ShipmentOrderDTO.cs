@@ -11,35 +11,26 @@ public class ShipmentOrderDTO : AbstractDTO<int> {
     public const int CONCTACT_MAX_LENGHT = 48;
     public const int CODEPOSTAL_MAX_LENGHT = 7;
 
-    public ClientsDTO Clients { get; set; } = null!;
 
+    public ShippingOrderStatusEnum Status { get; set; }
     public int ClientsId { get; set; }
-
-    public DateTime DateCreated { get; set; }
-
-    public DateTime? DateShipped { get; set; }
-
-    public string DestinationCivicAdress { get; set; } = null!;
-
-    public string DestinationContact { get; set; } = null!;
-
-    public string DestinationPostalCode { get; set; } = null!;
-
-    public Entrepot EntrepotOriginal { get; set; } = null!;
-
     public int EntrepotOriginalId { get; set; }
-
-    public List<ShippingOrderProducts> AssociationsProduits { get; set; } = new List<ShippingOrderProducts>();
-
+    public int? EmployeEntrepotId { get; set; }
+    public int? ShipmentId { get; set; }
+    public string DestinationCivicAdress { get; set; } = null!;
+    public string DestinationContact { get; set; } = null!;
+    public string DestinationPostalCode { get; set; } = null!;
+    public DateTime DateCreated { get; set; }
+    public DateTime? DateShipped { get; set; }
     public byte[] RowVersion { get; set; }
 
-    public ShipmentDTO? Shipment { get; set; } = null!;
-    public int? ShipmentId { get; set; }
-    public ShippingOrderStatusEnum Status { get; set; }
 
-    public Utilisateur? EmployeEntrepot { get; set; } = null!;
+    public virtual ClientsDTO Clients { get; set; } = null!;
+    public virtual Entrepot EntrepotOriginal { get; set; } = null!;
+    public virtual ShipmentDTO? Shipment { get; set; } = null!;
+    public virtual Utilisateur? EmployeEntrepot { get; set; } = null!;
+    public virtual List<ShippingOrderProducts> AssociationsProduits { get; set; } = new List<ShippingOrderProducts>();
 
-    public int? EmployeEntrepotId { get; set; }
 
     /// <summary>
     /// Declaration du Constructeur vide pour EntityFramework

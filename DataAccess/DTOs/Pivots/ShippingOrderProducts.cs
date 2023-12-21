@@ -11,9 +11,9 @@ public class ShippingOrderProducts {
     public int Quantite;
 
 
-    public Produit Produit;
+    public virtual Produit Produit { get; set; }
 
-    public ShipmentOrderDTO ShipmentOrderDTO;
+    public virtual ShipmentOrderDTO ShipmentOrderDTO { get; set; }
 
     public ShippingOrderProducts() {
 

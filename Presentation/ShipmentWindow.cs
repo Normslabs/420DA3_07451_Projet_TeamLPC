@@ -178,7 +178,7 @@ public partial class ShipmentWindow : Form, IDtoManagementView<ShipmentDTO> {
             if (!this.ValidateFields()) {
                 return;
             }
-            
+
             switch (this.workingIntent) {
                 case ViewIntentEnum.Creation:
                     this.SaveDataInInstance();

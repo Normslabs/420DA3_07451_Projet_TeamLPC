@@ -39,12 +39,12 @@ public class Utilisateur : AbstractDTO<int> {
     /// <summary>
     /// L'entrepôt où l'utilisateur travaille s'il-y-a lieu; sinon, <see langword="null"/>.
     /// </summary>
-    public Entrepot? EntrepotDeTravail { get; set; } = null!;
+    public virtual Entrepot? EntrepotDeTravail { get; set; } = null!;
     /// <summary>
     /// La liste des rôles que l'utilisateur possède.
     /// </summary>
-    public List<Role> Roles { get; set; } = new List<Role>();
-    public List<ShipmentOrderDTO> AssignedShipmentOrders { get; set; } = new List<ShipmentOrderDTO>();
+    public virtual List<Role> Roles { get; set; } = new List<Role>();
+    public virtual List<ShipmentOrderDTO> AssignedShipmentOrders { get; set; } = new List<ShipmentOrderDTO>();
 
 
     #region Constructeurs
