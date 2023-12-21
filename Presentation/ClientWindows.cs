@@ -101,6 +101,7 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
     }
 
     public void SaveDataOfInstance() {
+        this.ValidationFields();
         this.workingInstance.Nom = this.nomClienttextBox1.Text;
         this.workingInstance.Prenom = this.prenomtextBox1.Text;
         this.workingInstance.Courriel = this.courrielClienttextBox1.Text;
@@ -160,6 +161,25 @@ public partial class ClientWindows : Form, IDtoManagementView<ClientsDTO> {
             if (this.adresseClientcomboBox1.Items.Contains(nouvelleAdresse)) {
                 this.adresseClientcomboBox1.SelectedItem = nouvelleAdresse;
             }
+        }
+    }
+
+    private void ValidationFields() {
+
+        if(!ClientsDTO.ValiderNomClient(this.nomClienttextBox1.Text)) {
+            throw new Exception("Nom invalide");
+        }
+        if (!ClientsDTO.ValiderPrenomClient(this.prenomtextBox1.Text)) {
+            throw new Exception("Prenom invalide");
+        }
+        if (!ClientsDTO.ValiderTelephoneClient(long.Parse(this.telephoneClienttextBox1.Text))) {
+            throw new Exception("Telephone invalide");
+        }
+        if (!ClientsDTO.ValiderEmailClient(this.courrielClienttextBox1.Text)) {
+            throw new Exception("Courriel invalide");
+        }
+        if (!ClientsDTO.ValideCompanyName(this.companyNameClienttextBox1.Text)) {
+            throw new Exception("Courriel invalide");
         }
     }
 }
