@@ -172,12 +172,13 @@ partial class EntrepotManagementForm {
         // 
         // createadresseBtn
         // 
-        createadresseBtn.Location = new Point(12, 127);
+        createadresseBtn.Location = new Point(10, 123);
         createadresseBtn.Name = "createadresseBtn";
         createadresseBtn.Size = new Size(109, 29);
         createadresseBtn.TabIndex = 0;
         createadresseBtn.Text = "Crée Adresse";
         createadresseBtn.UseVisualStyleBackColor = true;
+        createadresseBtn.Click += this.CreateadresseBtn_Click;
         // 
         // EntrepotManagementForm
         // 

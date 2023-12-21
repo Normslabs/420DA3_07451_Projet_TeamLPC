@@ -104,6 +104,7 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
     }
 
     private void SaveDataInstance() {
+        this.ValidateFields();
         this.workingInstance.NomEntrepot = this.entrepotnameTextBox.Text;
         this.workingInstance.AdresseEntrepot = (Adresse) this.entrepotadresseComboBox.SelectedItem;
     }
@@ -136,6 +137,18 @@ public partial class EntrepotManagementForm : Form, IDtoManagementView<Entrepot>
         } catch (Exception ex) {
             _ = MessageBox.Show(ex.Message);
             return;
+        }
+    }
+
+    private void CreateadresseBtn_Click(object sender, EventArgs e) {
+        Adresse? ajouternouvelleAdresse = this.ParentFacade.GetService<AdresseService>().CreateNewDtoInstance();
+        if (ajouternouvelleAdresse is not null) {
+            this.LoadAdresseInComboBox();
+            if (this.entrepotadresseComboBox.Items.Contains(ajouternouvelleAdresse)) {
+                this.entrepotadresseComboBox.SelectedItem = ajouternouvelleAdresse;
+            }
+
+
         }
     }
 }
