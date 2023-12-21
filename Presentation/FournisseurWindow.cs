@@ -37,7 +37,7 @@ public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur> {
     public FournisseurWindow(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-        this.LoadAdresseComboBox();
+        
     }
 
     /// <summary>
@@ -101,6 +101,7 @@ public partial class FournisseurWindow : Form, IDtoManagementView<Fournisseur> {
     /// <param name="instance"></param>
     /// <returns></returns>
     private DialogResult OpenFor(Fournisseur instance) {
+        this.LoadAdresseComboBox();
         this.workingInstance = instance;
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
