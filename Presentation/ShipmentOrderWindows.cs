@@ -24,9 +24,7 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     public ShipmentOrderWindows(AbstractFacade facade) {
         this.facade = facade;
         this.InitializeComponent();
-        this.LoadClientComboBox();
-        this.LoadStatutComboBox();
-        this.LoadEntrepotComboBox();
+    
     }
     public DialogResult OpenForCreation(ShipmentOrderDTO blankInstance) {
         this.workingIntent = ViewIntentEnum.Creation;
@@ -86,7 +84,9 @@ public partial class ShipmentOrderWindows : Form, IDtoManagementView<ShipmentOrd
     }
 
     public DialogResult OpenFor(ShipmentOrderDTO shipmentOrderDTO) {
-
+        this.LoadClientComboBox();
+        this.LoadStatutComboBox();
+        this.LoadEntrepotComboBox();
         switch (this.workingIntent) {
             case ViewIntentEnum.Creation:
                 this.EnableControl();
