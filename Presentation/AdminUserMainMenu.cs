@@ -513,7 +513,7 @@ internal partial class AdminUserMainMenu : Form {
     {
         if (this.AdresseListBox != null) {
             Adresse selectedAdresse = (Adresse) this.AdresseListBox.SelectedItem;
-            _ = this.facade.GetService<AdresseService>().DisplayDtoInstance(selectedAdresse);
+            _ = this.facade.GetService<AdresseService>().DeleteDtoInstance(selectedAdresse);
         } 
         else 
         {
